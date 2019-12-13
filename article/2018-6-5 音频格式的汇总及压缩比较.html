@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="转载,音频,压缩,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+
+<meta name="description" content="数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM&#x2F;WAV格式的信号是否有所削减。  本文转自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音频格式的汇总及压缩比较">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html">
+<meta property="og:site_name" content="TZLoop&#39;s Blog">
+<meta property="og:description" content="数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM&#x2F;WAV格式的信号是否有所削减。  本文转自">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-06-04T22:00:00.000Z">
+<meta property="article:modified_time" content="2018-07-10T14:05:15.864Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="转载">
+<meta property="article:tag" content="音频">
+<meta property="article:tag" content="压缩">
+<meta name="twitter:card" content="summary">
+
+
+<meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
+
+
+<title>音频格式的汇总及压缩比较 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="TZLoop&#39;s Blog" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109269848-1', { 'optimize_id': 'GTM-KRMX7LZ'});
+  gtag('config', 'UA-109269848-2', { 'optimize_id': 'GTM-TDPN587'});
+</script>
+
+<script>
+//window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+//ga('create', 'UA-109269848-1', 'auto');
+//ga('send', 'pageview');
+//console.log("Google Analytics done!");
+</script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
+<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+
+<!-- End Google Analytics -->
+
+
+
+
+
+
+<!-- Baidu Tongji -->
+<!-- <script>var _hmt = _hmt || []</script> -->
+<!-- <script async src="//hm.baidu.com/hm.js?c2e1413258e6c65224a7efe4e6d6a956"></script> -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1fe0247acc0edae9874a263c40d73b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Tongji -->
+
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	console.log("Baidu Push done!");
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+ 
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+if(window.location.href == "https://www.zonelyn.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			spop({
+				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+				position  : 'bottom-right',
+				autoclose: 14000
+			});
+			spop({
+				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+				position  : 'bottom-right',
+				autoclose: 15500
+			});
+			spop({
+				template: '号外：本站已更换COM域名！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 17000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+<script data-ad-client="ca-pub-9432057653708398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/other/page_about.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处是一张本博客内的图片">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=751d46f1614408b66761a561cbaf19fdf04b393df7403204acd550c9e25f2dde"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html"  >
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html"  >
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html"  >
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html"  >
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_comment.html"  >
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li >		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">音频格式的汇总及压缩比较</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">音频格式的汇总及压缩比较</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-06-04T22:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-06-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%A7%91%E6%99%AE%E6%89%AB%E7%9B%B2/">科普扫盲</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "音频格式的汇总及压缩比较";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	typing();
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" >
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#音频相关参数"><span class="post-toc-number">1.</span> <span class="post-toc-text">音频相关参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#速率"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">速率</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#采样率"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">采样率</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#有损压缩"><span class="post-toc-number">2.</span> <span class="post-toc-text">有损压缩</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WMV格式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">WMV格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MP3格式"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">MP3格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WMA格式"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">WMA格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#OGG格式"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">OGG格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Mp3Pro格式"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">Mp3Pro格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RA系列"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">RA系列</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MOD格式"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">MOD格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MD格式"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">MD格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ASF格式"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">ASF格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AAC格式"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">AAC格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MID格式"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">MID格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#M4A格式"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">M4A格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#VQF格式"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">VQF格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AAC-格式"><span class="post-toc-number">2.14.</span> <span class="post-toc-text">AAC+格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AIFF与AU格式"><span class="post-toc-number">2.15.</span> <span class="post-toc-text">AIFF与AU格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#无损压缩"><span class="post-toc-number">3.</span> <span class="post-toc-text">无损压缩</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CD格式"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">CD格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#WAV格式"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">WAV格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#FLAC格式"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">FLAC格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#APE格式"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">APE格式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#压缩比较"><span class="post-toc-number">4.</span> <span class="post-toc-text">压缩比较</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#压缩比"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">压缩比</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#音质"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">音质</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#综合音质体积编码率"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">综合音质体积编码率</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2018-6-5 音频格式的汇总及压缩比较"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">音频格式的汇总及压缩比较</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-06-05 00:00:00" datetime="2018-06-04T22:00:00.000Z"  itemprop="datePublished">2018-06-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%A7%91%E6%99%AE%E6%89%AB%E7%9B%B2/">科普扫盲</a></li></ul>
+
+
+
+			<span class="post-count">5,377&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">19����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>数字音源，也就是数字音频格式，最早指的是CD，CD经过压缩之后，又衍生出多种适于在随身听上播放的格式，这些压缩过的格式，我们可以分为两大类：有损压缩的和无损压缩的。这里所说的压缩，是指把PCM编码的或者是WAV格式的音频流经过特殊的压缩处理，转换成其他格式，从而达到减小文件体积的效果。有损／无损，是指经过压缩过后，新文件所保留的声音信号相对于原来的PCM/WAV格式的信号是否有所削减。</p>
+<blockquote>
+<p>本文转自：<a href="https://www.ggdoc.com/" target="_blank" rel="noopener">果果文本库</a><br>原文标题：19种音频格式介绍及音质压缩比的比较</p>
+</blockquote>
+<h3 id="音频相关参数"><a href="#音频相关参数" class="headerlink" title="音频相关参数"></a>音频相关参数</h3><h4 id="速率"><a href="#速率" class="headerlink" title="速率"></a>速率</h4><p>什么是速率？当然我不能直接给你解释说“速率就是比特率”。大家在用一些软件播放声音文件的时候应该注意到了一个小小的信息。比如“128Kbps”、“1411Kbps”…也有朋友知道了，通常情况下，”Kbps”前面的数字越大，声音效果越好，比如CD就是“1411Kbps”。那么，到底这些数字代表什么呢？简单的说来就是在每秒钟时间内，有多少数据被转换成声音。之所以CD的音质比MP3好，是因为CD在每一秒内的信息比MP3多。比如，128Kbps的MP3文件相比1411Kbps的CD文件，其每秒被转换的数据量，MP3比CD少了近12倍。同样的一首歌曲，CD听来就要细腻得多（当然人群中有这么一群号称“木耳”的人可能觉得效果是一样的）MP3用较少的数据表达相同的内容，其详细程度当然就不如CD了。</p>
+<h4 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h4><p>采样率也是很常见的一个词语。具体表现形式为“XXHz”，其中“XX”是一个具体数字。比如“44100Hz（44.1KHz）”，“32000Hz（32KHz）”等。之前已经说过了，数码音频文件是由很多个“点”来组成的，那么采样率其实就是采集这些“点”的一个“数量”标准。很显然“44100Hz”比“32000Hz”的采样率要高，所以单位时间内（1秒）搜集到的点就更多。单位时间的点越多声音的信息也就越完善，当然也就更接近于真实。所以，如果在保证速率相同的条件下，“44100Hz”的文件要好于“32000Hz”（当然，这也不是绝对的）。</p>
+<h3 id="有损压缩"><a href="#有损压缩" class="headerlink" title="有损压缩"></a>有损压缩</h3><p>有损压缩的音源，其实我们都比较熟悉，目前流行的有损格式主要有MP3、WMA、OGG、MP3pro、AAC、VQF、ASF等。</p>
+<h4 id="WMV格式"><a href="#WMV格式" class="headerlink" title="WMV格式"></a>WMV格式</h4><p>WMA的全称是WindowsMedia Audio，是微软力推的一种音频格式。WMA格式是以减少数据流量但保持音质的方法来达到更高的压缩率目的，其压缩率一般可以达到1:18，生成的文件大小只有相应MP3文件的一半。</p>
+<h4 id="MP3格式"><a href="#MP3格式" class="headerlink" title="MP3格式"></a>MP3格式</h4><p>MP3的全称是MovingPicture Experts Group Audio Layer Ⅲ。简单的说，MP3就是一种音频压缩技术，由于这种压缩方式的全称叫MPEGAudio Layer 3，所以人们把它简称为MP3。它诞生于1993年，其“父母”是德国夫朗和费研究院（FaunhofeIIS）和法国汤姆生（Thomson）公司。</p>
+<p>MP3是利用MPEGAudio Layer 3的技术，将音乐以1:10甚至1:12的压缩率，压缩成容量较小的文件，换句话说，能够在音质丢失很小的情况下把文件压缩到更小的程度。而且还非常好的保持了原来的音质。正是因为MP3体积小，音质高的特点使得MP3格式几乎成为网上音乐的代名词。每分钟音乐的MP3格式只有1MB左右大小，这样每首歌的大小只有3-4兆字节。使用MP3播放器对MP3文件进行实时的解压缩（解码），这样，高品质的MP3音乐就播放出来了。</p>
+<p>MP3编码质量分为：固定码率（CBR），平均码率（ABR）和动态码率（VBR）。早期的MP3编码技术并不完善，很长的一段时间以来，大多数人都使用128Kbps的CBR（固定编码率）格式来对MP3文件编码，直到最近，VBR（可变编码率）和ABR（平均编码率）的压缩方式出现，编码的比特率最高可达320Kbps，MP3文件在音质上才开始有所进步，而LAME的出现，则为这一进步带来了质的飞跃。</p>
+<p><strong>补充：最高比特率320K，高频部分一刀切是它的缺点。音质不高！</strong></p>
+<h4 id="WMA格式"><a href="#WMA格式" class="headerlink" title="WMA格式"></a>WMA格式</h4><p>WMA的全称是WindowsMedia Audio，是微软力推的一种音频格式。WMA格式是以减少数据流量但保持音质的方法来达到更高的压缩率目的，其压缩率一般可以达到1:18，生成的文件大小只有相应MP3文件的一半。</p>
+<p>WMA与MP3音质和体积上的对比特点，可以总结为：低比特率（小于128Kbps）时，WMA体积比MP3小，音质比MP3好；而在高比特率（大于128K）时，MP3的音质则比WMA好。</p>
+<p>WMA相对于MP3的最大特点就是有极强的可保护性，可以说，WMA的推出，就是针对MP3没有版权保护的缺点来的。WMA可以通过DRM（Digital Rights Management）方案加入防止拷贝，或者加入限制播放时间和播放次数，甚至是播放机器的限制，可有力地防止盗版。</p>
+<p><strong>补充：128kbps为wma最优压缩比，128kbpswma=192kbps mp3</strong></p>
+<h4 id="OGG格式"><a href="#OGG格式" class="headerlink" title="OGG格式"></a>OGG格式</h4><p>Ogg全称应该是OGGVobis（oggVorbis）是一种新的音频压缩格式，类似于MP3等现有的音乐格式。但有一点不同的是，它是完全免费、开放和没有专利限制的。OGGVobis有一个很出众的特点，就是支持多声道，随着它的流行，以后用随身听来听DTS编码的多声道作品将不会是梦想。</p>
+<p>Vorbis 是这种音频压缩机制的名字，而Ogg则是一个计划的名字，该计划意图设计一个完全开放性的多媒体系统。目前该计划只实现了OggVorbis这一部分。</p>
+<p>Ogg Vorbis文件的扩展名是。OGG。这种文件的设计格式是非常先进的。现在创建的OGG文件可以在未来的任何播放器上播放，因此，这种文件格式可以不断地进行大小和音质的改良，而不影响旧有的编码器或播放器。</p>
+<p><strong>补充：目前最好的有损格式之一，MP3部分支持，智能手机装软件部分可以支持，最高比特率500kbps。</strong></p>
+<h4 id="Mp3Pro格式"><a href="#Mp3Pro格式" class="headerlink" title="Mp3Pro格式"></a>Mp3Pro格式</h4><p>在WMA刚开始流行的时候，还没有高品质的MP3，所以当时MP3的地位真的有点动摇了，于是Thomson公司在2001年6月，携手FaunhofeIIS，发布了一种新的格式MP3pro，这是对MP3格式的改良，编码算法比MP3要复杂得多，简单的说，就是分两层编码，在MP3的基础上，再与另外一种技术（SB频段复制技术）混合编码。</p>
+<p>Mp3Pro是Mp3编码格式的升级版本。MP3Pro是由瑞典Coding科技公司开发的，在保持相同的音质下同样可以把声音文件的文件量压缩到原有MP3格式的一半大小。而且可以在基本不改变文件大小的情况下改善原先的MP3音乐音质。它能够在用较低的比特率压缩音频文件的情况下，最大程度地保持压缩前的音质。这种格式在低位率的时候，压缩效率非常高，所以在一般音质情况下，同位率的MP3pro的体积要比MP3甚至WMA都小得多，而音质却是三者中最好的。</p>
+<p>MP3pro可以实现完全的兼容性。经过mp3Pro压缩的文件，扩展名仍旧是。mp3。可以在老的mp3播放器上播放。老的mp3文件可以在新的mp3pro播放器上进行播放。实现了该公司所谓的“向前向后兼容”。</p>
+<p><strong>从技术上讲，MP3pro是一种非常优秀的编码方式，但是它高昂的专利费，使它没有真正流行起来。</strong></p>
+<h4 id="RA系列"><a href="#RA系列" class="headerlink" title="RA系列"></a>RA系列</h4><p>RA、RAM和RM都是Real公司成熟的网络音频格式，采用了“音频流”技术，所以非常适合网络广播。在制作时可以加入版权、演唱者、制作者、Mail 和歌曲的Title等信息。</p>
+<p>RA可以称为互联网上多媒体传播的霸主，适合于网络上进行实时播放，是目前在线收听网络音乐最好的一种格式。</p>
+<h4 id="MOD格式"><a href="#MOD格式" class="headerlink" title="MOD格式"></a>MOD格式</h4><p>MOD是一种类似波表的音乐格式，但它的结构却类似MIDI，使用真实采样，体积很小，音质好，在以前的DOS年代，MOD经常被作为游戏的背景音乐。现在的MOD可以包含很多音轨，而且格式众多，如S3M、NST、669、MTM、XM、IT、XT和RT等。</p>
+<h4 id="MD格式"><a href="#MD格式" class="headerlink" title="MD格式"></a>MD格式</h4><p>MD（即MiniDisc）是SONY 公司于1992年推出的一种完整的便携音乐格式，它所采用的压缩算法就是ATRAC技术（压缩比是1∶5）。MD又分为可录型MD（Recordable，有磁头和激光头两个头）和单放型MD（Pre-recorded，只有激光头）。</p>
+<p>强大的编辑功能是MD的强项，可以快速选曲、曲目移动、合并、分割、删除和曲名编辑等多项功能，比CD更具个性化，随时可以拥有一张属于自己的MD专辑。MD的产品包括MD随身听、MD床头音响、MD汽车音响、MD录音卡座、MD摄像枪和MD驱动器等。</p>
+<h4 id="ASF格式"><a href="#ASF格式" class="headerlink" title="ASF格式"></a>ASF格式</h4><p>ASF的全称是AdvancedStreaming Format，是微软所制订的一种媒体播放格式，适合在网络上播放。而WindowsMedia On-Demand Producer则是制作ASF档案的免费软件，让即使是初学者也能很轻易的利用现成的WAV或AVI档案制作ASF文件。</p>
+<h4 id="AAC格式"><a href="#AAC格式" class="headerlink" title="AAC格式"></a>AAC格式</h4><p>AAC实际上是高级音频编码的缩写。AAC是由Fraunhofer IIS-A、杜比和AT&amp;T共同开发的一种音频格式，它是MPEG-2规范的一部分。AAC所采用的运算法则与MP3的运算法则有所不同，AAC通过结合其他的功能来提高编码效率。AAC的音频算法在压缩能力上远远超过了以前的一些压缩算法（比如MP3等）。它还同时支持多达48个音轨、15个低频音轨、更多种采样率和比特率、多种语言的兼容能力、更高的解码效率。总之，AAC可以在比MP3文件缩小30%的前提下提供更好的音质。</p>
+<p><strong>补充：目前最好的有损格式之一。有多种编码，faac，nero为常见，比特率最高448kbps。硬件支持方面，高级mp3和现在手机普遍支持。</strong></p>
+<h4 id="MID格式"><a href="#MID格式" class="headerlink" title="MID格式"></a>MID格式</h4><p>MID是midi的简称，是它的扩展名。MIDI是英语MusicInstrument Digital Interface 的缩写，翻译过来就是“数字化乐器接口”，也就是说它的真正涵义是一个供不同设备进行信号传输的接口的名称。我们如今的MIDI音乐制作全都要靠这个接口，在这个接口之间传送的信息也就叫MIDI信息。MIDI最早是应用在电子合成器一种用键盘演奏的电子乐器上，由于早期的电子合成器的技术规范不统一，不同的合成器的链接很困难，在1983年8月，YAMAHA、ROLAND、KAWAI等著名的电子乐器制造厂商联合指定了统一的数字化乐器接口规范，这就是MIDI1.0技术规范。此后，各种电子合成器已经电子琴等电子乐器都采用了这个统一的规范，这样，各种电子乐器就可以互相链接起来，传达MIDI信息，形成一个真正的合成音乐演奏系统。</p>
+<p>由于多媒体计算机技术的迅速发展，计算机对数字信号的强大的处理能力，使得计算机处理MIDI信息成为顺理成章的事情了，所以，现在不少人把MIDI音乐称之为电脑音乐。事实上，利用多媒体计算机不但可以播放、创作和实时地演奏MIDI音乐。甚至可以把MIDI音乐转变成看的见的乐谱（五线谱或简谱）打印出来，反之，也可以把乐谱变成美妙的音乐。利用MIDI的这个性质，可以用于音乐教学（尤其是识谱），让学生利用计算机学习音乐知识和创作音乐。</p>
+<h4 id="M4A格式"><a href="#M4A格式" class="headerlink" title="M4A格式"></a>M4A格式</h4><p>M4A是MPEG4音频标准的文件的扩展名。在MPEG4标准中提到，普通的MPEG4文件扩展名是。mp4。自从Apple开始在它的iTunes以及iPod中使用。m4a以区别MPEG4的视频和音频文件以来，。m4a这个扩展名变得流行了。目前，几乎所有支持MPEG4音频的软件都支持。m4a。最常用的。m4a文件是使用AAC格式的（文件），不过其他的格式，比如AppleLossless甚至mp3也可以被放在。m4a容器里（TC注：这个container的概念类似于。mkv文件）。可以安全的把只包含音频的。mp4文件的扩展名改成。m4a，以便让它能在你喜欢的播放器里播放，反之亦然。</p>
+<h4 id="VQF格式"><a href="#VQF格式" class="headerlink" title="VQF格式"></a>VQF格式</h4><p>VQF格式是由YAMAHA和NTT共同开发的一种音频压缩技术，它的核心是减少数据流量但保持音质的方法来达到更高的压缩比，它的压缩率能够达到1:18，因此相同情况下压缩后VQF的文件体积比MP3小30%～50%，更便利于网上传播，同时音质极佳，接近CD音质（16位44.1kHz立体声）。可以说VQF技术上也是很先进的，但VQF未公开技术标准，由于宣传不力，这种格式难有用武之地，至今未能流行开来。</p>
+<h4 id="AAC-格式"><a href="#AAC-格式" class="headerlink" title="AAC+格式"></a>AAC+格式</h4><p>AAC+也称之为HE-AAC。</p>
+<p>HE意思是”highefficiency”（高效性）。HE-AAC混合了AAC与SBR技术。SBR代表的是SpectralBand Replication（频段复制）。SBR的关键是在低码流下提供全带宽的编码而不会产生多余的信号。传统认为音频编码在低码流下意味着减少带宽和降低采样率（见MP3FAQ #7）或产生令人不快的噪音信号。SBR解决问题的方法是让核心编码去编码低频信号，而SBR解码器通过分析低频信号产生高频信号和一些保留在比特流中的指导信号（通常码流极低，~2kbps）。这就是采用无SBR解码器的原因，这样你的带宽（frequencyresponse）（频率响应）会被严重浪费。这也是为什么被叫做SpectralBand Replication的原因，它只是增加音频的带宽，而非重建。</p>
+<h4 id="AIFF与AU格式"><a href="#AIFF与AU格式" class="headerlink" title="AIFF与AU格式"></a>AIFF与AU格式</h4><p>这里顺便提一下由苹果公司开发的AIFF（Audio Interchange FileFormat）</p>
+<p>格式和为UNIX系统开发的AU格式，它们都和WAV非常相像，在大多数的音频编辑软件中也都支持它们这几种常见的音乐格式。</p>
+<h3 id="无损压缩"><a href="#无损压缩" class="headerlink" title="无损压缩"></a>无损压缩</h3><p>对于我们最常说的“无损音频”来说，一般都是指传统CD格式中的16bit/44.1kHz采样率的文件格式，而知所以称为无损压缩，也是因为其包含了20Hz-22.05kHz这个完全覆盖人耳可闻范围的频响频率而得名。</p>
+<p>音频的无损压缩，大家可能还比较陌生，但这并不意味着无损压缩技术发展得不好，相反，在无损压缩领域，早就有许多很出色的作品，比如APE、FLAC、WavPack、LPAC、WMALossless、AppleLossless、La、OptimFOG、Shoten等。</p>
+<h4 id="CD格式"><a href="#CD格式" class="headerlink" title="CD格式"></a>CD格式</h4><p>即CD唱片，一张CD可以播放74分钟左右的声音文件，Windows系统中自带了一个CD播放机，另外多数声卡所附带的软件都提供了CD播放功能，甚至有一些光驱脱离电脑，只要接通电源就可以作为一个独立的CD播放机使用。</p>
+<p>标准CD格式为44.1K的采样，速率88K/秒，16位量化位数，因为CD 可以说是近似无损的，因此它的声音基本上是忠于原声的，因此如果你如果是一个音响发烧友的话，CD是你的首选。它会让你感受到天籁之音。CD光盘可以在CD唱机中播放，也能用电脑里的各种播放软件来重放。但注意：不能直接的复制CD格式的文件到电脑硬盘上播放，需要使用像EAC这样的抓音轨软件把CD格式的文件转换成WAV，这个转换过程基本上是无损的。推荐大家使用这种方法。</p>
+<h4 id="WAV格式"><a href="#WAV格式" class="headerlink" title="WAV格式"></a>WAV格式</h4><p>WAV格式是微软公司开发的一种声音文件格式，也叫波形声音文件，是最早的数字音频格式，被Windows平台及其应用程序广泛支持。WAV格式是以RIFF格式为标准的。RIFF是英文ResourceInterchange File Format的缩写，每个WAVE文件的头四个字节便是“RIFF”。WAVE文件由文件头和数据体两大部分组成。</p>
+<p>WAV格式支持许多压缩算法，支持多种音频位数、采样频率和声道，采用44.1kHz的采样频率，16位量化位数，因此WAV的音质与CD相差无几，但WAV格式对存储空间需求太大不便于交流和传播。</p>
+<p><strong>补充：WAV属于无损音乐格式，缺点：体积十分大！</strong></p>
+<h4 id="FLAC格式"><a href="#FLAC格式" class="headerlink" title="FLAC格式"></a>FLAC格式</h4><p>FLAC即是FreeLossless Audio Codec的缩写，全称应该叫OGGFLAC，中文可解为无损音频压缩编码。它是OGG计划的一部分，当然也就是开源、免费的了，这也难怪它这么快就得到了多家MP3厂商的支持。</p>
+<p>FLAC是一套著名的自由音频压缩编码，其特点是无损压缩。FLAC压缩比可以达到2：1，对于无损压缩来说，这已经是相当高的比例了；而且它解码速度快，只需进行整数运算即可完成整个解码过程，对CPU的运算能力要求很低，所以普通的随身听，都可以轻松实现实时解码。</p>
+<p>不同于其他有损压缩编码如MP3 及AAC，它不会破坏任何原有的音频资讯，所以可以还原音乐光盘音质。现在它已被很多软件及硬件音频产品所支持。简而言之，FLAC与MP3相仿，但是是无损压缩的，也就是说音频以FLAC方式压缩不会丢失任何信息。这种压缩与Zip的方式类似，但是FLAC将给你更大的压缩比率，因为</p>
+<p>FLAC是专门针对音频的特点设计的压缩方式，并且你可以使用播放器播放FLAC压缩的文件，就象通常播放你的MP3文件一样。</p>
+<p><strong>补充：为无损格式，较ape而言，他体积大点，但是兼容性好，编码速度快，播放器支持更广</strong></p>
+<h4 id="APE格式"><a href="#APE格式" class="headerlink" title="APE格式"></a>APE格式</h4><p>APE是目前流行的、由Monkey’sAudio出品的一种数字音乐文件格式，它出现得比FLAC早，而且名气也比FLAC大。与MP3、OGG这类有损压缩方式不同，APE是目前世界上惟一得到公认的音频无损压缩格式，也就是说当您将从音频CD上读取的音频数据文件压缩成APE格式后，您还可以再将APE格式的文件还原，而还原后的音乐文件与压缩前一模一样，没有任何损失。而现在越来越多的人将它在网络传播，因为被压缩后的APE文件容量要比WAV源文件小一半多，可以节约传输所用的时间，也更方便传播！由于APE的采样率高达800kbps～1400kbps，接近于音乐CD的1411.2kbps，远远高于MP3的128kbps，因此它在压缩后的音质和源文件音质几乎毫无差异，其音质之佳已经过了严格的盲听测试，得到了全世界发烧友的公认。APE的这些特点，都是其他无损压缩格式所争相效仿的。</p>
+<p>在APE出现之前，音乐迷们都认为以CD或者WAV来保存自己喜欢的音乐素材是最好的方法了，但APE的出现，足以使他们改变这种看法，因为APE既可以保持音乐信号的无损，又可以以比WAV高得多的压缩率（接近2：1）压缩WAV文件，而且可以无须解压而直接播放。由于压缩后的APE文件只有原文件一半左右大小，APE格式受到了许多音乐爱好者的喜爱，特别是对于希望通过网络传输音频CD的朋友来说，APE可以帮助他们节约大量的资源。APE如此流行，在网上也比较容易能下载到APE格式的文件。</p>
+<p><strong>补充：为无损压缩格式，较flac而言，他体积较小。编码速度偏慢。</strong></p>
+<h3 id="压缩比较"><a href="#压缩比较" class="headerlink" title="压缩比较"></a>压缩比较</h3><h4 id="压缩比"><a href="#压缩比" class="headerlink" title="压缩比"></a>压缩比</h4><p><code>aac &gt; ogg &gt; mp3（wma） &gt; ape &gt; flac &gt; wav（同一音源条件下）</code></p>
+<p>mp3和wma以192kbps为分界线，192kbps以上mp3好，192kbps以下wma好。</p>
+<h4 id="音质"><a href="#音质" class="headerlink" title="音质"></a>音质</h4><p><code>wav = flac = ape &gt; aac &gt; ogg &gt; mp3 &gt; wma</code></p>
+<h4 id="综合音质体积编码率"><a href="#综合音质体积编码率" class="headerlink" title="综合音质体积编码率"></a>综合音质体积编码率</h4><p><code>aac &gt; ogg &gt; flac &gt; ape &gt; mp3 &gt; wav、wma</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html</a>
+        
+    </div>
+    <footer>
+        <a href="/other/page_about.html">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8E%8B%E7%BC%A9/" rel="tag">压缩</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9F%B3%E9%A2%91/" rel="tag">音频</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&title=《音频格式的汇总及压缩比较》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&title=《音频格式的汇总及压缩比较》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《音频格式的汇总及压缩比较》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2018-6-6%20IDEA-2017.2-bug-SBT%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E7%9A%84%E5%A4%B1%E8%B4%A5.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">IDEA-2017.2-bug-SBT项目初始化的失败</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2018-6-2%20%E4%BD%BF%E7%94%A8D3.JS%E8%BF%9B%E8%A1%8C%E5%9D%90%E6%A0%87%E8%BD%B4%E7%BB%98%E5%88%B6%E5%92%8C%E5%9B%BE%E7%BB%98%E5%88%B6.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用D3.JS进行坐标轴绘制和图绘制</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html">kettle相关知识</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  相关链接开源ETL工具(Kettle) V5.1.0 免费Spoon版http://www.cr173.com/soft/30051.htmlETL工具大全，你了解多少http://bbs.cs...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;223.0k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p  class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="/other/page_comment.html">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://is.boxmoe.cn/" >infiniteSky</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.zidone.cn/" >Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.daichongweb.com" >DaiChong</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
+					 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2019
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.coding.me" target="_blank" rel="noopener" >Coding Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://www.zonelyn.com/dddd.mp3',
+//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&title=《音频格式的汇总及压缩比较》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&title=《音频格式的汇总及压缩比较》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《音频格式的汇总及压缩比较》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-6-5%20%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%B1%87%E6%80%BB%E5%8F%8A%E5%8E%8B%E7%BC%A9%E6%AF%94%E8%BE%83.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFNElEQVR42u3c0YodNxAEUP//TzuQp4Dtu1XV2hDCmadlPXdGOlq4rWrhHz/i6+ff159+8/Mf1+fffH7ar1fy9na0n9/74zsufPjw4cOHLxh6MvkcYiNLRvL5yQlTcv8fifHhw4cPH76J7/PXf35PPpSNIylB8qXNP/vH3+PDhw8fPnzfxneZQLKNT57fBhz5M/Hhw4cPH77/Gl8y1a10uLcQ7iULPnz48OHD92/y5dF5XhC0oXm7sa+D9XPMgQ8fPnz48N35XpUI/6efH1/48OHDhw9f8PXcXkl8n0cVl+g/jwAuDvjw4cOHD98233YznN+/tagv5dSrBnkxNnz48OHDh+/At8XWW/v57cG4t7FIES7gw4cPHz58MV+ykd6+7C+DThDvh+o+zy4qxfDhw4cPH76J71525Ee48rh/axLkhVfyh1LE9Pjw4cOHD1/X0a7/+8s8QG9b4J+LoTyU39rzScvhN3fiw4cPHz58E9/Wim6j9ryMuPC1XYttPPjw4cOHD18+nvao2asV2w6W3RfyHl78iP4BHz58+PDh+1opD+JfFQF5ANFObCSYog18+PDhw4fvwpcc/2ob4ZcYIl+2bVT5kkeFCz58+PDhwxc8Pz8iVmT/56j9chwtf8IWfESRPT58+PDhw/fLzxvNVli8WqrLu5L4Y4wJ8OHDhw8fvsOhtHxi23b9suHfyp0t1v/iDwgfPnz48OFb0vLxINqlfZ4ztSXU5clt0YYPHz58+PBtfO02/vNXflu45GubHy979fboTnz48OHDhy/mi06ulZH6ZZPfllNtxNCO7Yvx4MOHDx8+fBNfO9wtCs/LguT+tvTJP1uECPjw4cOHD99y3uxZWdCG+20csH22LUqikgUfPnz48OGb+Laj2Fs0nxcxbeu9feaz9+LDhw8fPnwTX7th3lDaabTL2RYx9+XBhw8fPnz4Dtn4NzbF334252vD/fvy4MOHDx8+fEna/Dj7L++vj4WVhUhyPehy4MOHDx8+fOVM28PceSv6Pu18Mtv4t7gBHz58+PDha/na8DoZXLIVb8uFrXmflzLtko/ZPz58+PDhwxdMJoHLG9vJ5F9hbWMolhMfPnz48OFbKoEHofyGe4kh3t6TNNrx4cOHDx++O9+rRnL+hLeN6nxRE6B2vvjw4cOHD1/Llw8uj/K3+D6PKtpCJ39+siT48OHDhw/fhS8vNbYXbCXCpY29xRDjkTh8+PDhw4fvwLc1mz+/foshtsXbyqZTSIEPHz58+PAd+BKCbfN/j9rvuUg7/qjkwocPHz58+Eq+vLXcDjQP1tttfHLc7R6LtIECPnz48OHDl/DdJ9aWC22IsAX6LdBYYOHDhw8fPnwHvkvtk9O8Osq2lTJ31t8kLvjw4cOHD9/E14YI24G2bdP+KizYZlFEBvjw4cOHD18c1rdN7i0gyDfnr0L5toWQFz348OHDhw9fy9du/rfG+RYKbMXTPT4oFh4fPnz48OGb+PKv+XojfQgaLnHAZeHrwgUfPnz48OE78G0HyJKteBsQJJNPlvnVkkSFCz58+PDhw7fs6J+1qD/TtJH9fdu/vbeN9fHhw4cPH77PfO3L8kj9uw+xtZHBdljti4XEhw8fPnz4Jr6tWHnVRG+LoXbxLlH+eLIPHz58+PDh+2a+pNxpJ5MH/VtrIQkyviih8OHDhw8fvm/jezu9/BhcHklsc9laAvjw4cOHD9+Fb5vYd5QabUDfxvFv2wz48OHDhw9fy9fG65cJXAqOdgItfRuO4MOHDx8+fCXfX1gq+wOrEJCfAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://www.zonelyn.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://www.zonelyn.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+</body>
+</html>

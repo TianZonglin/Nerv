@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="Writing,Memory,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+
+<meta name="description" content="前言复仇者联盟又出来打架了，作为粉丝怎么能不围观，所以电影票是少不了地，4DX吹吹风也是必备地…是的，就在刚刚，如约看完了爽片《复联4》，说是特效爽片，但这次看完总觉得电影里还是多了些难">
+<meta property="og:type" content="article">
+<meta property="og:title" content="To Avengers">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2019-4-24%20To%20Avengers.html">
+<meta property="og:site_name" content="TZLoop&#39;s Blog">
+<meta property="og:description" content="前言复仇者联盟又出来打架了，作为粉丝怎么能不围观，所以电影票是少不了地，4DX吹吹风也是必备地…是的，就在刚刚，如约看完了爽片《复联4》，说是特效爽片，但这次看完总觉得电影里还是多了些难">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;4n0ij0wb2ndqxbr07yozbbe9&#x2F;image_1d97tgb3fivt1qd51nhq1nt1mig3k.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;v2dub1k7h7i4xnemwpc8co2l&#x2F;image_1d97tluh91v8p1ohn1idhji95q841.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;w89muaw98cvxmxjp2zu4mweb&#x2F;image_1d97snkg0th11no331n11nscgim.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;q1d4912qn3v0d3omjrsx3uvo&#x2F;image_1d97sok9a12s210desp41esi1qmm13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;4g8c523pcbl2n1stmqmdltfn&#x2F;image_1d97sps5g1gm1kave7bdo2fk41g.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;3uu8j857f9ytohemmoqsu7ed&#x2F;image_1d97sr5721fi2m4o70lbek1c6i2d.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;q1ibe0dn203lvr97oj2bgblb&#x2F;image_1d97suqta7q71ur3pci1lf418im2q.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;ay8aap36s25sji6wpugdekvm&#x2F;image_1d97t9vbv11rn2sk15mth1513r637.png">
+<meta property="article:published_time" content="2019-04-23T22:00:00.000Z">
+<meta property="article:modified_time" content="2019-08-05T03:22:33.135Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="Writing">
+<meta property="article:tag" content="Memory">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;4n0ij0wb2ndqxbr07yozbbe9&#x2F;image_1d97tgb3fivt1qd51nhq1nt1mig3k.png">
+
+
+<meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
+
+
+<title>To Avengers | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="TZLoop&#39;s Blog" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109269848-1', { 'optimize_id': 'GTM-KRMX7LZ'});
+  gtag('config', 'UA-109269848-2', { 'optimize_id': 'GTM-TDPN587'});
+</script>
+
+<script>
+//window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+//ga('create', 'UA-109269848-1', 'auto');
+//ga('send', 'pageview');
+//console.log("Google Analytics done!");
+</script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
+<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+
+<!-- End Google Analytics -->
+
+
+
+
+
+
+<!-- Baidu Tongji -->
+<!-- <script>var _hmt = _hmt || []</script> -->
+<!-- <script async src="//hm.baidu.com/hm.js?c2e1413258e6c65224a7efe4e6d6a956"></script> -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1fe0247acc0edae9874a263c40d73b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Tongji -->
+
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	console.log("Baidu Push done!");
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+ 
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+if(window.location.href == "https://www.zonelyn.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			spop({
+				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+				position  : 'bottom-right',
+				autoclose: 14000
+			});
+			spop({
+				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+				position  : 'bottom-right',
+				autoclose: 15500
+			});
+			spop({
+				template: '号外：本站已更换COM域名！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 17000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+<script data-ad-client="ca-pub-9432057653708398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/other/page_about.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处是一张本博客内的图片">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=751d46f1614408b66761a561cbaf19fdf04b393df7403204acd550c9e25f2dde"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html"  >
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html"  >
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html"  >
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html"  >
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_comment.html"  >
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li >		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">To Avengers</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">To Avengers</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-23T22:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-04-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Daily-Life/">Daily_Life</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "To Avengers";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	typing();
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" >
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一幕-愤怒、放逐、希望"><span class="post-toc-number">2.</span> <span class="post-toc-text">第一幕 愤怒、放逐、希望</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二幕-万分之一的机会"><span class="post-toc-number">3.</span> <span class="post-toc-text">第二幕 万分之一的机会</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第一节"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">第一节</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第二节"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">第二节</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第三节"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">第三节</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#第四节"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">第四节</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小结"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">小结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三幕-复联终极之战"><span class="post-toc-number">4.</span> <span class="post-toc-text">第三幕 复联终极之战</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#彩蛋"><span class="post-toc-number">5.</span> <span class="post-toc-text">彩蛋</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2019-4-24 To Avengers"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">To Avengers</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-24 00:00:00" datetime="2019-04-23T22:00:00.000Z"  itemprop="datePublished">2019-04-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Daily-Life/">Daily_Life</a></li></ul>
+
+
+
+			<span class="post-count">2,747&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">9����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/4n0ij0wb2ndqxbr07yozbbe9/image_1d97tgb3fivt1qd51nhq1nt1mig3k.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a><strong>前言</strong></h3><p>复仇者联盟又出来打架了，作为粉丝怎么能不围观，所以电影票是少不了地，4DX吹吹风也是必备地…<br>是的，就在刚刚，如约看完了爽片《复联4》，说是特效爽片，但这次看完总觉得电影里还是多了些难等可贵的东西，不吹不黑，在后半场钢铁侠挂掉后我清晰的听到了场内不止一处的哭泣声，由于我平时也不怎么去电影院看感动人的电影，所以这还是让我十分惊讶的。<br>无论如何，看完之后内心有种诉说的冲动，因为这已经不是复联的一次精彩战役，亦或是一次精彩拯救，而是复联的完结，是漫威宇宙这个阶段的完结。写到这里，时间仿佛回到了奥创时代，每每漫威一个阶段的结束，都预示着有些我们印象深刻的角色，可能在将来不会再出现了。让我们和</p>
+<ul>
+<li>小罗伯特唐尼饰演的钢铁侠</li>
+<li>克里斯埃文斯饰演的美国队长</li>
+<li>斯嘉丽约翰逊饰演的黑寡妇</li>
+</ul>
+<p>说声再见，See you ~</p>
+<blockquote>
+<p>注：下文是【回忆文】，是我在看完电影后，在回学校的路上用手机码的，现在用电脑稍作整理，所以记忆或许有偏差，记不清的时间都已模糊处理，记不得的具体名词，比如无限宝石等都用别名代替，然后在叙述中出现穿插已有电影的镜头时会使用【《电影名》】注明。以下内容不打算勘误，本身就是速成，也相当于对自己记忆力的一个考验，原电影本没有分幕和段首句，为了易于理解后加的。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/v2dub1k7h7i4xnemwpc8co2l/image_1d97tluh91v8p1ohn1idhji95q841.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="第一幕-愤怒、放逐、希望"><a href="#第一幕-愤怒、放逐、希望" class="headerlink" title="第一幕 愤怒、放逐、希望"></a><strong>第一幕 愤怒、放逐、希望</strong></h3><p><strong>灭霸毁宝石令众人幻想破灭<br><br>蚁人谈量子使时间劫持可行</strong></p>
+<p>开局承接上文，惊奇女侠帮助斯塔克及飞船回到地球，众人士气低迷斯塔克自暴自弃，后来惊奇女侠携众人通过星云找到灭霸，然而宝石已被灭霸摧毁，再打响指恢复世界的想法破灭，雷神一怒之下砍了灭霸的头。</p>
+<p>回到地球后，一只老鼠碰到《蚁人2》最后的面包车里的装置开关，使得被困的蚁人重新变大，虽然在量子空间蚁人才过了五小时，但真实世界已经是灭霸打响指过后的五年。蚁人存活使得众人意识到“时间劫持”的可能性，最终，斯塔克觉悟研发出时间机器，众人分三组回到过去夺去宝石：</p>
+<blockquote>
+<p>注：回到过去取得宝石的部分电影为乱序插叙，这里按回忆分片整理为以下几部分，下面，从未来返回过去的角色均以【角色名+F】的形式出现，过去时间的角色即原名称。</p>
+</blockquote>
+<h3 id="第二幕-万分之一的机会"><a href="#第二幕-万分之一的机会" class="headerlink" title="第二幕 万分之一的机会"></a><strong>第二幕 万分之一的机会</strong></h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/w89muaw98cvxmxjp2zu4mweb/image_1d97snkg0th11no331n11nscgim.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="第一节"><a href="#第一节" class="headerlink" title="第一节"></a><strong>第一节</strong></h4><p><strong>钢铁侠蚁人意外失手搞丢魔方<br><br>美队救场携斯塔克返七零年代</strong></p>
+<p>斯塔克F、美队F、蚁人F返回201X，时值洛基被众人抓住【《复仇者联盟2》】，蚁人故意破坏过去的钢铁侠的心脏，使返回过去的斯塔克拿到宇宙魔方，但最后被下楼的浩克撞倒，洛基拿到魔方瞬间消失，宇宙魔方抢夺失败；<br>另一边，美队F巧妙利用九头蛇暗示把正在神盾局手中押送的宝石权杖骗了到手，但不料被美队撞到被误以为是伪装后的洛基，美队F和美队撕打过后成功取得宝石权杖。<br>蚁人F拿着宝石权杖返回未来，美队F和斯塔克F则选择赌一把，把用于返回的“红粒子”用在了另一次时间穿梭，穿越到197X年美队诞生的军事基地【《美国队长》】，在基地内美队F和斯塔克F分别顺利取得当时的红粒子和当时的宇宙魔方，然后美队F看到了当时的女友，斯塔克F则和貌似是他老爸的男人攀谈至离别，随后二人返回。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/q1d4912qn3v0d3omjrsx3uvo/image_1d97sok9a12s210desp41esi1qmm13.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="第二节"><a href="#第二节" class="headerlink" title="第二节"></a><strong>第二节</strong></h4><p><strong>绿巨人苦口婆心未能说服古一<br><br>奇异博士冥冥之中令师傅妥协</strong></p>
+<p>另一边，浩克F其实和斯塔克F一行人一起回去的，但他去另外找奇异博士的师傅光头大师，那时她还没去世【《奇异博士》】，两人见面后开始攀谈，最后光头大师听到浩克F说奇异博士在将来亲手把时间宝石给了灭霸后，便将时间宝石给了浩克F，并强调一定要将宝石物归原主，否则会对原世界线有灾难后果。之后，浩克带时间宝石返回。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/4g8c523pcbl2n1stmqmdltfn/image_1d97sps5g1gm1kave7bdo2fk41g.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="第三节"><a href="#第三节" class="headerlink" title="第三节"></a><strong>第三节</strong></h4><p><strong>胖雷神对话母亲解重负<br><br>小浣熊背后偷袭得宝石</strong></p>
+<p>胖雷神F和浣熊F回到201X年的阿斯加德，时值《雷神》里的人类女主在阿斯加德【《雷神》】，返回当天恰是雷神母亲被谋杀的日子，肥雷神F由于痛苦回忆而未和浣熊F一起行动，最后浣熊F成功潜入人类女主背后将融合在其体内的红色宝石取出，肥雷神F也被其母亲发现，攀谈至离别，二人最终成功取得红色宝石。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/3uu8j857f9ytohemmoqsu7ed/image_1d97sr5721fi2m4o70lbek1c6i2d.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="第四节"><a href="#第四节" class="headerlink" title="第四节"></a><strong>第四节</strong></h4><p><strong>黑寡妇牺牲自己换宝石<br><br>罗德斯设下埋伏锤星爵<br><br>灭霸巧借星云了解一切<br><br>坏星云打入复联埋隐患</strong></p>
+<p>最复杂的一条线：由星云F、战争机器F、黑寡妇F、鹰眼F四人组成，四人首先在x星泊停，然后黑寡妇F和鹰眼F两人来到沃弥尔星球找到红骷髅【复仇者联盟3】，得知必须牺牲自己心爱之人才可让另一人得到宝石，二人都想牺牲自己但最终黑寡妇F卒，鹰眼F得到黄宝石返回。<br>同时，在停播母船的地方，战争机器F同星云F埋伏了偷圆球宝石的星爵【银河护卫队片段】，顺利拿到宝石并返回，但实际星云F由于原星云的靠近脑袋短路，并没有成功返回，随后被灭霸抓获。<br>在另一边稍早之前，星云F的出现使得原世界线星云脑袋短路，灭霸随即看出端倪，通过观看原星云共享星云F的回忆，灭霸知道了来龙去脉，并将星云F囚禁让原星云冒牌回去抢夺宝石。</p>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a><strong>小结</strong></h4><p>至此，六颗宝石全部集齐，下面人物不再带F，均发生在同电影开始时时间一致的世界。</p>
+<ul>
+<li>获得2颗：斯塔克 + 美队 </li>
+<li>获得1颗：星云 + 战争机器 (返回的是冒牌星云)</li>
+<li>获得1颗：黑寡妇 + 鹰眼 (黑寡妇卒)</li>
+<li>获得1颗：浩克 </li>
+<li>获得1颗：雷神 + 浣熊 </li>
+</ul>
+<p>随后，斯塔克制作出宝石手套，由于辐射只能浩克穿戴，打完响指后众人回归世界恢复，但与此同时，冒牌星云操作时间机器让灭霸的星舰母船穿越到了当前世界，并就在斯塔克科技大楼的头顶…</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/q1ibe0dn203lvr97oj2bgblb/image_1d97suqta7q71ur3pci1lf418im2q.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="第三幕-复联终极之战"><a href="#第三幕-复联终极之战" class="headerlink" title="第三幕 复联终极之战"></a><strong>第三幕 复联终极之战</strong></h3><p><strong>三打一群殴灭霸却险遭反杀<br><br>奇异博士携众人怼灭霸军团<br><br>钢铁侠拼死戴手套打出响指<br><br>美队听建议度过了完美一生</strong></p>
+<p>随即，灭霸导弹齐射把斯塔克大楼扎了个粉碎，众人皆震落摔晕掉到炸出的坑里，手套被鹰眼捡到。<br>同时，在地面，斯塔克、雷神、美队三人爬出来了，灭霸也坐在对面等待冒牌星云给他们找宝石手套，双方随即开锤，三人显然不是灭霸对手，不过美队中途操作了雷神的小锤子打出了一波小高潮，但最终还是打不过，之后，灭霸发动母舰军队向地球正式进攻。同时，空气中出现无数黄色圈圈，奇异博士带众人回归，包括：小蜘蛛侠、绯红女巫、阿斯加德人、黑豹众人、冬兵等。</p>
+<p>双方展开大战，另一边，卡魔拉和星云F达成同盟，将宝石手套从冒牌星云手中夺回，之后，由于灭霸仍试图得到手套，众人随即开始保护手套远离战场，手套在小蜘蛛侠手中时被人围殴，这时惊奇队长加入战局，起手就将灭霸母舰穿堂破肚，然后接过小蜘蛛侠手中的手套继续向战场外飞，但被灭霸拦截，双方纠缠中手套还是被灭霸戴上，这时间 奇异博士给斯塔克示意，意思是这是唯一一次机会，看罢斯塔克强行将宝石戴在了自己手上(通过后来斯塔克的遗留视频可以知道斯塔克预先想到了这个操作)，带上之后随即打了响指，灭霸众人全部完结变成灰，但斯塔克也由于辐射原因挂掉。</p>
+<p>时间来到斯塔克的葬礼后，美队带着宝石返回过去归还，一来一回虽只有五秒但在时间劫持后的过去，美队可以停留随意时间，他选择了和最心爱的女友过了一辈子，所以，当浩克操作时间机器让美队回来时，他已经变成了垂垂老矣的年纪。老美队亲手将盾牌交到猎鹰手中，完成新老交替，电影在老美队的回忆中落下帷幕。回忆里美队和女友正值年轻模样，在古典乐曲中一起偏偏起舞。</p>
+<h3 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a><strong>彩蛋</strong></h3><p>彩蛋的作用，即暗示故事接下来的走向，然而对于复仇者联盟来说，或许再无续集…<br>就这样，美队也选择了自己新的接班人…<br>钢铁侠在全体漫威人物的送别中长眠不醒…<br>黑寡妇的灵魂也永远留在了沃弥尔星冰冷的悬崖之下…</p>
+<p><strong>复仇者联盟系列就此完结，告别过去放眼未来，复联的终结也意味着漫威演职人员新老交替的完成，同时，这也预示着：漫威电影的宇宙世界观会加速到来，这一点在惊奇队长身上已经开始显现，所以，作为漫威粉丝唯一能做的，除了贡献一张电影票，就是静静的等待新作了！期待漫威能拍出更好的作品！</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/ay8aap36s25sji6wpugdekvm/image_1d97t9vbv11rn2sk15mth1513r637.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2019-4-24%20To%20Avengers.html" target="_blank" rel="external">https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html</a>
+        
+    </div>
+    <footer>
+        <a href="/other/page_about.html">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Memory/" rel="tag">Memory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Writing/" rel="tag">Writing</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&title=《To Avengers》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&title=《To Avengers》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《To Avengers》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2019-4-29%20%E5%88%9D%E8%AF%86%E5%9B%BE%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">初识图数据的可视化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2019-1-23%20%E5%88%86%E4%BA%AB%E6%88%91%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AF%B9%E6%8B%8D%E7%85%A7%E7%9A%84%E7%90%86%E8%A7%A3%E4%B8%8E%E8%AE%A4%E8%AF%86.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">分享我的一些对拍照的理解与认识</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2019-1-19%20Annual%20summary%20and%20review%20of%202018,%20part%20A.html">Annual summary and review of 2018, part A</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  It’s time to make a summary for the past whole year. To be honest, I had to say I exprienced a re...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2019-1-20%20Annual%20summary%20and%20review%20of%202018,%20part%20B.html">Annual summary and review of 2018, part B</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  At the end of March, we started to prepare the final check of the project we working on from 2017...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;223.0k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p  class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="/other/page_comment.html">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://is.boxmoe.cn/" >infiniteSky</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.zidone.cn/" >Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.daichongweb.com" >DaiChong</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
+					 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2019
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.coding.me" target="_blank" rel="noopener" >Coding Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://www.zonelyn.com/dddd.mp3',
+//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&title=《To Avengers》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&title=《To Avengers》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《To Avengers》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2019-4-24%20To%20Avengers.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aS3LjMAwFQN//0p4DZGQ/ALKqSLZWqcQh2VrA+PD1ip/3x+fqk/nKvf8tPxgYGMsykiN+/k2y/efP/F25+vowMDBOYORL97bPV67ui4GBgVHdOEn78rQSAwMDY86YFLF5SoqBgYFRXa7aekuC6aO1OAYGxoKMXvv+mZ9/Mt/AwMBYivEuPvOh5qTcvdwLAwNja0Ye4HopWt5uq6Z9GBgYZzKSCxZJGK22zJIdo2QRAwNja0YSLpO/5tfCegOA/BVjYGDsxMhL0ycTvjzcv5I5KgYGxuKMPAZXj1vFVxtzX4pYDAyMjRj50XvzxIc+iYGBcQCjd9AkROYDyN4L/c8kFgMDY2tG74pDMxsdNOku220YGBibMubzhHw8mRxrsjIGBsY5jGqw66V9eVJ422ULDAyMZRnVgJiXrAn4rtEpBgbG3ox8PDlJFn8xKmhOWTEwMBZk9LbML0kkCWKeYl6miRgYGFsz5klh3rKf1NOFkScGBsamjGS42Guf9YadzfEnBgbGYYx5ETtv1VVfJQYGxgmM6hGrIbI65iyPMzEwMDZlvItPHqDzI/aujkXDSwwMjC0YdzW8JuXuL0piDAyM/Ri9IJtvUw3HSaOt/O2BgYGxBWNyxMmVsuo3wJc8FwMDA2NwOeOuYvhL1xADAwOjdfFrXkNHI08MDIwDGNXxZH7Nqzf4TBJNDAyMcxi3hbwg7Paa/vMrGhgYGMsy/gHUzxkGXbdPbwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://www.zonelyn.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://www.zonelyn.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+</body>
+</html>

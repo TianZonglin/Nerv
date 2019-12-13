@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="集群,转载,HA,脑裂,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+
+<meta name="description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NameNode HA：如何防止集群脑裂现象">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
+<meta property="og:site_name" content="TZLoop&#39;s Blog">
+<meta property="og:description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;k0qlr7wailej0vmdm54cpeuz&#x2F;image_1cbra11qd1ig91ahiirumb471b9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;f80e5v3jjsy90z47y0nqrnek&#x2F;image_1cbracpvr1bhu7nq1mqrsgc1ive16.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;02v6xpy69qqlrwbnu4bbexua&#x2F;image_1cbrag8vv1kbde2a19b97o81cnh1j.png">
+<meta property="article:published_time" content="2018-03-10T23:00:00.000Z">
+<meta property="article:modified_time" content="2018-04-24T08:23:25.914Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="集群">
+<meta property="article:tag" content="转载">
+<meta property="article:tag" content="HA">
+<meta property="article:tag" content="脑裂">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;k0qlr7wailej0vmdm54cpeuz&#x2F;image_1cbra11qd1ig91ahiirumb471b9.png">
+
+
+<meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
+
+
+<title>NameNode HA：如何防止集群脑裂现象 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="TZLoop&#39;s Blog" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109269848-1', { 'optimize_id': 'GTM-KRMX7LZ'});
+  gtag('config', 'UA-109269848-2', { 'optimize_id': 'GTM-TDPN587'});
+</script>
+
+<script>
+//window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+//ga('create', 'UA-109269848-1', 'auto');
+//ga('send', 'pageview');
+//console.log("Google Analytics done!");
+</script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
+<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+
+<!-- End Google Analytics -->
+
+
+
+
+
+
+<!-- Baidu Tongji -->
+<!-- <script>var _hmt = _hmt || []</script> -->
+<!-- <script async src="//hm.baidu.com/hm.js?c2e1413258e6c65224a7efe4e6d6a956"></script> -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1fe0247acc0edae9874a263c40d73b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Tongji -->
+
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	console.log("Baidu Push done!");
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+ 
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+if(window.location.href == "https://www.zonelyn.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			spop({
+				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+				position  : 'bottom-right',
+				autoclose: 14000
+			});
+			spop({
+				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+				position  : 'bottom-right',
+				autoclose: 15500
+			});
+			spop({
+				template: '号外：本站已更换COM域名！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 17000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+<script data-ad-client="ca-pub-9432057653708398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/other/page_about.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处是一张本博客内的图片">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=751d46f1614408b66761a561cbaf19fdf04b393df7403204acd550c9e25f2dde"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html"  >
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html"  >
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html"  >
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html"  >
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_comment.html"  >
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li >		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">NameNode HA：如何防止集群脑裂现象</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">NameNode HA：如何防止集群脑裂现象</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-10T23:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-03-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "NameNode HA：如何防止集群脑裂现象";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	typing();
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" >
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要Namenode-HA？"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么要Namenode HA？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Namenode-HA-的实现、技术难题"><span class="post-toc-number">2.</span> <span class="post-toc-text">Namenode HA 的实现、技术难题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#社区NN的HA架构、原理、机制"><span class="post-toc-number">3.</span> <span class="post-toc-text">社区NN的HA架构、原理、机制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ZKFC的设计"><span class="post-toc-number">4.</span> <span class="post-toc-text">ZKFC的设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#QJM的设计"><span class="post-toc-number">5.</span> <span class="post-toc-text">QJM的设计</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考"><span class="post-toc-number">6.</span> <span class="post-toc-text">参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2018-3-11 NameNode HA：如何防止集群脑裂现象"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">NameNode HA：如何防止集群脑裂现象</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-11 00:00:00" datetime="2018-03-10T23:00:00.000Z"  itemprop="datePublished">2018-03-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+
+
+
+			<span class="post-count">1,920&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">7����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>转自：<a href="http://www.cnblogs.com/shenh062326/p/3870219.html" target="_blank" rel="noopener">http://www.cnblogs.com/shenh062326/p/3870219.html</a><br>作者：南国故人</p>
+<p>社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。</p>
+<h3 id="为什么要Namenode-HA？"><a href="#为什么要Namenode-HA？" class="headerlink" title="为什么要Namenode HA？"></a>为什么要Namenode HA？</h3><ol>
+<li>NameNode High Availability即高可用。</li>
+<li>NameNode 很重要，挂掉会导致存储停止服务，无法进行数据的读写，基于此NameNode的计算（MR，Hive等）也无法完成。</li>
+</ol>
+<h3 id="Namenode-HA-的实现、技术难题"><a href="#Namenode-HA-的实现、技术难题" class="headerlink" title="Namenode HA 的实现、技术难题"></a>Namenode HA 的实现、技术难题</h3><ol>
+<li>如何保持主和备NameNode的状态同步，并让Standby在Active挂掉后迅速提供服务，namenode启动比较耗时，包括加载fsimage和editlog（获取file to block信息），处理所有datanode第一次blockreport（获取block to datanode信息），保持NN的状态同步，需要这两部分信息同步。</li>
+<li>脑裂（split-brain），指在一个高可用（HA）系统中，当联系着的两个节点断开联系时，本来为一个整体的系统，分裂为两个独立节点，这时两个节点开始争抢共享资源，结果会导致系统混乱，数据损坏。</li>
+<li>NameNode切换对外透明，主Namenode切换到另外一台机器时，不应该导致正在连接的客户端失败，主要包括Client，Datanode与NameNode的链接。</li>
+</ol>
+<h3 id="社区NN的HA架构、原理、机制"><a href="#社区NN的HA架构、原理、机制" class="headerlink" title="社区NN的HA架构、原理、机制"></a>社区NN的HA架构、原理、机制</h3><ol>
+<li>非HA的Namenode架构，一个HDFS集群只存在一个NN，DN只向一个NN汇报，NN的editlog存储在本地目录。</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/k0qlr7wailej0vmdm54cpeuz/image_1cbra11qd1ig91ahiirumb471b9.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>社区的NN HA包括两个NN，主（active）与备（standby），ZKFC，ZK，share editlog。流程：集群启动后一个NN处于active状态，并提供服务，处理客户端和datanode的请求，并把editlog写到本地和share editlog（可以是NFS，QJM等）中。另外一个NN处于Standby状态，它启动的时候加载fsimage，然后周期性的从share editlog中获取editlog，保持与active的状态同步。为了实现standby在sctive挂掉后迅速提供服务，需要DN同时向两个NN汇报，使得Stadnby保存block to datanode信息，因为NN启动中最费时的工作是处理所有datanode的blockreport。为了实现热备，增加FailoverController和ZK，FailoverController与ZK通信，通过ZK选主，FailoverController通过RPC让NN转换为active或standby。</p>
+<ol start="2">
+<li>关键问题：</li>
+</ol>
+<ul>
+<li>保持NN的状态同步，通过standby周期性获取editlog，DN同时想standby发送blockreport。</li>
+<li><p>防止脑裂<br>共享存储的fencing，确保只有一个NN能写成功。使用QJM实现fencing，下文叙述原理。<br>datanode的fencing。确保只有一个NN能命令DN。HDFS-1972中详细描述了DN如何实现fencing</p>
+<ul>
+<li>每个NN改变状态的时候，向DN发送自己的状态和一个序列号。</li>
+<li>DN在运行过程中维护此序列号，当failover时，新的NN在返回DN心跳时会返回自己的active状态和一个更大的序列号。DN接收到这个返回是认为该NN为新的active。</li>
+<li>如果这时原来的active（比如GC）恢复，返回给DN的心跳信息包含active状态和原来的序列号，这时DN就会拒绝这个NN的命令。</li>
+<li>特别需要注意的一点是，上述实现还不够完善，HDFS-1972中还解决了一些有可能导致误删除block的隐患，在failover后，active在DN汇报所有删除报告前不应该删除任何block。</li>
+</ul>
+<p>客户端fencing，确保只有一个NN能响应客户端请求。让访问standby nn的客户端直接失败。在RPC层封装了一层，通过FailoverProxyProvider以重试的方式连接NN。通过若干次连接一个NN失败后尝试连接新的NN，对客户端的影响是重试的时候增加一定的延迟。客户端可以设置重试此时和时间。</p>
+</li>
+</ul>
+<h3 id="ZKFC的设计"><a href="#ZKFC的设计" class="headerlink" title="ZKFC的设计"></a>ZKFC的设计</h3><ul>
+<li>FailoverController实现下述几个功能<ul>
+<li>监控NN的健康状态</li>
+<li>向ZK定期发送心跳，使自己可以被选举。</li>
+<li>当自己被ZK选为主时，active FailoverController通过RPC调用使相应的NN转换为active。</li>
+</ul>
+</li>
+<li>为什么要作为一个deamon进程从NN分离出来<ul>
+<li>防止因为NN的GC失败导致心跳受影响。</li>
+<li>FailoverController功能的代码应该和应用的分离，提高的容错性。</li>
+<li>使得主备选举成为可插拔式的插件。</li>
+</ul>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/f80e5v3jjsy90z47y0nqrnek/image_1cbracpvr1bhu7nq1mqrsgc1ive16.png" alt="图2 FailoverController架构（源自社区）"></p>
+<ul>
+<li>FailoverController主要包括三个组件，<ul>
+<li>HealthMonitor 监控NameNode是否处于unavailable或unhealthy状态。当前通过RPC调用NN相应的方法完成。</li>
+<li>ActiveStandbyElector 管理和监控自己在ZK中的状态。</li>
+<li>ZKFailoverController 它订阅HealthMonitor 和ActiveStandbyElector 的事件，并管理NameNode的状态。</li>
+</ul>
+</li>
+</ul>
+<h3 id="QJM的设计"><a href="#QJM的设计" class="headerlink" title="QJM的设计"></a>QJM的设计</h3><ul>
+<li><p>Namenode记录了HDFS的目录文件等元数据，客户端每次对文件的增删改等操作，Namenode都会记录一条日志，叫做editlog，而元数据存储在fsimage中。为了保持Stadnby与active的状态一致，standby需要尽量实时获取每条editlog日志，并应用到FsImage中。这时需要一个共享存储，存放editlog，standby能实时获取日志。这有两个关键点需要保证， 共享存储是高可用的，需要防止两个NameNode同时向共享存储写数据导致数据损坏。</p>
+</li>
+<li><p>是什么，Qurom Journal Manager，基于Paxos（基于消息传递的一致性算法）。这个算法比较难懂，简单的说，Paxos算法是解决分布式环境中如何就某个值达成一致，（一个典型的场景是，在一个分布式数据库系统中，如果各节点的初始状态一致，每个节点都执行相同的操作序列，那么他们最后能得到一个一致的状态。为保证每个节点执行相同的命令序列，需要在每一条指令上执行一个”一致性算法”以保证每个节点看到的指令一致）</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/02v6xpy69qqlrwbnu4bbexua/image_1cbrag8vv1kbde2a19b97o81cnh1j.png" alt="此处为博客中出现的关于Spark、Hadoop、Java、IDEA、Js及html相关内容的图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>如何实现</p>
+<ul>
+<li>初始化后，Active把editlog日志写到2N+1上JN上，每个editlog有一个编号，每次写editlog只要其中大多数JN返回成功（即大于等于N+1）即认定写成功。</li>
+<li>Standby定期从JN读取一批editlog，并应用到内存中的FsImage中。</li>
+<li>如何fencing： NameNode每次写Editlog都需要传递一个编号Epoch给JN，JN会对比Epoch，如果比自己保存的Epoch大或相同，则可以写，JN更新自己的Epoch到最新，否则拒绝操作。在切换时，Standby转换为Active时，会把Epoch+1，这样就防止即使之前的NameNode向JN写日志，也会失败。</li>
+<li>写日志：<ul>
+<li>NN通过RPC向N个JN异步写Editlog，当有N/2+1个写成功，则本次写成功。</li>
+<li>写失败的JN下次不再写，直到调用滚动日志操作，若此时JN恢复正常，则继续向其写日志。</li>
+<li>每条editlog都有一个编号txid，NN写日志要保证txid是连续的，JN在接收写日志时，会检查txid是否与上次连续，否则写失败。  </li>
+</ul>
+</li>
+<li>读日志：<ul>
+<li>定期遍历所有JN，获取未消化的editlog，按照txid排序。</li>
+<li>根据txid消化editlog。</li>
+</ul>
+</li>
+<li>切换时日志恢复机制<ul>
+<li>主从切换时触发</li>
+<li>准备恢复（prepareRecovery），standby向JN发送RPC请求，获取txid信息，并对选出最好的JN。</li>
+<li>接受恢复（acceptRecovery），standby向JN发送RPC，JN之间同步Editlog日志。</li>
+<li>Finalized日志。即关闭当前editlog输出流时或滚动日志时的操作。</li>
+<li>Standby同步editlog到最新</li>
+</ul>
+</li>
+<li>如何选取最好的JN<ul>
+<li>有Finalized的不用in-progress</li>
+<li>多个Finalized的需要判断txid是否相等</li>
+<li>没有Finalized的首先看谁的epoch更大</li>
+<li>Epoch一样则选txid大的。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://issues.apache.org/jira/secure/attachment/12480489/NameNode%20HA_v2_1.pdf" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12480489/NameNode%20HA_v2_1.pdf</a></li>
+<li><a href="https://issues.apache.org/jira/secure/attachment/12521279/zkfc-design.pdf" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12521279/zkfc-design.pdf</a></li>
+<li><a href="https://issues.apache.org/jira/secure/attachment/12547598/qjournal-design.pdf" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12547598/qjournal-design.pdf</a></li>
+<li><a href="https://issues.apache.org/jira/browse/HDFS-1972" target="_blank" rel="noopener">https://issues.apache.org/jira/browse/HDFS-1972</a></li>
+<li><a href="https://issues.apache.org/jira/secure/attachment/12490290/DualBlockReports.pdf" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12490290/DualBlockReports.pdf</a></li>
+<li><a href="http://svn.apache.org/viewvc/hadoop/common/branches/branch-2.2.0/" target="_blank" rel="noopener">http://svn.apache.org/viewvc/hadoop/common/branches/branch-2.2.0/</a></li>
+<li><a href="http://yanbohappy.sinaapp.com/?p=205" target="_blank" rel="noopener">http://yanbohappy.sinaapp.com/?p=205</a></li>
+</ol>
+<hr>
+<p>转自：<a href="http://www.cnblogs.com/shenh062326/p/3870219.html" target="_blank" rel="noopener">http://www.cnblogs.com/shenh062326/p/3870219.html</a><br>作者：南国故人</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html</a>
+        
+    </div>
+    <footer>
+        <a href="/other/page_about.html">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HA/" rel="tag">HA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%84%91%E8%A3%82/" rel="tag">脑裂</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2018-3-19%20IDEA%E5%A6%82%E4%BD%95%E5%9C%A8%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0Maven%E4%BE%9D%E8%B5%96.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">IDEA如何在项目中快速添加Maven依赖</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2018-3-5%20SourceInsight-%E5%BC%BA%E5%A4%A7%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%92%8C%E6%B5%8F%E8%A7%88%E5%B7%A5%E5%85%B7-%E4%B8%AD%E6%96%87%E6%95%99%E7%A8%8B.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SourceInsight-强大的代码编辑和浏览工具-中文教程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2016-11-05%20Hadoop%E9%9B%86%E7%BE%A4%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%AE%E9%A2%98.html">Hadoop集群运行时问题</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  Hadoop Copy
+-copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html">kettle相关知识</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  相关链接开源ETL工具(Kettle) V5.1.0 免费Spoon版http://www.cr173.com/soft/30051.htmlETL工具大全，你了解多少http://bbs.cs...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;223.0k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p  class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="/other/page_comment.html">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://is.boxmoe.cn/" >infiniteSky</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.zidone.cn/" >Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.daichongweb.com" >DaiChong</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
+					 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2019
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.coding.me" target="_blank" rel="noopener" >Coding Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://www.zonelyn.com/dddd.mp3',
+//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFRklEQVR42u3aQW7cMBAEQP//0wmQU4CYcvcMlQRw7cmQdyWyeNCwhx8f8efHr8/p79OV368/3+30zdOvTs86Pb29fvmDDx8+fPjwxYN4Ztrc5zTo5PuzkSQC+XPx4cOHDx++DV9eXtwaSo7VlkRtGZQsyfE6Pnz48OHD9xpfMo2kEGnjgDxESMaQzxEfPnz48OH7f/jyEDwZ3BulRn7lHxQu+PDhw4fv2/O1gXheRuRd5ralvYn+N8/Chw8fPnz4Nnz5JL/P35c/+PDhw4cPX1kKJG3pJDjYNwPatv1+1sc54sOHDx8+fCONWUyQb85vbcXzzf+sYdBGG/jw4cOHD98tvk1Le3ZwLS8y3muc51E+Pnz48OHDN+NrD2bl/83LgjxWmMUBbVif/xcfPnz48OHb8LVHvvLyJd+0J0H/rJDKY4V8JPjw4cOHD1/Ll0QGecydb7nzRvgsXHiGnhVhw7AeHz58+PDh+2PPmzysLQvapvWsDT9bjE2p9Mn5Pnz48OHDh2/Et5lSvr3ft7TrUwCjACIKF/Dhw4cPH75LfJshtkVG0ZZeL+GmLYEPHz58+PDt+S5smxdhQbIks0b4rRAkKrPw4cOHDx++mG9WOrTN9aRMaeHyMGJWVEUNe3z48OHDh29+uiz65CXLPoyYBfrt9TxEWMHhw4cPHz588eu/Hcp+w59ED1GM/kJY/0lkgA8fPnz48MV8SUmxec3ncXzRll5s4zfl0RdnDfDhw4cPH75gVHlYPwNNXv/509uyKQ/oh010fPjw4cOHr+TLj6C1h8NmR8Ta0Dx/ek6TF0/48OHDhw/fjG/24Nlrvo3U2xLqVv86L7Dw4cOHDx++PV97TC0f6D7Qzyc8ix7a++PDhw8fPnz5/fcPzoPvvLG9OR6XNwby+dZH0/Dhw4cPH77HkW8OgeWB+Cx2b0uN9j4X2uf48OHDhw/fiC8pBfI4ux3Q/kBb23jID9J9sWz48OHDhw/fKJfeRPazOCCP/pOR5A3ydr5RUwEfPnz48OEr+WYh+ywif/5te/QtX8hZWF+XL/jw4cOHD98jX/v4/PqsyGixZoHFbEb48OHDhw/fnm8WCrTb/nzTPmvJ78OLNtzHhw8fPnz4Wr7NC3sW7m+ChqRMmR1um1Hiw4cPHz58M77204b7s/u0BUobWLSRx7FwwYcPHz58+Lo9ct1CzpvKt0qffHnaxkDbyB9ODx8+fPjw4Ru91PfBQTvozXhuNdcjRHz48OHDhy/my6P5dkp5KP9e6PB6Ax4fPnz48OFb8OXN5rah3hYrecO7hduHC/jw4cOHD9+ML5nSbCjJMuSBwqyJ3hZJz7P44pQBPnz48OHDN+Jrj47NWsv77f2sedBGG/jw4cOHD98bfLNNeD7JfIh5QdOObfMUfPjw4cOH7xZf/uO2gb2PEjYtgbb9P1sefPjw4cOHb8M328AnIX7bEshb5m2Df1YGFSULPnz48OHD9zj+pLxoX/Z5udMuw+YO7ZLUiQs+fPjw4cNXtsk3k8yZZhy3yp1hjnKywocPHz58+NZ8eSFyizuP9fNm9p44ih7w4cOHDx++km9fKOzj+OTOSdugbcDfajbgw4cPHz58LV9brOyPr+1xN3fb3PnYLMeHDx8+fPhKvk27+tYkV9F5WXzk1Vx91gAfPnz48OG7xNceWUu29EnEv4n125Z8cUANHz58+PDh+yt87TdnDfKkeCrKizjoz8sgfPjw4cOHb8PXHkq7FQ1cC80X7fx8YS60yfHhw4cP37fny8PxtuzYxxCbOKBdvDbox4cPHz58+Eq+n0Yf2IjE9vCXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://www.zonelyn.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://www.zonelyn.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+</body>
+</html>

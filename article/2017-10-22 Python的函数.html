@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="Python,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+
+<meta name="description" content="Python的内置的函数round()     a &#x3D; 1.12586     #保留小数的函数,四舍五入，参数为保留小数点后的位数     print(round(a,2))     快速查看内置函数功能：命令行直接输入python,进入RPEL，使用help()函数         &gt;&gt;&gt; help(round)             Help on built-in fu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python的函数">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html">
+<meta property="og:site_name" content="TZLoop&#39;s Blog">
+<meta property="og:description" content="Python的内置的函数round()     a &#x3D; 1.12586     #保留小数的函数,四舍五入，参数为保留小数点后的位数     print(round(a,2))     快速查看内置函数功能：命令行直接输入python,进入RPEL，使用help()函数         &gt;&gt;&gt; help(round)             Help on built-in fu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-10-21T22:00:00.000Z">
+<meta property="article:modified_time" content="2017-11-06T16:23:14.337Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+
+<meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
+
+
+<title>Python的函数 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="TZLoop&#39;s Blog" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109269848-1', { 'optimize_id': 'GTM-KRMX7LZ'});
+  gtag('config', 'UA-109269848-2', { 'optimize_id': 'GTM-TDPN587'});
+</script>
+
+<script>
+//window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+//ga('create', 'UA-109269848-1', 'auto');
+//ga('send', 'pageview');
+//console.log("Google Analytics done!");
+</script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
+<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+
+<!-- End Google Analytics -->
+
+
+
+
+
+
+<!-- Baidu Tongji -->
+<!-- <script>var _hmt = _hmt || []</script> -->
+<!-- <script async src="//hm.baidu.com/hm.js?c2e1413258e6c65224a7efe4e6d6a956"></script> -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1fe0247acc0edae9874a263c40d73b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Tongji -->
+
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	console.log("Baidu Push done!");
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+ 
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+if(window.location.href == "https://www.zonelyn.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			spop({
+				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+				position  : 'bottom-right',
+				autoclose: 14000
+			});
+			spop({
+				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+				position  : 'bottom-right',
+				autoclose: 15500
+			});
+			spop({
+				template: '号外：本站已更换COM域名！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 17000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+<script data-ad-client="ca-pub-9432057653708398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/other/page_about.html" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处是一张本博客内的图片">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=751d46f1614408b66761a561cbaf19fdf04b393df7403204acd550c9e25f2dde"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html"  >
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html"  >
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html"  >
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html"  >
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_comment.html"  >
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li >		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">Python的函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">Python的函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-21T22:00:00.000Z" itemprop="datePublished" class="page-time">
+  2017-10-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python学习笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "Python的函数";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	typing();
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" >
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Python的内置的函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python的内置的函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Python函数的特点："><span class="post-toc-number">2.</span> <span class="post-toc-text">Python函数的特点：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数定义"><span class="post-toc-number">3.</span> <span class="post-toc-text">函数定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数调用："><span class="post-toc-number">4.</span> <span class="post-toc-text">函数调用：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#对于多个参数的函数调用："><span class="post-toc-number">5.</span> <span class="post-toc-text">对于多个参数的函数调用：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#序列解包："><span class="post-toc-number">6.</span> <span class="post-toc-text">序列解包：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小贴士："><span class="post-toc-number">7.</span> <span class="post-toc-text">小贴士：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数的参数类型"><span class="post-toc-number">8.</span> <span class="post-toc-text">函数的参数类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#注意混合参数的调用："><span class="post-toc-number">9.</span> <span class="post-toc-text">注意混合参数的调用：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#高级传参："><span class="post-toc-number">10.</span> <span class="post-toc-text">高级传参：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#变量作用域"><span class="post-toc-number">11.</span> <span class="post-toc-text">变量作用域</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#函数的作用域：同变量一样"><span class="post-toc-number">12.</span> <span class="post-toc-text">函数的作用域：同变量一样</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#作用域链"><span class="post-toc-number">13.</span> <span class="post-toc-text">作用域链</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#global关键字："><span class="post-toc-number">14.</span> <span class="post-toc-text">global关键字：</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2017-10-22 Python的函数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Python的函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-22 00:00:00" datetime="2017-10-21T22:00:00.000Z"  itemprop="datePublished">2017-10-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Python学习笔记</a></li></ul>
+
+
+
+			<span class="post-count">2,118&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">9����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h4 id="Python的内置的函数"><a href="#Python的内置的函数" class="headerlink" title="Python的内置的函数"></a><strong>Python的内置的函数</strong></h4><pre><code>round()
+    a = 1.12586
+    #保留小数的函数,四舍五入，参数为保留小数点后的位数
+    print(round(a,2))
+    快速查看内置函数功能：命令行直接输入python,进入RPEL，使用help()函数
+        &gt;&gt;&gt; help(round)
+            Help on built-in function round in module builtins:
+            round(...)
+            round(number[, ndigits]) -&gt; number
+
+            Round a number to a given precision in decimal digits (default 0 digits).
+            This returns an int when called with one argument, otherwise the
+            same type as the number. ndi
+打印出python之禅
+    &gt;&gt;&gt; import this
+        The Zen of Python, by Tim Peters
+
+        Beautiful is better than ugly.
+        Explicit is better than implicit.
+        Simple is better than complex.
+        Complex is better than complicated.
+        Flat is better than nested.
+        Sparse is better than dense.
+        Readability counts.
+        Special cases aren&apos;t special enough to break the rules.
+        Although practicality beats purity.
+        Errors should never pass silently.
+        Unless explicitly silenced.
+        In the face of ambiguity, refuse the temptation to guess.
+        There should be one-- and preferably only one --obvious way to do it.
+        Although that way may not be obvious at first unless you&apos;re Dutch.
+        Now is better than never.
+        Although never is often better than *right* now.
+        If the implementation is hard to explain, it&apos;s a bad idea.
+        If the implementation is easy to explain, it may be a good idea.
+        Namespaces are one honking great idea -- let&apos;s do more of those!
+</code></pre><h4 id="Python函数的特点："><a href="#Python函数的特点：" class="headerlink" title="Python函数的特点："></a><strong>Python函数的特点：</strong></h4><ol>
+<li>功能性</li>
+<li>隐藏细节</li>
+<li>避免编写重复代码</li>
+<li>组织代码</li>
+<li>自定义函数</li>
+</ol>
+<h4 id="函数定义"><a href="#函数定义" class="headerlink" title="函数定义"></a><strong>函数定义</strong></h4><pre><code>def funcname(parameter_list):
+    pass
+上述函数定义有以下特点：
+    1.parameter_list参数列表可以没有
+    2.可以使用 return 返回函数结果，如果不写，则认为返回 None
+    3.funcname不推荐与内置函数名相同，因为会同名并产生递归
+        对于递归而言默认只允许为995，应该使用：
+        #import sys
+        #sys.setrecursionlimit(1000000) 修改最大递归层数
+    4.对于函数不强制返回类型，可以动态返回类型
+</code></pre><h4 id="函数调用："><a href="#函数调用：" class="headerlink" title="函数调用："></a><strong>函数调用：</strong></h4><pre><code>def add(x,y):
+    return x+y
+def printA(code):
+    print (code)
+    return
+    print(&quot;a&quot;) #return 后的代码不执行
+
+print(add(1,2),printA(&quot;abc&quot;)) #print(A,B,C)可以连续打印，打印在同一行
+打印：
+    abc            为什么先打印abc？
+    3 None         为什么打印None不换行？
+解释：
+    首先执行add函数，内部没有打印，但是返回3，暂存，接下来执行printA函数
+    此时printA内打印出abc，且printA没有return即返回值为None，此时，
+    print(3,None)，然后就在同一行打印出3，None，之前已经打印了abc
+</code></pre><h4 id="对于多个参数的函数调用："><a href="#对于多个参数的函数调用：" class="headerlink" title="对于多个参数的函数调用："></a><strong>对于多个参数的函数调用：</strong></h4><pre><code>def re_two_1(skill_1, skill_2):
+    re_1 = skill_1
+    re_2 = skill_2
+    return (re_1,re_2)
+def re_two_2(skill_1, skill_2):
+    re_1 = skill_1
+    re_2 = skill_2
+    return re_1,re_2
+print(re_two_1(1,2))    #打印 (1, 2)
+print(re_two_2(1,2))    #打印 (1, 2)
+注意：
+    不用显式的使用元组，直接逗号罗列即可返回一个元组
+
+拆分多个返回结果：
+    第一种方法：不推荐，只是使用无意义的下标
+        res = re_two_2(1,2)
+        print(res[0],res[1]) 
+    第二种方法：序列解包，有意义
+        r1,r2 = re_two_2(1,2)
+        print(r1,r2) 
+</code></pre><h4 id="序列解包："><a href="#序列解包：" class="headerlink" title="序列解包："></a><strong>序列解包：</strong></h4><pre><code>必须严格对照，否则报错
+    a = 1
+    b = 2
+    c = 3
+    a,b,c = 1,2,3
+    print(a,b,c)
+这也是一种解包的形式
+    a = 1,2,3
+    c,d,e = a
+    print(c,d,e)
+</code></pre><h4 id="小贴士："><a href="#小贴士：" class="headerlink" title="小贴士："></a><strong>小贴士：</strong></h4><pre><code>a = 1
+b = 1
+等价于 a = b = 1
+</code></pre><h4 id="函数的参数类型"><a href="#函数的参数类型" class="headerlink" title="函数的参数类型"></a><strong>函数的参数类型</strong></h4><pre><code>调用上的区分：
+1.必须参数，在参数列表中定义的参数，必须按顺序传入，否则报错
+2.关键字参数，可以指定传入参数顺序，参数数量要对应，可以增加可读性
+    add(y = 3,x = 2)，这种形式调用，明确指定形参和实参的对应
+    def add(x,y):   形式参数x，y
+        return x+y
+    print(add(1,2)) 实际参数1,2
+
+3.默认参数
+    如果函数输入过多，应该封装成对象，或者是添加默认参数
+    如果不是默认参数，那么形参实参必须严格对照
+
+正常的定义和调用：
+    def print_student(name,age,school):
+        print(name)
+        print(age)
+        print(school)
+print_student(&apos;Jack&apos;,18,&apos;清华&apos;)
+
+带默认参数的定义和调用：
+    def print_student_defalut(name,age,school= &apos;清华&apos;):
+        print(name)
+        print(age)
+        print(school)
+
+    print_student_defalut(&apos;Tommy&apos;,18)   不带默认值
+
+    print_student_defalut(&apos;Tommy&apos;,18,&apos;北大&apos;)            修改默认值
+    print_student_defalut(&apos;Tommy&apos;,18,school = &apos;北大&apos;)   修改默认值
+
+注意：
+    如果默认参数在必传参数的的中间，则报错：
+        def print_student_defalut(name,school= &apos;清华&apos;,age)
+        上述定义不合规则，应该必传在前，默认参数在后
+    如果有多个默认参数，例如2个，只想修改第二个默认参数时，必须使用关键字参数指明赋值
+        def add(a,b,c=1,d=&apos;加法&apos;)
+        上述只修改d时，调用add(2,3,&apos;减法&apos;)，这是错误的，默认参数列表对应错误
+    同样，多个默认参数在调用时，调用的形参也必须按照默认参数都放在后面的规范，不能夹杂调用
+        add(2,c=1,3,d=&apos;减法&apos;)
+        上述虽然使用了关键参数，但是夹杂定义，仍然报错
+4.可变参数
+    print(&apos;a&apos;,&apos;b&apos;,&apos;c&apos;) 具有可变的形参列表
+
+    通过一般参数来实现可变输入：
+        def nomal(param):
+            print(param,type(param))
+        nomal((1,2,3,5))    输出#(1, 2, 3, 5) &lt;class &apos;tuple&apos;&gt; 
+
+    可变输入形式：
+        def change(*param):
+            print(param,type(param))
+        change(1,2,3,5)     输出#(1, 2, 3, 5) &lt;class &apos;tuple&apos;&gt;
+    注意：
+        对于有动态参数的change函数，如果change((1,2,3)),传入元组
+        那么进入函数后会生成二维元组((1,2,3))，此时可以用change(*(1,2,3))
+        上述方式采用*号，将传入元组类似解包，去掉元组外壳
+</code></pre><h4 id="注意混合参数的调用："><a href="#注意混合参数的调用：" class="headerlink" title="注意混合参数的调用："></a><strong>注意混合参数的调用：</strong></h4><pre><code>def demo(param1,param2 = &apos;默认值&apos;,*param3):
+    print(param1,type(param))
+    print(param2,type(param))
+    print(param3,type(param))
+
+如果想跳过默认值，直接赋值可变参数，如下形式：    
+    demo(1,2,3)这样仍然给 默认参数赋值2 ，这是不行的
+
+首先要修改默认参数，都放到最后
+    def demo(param1,,*param2,param3 = &apos;默认值&apos;):
+        print(param1,type(param))
+        print(param2,type(param))
+        print(param3,type(param))
+    如果想修改默认值，使用demo(1,2,3,&apos;修改&apos;),并不能达到目的，其会将(2,3,&apos;修改&apos;)作为可变参数
+然后：
+    正确方法是demo(1,2,3,param3 =&apos;修改&apos;)
+    上述方法，指明默认参数，而且可变参数也正确的识别为(2,3)
+
+综上，混合参数函数的调用比较复杂，在函数中尽量避免使用
+</code></pre><h4 id="高级传参："><a href="#高级传参：" class="headerlink" title="高级传参："></a><strong>高级传参：</strong></h4><pre><code>带可变参数的函数在调用时传入参数的解包：
+    def pingfanghe(*param):
+        sum = 0
+        for i in param:
+            sum += i*i
+        print(sum)
+    pingfanghe(1,2,3)           # 14
+    pingfanghe(*[1,2,3,4])      # 30    注意此处的*号
+
+使用**传入字典：
+    def print_age(**param):
+        print(param)
+    print_age(xiaoming=18,Tom=24,Lina=13)
+    # {&apos;xiaoming&apos;: 18, &apos;Tom&apos;: 24, &apos;Lina&apos;: 13}
+
+遍历字典;
+    def print_age1(**param):
+        for c in param:
+            print(c)
+    print_age1(xiaoming=18,Tom=24,Lina=13)
+    输出：
+        #Tom
+        #Lina
+        #xiaoming
+
+    def print_age2(**param):
+        for a,b in param:
+            print(b)
+    print_age2(xiaoming=18,Tom=24,Lina=13)
+    输出：
+        #Lina : 13
+        #xiaoming : 18
+        #Tom : 24
+
+传入字典：
+    dic = {&apos;xiaoming&apos;:18,&apos;Tom&apos;:24,&apos;Lina&apos;:13}
+    print_age2(**dic)
+    输出：
+        #xiaoming : 18
+        #Tom : 24
+        #Lina : 13
+    传入空值时什么都不做
+        print_age2()    输出空白
+
+指明传入字典的映射：
+    def print_age2(**param):
+        print(param)
+        for a,b in param:
+            print(a,b)
+    print_age2( Jack = 18,Tom = 24,Lina = 13) #注意使用方式
+</code></pre><h4 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a><strong>变量作用域</strong></h4><pre><code>示例代码：
+    c = 50  #全局变量
+    def add(x, y):
+        c = x + y   # 局部变量 c 作用域只是在函数内部，相当于新变量，与外部的 c 无关
+        print(c)
+    add(1,2)    # c = 3
+    print(c)    # c = 50
+
+注意：
+    对于控制语句，python的特性：
+        for while if 内定义的变量，在结束体之外也能访问
+            for x in range(0,3):
+            a = &apos;a&apos;
+            print(a)    # 可以输出a
+        for while if 内接收的变量，与for同级的变量可以直接引用
+            a = 10
+            for x in range(0,1):
+            print(a)       # 可以打印出10
+    原因：Python只有函数作用域，没有块作用域
+</code></pre><h4 id="函数的作用域：同变量一样"><a href="#函数的作用域：同变量一样" class="headerlink" title="函数的作用域：同变量一样"></a><strong>函数的作用域：同变量一样</strong></h4><pre><code>示例代码：
+    c = 1
+    def func1():
+        c = 2
+        def func2():
+            c = 3
+            print(c)
+        func2()     #func2作用域 只限于函数func1内
+    func1()         #调用func1最终会调用func2，然后执行打印
+</code></pre><h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a><strong>作用域链</strong></h4><pre><code>作用域具有逐级寻找的过程：
+    c = 1
+    def func1():
+        def func2():
+            print(c)    # 可以打印c，作用域链，逐级寻找
+            a = 2
+        func2()      
+    func1()         
+    print(a)    # 不可以打印a，作用域出错
+</code></pre><h4 id="global关键字："><a href="#global关键字：" class="headerlink" title="global关键字："></a><strong>global关键字：</strong></h4><pre><code>示例代码：
+    c = 1
+    def func1():
+        def func2():
+            print(c)    # 可以打印c，作用域链，逐级寻找
+            global a    # 注意这里使用global关键字
+            a = 2       # 注意：使用global a = 2 是错误的
+        func2()      
+    func1()         
+    print(a)    # global修饰后可以打印，同样体现了作用域链
+注意：
+    对于全局变量，包括global，可以在全部模块中都被使用，只需 import相关模块
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html" target="_blank" rel="external">https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html</a>
+        
+    </div>
+    <footer>
+        <a href="/other/page_about.html">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&title=《Python的函数》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&title=《Python的函数》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的函数》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2017-10-23%20Python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python的正则表达式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/2017-10-17%20Python%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python的项目代码结构</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/2017-10-15%20Python%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81.html">Python的控制流</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  使用分支时注意变量命名规范：用户名：user_name,按下划线而不是驼峰
+条件控制if else
+循环控制for while break continue
+分支控制没有switch
+没有got...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;223.0k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p  class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="/other/page_comment.html">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://is.boxmoe.cn/" >infiniteSky</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.zidone.cn/" >Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.daichongweb.com" >DaiChong</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
+					 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2019
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.coding.me" target="_blank" rel="noopener" >Coding Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://www.zonelyn.com/dddd.mp3',
+//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&title=《Python的函数》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&title=《Python的函数》 — TZLoop's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的函数》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html&via=https://www.zonelyn.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-10-22%20Python%E7%9A%84%E5%87%BD%E6%95%B0.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3awW7CQAwE0P7/T7fXSgiYsXdbDi8nVCDJ20qxGe/XV3x8/zp+/+XxM/nrxzM/u8rj3w8feHh4eItbTy6T8/JvJYzX53/6XTw8PLxrvOR0CawtJ3kByM+Dh4eH92m8Z7eevJsv2WaZ8PDw8D6Nl0cGeWOdXwUPDw/vc3hJGJEHr230MItCDmcteHh4eDEvnyJ9zusr8z08PDy89VQ9f+DuR2WzbQRv7hYPDw/vAi9/4Oat8+tFyRvfWbuMh4eH91+8fUAwW5pZV/zmnHh4eHgXeLObyAtA20DnBSAZ4+Hh4eGd5eWAttltm+x2UaKFxsPDw7vAa8OIHPnsnJvGuggg8PDw8P6EN2uO2wFVi9kXEjw8PLx7vDyYaC+TF4w8jCjKAx4eHt5R3uyxPmu49yOuepMBHh4e3gVe+8M+j2JnIcIm/B1O+fDw8PDKK7YD/vbR395cuzngDRIPDw/vAq/dCrAfd+0/WQ/J8PDw8I7y8gIw2xCQL00bGUclCg8PD+9PeC2sDlLLR/8sjHiaUuPh4eEd4m2G/a+/1RaSWXMfZS14eHh4h3izH/9nI9123FUXGzw8PLyjvNcP9E3Z2Lfm+dIX/zc8PDy8a7w8ntgsTc4rNgrg4eHhXeZtikQeDbQN9DB0OFsD8fDw8ILf7G3o0G4+mL17YOSGh4eHd42Xb5baNMp5Gcjj4DdlCQ8PD+8abxa5tvFr3oLPBnJPfyvg4eHhHeJ9l8csHc0b97wIRQuHh4eHd4GXH2eb3VnBODYMw8PDw1vz8tAh//yNTVrDwoCHh4d3jddeZnZz7aaEw1kLHh4e3j/xZu/u+/p2ywIeHh7e5/Dyh3gSxeblIW/68fDw8P6G1w6fNpHEZtNVG1Lg4eHh3eC17WxeTvJB2maD14EDDw8PL+X9APHcu2A8UcKNAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://www.zonelyn.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://www.zonelyn.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+</body>
+</html>
