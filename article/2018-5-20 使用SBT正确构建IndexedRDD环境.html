@@ -352,7 +352,17 @@ if(window.location.href == "https://www.zonelyn.com/"){
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu" class="hide" >
+    <style>
+
+#menu .mail {
+    display: inline-block;
+    padding-top: 4px;
+    color: #ffffff;
+    font-size: 13px;
+}
+</style>
+
+<aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -362,11 +372,39 @@ if(window.location.href == "https://www.zonelyn.com/"){
         <a href="/other/page_about.html" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/logo.jpg" alt="此处是一张本博客内的图片">
         </a>
-        <hgroup class="introduce">
+        <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
           <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=751d46f1614408b66761a561cbaf19fdf04b393df7403204acd550c9e25f2dde"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
-      </div>
+		<!--STEAM-->
+		<a href='https://steamcommunity.com/id/tianzonglin' target="_blank" rel="noopener"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFDElEQVRogdWaW2wVVRSG/1WwWkDECm2UiiKFKF6INUhQIGKBB1ERVEzUeElMfDEYjT6ZaH0w+ObtBWIwPqhJjTEkGpRLi0BUFAqJIVyUWAKI1EspBVRE+vmw59B9NjPnzKFzDvAnzXT2Xnvt/9+zL2vWHFMMgNmSFkqaLqlB0tA4uwrgmKR9kjZI+tjM1hS0BiYA6zh38RUw3udsHvkZkpZLujT7gcwUhyTNM7MNUiQAmCBpo8598jl0S5piZrurooIlOn/IS1KtpGWSZLgFu6rCBJDUIWmzpIOSjkoaLekqSc2SLknpZ5aAdyu4CI8ALUBDojKoBuYCm1L4WypgZxkJ+/gcqE/9iMCAJ4G/CvjcIaC3AuTfAAbFkBwEXAGMA2LPGmAy0JXgt1cVIP8hYAGpm4GPgMOeXR+wGXgGqA7sbwP+iXNebgG7gBqPSBXwOnCySLvtuK3dF7EozrDcAu4PSCz16g7iFnQzMBV4FPjSq/8duMZrewHwY9hBOQXswJs6wMNe3WfA8IQ5/wD9C3czUOXVPVVJAYuDqdPpkbowjrxn/5jnZ6FXXkcw/copoNnreFpceQEBBnRE9suDuq1+J1VJTjLAfu//W6Nrj6S1xRqaGXKBpSRNCar3+jflEvCfpF+8+7roesDM+lL62BddR5G/DXf5RuUS8KqZHfXue6JrKQFjbXQ9HD2RHPJ8lEPAekmLg7Jt0fVy4IaUfmYHbXMYnXeX8cLtBsaETIAaoCey+aQYc9y50BfZL/LKhxLERlkLeLAAqZc8uxaC8MKzuxbYF9ntB4Z4dfPDDrMUsKzIqFYD6z371cAcYAhu2xwPvEx/cPkvMDPwsbZcAnaREE0GBGqBNTHtw9ioF5gXtL07ruOBCjiJe8y3FCPvERkMPE3/yezjb+ADYGzQpgH4NY6AAd9KmizptHg9ATslvS/pU0l7zOxEWvIxYiZJapQ0TNIBSRvN7EhgM1LSSklNhRyNBB7Bxeh/JIz2MeBFYPCZEi4VwI3Az4WmQFyjQcDtwGu4uKMP9y47Pca2GqgHLsqYeB3wDm4hF0QaZ6OBiUHZTGAlcNzztQU3t0t6Qrg1MRVYALwAtAEnihFPLSCmwxHA28BPCT7bgREpfV0NfJ2WbCYCAgKNuHfYleRvhV+QcFB5bR+i/3Q+OwICQjcBez3f8xPshgHvDZR45gIicjM838tj6ptwh15mENAKPEEJSaciIjoj33u9MgOeJ3/RZwKDU4+hT9IWSSuiv00lvHz4Ar6TewPrNrPLorJaSX8OdHCSOkzCbwRpkRS+RuAOPIAOr/z6rEc+h0IvNKMk3euRaASeA65LIG+S3pKUC39XeNWTShmIklBEYBdRCgSXGsllCvYAS3A5nIm4sLjNa3cIGOX10ZrZkAdIE40+7hEZS3wU6eM4MNdr00iKkOBMkUbAQdwizBEagztt47AdmObZGi4LVzYY0Cvp4iIzrV3SXWZ23CPXJPc1pV4u6/CNpHVmdtKzaZH0SqnTugQcKeUDRxtQV9znqQDtzfKMeR62V8l9RE6DOyX9gEtz18QZ4ELxeyRtlfRsSr8DwQYDZklaXWLDY3LTapvcATVc0jhJc+S230qhOfeduE1uhM8nrDOzO3ICxkr6XtLIs8spNfI/dJtZp6QFUcW5jm5J95nZ7tNqcMmltRXYPc4U7UCjzzkpvdes/p/bXCmX9jgbOKr+n9u0mll7aPA/20As/03t1OYAAAAASUVORK5CYII="></a>
+		<!--in-->
+		<a style="margin-left:5px;" href='https://cn.linkedin.com/in/tianzonglin' target="_blank" rel="noopener" ><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+		<!--fb-->
+		<a style="margin-left:4px;" href='https://www.facebook.com/zonglin.tian.7' target="_blank" rel="noopener"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABbklEQVRoge2Zv0oDQRDGvxEbUSxt7HyE6BtYarBQ8Dn0FULAyhfRwsJK8M8DaGsptrbmEAvhswjCuVnD3VxudoT5lcPu7PdjcnshAYIgUEHygOQDyYrlqUjekxy2lTgrm3su41xmyU0CwJVujmYMReS6XljKLDoxCtOF07SQm8gEwJpJHD0TEVmvF3IitMujR0R+Zc99tP4lIeKNEOlIBWAEYIDpDbkKYAvAMYAbTcMSt9YrgF0ReflrQZMMpW+tLwBH8yS0WItcishTH42tRS76amwt8pgWSB6SfCb58fP1VtPY+mFfEZHP5Lw3ABttG6UPu6lIeniX80rfWr0RIk2QhIZrNjVneZzItmZTiPTIjmaTR5GBZtPyolPUSd8Ri3yPpHiciIoQ8UaIeCNEvBEi3ggRb+REKvMU7XlPCzmRmZ9sHDKTMSdybhCkK80ykhyb/NGsY9RKmeQ+yTuSk8LByWmGW5J7mvEFQQB8A7wTurytysqXAAAAAElFTkSuQmCC"></a>
+		<!--ins-->
+		<a style="margin-left:4px;" href='https://www.instagram.com/tzloop/' target="_blank" rel="noopener" ><img width="22px"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+		<!--github-->
+		<a style="margin-left:4px;" href='https://github.com/TianZonglin' target="_blank" rel="noopener" ><img  width="21.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+		<div style="margin-top:7px;">
+		<!--图虫-->
+		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+		<!--豆瓣-->
+		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="static/doub.png"></a>
+		<!--专栏-->
+		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="static/yunjia.png"></a>
+		
+		
+		
+		</div>
+
+		
+		
+		
+		
+		
+
+	  </div>
     </div>
     <div class="scroll-wrap flex-col">
       <ul class="nav"><!--
@@ -488,6 +526,7 @@ window.onclick = function(e) {
  
 </script>	
 <style>
+ 
 .dropbtn {
  
 }
@@ -1048,20 +1087,15 @@ spark-indexedrdd-0.4.0
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-11-26%20Spark%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA.html">Spark的运行环境及远程开发环境的搭建</a></b>
+		  <b><a class="post-title-link" href="/article/2017-11-28%20Spark%E7%9A%84RDDs%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9.html">Spark的RDDs相关内容</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  基本概括概述spark快速 
+		  RDDs的介绍Driver program
+main()方法，RDDs的定义和操作
+管理很多节点，称作executors
 
-扩充了mapreduce
-基于内存计算（中间结果的存储位置）
-
-spark通用
-
-批处理hadoop
-迭代计算 机器学习系统
-交互式查询 hive
-流处理 sto...
+SparkContext
+Driver programs通过Spark...
 		  </p>
 		  
 		</div>
