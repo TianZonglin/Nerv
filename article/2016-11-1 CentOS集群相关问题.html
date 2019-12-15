@@ -6,7 +6,7 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="CentOS,调试,联网,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+<meta name="keywords" content="调试,CentOS,联网,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
 <meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
 
@@ -23,8 +23,8 @@
 <meta property="article:published_time" content="2016-10-31T23:00:00.000Z">
 <meta property="article:modified_time" content="2017-12-09T13:50:53.351Z">
 <meta property="article:author" content="TZLoop">
-<meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="调试">
+<meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="联网">
 <meta name="twitter:card" content="summary">
 
@@ -904,7 +904,9 @@ a.items5:hover {
 			
 		}
 	}
-	typing();
+	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+		typing();
+	}
 </script>
 
 <div class="container body-wrap">
@@ -1071,13 +1073,12 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2016-10-27%20CentOS%E5%AE%89%E8%A3%85JDK.html">CentOS安装JDK</a></b>
+		  <b><a class="post-title-link" href="/article/2016-10-30%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20VMware%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98.html">VMware虚拟机相关问题</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  centos 安装jdk
-目的是使用hadoop不要使用openjdk，要使用更完整的jdk，Oracle官网
+		  主机连不上VMware，ping不通，分析：与linux能不能上网没有关系，是VMware软件设置出错
 
-首先卸载当前已有的jdk【root下进行】12java-version显示当前j...
+可能原因1.服务。打开服务，查看VM的各项服务是否为启动状态【首先要确定】2.同一网段。...
 		  </p>
 		  
 		</div>
@@ -1087,12 +1088,13 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2016-10-30%20%E8%99%9A%E6%8B%9F%E6%9C%BA%20VMware%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98.html">VMware虚拟机相关问题</a></b>
+		  <b><a class="post-title-link" href="/article/2016-10-27%20CentOS%E5%AE%89%E8%A3%85JDK.html">CentOS安装JDK</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  主机连不上VMware，ping不通，分析：与linux能不能上网没有关系，是VMware软件设置出错
+		  centos 安装jdk
+目的是使用hadoop不要使用openjdk，要使用更完整的jdk，Oracle官网
 
-可能原因1.服务。打开服务，查看VM的各项服务是否为启动状态【首先要确定】2.同一网段。...
+首先卸载当前已有的jdk【root下进行】12java-version显示当前j...
 		  </p>
 		  
 		</div>
