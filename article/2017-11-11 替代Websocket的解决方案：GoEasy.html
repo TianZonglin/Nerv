@@ -21,7 +21,7 @@
 <meta property="og:description" content="写在前面GoEasy这个库的适用场景：同Websocket的场景在后台使用例如Java进行逻辑处理后将变量的值传入前台，前台不用发起请求即可接收后台发布的数据，整个流程与Redis的Pub和Sub过程类似整个交互类似Socket的长连接，前台首次调用不需要请求后台。非常适合监控后台参数等场景；  但是：GoEasy最大的问题：传输数据大小有限制，大概只有几千字符！！超出大小的传输部分会被丢弃从而会">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-11-10T23:00:00.000Z">
-<meta property="article:modified_time" content="2018-04-18T07:14:45.152Z">
+<meta property="article:modified_time" content="2019-12-15T01:33:21.070Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="WebSocket">
 <meta property="article:tag" content="可视化">
@@ -928,7 +928,7 @@ a.items5:hover {
 
 
 
-			<span class="post-count">963&nbsp;&#x5B57;</span>
+			<span class="post-count">964&nbsp;&#x5B57;</span>
 <!--
 <span class="post-count">4����</span>
 
@@ -953,7 +953,7 @@ a.items5:hover {
 <p>对于订阅必须要的信息有：Appkey, channel</p>
 <p>对于推送必须要的信息有：Appkey, channel, content</p>
 <h3 id="用GoEasy实现订阅（接收）的实例"><a href="#用GoEasy实现订阅（接收）的实例" class="headerlink" title="用GoEasy实现订阅（接收）的实例"></a>用GoEasy实现订阅（接收）的实例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;https:&#x2F;&#x2F;cdn.goeasy.io&#x2F;goeasy.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">             var goEasy &#x3D; new GoEasy(&#123;appkey: &#39;your appkey&#39;&#125;);</span><br><span class="line">                                goEasy.subscribe(&#123;</span><br><span class="line">                         channel: &#39;your_channel&#39;,</span><br><span class="line">                         onMessage: function(message)&#123;</span><br><span class="line">                                alert(&#39;接收到消息:&#39;+message.content);</span><br><span class="line">                                &#x2F;&#x2F;拿到了信息之后，你可以做你任何想做的事</span><br><span class="line">                         &#125;</span><br><span class="line">               &#125;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-<p>   有了这几行代码后，只要保证网络畅通的情况下，页面会自动弹出你从任何平台上推送的信息。</p>
+<p>有了这几行代码后，只要保证网络畅通的情况下，页面会自动弹出你从任何平台上推送的信息。</p>
 <h3 id="用GoEasy实现推送及接收的实例"><a href="#用GoEasy实现推送及接收的实例" class="headerlink" title="用GoEasy实现推送及接收的实例"></a>用GoEasy实现推送及接收的实例</h3><p>目前GoEasy支持三种推送方式： Java后台推送（它们有提供JAVA SDK和 maven远程仓库）， JS推送，RestAPI推送（有了RestAPI，我们就可以用PHP, .NET, Ruby…来推送信息了，很方便）</p>
 <p>说了这么多，来我们看一下怎么用GoEasy的三种方式分别实现推送吧。</p>
 <h4 id="用GoEasy-SDK推送"><a href="#用GoEasy-SDK推送" class="headerlink" title="用GoEasy SDK推送"></a>用GoEasy SDK推送</h4><ol>
@@ -964,16 +964,12 @@ a.items5:hover {
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;repository&gt;</span><br><span class="line">    &lt;id&gt;goeasy&lt;&#x2F;id&gt;</span><br><span class="line">    &lt;name&gt;goeasy&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;url&gt;http:&#x2F;&#x2F;maven.goeasy.io&#x2F;content&#x2F;repositories&#x2F;releases&#x2F;&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;repository&gt;</span><br><span class="line"> …</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;io.goeasy&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;goeasy-sdk&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;0.3.3&lt;&#x2F;version&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
 <p>需要注意的是：GoEasy需要依赖两个额外的jar 包：<br>gson.jar : <a href="http://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar" target="_blank" rel="noopener">http://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar</a><br>slf4j-api.jar : <a href="http://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar" target="_blank" rel="noopener">http://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar</a></p>
 <ol start="2">
-<li>实例化GoEasy对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GoEasy goEasy &#x3D; new GoEasy(&quot;your appkey&quot;);</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">3. 推送消息</span><br></pre></td></tr></table></figure>
-goEasy.publish(‘your_channel’, ‘First message’);<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### JS推送</span><br><span class="line"></span><br><span class="line">1. 引入goeasy.js</span><br></pre></td></tr></table></figure>
-<script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 实例化Goeasy对象，并用publish函数进行推送</span><br></pre></td></tr></table></figure>
-<script type="text/javascript"><pre><code>var goEasy = new GoEasy({appkey: &apos;your appkey&apos;});
-        goEasy. publish ({
-             channel: &apos;your_channel&apos;, 
-             message: &apos;Second message！&apos;
-});
-</code></pre></script><br><code>`</code></li>
+<li>实例化GoEasy对象</li>
 </ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GoEasy goEasy &#x3D; new GoEasy(&quot;your appkey&quot;);</span><br><span class="line">&#96;&#96;&#96; </span><br><span class="line"></span><br><span class="line">3. 推送消息</span><br></pre></td></tr></table></figure>
+<p>goEasy.publish(‘your_channel’, ‘First message’);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### JS推送</span><br><span class="line"></span><br><span class="line">1. 引入goeasy.js</span><br></pre></td></tr></table></figure></p>
+<p><script type="text/javascript" src="https://cdn.goeasy.io/goeasy.js"></script><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 实例化Goeasy对象，并用publish函数进行推送</span><br></pre></td></tr></table></figure></p>
+<p><script type="text/javascript"><br>       var goEasy = new GoEasy({appkey: ‘your appkey’});<br>               goEasy. publish ({<br>                    channel: ‘your_channel’,<br>                    message: ‘Second message！’<br>       });<br></script><br><code>`</code></p>
 <h4 id="用RestAPI进行推送"><a href="#用RestAPI进行推送" class="headerlink" title="用RestAPI进行推送"></a>用RestAPI进行推送</h4><p>URL: <a href="https://goeasy.io/goeasy/publish" target="_blank" rel="noopener">https://goeasy.io/goeasy/publish</a><br>Method: Post<br>参数：appkey, channel, content<br>例如：<a href="https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}" target="_blank" rel="noopener">https://goeasy.io/goeasy/publish?appkey={your_appkey}&amp;channel={your_channel}&amp;content={your_message}</a></p>
 <p>GoEasy官网：<a href="http://goeasy.io" target="_blank" rel="noopener">http://goeasy.io</a><br>快速入门：<a href="http://goeasy.io/www/started" target="_blank" rel="noopener">http://goeasy.io/www/started</a><br>文档下载：<a href="http://goeasy.io/www/documents" target="_blank" rel="noopener">http://goeasy.io/www/documents</a></p>
 
@@ -1092,10 +1088,10 @@ goEasy.publish(‘your_channel’, ‘First message’);<figure class="highlight
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-11-17%20WebSocket%E7%9A%84%E5%88%9D%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%8F%8A%E8%B0%83%E8%AF%95.html">WebSocket的初次使用及调试</a></b>
+		  <b><a class="post-title-link" href="/article/2017-11-15%20%E7%94%A8WebSocket%E7%BB%99%E4%BC%A0%E7%BB%9FWeb%E7%B3%BB%E7%BB%9F%E8%B5%8B%E8%83%BD.html">用WebSocket给传统Web系统赋能</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  出现的错误1[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.3:compile (...
+		  现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的...
 		  </p>
 		  
 		</div>
@@ -1105,10 +1101,12 @@ goEasy.publish(‘your_channel’, ‘First message’);<figure class="highlight
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-11-15%20%E7%94%A8WebSocket%E7%BB%99%E4%BC%A0%E7%BB%9FWeb%E7%B3%BB%E7%BB%9F%E8%B5%8B%E8%83%BD.html">用WebSocket给传统Web系统赋能</a></b>
+		  <b><a class="post-title-link" href="/article/2017-11-18%20%E4%B8%80%E7%A7%8D%E5%9F%BA%E4%BA%8E%E5%8A%9B%E5%AF%BC%E5%90%91%E5%B8%83%E5%B1%80%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%96%B9%E6%B3%95.html">一种基于力导向布局的层次结构可视化方法</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的...
+		  计算机仿真    2014-3
+北京工商大学
+在数据结构优化管理的研究中，传统的力导向方法应用于层次结构数据的展示时，会存在树形布局展示不清楚的问题。为解决上述问题，通过层次数据特征分析，提出了...
 		  </p>
 		  
 		</div>
