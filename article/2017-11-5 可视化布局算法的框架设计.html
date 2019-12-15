@@ -301,7 +301,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 });
 
- 
+
 </script>
 
 <!-- specific zone end -->
@@ -310,27 +310,31 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 <link href="/static/spop/spop.css" rel="stylesheet">
 <script src="/static/spop/spop.js"></script>
 <script>
+
+
+
+
 if(window.location.href == "https://www.zonelyn.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
 			var oDate = new Date();
 			document.cookie ="name=zheng;";
+			//spop({
+			//	template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+			//	position  : 'bottom-right',
+			//	autoclose: 14000
+			//});
+			//spop({
+			//	template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+			//	position  : 'bottom-right',
+			//	autoclose: 15500
+			//});
 			spop({
-				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
-				position  : 'bottom-right',
-				autoclose: 14000
-			});
-			spop({
-				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
-				position  : 'bottom-right',
-				autoclose: 15500
-			});
-			spop({
-				template: '号外：本站已更换COM域名！',
+				template: '头像下方新增社交信息！',
 				position  : 'bottom-right',
 				style: 'success',
-				autoclose: 17000
+				autoclose: 14000
 			});
 		}
 	}
@@ -397,12 +401,10 @@ if(window.location.href == "https://www.zonelyn.com/"){
 		<!--图虫-->
 		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
 		<!--豆瓣-->
-		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="static/doub.png"></a>
+		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="/static/doub.png"></a>
 		<!--专栏-->
-		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="static/yunjia.png"></a>
-		
-		
-		
+		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="/static/yunjia.png"></a>
+ 
 		</div>
 
 		
@@ -1073,9 +1075,9 @@ a.items5:hover {
 
   
     <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/2017-11-4%20Python%E7%9A%84%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.html" id="post-next" class="post-nav-link">
+      <a href="/article/2017-11-4%20%E5%AE%9E%E7%8E%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(%E5%BE%85%E7%BB%AD).html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Python的一些注意事项</h4>
+        <h4 class="title">用Python实现神经网络(待续)</h4>
       </a>
     </div>
   

@@ -306,7 +306,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 });
 
- 
+
 </script>
 
 <!-- specific zone end -->
@@ -315,27 +315,31 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 <link href="/static/spop/spop.css" rel="stylesheet">
 <script src="/static/spop/spop.js"></script>
 <script>
+
+
+
+
 if(window.location.href == "https://www.zonelyn.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
 			var oDate = new Date();
 			document.cookie ="name=zheng;";
+			//spop({
+			//	template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+			//	position  : 'bottom-right',
+			//	autoclose: 14000
+			//});
+			//spop({
+			//	template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+			//	position  : 'bottom-right',
+			//	autoclose: 15500
+			//});
 			spop({
-				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
-				position  : 'bottom-right',
-				autoclose: 14000
-			});
-			spop({
-				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
-				position  : 'bottom-right',
-				autoclose: 15500
-			});
-			spop({
-				template: '号外：本站已更换COM域名！',
+				template: '头像下方新增社交信息！',
 				position  : 'bottom-right',
 				style: 'success',
-				autoclose: 17000
+				autoclose: 14000
 			});
 		}
 	}
@@ -402,12 +406,10 @@ if(window.location.href == "https://www.zonelyn.com/"){
 		<!--图虫-->
 		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
 		<!--豆瓣-->
-		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="static/doub.png"></a>
+		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="/static/doub.png"></a>
 		<!--专栏-->
-		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="static/yunjia.png"></a>
-		
-		
-		
+		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="/static/yunjia.png"></a>
+ 
 		</div>
 
 		
@@ -1268,20 +1270,15 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-11-26%20Spark%E7%9A%84%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E5%8F%8A%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%9A%84%E6%90%AD%E5%BB%BA.html">Spark的运行环境及远程开发环境的搭建</a></b>
+		  <b><a class="post-title-link" href="/article/2017-11-28%20Spark%E7%9A%84RDDs%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9.html">Spark的RDDs相关内容</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  基本概括概述spark快速 
+		  RDDs的介绍Driver program
+main()方法，RDDs的定义和操作
+管理很多节点，称作executors
 
-扩充了mapreduce
-基于内存计算（中间结果的存储位置）
-
-spark通用
-
-批处理hadoop
-迭代计算 机器学习系统
-交互式查询 hive
-流处理 sto...
+SparkContext
+Driver programs通过Spark...
 		  </p>
 		  
 		</div>

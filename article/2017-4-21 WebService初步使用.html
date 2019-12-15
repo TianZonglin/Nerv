@@ -306,7 +306,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 });
 
- 
+
 </script>
 
 <!-- specific zone end -->
@@ -315,27 +315,31 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 <link href="/static/spop/spop.css" rel="stylesheet">
 <script src="/static/spop/spop.js"></script>
 <script>
+
+
+
+
 if(window.location.href == "https://www.zonelyn.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
 			var oDate = new Date();
 			document.cookie ="name=zheng;";
+			//spop({
+			//	template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+			//	position  : 'bottom-right',
+			//	autoclose: 14000
+			//});
+			//spop({
+			//	template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+			//	position  : 'bottom-right',
+			//	autoclose: 15500
+			//});
 			spop({
-				template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
-				position  : 'bottom-right',
-				autoclose: 14000
-			});
-			spop({
-				template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
-				position  : 'bottom-right',
-				autoclose: 15500
-			});
-			spop({
-				template: '号外：本站已更换COM域名！',
+				template: '头像下方新增社交信息！',
 				position  : 'bottom-right',
 				style: 'success',
-				autoclose: 17000
+				autoclose: 14000
 			});
 		}
 	}
@@ -402,12 +406,10 @@ if(window.location.href == "https://www.zonelyn.com/"){
 		<!--图虫-->
 		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
 		<!--豆瓣-->
-		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="static/doub.png"></a>
+		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="/static/doub.png"></a>
 		<!--专栏-->
-		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="static/yunjia.png"></a>
-		
-		
-		
+		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="/static/yunjia.png"></a>
+ 
 		</div>
 
 		
