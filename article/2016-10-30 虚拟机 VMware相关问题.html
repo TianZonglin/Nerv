@@ -1094,14 +1094,15 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-4-4%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%81%94%E7%BD%91.html">VMware虚拟机联网</a></b>
+		  <b><a class="post-title-link" href="/article/2017-2-18%20%E7%94%B1%E4%B8%BB%E8%8A%82%E7%82%B9%E9%85%8D%E7%BD%AE%E4%BB%8E%E8%8A%82%E7%82%B9%E4%BB%8E%E8%80%8C%E6%9E%84%E5%BB%BA%E9%9B%86%E7%BE%A4.html">由主节点配置从节点从而构建集群</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  
-1.复制虚拟机文件2.在VMware中分别打开三个虚拟机3.设置NAT模式，固定IP，可上网4.运行一下
+		  主节点操作
+改名字，改为master，hosts改hadoop的slaves加四个xmlslaves是加一个节点就要改一次
 
-复制虚拟机文件拷到本机，随便放
-在VMware中分别打开三个虚拟机第一次打开时一定要...
+从节点操作
+新建hadoop用户，修改权限，赋予权限ALL =…
+改...
 		  </p>
 		  
 		</div>
@@ -1111,11 +1112,14 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2016-11-05%20Hadoop%E9%9B%86%E7%BE%A4%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%AE%E9%A2%98.html">Hadoop集群运行时问题</a></b>
+		  <b><a class="post-title-link" href="/article/2016-11-1%20CentOS%E9%9B%86%E7%BE%A4%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98.html">CentOS集群相关问题</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  Hadoop Copy
--copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-...
+		  centos ssh连不上
+出现22端口拒绝访问等问题
+
+确保安装相关软件可以用yum search 来查找相关ssh的软件包
+要安装 openssh，openssh-servers，opens...
 		  </p>
 		  
 		</div>
