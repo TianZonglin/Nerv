@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zonelyn.com/other/page_comment.html</loc>
+    
+    <lastmod>2019-12-16T23:04:03.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.zonelyn.com/other/page_log.html</loc>
     
     <lastmod>2019-12-16T22:57:20.517Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>https://www.zonelyn.com/feedek/feedread.html</loc>
     
     <lastmod>2019-08-08T08:28:19.591Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zonelyn.com/other/page_comment.html</loc>
-    
-    <lastmod>2019-08-07T13:37:32.507Z</lastmod>
     
   </url>
   
