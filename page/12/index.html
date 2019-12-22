@@ -904,13 +904,13 @@ a.items5:hover {
 	
     
         <li class="post-list-item fade">
-            <article id="post-2017-2-28 Kafka初使用"
+            <article id="post-2017-3-2 Flume,Kafka,Storm如何通信"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-02-28 00:00:00" datetime="2017-02-27T23:00:00.000Z"  itemprop="datePublished">2017-02-28</time>
+        <time class="post-time" title="2017-03-02 00:00:00" datetime="2017-03-01T23:00:00.000Z"  itemprop="datePublished">2017-03-02</time>
 
-		<span class="post-count">170&#x5B57;</span>
+		<span class="post-count">854&#x5B57;</span>
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
 
@@ -923,7 +923,7 @@ a.items5:hover {
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html">Kafka初使用</a>
+      <a class="post-title-link" href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html">Flume、Kafka、Storm如何结合使用</a>
     </h3>
   
 
@@ -933,17 +933,18 @@ a.items5:hover {
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        12345678910111213[hadoop@hadoop01 bin]$ kafka-topics.sh --create --zookeeper hadoop01,hadoop02,hadoop03 --replication-factor 1 --partitions 3 --topic hadoop01Created topic &quot;hadoop01&quot;.[had...
+        原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(producer)发送消息;在Storm的spout中继承IRichSpout接口，调用kafka的消息消费者(Consumer)来接收消息，然后经过几个自定义的Bolt，将自定义的内容进行输出。
+fl...
     
 
-        <a href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html" class="post-more waves-effect waves-button">
+        <a href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Storm/" rel="tag">Storm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B4%E5%90%88/" rel="tag">整合</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
 
     </div>
     
@@ -985,6 +986,54 @@ a.items5:hover {
     
 
         <a href="/article/2017-2-28%20Kafka%E9%9B%86%E7%BE%A4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-2-28 Kafka初使用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-28 00:00:00" datetime="2017-02-27T23:00:00.000Z"  itemprop="datePublished">2017-02-28</time>
+
+		<span class="post-count">170&#x5B57;</span>
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html">Kafka初使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        12345678910111213[hadoop@hadoop01 bin]$ kafka-topics.sh --create --zookeeper hadoop01,hadoop02,hadoop03 --replication-factor 1 --partitions 3 --topic hadoop01Created topic &quot;hadoop01&quot;.[had...
+    
+
+        <a href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -1149,56 +1198,6 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-2017-2-19 ETL工具~Kettle调研"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-19 00:00:00" datetime="2017-02-18T23:00:00.000Z"  itemprop="datePublished">2017-02-19</time>
-
-		<span class="post-count">1,135&#x5B57;</span>
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/article/2017-2-19%20ETL%E5%B7%A5%E5%85%B7~Kettle%E8%B0%83%E7%A0%94.html">ETL工具~Kettle调研</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        ETL工具~Kettle调研 2017.2Kettlekettle是其中Pentaho默认的ETL工具，下图为Pentaho的使用情况
-什么是ETL
-抽取（Extract）：需要连接到不同的数据资源，以便为随后的步骤（转换、加载、分析、报表展示等）提供数据。数据抽取实际上是ETL解决方案的成功实施的一个主要障碍。转换（Transform）:任何对数据的处理过程都是转换。通常包括：1、移动数据...
-    
-
-        <a href="/article/2017-2-19%20ETL%E5%B7%A5%E5%85%B7~Kettle%E8%B0%83%E7%A0%94.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kettle/" rel="tag">Kettle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-2017-3-13 Spark安装之问题"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -1241,6 +1240,56 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
     <div class="post-footer">
         
 	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-2-19 ETL工具~Kettle调研"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-19 00:00:00" datetime="2017-02-18T23:00:00.000Z"  itemprop="datePublished">2017-02-19</time>
+
+		<span class="post-count">1,135&#x5B57;</span>
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/article/2017-2-19%20ETL%E5%B7%A5%E5%85%B7~Kettle%E8%B0%83%E7%A0%94.html">ETL工具~Kettle调研</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        ETL工具~Kettle调研 2017.2Kettlekettle是其中Pentaho默认的ETL工具，下图为Pentaho的使用情况
+什么是ETL
+抽取（Extract）：需要连接到不同的数据资源，以便为随后的步骤（转换、加载、分析、报表展示等）提供数据。数据抽取实际上是ETL解决方案的成功实施的一个主要障碍。转换（Transform）:任何对数据的处理过程都是转换。通常包括：1、移动数据...
+    
+
+        <a href="/article/2017-2-19%20ETL%E5%B7%A5%E5%85%B7~Kettle%E8%B0%83%E7%A0%94.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kettle/" rel="tag">Kettle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li></ul>
 
     </div>
     
@@ -1303,56 +1352,6 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-2017-2-16 kettle相关知识"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-16 00:00:00" datetime="2017-02-15T23:00:00.000Z"  itemprop="datePublished">2017-02-16</time>
-
-		<span class="post-count">1,427&#x5B57;</span>
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html">kettle相关知识</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        相关链接开源ETL工具(Kettle) V5.1.0 免费Spoon版http://www.cr173.com/soft/30051.htmlETL工具大全，你了解多少http://bbs.csdn.net/topics/390349305Kettle_抽取数据举例http://blog.csdn.net/huangyanlong/article/details/42264543
-文件列表
-...
-    
-
-        <a href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kettle/" rel="tag">Kettle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
 	
 	
 
@@ -1365,7 +1364,7 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/11/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/11/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/13/">下一页</a>
     </div>
 </nav>
 
@@ -1381,14 +1380,14 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
 
 
 
-<div style="display:none;" id="jdata"> {&#34;数组&#34;:2,&#34;动态赋值&#34;:1,&#34;观后感&#34;:2,&#34;胡乱评价&#34;:2,&#34;图文&#34;:1,&#34;剧透&#34;:2,&#34;JavaScript&#34;:5,&#34;HTML&#34;:5,&#34;Mysql&#34;:2,&#34;C/C++&#34;:2,&#34;动态建表&#34;:1,&#34;节点概率&#34;:1,&#34;贝叶斯公式&#34;:1,&#34;Java&#34;:6,&#34;排列组合&#34;:1,&#34;malloc&#34;:1,&#34;JQuery&#34;:3,&#34;CentOS&#34;:2,&#34;JDK&#34;:1,&#34;VMware&#34;:3,&#34;调试&#34;:19,&#34;联网&#34;:1,&#34;Hadoop&#34;:4,&#34;集群&#34;:4,&#34;数学建模&#34;:1,&#34;Sqlserver&#34;:1,&#34;Python&#34;:15,&#34;机器学习&#34;:2,&#34;笔记&#34;:1,&#34;Scala&#34;:6,&#34;概述&#34;:5,&#34;Collection&#34;:1,&#34;WebSocket&#34;:4,&#34;可视化&#34;:13,&#34;数据集&#34;:1,&#34;布局算法&#34;:6,&#34;热图&#34;:1,&#34;并行计算&#34;:2,&#34;大数据&#34;:1,&#34;细节层次&#34;:1,&#34;节点连接&#34;:1,&#34;层次数据&#34;:2,&#34;力导向布局&#34;:1,&#34;Spark&#34;:9,&#34;原理&#34;:1,&#34;力导向&#34;:2,&#34;图简化&#34;:2,&#34;小世界网络&#34;:1,&#34;边过滤&#34;:1,&#34;IDEA&#34;:11,&#34;实践&#34;:3,&#34;博客搭建&#34;:1,&#34;总结&#34;:10,&#34;Hexo&#34;:3,&#34;Indigo&#34;:1,&#34;重置版本&#34;:1,&#34;图数据&#34;:2,&#34;Mapreduce&#34;:1,&#34;Kettle&#34;:3,&#34;转载&#34;:9,&#34;Kafka&#34;:8,&#34;Zookeeperp&#34;:1,&#34;Storm&#34;:4,&#34;整合&#34;:5,&#34;常用命令&#34;:3,&#34;Flume&#34;:3,&#34;WebService&#34;:5,&#34;翻译&#34;:1,&#34;英语&#34;:1,&#34;初次使用&#34;:1,&#34;Hive&#34;:1,&#34;区别&#34;:1,&#34;Oracle&#34;:2,&#34;Merge&#34;:1,&#34;Error&#34;:1,&#34;R语言&#34;:1,&#34;HA&#34;:1,&#34;脑裂&#34;:1,&#34;Maven&#34;:3,&#34;SourceInsight3&#34;:1,&#34;中文教程&#34;:1,&#34;recursion&#34;:1,&#34;stackoverflow&#34;:1,&#34;Valine&#34;:1,&#34;第三方评论插件&#34;:1,&#34;GraphX&#34;:3,&#34;Demo&#34;:1,&#34;GitHub&#34;:2,&#34;NetBeans&#34;:1,&#34;Rss&#34;:1,&#34;SBT&#34;:2,&#34;IndexedRDD&#34;:1,&#34;CLOB&#34;:1,&#34;BLOB&#34;:1,&#34;SQL插入&#34;:1,&#34;D3&#34;:2,&#34;Node&#34;:1,&#34;扩展&#34;:1,&#34;LeanCloud&#34;:1,&#34;Summary&#34;:5,&#34;Writing&#34;:5,&#34;Memory&#34;:5,&#34;Photos&#34;:4,&#34;音频&#34;:1,&#34;压缩&#34;:1,&#34;荷兰&#34;:1,&#34;注意事项&#34;:2,&#34;装机&#34;:2,&#34;软件&#34;:1,&#34;CSC&#34;:2,&#34;攻博&#34;:2,&#34;组网&#34;:5,&#34;路由&#34;:5,&#34;Synology&#34;:3,&#34;HTPC&#34;:2,&#34;材料准备&#34;:1,&#34;域名&#34;:2,&#34;建站&#34;:1,&#34;Github&#34;:1,&#34;PPT&#34;:1,&#34;Layout&#34;:1}</div>
+<div style="display:none;" id="jdata"> {&#34;观后感&#34;:2,&#34;胡乱评价&#34;:2,&#34;图文&#34;:1,&#34;剧透&#34;:2,&#34;Mysql&#34;:2,&#34;C/C++&#34;:2,&#34;数组&#34;:2,&#34;动态赋值&#34;:1,&#34;动态建表&#34;:1,&#34;JavaScript&#34;:5,&#34;HTML&#34;:5,&#34;Java&#34;:6,&#34;节点概率&#34;:1,&#34;贝叶斯公式&#34;:1,&#34;malloc&#34;:1,&#34;排列组合&#34;:1,&#34;JQuery&#34;:3,&#34;VMware&#34;:3,&#34;调试&#34;:19,&#34;CentOS&#34;:2,&#34;JDK&#34;:1,&#34;联网&#34;:1,&#34;Hadoop&#34;:4,&#34;集群&#34;:4,&#34;Sqlserver&#34;:1,&#34;数学建模&#34;:1,&#34;Python&#34;:15,&#34;机器学习&#34;:2,&#34;笔记&#34;:1,&#34;Scala&#34;:6,&#34;概述&#34;:5,&#34;数据集&#34;:1,&#34;WebSocket&#34;:4,&#34;可视化&#34;:13,&#34;热图&#34;:1,&#34;并行计算&#34;:2,&#34;大数据&#34;:1,&#34;细节层次&#34;:1,&#34;节点连接&#34;:1,&#34;层次数据&#34;:2,&#34;力导向布局&#34;:1,&#34;力导向&#34;:2,&#34;图简化&#34;:2,&#34;小世界网络&#34;:1,&#34;边过滤&#34;:1,&#34;Spark&#34;:9,&#34;IDEA&#34;:11,&#34;布局算法&#34;:6,&#34;原理&#34;:1,&#34;实践&#34;:3,&#34;博客搭建&#34;:1,&#34;总结&#34;:10,&#34;Kettle&#34;:3,&#34;转载&#34;:9,&#34;图数据&#34;:2,&#34;Mapreduce&#34;:1,&#34;Collection&#34;:1,&#34;Kafka&#34;:8,&#34;Hexo&#34;:4,&#34;Indigo&#34;:2,&#34;重置版本&#34;:1,&#34;Zookeeperp&#34;:1,&#34;Storm&#34;:4,&#34;整合&#34;:5,&#34;常用命令&#34;:3,&#34;Flume&#34;:3,&#34;WebService&#34;:5,&#34;翻译&#34;:1,&#34;英语&#34;:1,&#34;初次使用&#34;:1,&#34;Oracle&#34;:2,&#34;Merge&#34;:1,&#34;Error&#34;:1,&#34;Hive&#34;:1,&#34;区别&#34;:1,&#34;R语言&#34;:1,&#34;HA&#34;:1,&#34;脑裂&#34;:1,&#34;SourceInsight3&#34;:1,&#34;中文教程&#34;:1,&#34;Maven&#34;:3,&#34;Valine&#34;:1,&#34;第三方评论插件&#34;:1,&#34;GraphX&#34;:3,&#34;Demo&#34;:1,&#34;recursion&#34;:1,&#34;stackoverflow&#34;:1,&#34;GitHub&#34;:2,&#34;NetBeans&#34;:1,&#34;CLOB&#34;:1,&#34;BLOB&#34;:1,&#34;SQL插入&#34;:1,&#34;Rss&#34;:1,&#34;扩展&#34;:1,&#34;D3&#34;:2,&#34;Node&#34;:1,&#34;LeanCloud&#34;:1,&#34;音频&#34;:1,&#34;压缩&#34;:1,&#34;SBT&#34;:2,&#34;Summary&#34;:5,&#34;Writing&#34;:5,&#34;Memory&#34;:5,&#34;Photos&#34;:4,&#34;主题扩展&#34;:1,&#34;EJS模板&#34;:1,&#34;装机&#34;:2,&#34;注意事项&#34;:2,&#34;荷兰&#34;:1,&#34;CSC&#34;:2,&#34;攻博&#34;:2,&#34;软件&#34;:1,&#34;组网&#34;:5,&#34;路由&#34;:5,&#34;Synology&#34;:3,&#34;HTPC&#34;:2,&#34;材料准备&#34;:1,&#34;域名&#34;:2,&#34;建站&#34;:1,&#34;Github&#34;:1,&#34;IndexedRDD&#34;:1,&#34;PPT&#34;:1,&#34;Layout&#34;:1}</div>
  
 
         <footer class="footer">
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;231.3k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span class="post-count">共计&nbsp;233.8k&nbsp;字</span>
 </p>
 
 
