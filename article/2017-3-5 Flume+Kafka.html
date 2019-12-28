@@ -331,7 +331,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
 			//	autoclose: 15500
 			//});
 			spop({
-				template: '发布了新内容，可 <a href="https://www.zonelyn.com/"><button>刷新</button></a>',
+				template: '发布了新内容，<a href="https://www.zonelyn.com/"><button>点击刷新此页面</button></a>',
 				position  : 'bottom-right',
 				style: 'success',
 				autoclose: 8000
@@ -1126,10 +1126,11 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html">Flume、Kafka、Storm如何结合使用</a></b>
+		  <b><a class="post-title-link" href="/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html">使用flume完成数据的接收</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(p...
+		  使用flume完成数据的接收场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中
+适合①[注意，syslog需要特定环境，也可用telnet发送数据]12345678...
 		  </p>
 		  
 		</div>
