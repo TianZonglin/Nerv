@@ -326,7 +326,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
 			//	autoclose: 15500
 			//});
 			spop({
-				template: '发布了新内容，<a href="https://www.zonelyn.com/"><button>点击刷新此页面</button></a>',
+				template: '发布了新内容，<a href="https://www.zonelyn.com/">点击刷新此页面</a>',
 				position  : 'bottom-right',
 				style: 'success',
 				autoclose: 8000
@@ -1112,11 +1112,14 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2016-11-05%20Hadoop%E9%9B%86%E7%BE%A4%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%AE%E9%A2%98.html">Hadoop集群运行时问题</a></b>
+		  <b><a class="post-title-link" href="/article/2016-11-1%20CentOS%E9%9B%86%E7%BE%A4%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98.html">CentOS集群相关问题</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  Hadoop Copy
--copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-...
+		  centos ssh连不上
+出现22端口拒绝访问等问题
+
+确保安装相关软件可以用yum search 来查找相关ssh的软件包
+要安装 openssh，openssh-servers，opens...
 		  </p>
 		  
 		</div>
