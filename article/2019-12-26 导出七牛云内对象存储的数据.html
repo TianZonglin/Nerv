@@ -22,7 +22,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;tvax1.sinaimg.cn&#x2F;large&#x2F;006YHUzUgy1gabz5hrs1kj31ec0lhwlv.jpg">
 <meta property="article:published_time" content="2019-12-25T23:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-27T21:14:16.938Z">
+<meta property="article:modified_time" content="2019-12-28T02:11:10.435Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="总结">
 <meta property="article:tag" content="七牛云">
@@ -917,7 +917,7 @@ a.items5:hover {
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc" >
             <h4 style="padding-top: 10px;">TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#利用新空间的测试域名"><span class="post-toc-number">2.</span> <span class="post-toc-text">利用新空间的测试域名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最后一步"><span class="post-toc-number">3.</span> <span class="post-toc-text">最后一步</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#暂时的替代方案"><span class="post-toc-number">4.</span> <span class="post-toc-text">暂时的替代方案</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#准备工作"><span class="post-toc-number">1.</span> <span class="post-toc-text">准备工作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#库的整体移动"><span class="post-toc-number">2.</span> <span class="post-toc-text">库的整体移动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最后一步"><span class="post-toc-number">3.</span> <span class="post-toc-text">最后一步</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#暂时的替代方案"><span class="post-toc-number">4.</span> <span class="post-toc-text">暂时的替代方案</span></a></li></ol>
         </nav>
     </aside>
     
@@ -934,7 +934,7 @@ a.items5:hover {
 
 
 
-			<span class="post-count">1,313&nbsp;&#x5B57;</span>
+			<span class="post-count">1,319&nbsp;&#x5B57;</span>
 <!--
 <span class="post-count">5����</span>
 
@@ -962,7 +962,10 @@ a.items5:hover {
 </ul>
 <p>在七牛云的web控制台中，个人中心里的密钥管理，可以找到自己的 AK 和 SK，帐号名称即用户名。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;qshell-windows-x64-v2.4.0.exe CBVEWIVBOI82391091231 284VSHDUAVBU98-vgyhsd 1805984583@qq.com</span><br><span class="line">该语句执行完无输出</span><br></pre></td></tr></table></figure>
-<h4 id="利用新空间的测试域名"><a href="#利用新空间的测试域名" class="headerlink" title="利用新空间的测试域名"></a><strong>利用新空间的测试域名</strong></h4><p>由于没域名，用 qshell get 下载总是失败，或许不是域名的原因，但总归是卡住了，找了半天找到了可行的新方案，即：</p>
+<h4 id="库的整体移动"><a href="#库的整体移动" class="headerlink" title="库的整体移动"></a><strong>库的整体移动</strong></h4><ul>
+<li><strong>利用新空间的测试域名</strong></li>
+</ul>
+<p>由于没域名，用 qshell get 下载总是失败，或许不是域名的原因，但总归是卡住了，找了半天找到了可行的新方案，即：</p>
 <p>实名认证 -&gt; 新建Bucket -&gt; 转移空间内的数据 -&gt; 用新空间的测试域名下载</p>
 <p>还是不用备案的域名，符合我的预期，认证也比较简单，上传身份证然后支付宝搞一下就行了，说是三个工作日审核其实完成认证操作后马上就能新建Bucket了，新建完后，记住新空间的名字，下面用 batchcopy 来完成移动。</p>
 <p>注意：新建的空间要和原空间在同一个大区内。</p>
@@ -974,7 +977,7 @@ a.items5:hover {
 <li><strong>执行 batchcopy</strong><br>其仍属于 qshell 内的命令，是个批量拷贝命令，输入是个文件名构成的文件，可以用 –forece 强制移动。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;qshell-windows-x64-v2.4.0.exe batchcopy --force whereareyou zonelyn -i only-name.txt</span><br><span class="line">参数分别是：旧空间名，新空间名，移动文件的名称列表</span><br><span class="line">...</span><br><span class="line">Copy &#39;whereareyou:image&#x2F;acger&#x2F;app.png&#39; &#x3D;&gt; &#39;zonelyn:image&#x2F;acger&#x2F;app.png&#39; success</span><br><span class="line">Copy &#39;whereareyou:image&#x2F;acger&#x2F;group.png&#39; &#x3D;&gt; &#39;zonelyn:image&#x2F;acger&#x2F;group.png&#39; success</span><br><span class="line">Copy &#39;whereareyou:image&#x2F;gif&#x2F;107659232.gif&#39; &#x3D;&gt; &#39;zonelyn:image&#x2F;gif&#x2F;107659232.gif&#39; success</span><br><span class="line">Copy &#39;whereareyou:image&#x2F;gif&#x2F;120094544.gif&#39; &#x3D;&gt; &#39;zonelyn:image&#x2F;gif&#x2F;120094544.gif&#39; success</span><br><span class="line">Copy &#39;whereareyou:image&#x2F;gif&#x2F;148607128.gif&#39; &#x3D;&gt; &#39;zonelyn:image&#x2F;gif&#x2F;148607128.gif&#39; success</span><br><span class="line">...</span><br><span class="line">移动后会打印出相关信息</span><br></pre></td></tr></table></figure>
-<h4 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a><strong>最后一步</strong></h4><figure class="image-bubble">
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="//tvax1.sinaimg.cn/large/006YHUzUgy1gabz5hrs1kj31ec0lhwlv.jpg" alt="此处为本页面内的一张图片" >
@@ -982,7 +985,7 @@ a.items5:hover {
                 <div class="image-caption"></div>
             </figure>
 <p>上述操作后，新建的 bucket 中已经具有原空间的全部数据了，并且具有测试域名。这样就比较好办了，有多种方法，这里用 qdownload 批量进行下载，由于需要拼凑下载路径，这里可以直接通过补充配置文件完成。</p>
-<p>在 qshell-windows-x64-v2.4.0.exe 所在的目录新建下载配置文件 dcongf.txt：</p>
+<h4 id="最后一步"><a href="#最后一步" class="headerlink" title="最后一步"></a><strong>最后一步</strong></h4><p>在 qshell-windows-x64-v2.4.0.exe 所在的目录新建下载配置文件 dcongf.txt：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;dest_dir&quot;: &quot;F:\七牛&quot;, &#x2F;&#x2F;本地目录</span><br><span class="line">  &quot;bucket&quot;: &quot;zonelyn&quot;, &#x2F;&#x2F;新空间名</span><br><span class="line">  &quot;cdn_domain&quot;: &quot;q35ajtip3.bkt.clouddn.com&quot; &#x2F;&#x2F;外链默认域名</span><br><span class="line">  &#x2F;&#x2F;注释要删掉，不能留</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>批量下载</strong><br>最后就可以执行批量下载的命令了，输入就是上述配置文件，这样会将整个空间内的全部文件下载到本地目录内：</li>
