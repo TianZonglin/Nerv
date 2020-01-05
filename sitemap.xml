@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zonelyn.com/other/page_about.html</loc>
+    
+    <lastmod>2020-01-05T00:02:04.114Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.zonelyn.com/static/opp.html</loc>
+    
+    <lastmod>2020-01-04T23:58:25.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.zonelyn.com/static/opp.json</loc>
+    
+    <lastmod>2020-01-04T23:54:06.762Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.zonelyn.com/article/2019-12-17%2520Hexo%25E4%25B8%25BB%25E9%25A2%2598(EJS%25E6%25A8%25A1%25E6%259D%25BF)%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E9%25A1%25B5%25E9%259D%25A2%25E6%2589%25A9%25E5%25B1%2595.html</loc>
+    
+    <lastmod>2020-01-04T18:36:37.619Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.zonelyn.com/other/page_log.html</loc>
     
-    <lastmod>2020-01-04T15:59:31.537Z</lastmod>
+    <lastmod>2020-01-04T16:17:39.188Z</lastmod>
     
   </url>
   
@@ -37,13 +65,6 @@
   </url>
   
   <url>
-    <loc>https://www.zonelyn.com/other/page_about.html</loc>
-    
-    <lastmod>2020-01-02T15:50:32.281Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.zonelyn.com/article/2019-12-31%2520Summary%2520and%2520Review%2520of%25202019,%2520B.html</loc>
     
     <lastmod>2019-12-31T04:06:02.124Z</lastmod>
@@ -68,13 +89,6 @@
     <loc>https://www.zonelyn.com/article/2019-12-13%2520%25E8%25AE%25B0%25E4%25B8%2580%25E6%25AC%25A1%25E6%2584%258F%25E4%25B9%2589%25E6%25B7%25B1%25E5%2588%25BB%25E7%259A%2584%25E6%2597%2585%25E8%25A1%258C.html</loc>
     
     <lastmod>2019-12-29T02:29:58.821Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zonelyn.com/article/2019-12-17%2520Hexo%25E4%25B8%25BB%25E9%25A2%2598(EJS%25E6%25A8%25A1%25E6%259D%25BF)%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E9%25A1%25B5%25E9%259D%25A2%25E6%2589%25A9%25E5%25B1%2595.html</loc>
-    
-    <lastmod>2019-12-28T12:46:52.469Z</lastmod>
     
   </url>
   
@@ -418,13 +432,6 @@
     <loc>https://www.zonelyn.com/static/bookmarks_2019_7_21.html</loc>
     
     <lastmod>2019-08-04T15:03:00.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zonelyn.com/static/about1111.html</loc>
-    
-    <lastmod>2019-08-04T15:03:00.345Z</lastmod>
     
   </url>
   
