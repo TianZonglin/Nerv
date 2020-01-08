@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zonelyn.com/other/page_about.html</loc>
+    
+    <lastmod>2020-01-08T01:22:41.949Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.zonelyn.com/static/ga_report.html</loc>
+    
+    <lastmod>2020-01-08T01:18:59.162Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.zonelyn.com/other/page_comment.html</loc>
     
     <lastmod>2020-01-08T00:54:02.918Z</lastmod>
@@ -23,13 +37,6 @@
   </url>
   
   <url>
-    <loc>https://www.zonelyn.com/static/ga_report.html</loc>
-    
-    <lastmod>2020-01-08T00:48:25.819Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.zonelyn.com/article/2019-12-22%2520%25E8%2587%25AA%25E5%25B7%25B1%25E5%258A%25A8%25E6%2589%258B%25E4%25B8%25B0%25E8%25A1%25A3%25E8%25B6%25B3%25E9%25A3%259F.html</loc>
     
     <lastmod>2020-01-05T23:34:00.359Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>https://www.zonelyn.com/static/opp/blogwheel.json</loc>
     
     <lastmod>2020-01-05T22:13:01.089Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zonelyn.com/other/page_about.html</loc>
-    
-    <lastmod>2020-01-05T15:03:11.189Z</lastmod>
     
   </url>
   
