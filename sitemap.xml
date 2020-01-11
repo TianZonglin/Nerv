@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.zonelyn.com/other/page_about.html</loc>
+    
+    <lastmod>2020-01-11T01:00:50.302Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.zonelyn.com/feedek/feedread.html</loc>
     
     <lastmod>2020-01-10T00:35:13.332Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://www.zonelyn.com/static/ga_report.html</loc>
     
     <lastmod>2020-01-08T01:34:22.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zonelyn.com/other/page_about.html</loc>
-    
-    <lastmod>2020-01-08T01:29:14.207Z</lastmod>
     
   </url>
   
