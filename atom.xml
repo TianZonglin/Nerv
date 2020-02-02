@@ -79,6 +79,36 @@
   </entry>
   
   <entry>
+    <title>家中为什么要用软路由</title>
+    <link href="https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html"/>
+    <id>https://www.zonelyn.com/article/2020-1-21 家中为什么要用软路由.html</id>
+    <published>2020-01-20T23:00:00.000Z</published>
+    <updated>2020-02-02T16:33:15.127Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这原本是我在知乎上的回答，偶然发现被折叠了，改了N次也无济于事，还是放在这里吧。</p></blockquote><h4 id="软路由能做的但硬路由不能做的"><a href="#软路由能做的但硬路由不能做的" class="headerlink" title="软路由能做的但硬路由不能做的"></a><strong>软路由能做的但硬路由不能做的</strong></h4><ul><li><p><strong>插件</strong>。不仅仅只是网络插件的差别，拿LEDE举例，网络插件恰恰被从酷软中心拿掉了，哈哈，求生欲很强。但剩下的那些插件可不是一无是处，比如ftp就很有用，还有很多插件，自己探索吧。</p></li><li><p><strong>小飞机</strong>。单独说下这个插件，对于软路由系统比如LEDE其支持更高级的Clash/Surge方式，这才是软路由使用网络查件的正确姿势。没错，这就是国内要想从TV看油管4K的必备，基本没什么其他解决方案。</p></li><li><p><strong>平台扩展</strong>。要搞清楚软路由是什么，它一般依托于工控机平台（MiniPC），拿我自己的软路由I57200U来说，我可以物理机装LEDE、装爱快；但当然，我也可以装PVM、装ESXi，然后以虚拟机的方式运行我的软路由系统，在网卡直通的条件下软路由性能基本不受影响。所以如果以ESXi的方式，你完全可以安装其他的虚拟机，打造自己的本地云主机。你可以装Linux挂脚本、可以装Win10/7挂机器人，总之，你可以有若干台24小时运行的虚拟机，结合公网IP或者DDNS，可以获得和阿里云主机基本一样的效果，说到这里，想想4核16G200M带宽（上行5M/s）的阿里云主机要多少钱一年。</p></li><li><p><strong>性能</strong>。终于说到性能了，我的看法，200M宽带及以上直接上软路由不用考虑其他（土豪钱多可以买高端路由）；其他的想全家网络番茄的，可以软路由，也可以硬路由刷梅林固件（梅林的插件的性能要差得多，但一般视频需求也足够了）。另外，看硬件，硬路由其实处理器性能很弱（比较同价位的软路由），外加需要同时支持无线网卡，这其实会影响整体的路由处理能力，但软路由+AP的模式，其实更适合高带宽场景。<br>总之，小水管无所谓性能，大水管才看的出来。</p></li></ul><h4 id="一些言论"><a href="#一些言论" class="headerlink" title="一些言论"></a><strong>一些言论</strong></h4><ul><li><p>关于<strong>路由系统</strong>，真不需要听别人的安利，LEDE是小白专属；</p></li><li><p>关于<strong>异地访问</strong>，动态公网IP现在并不难得到，相信我，在国外的我可以透过路由自由的访问到家中的每一台设备（只要被分配了内网IP），这种体验非常棒，尤其是搭配我的群晖NAS。当然这已经不太属于软路由的范畴了。</p></li><li><p>所谓<strong>优化</strong>，别被唬住，设备到位优化就到位了，说需要技巧的都是瞎扯；</p></li><li><p>所谓<strong>稳定</strong>，我上次的软路由完美运行了快半年了，其实是三个系统同时运行，Winserver2016、Ubuntu和爱快，爱快是我的主路由。最后为什么崩了？因为停电了！</p></li><li><p>所谓<strong>带机量</strong>，只要你家不是电影院，不来个百十号人，我相信中端路由（例如R7000）就完全可以满足。</p></li><li><p>所谓<strong>门槛</strong>，真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多如牛毛~</p></li><li><p>所谓<strong>玩法</strong>，玩法真的太多了，硬路由功能相比之下太少了。</p></li></ul><p>最后，推荐几个土鳖上的软路由相关的频道：<a href="https://www.youtube.com/channel/UCaMih5WXqoXq7Hg0S_XJdOg" target="_blank" rel="noopener">Vedio Talk</a>、<a href="https://www.youtube.com/channel/UCpPswAyGzdRwWmiW5oTNnvA" target="_blank" rel="noopener">Big东东</a>、<a href="https://www.youtube.com/channel/UCxcuxsAjdnQaiRwYb5CVISw" target="_blank" rel="noopener">翼王</a></p><p>多看看这些实际操作的视频，也可以有个初步了解，尤其推荐VedioTalk，有很多很实用的入门知识和实际操作教程，如果对软路由跃跃欲试，那就赶快去看看吧。</p><blockquote><p>注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;这原本是我在知乎上的回答，偶然发现被折叠了，改了N次也无济于事，还是放在这里吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;软路由能做的但硬路由不能做的&quot;&gt;&lt;a href=&quot;#软路由能做的但硬路由不能做的&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+      <category term="建站组网" scheme="https://www.zonelyn.com/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/"/>
+    
+    
+      <category term="组网" scheme="https://www.zonelyn.com/tags/%E7%BB%84%E7%BD%91/"/>
+    
+      <category term="路由" scheme="https://www.zonelyn.com/tags/%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>纵览全局垂直打击的组织模式（下）</title>
     <link href="https://www.zonelyn.com/article/2020-1-8%20%20%E7%BA%B5%E8%A7%88%E5%85%A8%E5%B1%80%E5%9E%82%E7%9B%B4%E6%89%93%E5%87%BB%E7%9A%84%E7%BB%84%E7%BB%87%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%8B%EF%BC%89.html"/>
     <id>https://www.zonelyn.com/article/2020-1-8  纵览全局垂直打击的组织模式（下）.html</id>
@@ -609,38 +639,6 @@
       <category term="组网" scheme="https://www.zonelyn.com/tags/%E7%BB%84%E7%BD%91/"/>
     
       <category term="路由" scheme="https://www.zonelyn.com/tags/%E8%B7%AF%E7%94%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>虚拟化系统ESXi的安装使用</title>
-    <link href="https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html"/>
-    <id>https://www.zonelyn.com/article/2019-7-26 虚拟化系统ESXi的安装使用.html</id>
-    <published>2019-07-25T22:00:00.000Z</published>
-    <updated>2019-08-05T03:23:13.087Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考</p></blockquote><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>动机在先前的文章中已经说的很清楚了，现在直接开干，下面 Step by Step 的详细介绍 ESXi 的安装以及 LEDE、iKuai、Win7 等虚拟机的安装及使用。</p><h4 id="承载设备"><a href="#承载设备" class="headerlink" title="承载设备"></a>承载设备</h4><p>安装设备：YANLING-SKUL6, 2 × i5-7200U 2.5GHz, 16GB RAM, 500GB SSD<br>设备接口：6 × LAN, 4 × USB, COM, HDMI<br>系统版本：VMware-VMvisor-Installer-6.7.0-8169922.x86_64-DellEMC_Customized-A01<br>其他需求：普通双头网线一根，优盘一个，显示器+HDMI线+鼠标+键盘（有线即可）<br>软件镜像：</p><ul><li>ESXI <a href="http://www.5sharing.com/m/view.php?aid=705" target="_blank" rel="noopener">网址</a>， <a href="https://downloads.dell.com/FOLDER04945360M/1/VMware-VMvisor-Installer-6.7.0-8169922.x86_64-DellEMC_Customized-A01.iso?uid=36824895-721d-4bb9-252b-e6808049e8d3&amp;fn=VMware-VMvisor-Installer-6.7.0-8169922.x86_64-DellEMC_Customized-A01.iso" target="_blank" rel="noopener">直接下载文件</a> </li></ul><p>叙述别名：安装设备下文称为 &gt; 软路由/工控机<br>          配置设备下文称为 &gt; 主机/笔记本</p><p>角色关系：ESXI为工控机主系统，iKuai、LEDE、Win7、黑裙等均为其上的虚拟机</p><p>可能的驱动驱动：<a href="http://drivers.mydrivers.com/drivers/494_197817.htm" target="_blank" rel="noopener">链接</a></p><h4 id="工控机安-ESXI-系统的注意事项："><a href="#工控机安-ESXI-系统的注意事项：" class="headerlink" title="工控机安 ESXI 系统的注意事项："></a>工控机安 ESXI 系统的注意事项：</h4><ul><li>BIOS设置优盘启动</li><li>PE系统内清除硬盘分区</li><li>ESXI在工控机安装配置就两步：配置静态地址（IP1+掩码+网关），检查插网线LAN口</li><li>上述操作需要显示器+键鼠，之后便不用</li></ul><h4 id="主机-笔记本配置的注意事项："><a href="#主机-笔记本配置的注意事项：" class="headerlink" title="主机/笔记本配置的注意事项："></a>主机/笔记本配置的注意事项：</h4><ul><li>在笔记本用网线连接后，笔记本需配置：静态地址（IP2+掩码+网关）</li><li>在笔记本测试连接时：只需Ping通IP1即可，然后浏览器访问 IP1</li><li>6.7.0 (Build 8169922) 许可证：0U0QJ-FR1EP-KZQN9-J1C74-23P5R</li><li>关闭Web端的视觉效果以加速</li></ul><h4 id="详细安装步骤截图"><a href="#详细安装步骤截图" class="headerlink" title="详细安装步骤截图"></a>详细安装步骤截图</h4><ul><li>首先制作 U盘 镜像</li><li>然后设置 BIOS U盘引导启动</li><li>之后进入系统安装界面，选择 ESXi 系统的所在盘符<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/m0kktxyn2g5tris9fto8dg19/image_1dhar1ais1sh079s106j55l11pn9.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li>一路 “同意” 下一步<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/8upu2naa0bxpq5fojmej28qi/image_1dhar2fu71ki1j805ue1hn9uoom.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/42g55185htrtvj9pvls7s6ww/image_1dhar3nhs11s11s0o9g51thj36d13.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/7oozs1lhelrh7ga4rzq6rvr6/image_1dharc7kv1trd15t21vgrdvfvq1g.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/1aq9te3pje0eilcstshcdx6u/image_1dharcv629g1e841njo1o73dpc1t.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/fpa5ttlgafcc81uvgx435p6r/image_1dharepeauobi1511hdjssi302a.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li>安装完成后选择 reboot 重启<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/35q15n65uhlwqvddtkqm7tok/image_1dharh2i418bg11elciuv9l17oe9.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/z66yjqjzgkm63a8ikkuilzyu/image_1dharib1uncu1eovgc117n9413m.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li>进入黄色的 ESXi 系统后台界面（输入密码）<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/rv7xiqubv2krfh7v08dl5dch/image_1dharvmba9gv1vf11rcn1r9764d1j.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li>进入管配置页，选择配置网络<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/q6w7bca8lfazgi3ju34cmp4p/image_1dhas0ndk1mi01e0er3t1vio1fgm20.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li>此时，将网线插入 LAN1 - LAN6 中的一口，另一端插入电脑/笔记本的网口，接下来就用该笔记本来登录ESXi的WEB配置页面</li><li>然后在下面页面勾选“Connected”选项，用空格键在中括号内打叉<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/8of8si4ibyuxrav6wcfp7ndo/image_1dhas1ied1bre12431s7qkr8127r2d.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li><p>选择静态IP地址，设置完成后保存，这是关键步骤，Web端的访问需要IPv4的地址，同时笔记本电脑的网关要设置成该网关。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/714y2o8xqe7ctqjcax867doc/image_1dhas2o391knb021f8pqa71mk72q.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/4357mgfi8nt7leq7coxpam1z/image_1dhas3g4b106ebkb99a106pv537.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure></li><li><p>以上内容需要鼠标键盘和显示器的参与，但至此，机器上的配置已经完成，接下来，使用笔记本配置IPv4的选项，需要：</p><ul><li>使用静态IPv4地址，随意指定，但不可与上一步中的地址个重复</li><li>使用固定的网关，即上一步中的网关</li><li>配置完成后，在浏览器访问上一步中ESXi的IPv4地址，即可进入Web后台页面</li><li>注意：此时只有工控机和笔记本网口通过一根网线相连，即这时的设备均无网络连接，也不需要网络连接，待到安装好路由系统后，将外部网线插入工控机的某网口（WAN口）并在路由系统内完成配置后方可顺利上网。</li><li>对 ESXi 的远程操控：<ul><li>操控内容：虚拟机的安装、虚拟机的管理</li><li>方式一：Web 后台，简单粗暴，但有时会受浏览器影响；</li><li>方式二：Vmware 软件远程，用过PC端Vmware的可以说是非常人性化了；</li><li>方法三：vSphere，没用过，正规企业级应该用这个；</li></ul></li></ul></li></ul><h4 id="小试牛刀：安装Win7"><a href="#小试牛刀：安装Win7" class="headerlink" title="小试牛刀：安装Win7"></a>小试牛刀：安装Win7</h4><p>需要明确的是，ESXi的虚拟机安装流程及镜像要求和PC上的Vmware基本完全一样，即，一般的装机映像无论是Linux还是Windows都可以顺利安装，需要特别注意的有以下几点：</p><ul><li>镜像首先要上传至ESXi的文件系统，一般给每个虚拟机单独建个文件夹最好，之后在安装虚拟机时直接选择上传好的镜像；</li><li>网卡的虚拟是否可以直通，对于Win7来说，具备Wifi功能可以很好的提升使用体验，研凌的主板允许用户自己搭载一粒mini-pcie接口的网卡（半高），但安装完ESXi后，一般的无线网卡是不被ESXi识别的，这时就要用到网卡直通，单独将该无线网卡配置到Win7的虚拟机中，这样在Win7中就可以顺利使用Wifi或发射热点。</li><li>显卡的直通，研凌板载的集显是 Intel Graphics 630 对于路由系统来说毫无用处，但对于HTPC来说则是非常重要的，由于我想利用Win7来做媒体中心，自然需要其解码能力，这时显卡直通可方便地完成该需求。</li><li>对于 Win7 + Plex Server：需注意，在基础版本会缺失很多功能，导致 Plex Server 无法启动，解决方法是安装 SP1（Service Package 1） 及以上的版本，即可顺利开启 Plex Server，之后，挂载影音资料的磁盘，在 Plex 中扫描即可，和在群晖中的使用类似。<figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/o121t87u768xh79u06xhxk54/QQ%E6%88%AA%E5%9B%BE20190717073812.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="http://static.zybuluo.com/EVA001/4iqqxfqc2dkgsfmbhliudw32/QQ%E6%88%AA%E5%9B%BE20190717073718.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure>  </li><li>对于 Win7 的远程操控，方法比较多样，主要有：<ul><li>Windows 远程桌面：使用体验最好</li><li>TeamViewer：比较臃肿</li><li>AnyDesk：最轻量便捷</li><li>VNC：通用性强</li></ul></li></ul><hr><p>本文详细的说明了 ESXi 的安装过程、注意事项及简单应用，不过，完成上述过程才只是使用了研凌工控机的一小部分功能，真正发挥功效的软路由部分还未做介绍，有关于 LEDE + iKuai 的双软路由搭建将在今后同大家见面。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a
-      
-    
-    </summary>
-    
-      <category term="建站组网" scheme="https://www.zonelyn.com/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/"/>
-    
-    
-      <category term="组网" scheme="https://www.zonelyn.com/tags/%E7%BB%84%E7%BD%91/"/>
-    
-      <category term="路由" scheme="https://www.zonelyn.com/tags/%E8%B7%AF%E7%94%B1/"/>
-    
-      <category term="HTPC" scheme="https://www.zonelyn.com/tags/HTPC/"/>
     
   </entry>
   

@@ -6,32 +6,32 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="实践,Flume,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+<meta name="keywords" content="组网,路由,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
 <meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
 
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
 
-<meta name="description" content="使用flume完成数据的接收场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中 适合①[注意，syslog需要特定环境，也可用telnet发送数据]1234567891011121314151617181920212223242526272829source[syslogtcp],sink[hdfs]a1.sources &#x3D; r1a1.sinks &amp;#x3D">
+<meta name="description" content="这原本是我在知乎上的回答，偶然发现被折叠了，改了N次也无济于事，还是放在这里吧。  软路由能做的但硬路由不能做的 插件。不仅仅只是网络插件的差别，拿LEDE举例，网络插件恰恰被从酷软中心拿掉了，哈哈，求生欲很强。但剩下的那些插件可不是一无是处，比如ftp就很有用，还有很多插件，自己探索吧。  小飞机。单独说下这个插件，对于软路由系统比如LEDE其支持更高级的Clash&#x2F;Surge方式，这才是软路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用flume完成数据的接收">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html">
+<meta property="og:title" content="家中为什么要用软路由">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
-<meta property="og:description" content="使用flume完成数据的接收场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中 适合①[注意，syslog需要特定环境，也可用telnet发送数据]1234567891011121314151617181920212223242526272829source[syslogtcp],sink[hdfs]a1.sources &#x3D; r1a1.sinks &amp;#x3D">
+<meta property="og:description" content="这原本是我在知乎上的回答，偶然发现被折叠了，改了N次也无济于事，还是放在这里吧。  软路由能做的但硬路由不能做的 插件。不仅仅只是网络插件的差别，拿LEDE举例，网络插件恰恰被从酷软中心拿掉了，哈哈，求生欲很强。但剩下的那些插件可不是一无是处，比如ftp就很有用，还有很多插件，自己探索吧。  小飞机。单独说下这个插件，对于软路由系统比如LEDE其支持更高级的Clash&#x2F;Surge方式，这才是软路">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-03-15T23:00:00.000Z">
-<meta property="article:modified_time" content="2017-11-12T06:23:39.954Z">
+<meta property="article:published_time" content="2020-01-20T23:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-02T16:33:15.127Z">
 <meta property="article:author" content="TZLoop">
-<meta property="article:tag" content="实践">
-<meta property="article:tag" content="Flume">
+<meta property="article:tag" content="组网">
+<meta property="article:tag" content="路由">
 <meta name="twitter:card" content="summary">
 
 
 <meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
 
 
-<title>使用flume完成数据的接收 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+<title>家中为什么要用软路由 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -39,7 +39,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html">
+<link rel="canonical" href="https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html">
 
 
 
@@ -827,7 +827,7 @@ a.items5:hover {
         </a>
 
 		
-        <div class="flex-col header-title ellipsis">使用flume完成数据的接收</div>
+        <div class="flex-col header-title ellipsis">家中为什么要用软路由</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -853,15 +853,15 @@ a.items5:hover {
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title" id="typetitle">使用flume完成数据的接收</h1>
+        <h1 class="title" id="typetitle">家中为什么要用软路由</h1>
         <h5 class="subtitle">
             
-                <time datetime="2017-03-15T23:00:00.000Z" itemprop="datePublished" class="page-time">
-  2017-03-16
+                <time datetime="2020-01-20T23:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-01-21
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/">建站组网</a></li></ul>
 
             
         </h5>
@@ -873,7 +873,7 @@ a.items5:hover {
 </header>
 
 <script>
-	var str = "使用flume完成数据的接收";	
+	var str = "家中为什么要用软路由";	
 	var i = 0;
 	function typing(){
 		
@@ -929,26 +929,26 @@ a.items5:hover {
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc" >
             <h4 style="padding-top: 10px;">TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#适合①-注意，syslog需要特定环境，也可用telnet发送数据"><span class="post-toc-number">1.</span> <span class="post-toc-text">适合①[注意，syslog需要特定环境，也可用telnet发送数据]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#适合②-使用telnet来发送数据"><span class="post-toc-number">2.</span> <span class="post-toc-text">适合②[使用telnet来发送数据]</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#适合③-使用curl来发送数据"><span class="post-toc-number">3.</span> <span class="post-toc-text">适合③[使用curl来发送数据]</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#软路由能做的但硬路由不能做的"><span class="post-toc-number">1.</span> <span class="post-toc-text">软路由能做的但硬路由不能做的</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一些言论"><span class="post-toc-number">2.</span> <span class="post-toc-text">一些言论</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-2017-3-16 使用flume完成数据的接收"
+<article id="post-2020-1-21 家中为什么要用软路由"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">使用flume完成数据的接收</h1>
+        <h1 class="post-card-title">家中为什么要用软路由</h1>
         <div class="post-meta">
-            <time class="post-time" title="2017-03-16 00:00:00" datetime="2017-03-15T23:00:00.000Z"  itemprop="datePublished">2017-03-16</time>
+            <time class="post-time" title="2020-01-21 00:00:00" datetime="2020-01-20T23:00:00.000Z"  itemprop="datePublished">2020-01-21</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%BB%BA%E7%AB%99%E7%BB%84%E7%BD%91/">建站组网</a></li></ul>
 
 
 
-			<span class="post-count">951&nbsp;&#x5B57;</span>
+			<span class="post-count">1,021&nbsp;&#x5B57;</span>
 <!--
-<span class="post-count">6����</span>
+<span class="post-count">3����</span>
 
 
 -->
@@ -961,11 +961,40 @@ a.items5:hover {
 -->
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>使用flume完成数据的接收<br>场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中</p>
-<h2 id="适合①-注意，syslog需要特定环境，也可用telnet发送数据"><a href="#适合①-注意，syslog需要特定环境，也可用telnet发送数据" class="headerlink" title="适合①[注意，syslog需要特定环境，也可用telnet发送数据]"></a>适合①[注意，syslog需要特定环境，也可用telnet发送数据]</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">source[syslogtcp],sink[hdfs]</span><br><span class="line">a1.sources &#x3D; r1</span><br><span class="line">a1.sinks &#x3D; k1</span><br><span class="line">a1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line"># Describe&#x2F;configure the source</span><br><span class="line">a1.sources.r1.type &#x3D; syslogtcp</span><br><span class="line">a1.sources.r1.port &#x3D; 12345</span><br><span class="line">a1.sources.r1.host &#x3D;hadoop01</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line"># Describe the sink</span><br><span class="line">a1.sinks.k1.type &#x3D; hdfs</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br><span class="line">###HDFS的数目路径</span><br><span class="line">a1.sinks.k1.hdfs.path &#x3D; hdfs:&#x2F;&#x2F;hadoop01:9000&#x2F;flume</span><br><span class="line">a1.sinks.k1.hdfs.filePrefix &#x3D; Syslog</span><br><span class="line">a1.sinks.k1.hdfs.round &#x3D; true</span><br><span class="line">a1.sinks.k1.hdfs.roundValue &#x3D; 1</span><br><span class="line">a1.sinks.k1.hdfs.roundUnit &#x3D; minute</span><br><span class="line"></span><br><span class="line"># Use a channel which buffers events in memory</span><br><span class="line">a1.channels.c1.type &#x3D; memory</span><br><span class="line">a1.channels.c1.capacity &#x3D; 1000</span><br><span class="line">a1.channels.c1.transactionCapacity &#x3D; 100</span><br><span class="line"></span><br><span class="line"># Bind the source and sink to the channel</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 flume]$ start-all.sh</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -mkdir flume</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls</span><br><span class="line">drwxr-xr-x   - hadoop supergroup          0 2017-03-12 17:14 flume</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">接收端：bin&#x2F;flume-ng agent --conf conf --conf-file conf&#x2F;syslog.conf --name a1 -Dflume.root.logger&#x3D;INFO,console</span><br><span class="line">发送端：telnet hadoop01 12345，，，</span><br><span class="line">结果：</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls &#x2F;flume &#x2F;&#x2F;注意在hadoop下面写文件查看时，文件夹要加“&#x2F;”</span><br><span class="line">Found 13 items</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        177 2017-03-12 18:09 &#x2F;flume&#x2F;My_netcat_log.1489313346930</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        224 2017-03-12 18:16 &#x2F;flume&#x2F;My_netcat_log.1489313794747</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        185 2017-03-12 17:21 &#x2F;flume&#x2F;Syslog.1489310474526</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        149 2017-03-12 17:21 &#x2F;flume&#x2F;Syslog.1489310474527</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls flume &#x2F;&#x2F;没有“&#x2F;”会看不到！！！！</span><br><span class="line">[hadoop@hadoop01 flume]$ </span><br><span class="line">[hadoop@hadoop01 flume]$</span><br></pre></td></tr></table></figure>
-<h2 id="适合②-使用telnet来发送数据"><a href="#适合②-使用telnet来发送数据" class="headerlink" title="适合②[使用telnet来发送数据]"></a>适合②[使用telnet来发送数据]</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">source[netcat],sink[hdfs]</span><br><span class="line"># Describe&#x2F;configure the source</span><br><span class="line">a1.sources.r1.type &#x3D; netcat</span><br><span class="line">a1.sources.r1.port &#x3D; 12321</span><br><span class="line">a1.sources.r1.bind &#x3D; hadoop01</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line"># Describe the sink</span><br><span class="line">a1.sinks.k1.type &#x3D; hdfs</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br><span class="line">###HDFS的数目路径</span><br><span class="line">a1.sinks.k1.hdfs.path &#x3D; hdfs:&#x2F;&#x2F;hadoop01:9000&#x2F;flume</span><br><span class="line">a1.sinks.k1.hdfs.filePrefix &#x3D; My_netcat_log</span><br><span class="line">a1.sinks.k1.hdfs.round &#x3D; true</span><br><span class="line">a1.sinks.k1.hdfs.roundValue &#x3D; 1</span><br><span class="line">a1.sinks.k1.hdfs.roundUnit &#x3D; minute</span><br><span class="line"></span><br><span class="line"># Use a channel which buffers events in memory</span><br><span class="line">a1.channels.c1.type &#x3D; memory</span><br><span class="line">a1.channels.c1.capacity &#x3D; 1000</span><br><span class="line">a1.channels.c1.transactionCapacity &#x3D; 100</span><br><span class="line"></span><br><span class="line"># Bind the source and sink to the channel</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">接收端：bin&#x2F;flume-ng agent --conf conf --conf-file conf&#x2F;netcat.conf --name a1 -Dflume.root.logger&#x3D;INFO,console</span><br><span class="line">发送端：telnet hadoop01 12345，，，</span><br><span class="line">结果：</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls &#x2F;flume</span><br><span class="line">Found 13 items</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        177 2017-03-12 18:09 &#x2F;flume&#x2F;My_netcat_log.1489313346930</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        224 2017-03-12 18:16 &#x2F;flume&#x2F;My_netcat_log.1489313794747</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls flume</span><br><span class="line">[hadoop@hadoop01 flume]$ </span><br><span class="line">[hadoop@hadoop01 flume]$</span><br></pre></td></tr></table></figure>
-<h2 id="适合③-使用curl来发送数据"><a href="#适合③-使用curl来发送数据" class="headerlink" title="适合③[使用curl来发送数据]"></a>适合③[使用curl来发送数据]</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">source[http],sink[hdfs]</span><br><span class="line">a1.sources &#x3D; r1</span><br><span class="line">a1.sinks &#x3D; k1</span><br><span class="line">a1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line"># Describe&#x2F;configure the source</span><br><span class="line">a1.sources.r1.type &#x3D; http</span><br><span class="line">a1.sources.r1.port &#x3D; 50000</span><br><span class="line">a1.sources.r1.bind &#x3D; hadoop01</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line"></span><br><span class="line"># Describe the sink</span><br><span class="line">a1.sinks.k1.type &#x3D; hdfs</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br><span class="line">###HDFS</span><br><span class="line">a1.sinks.k1.hdfs.path &#x3D; hdfs:&#x2F;&#x2F;hadoop01:9000&#x2F;flume</span><br><span class="line">a1.sinks.k1.hdfs.filePrefix &#x3D; Http_log</span><br><span class="line">a1.sinks.k1.hdfs.round &#x3D; true</span><br><span class="line">a1.sinks.k1.hdfs.roundValue &#x3D; 1</span><br><span class="line">a1.sinks.k1.hdfs.roundUnit &#x3D; minute</span><br><span class="line"></span><br><span class="line"># Use a channel which buffers events in memory</span><br><span class="line">a1.channels.c1.type &#x3D; memory</span><br><span class="line">a1.channels.c1.capacity &#x3D; 1000</span><br><span class="line">a1.channels.c1.transactionCapacity &#x3D; 100</span><br><span class="line"></span><br><span class="line"># Bind the source and sink to the channel</span><br><span class="line">a1.sources.r1.channels &#x3D; c1</span><br><span class="line">a1.sinks.k1.channel &#x3D; c1</span><br><span class="line"> </span><br><span class="line">接收端：bin&#x2F;flume-ng agent -c conf -f conf&#x2F;http.conf  -n a1 -Dflume.root.logger&#x3D;INFO,console</span><br><span class="line">发送端：</span><br><span class="line">[hadoop@hadoop01 flume]$ curl -X POST -d&#39;[&#123;&quot;headers&quot;:&#123;&quot;h1&quot;:&quot;v1&quot;,&quot;h2&quot;:&quot;v2&quot;&#125;,&quot;body&quot;:&quot;hello body&quot;&#125;]&#39;  http:&#x2F;&#x2F;hadoop01:50000</span><br><span class="line">[hadoop@hadoop01 flume]$ curl -X POST -d&#39;[&#123;&quot;headers&quot;:&#123;&quot;h1&quot;:&quot;v1&quot;,&quot;h2&quot;:&quot;v2&quot;&#125;,&quot;body&quot;:&quot;asdascfascas&quot;&#125;]&#39;  http:&#x2F;&#x2F;hadoop01:50000</span><br><span class="line">[hadoop@hadoop01 flume]$ curl -X POST -d&#39;[&#123;&quot;headers&quot;:&#123;&quot;h1&quot;:&quot;v1&quot;,&quot;h2&quot;:&quot;v2&quot;&#125;,&quot;body&quot;:&quot;xxxxxxxxxxx&quot;&#125;]&#39;  http:&#x2F;&#x2F;hadoop01:50000</span><br><span class="line">结果：</span><br><span class="line">[hadoop@hadoop01 flume]$ hadoop fs -ls &#x2F;flume</span><br><span class="line">Found 16 items</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        145 2017-03-12 18:49 &#x2F;flume&#x2F;Http_log.1489315734229</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        147 2017-03-12 18:49 &#x2F;flume&#x2F;Http_log.1489315785602</span><br><span class="line">-rw-r--r--   3 hadoop supergroup        161 2017-03-12 18:49 &#x2F;flume&#x2F;Http_log.1489315785603</span><br></pre></td></tr></table></figure>
+            <blockquote>
+<p>这原本是我在知乎上的回答，偶然发现被折叠了，改了N次也无济于事，还是放在这里吧。</p>
+</blockquote>
+<h4 id="软路由能做的但硬路由不能做的"><a href="#软路由能做的但硬路由不能做的" class="headerlink" title="软路由能做的但硬路由不能做的"></a><strong>软路由能做的但硬路由不能做的</strong></h4><ul>
+<li><p><strong>插件</strong>。不仅仅只是网络插件的差别，拿LEDE举例，网络插件恰恰被从酷软中心拿掉了，哈哈，求生欲很强。但剩下的那些插件可不是一无是处，比如ftp就很有用，还有很多插件，自己探索吧。</p>
+</li>
+<li><p><strong>小飞机</strong>。单独说下这个插件，对于软路由系统比如LEDE其支持更高级的Clash/Surge方式，这才是软路由使用网络查件的正确姿势。没错，这就是国内要想从TV看油管4K的必备，基本没什么其他解决方案。</p>
+</li>
+<li><p><strong>平台扩展</strong>。要搞清楚软路由是什么，它一般依托于工控机平台（MiniPC），拿我自己的软路由I57200U来说，我可以物理机装LEDE、装爱快；但当然，我也可以装PVM、装ESXi，然后以虚拟机的方式运行我的软路由系统，在网卡直通的条件下软路由性能基本不受影响。所以如果以ESXi的方式，你完全可以安装其他的虚拟机，打造自己的本地云主机。你可以装Linux挂脚本、可以装Win10/7挂机器人，总之，你可以有若干台24小时运行的虚拟机，结合公网IP或者DDNS，可以获得和阿里云主机基本一样的效果，说到这里，想想4核16G200M带宽（上行5M/s）的阿里云主机要多少钱一年。</p>
+</li>
+<li><p><strong>性能</strong>。终于说到性能了，我的看法，200M宽带及以上直接上软路由不用考虑其他（土豪钱多可以买高端路由）；其他的想全家网络番茄的，可以软路由，也可以硬路由刷梅林固件（梅林的插件的性能要差得多，但一般视频需求也足够了）。另外，看硬件，硬路由其实处理器性能很弱（比较同价位的软路由），外加需要同时支持无线网卡，这其实会影响整体的路由处理能力，但软路由+AP的模式，其实更适合高带宽场景。<br>总之，小水管无所谓性能，大水管才看的出来。</p>
+</li>
+</ul>
+<h4 id="一些言论"><a href="#一些言论" class="headerlink" title="一些言论"></a><strong>一些言论</strong></h4><ul>
+<li><p>关于<strong>路由系统</strong>，真不需要听别人的安利，LEDE是小白专属；</p>
+</li>
+<li><p>关于<strong>异地访问</strong>，动态公网IP现在并不难得到，相信我，在国外的我可以透过路由自由的访问到家中的每一台设备（只要被分配了内网IP），这种体验非常棒，尤其是搭配我的群晖NAS。当然这已经不太属于软路由的范畴了。</p>
+</li>
+<li><p>所谓<strong>优化</strong>，别被唬住，设备到位优化就到位了，说需要技巧的都是瞎扯；</p>
+</li>
+<li><p>所谓<strong>稳定</strong>，我上次的软路由完美运行了快半年了，其实是三个系统同时运行，Winserver2016、Ubuntu和爱快，爱快是我的主路由。最后为什么崩了？因为停电了！</p>
+</li>
+<li><p>所谓<strong>带机量</strong>，只要你家不是电影院，不来个百十号人，我相信中端路由（例如R7000）就完全可以满足。</p>
+</li>
+<li><p>所谓<strong>门槛</strong>，真没什么门槛，只要你认得汉字，都可以按照教程来，没人让你自己研究，网上的奶妈级教程多如牛毛~</p>
+</li>
+<li><p>所谓<strong>玩法</strong>，玩法真的太多了，硬路由功能相比之下太少了。</p>
+</li>
+</ul>
+<p>最后，推荐几个土鳖上的软路由相关的频道：<a href="https://www.youtube.com/channel/UCaMih5WXqoXq7Hg0S_XJdOg" target="_blank" rel="noopener">Vedio Talk</a>、<a href="https://www.youtube.com/channel/UCpPswAyGzdRwWmiW5oTNnvA" target="_blank" rel="noopener">Big东东</a>、<a href="https://www.youtube.com/channel/UCxcuxsAjdnQaiRwYb5CVISw" target="_blank" rel="noopener">翼王</a></p>
+<p>多看看这些实际操作的视频，也可以有个初步了解，尤其推荐VedioTalk，有很多很实用的入门知识和实际操作教程，如果对软路由跃跃欲试，那就赶快去看看吧。</p>
+<blockquote>
+<p>注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考</p>
+</blockquote>
 
         </div>
 
@@ -974,7 +1003,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html" target="_blank" rel="external">https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html" target="_blank" rel="external">https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html</a>
         
     </div>
     <footer>
@@ -994,7 +1023,7 @@ a.items5:hover {
 
         <div class="post-footer">
             
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5/" rel="tag">实践</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BB%84%E7%BD%91/" rel="tag">组网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%AF%E7%94%B1/" rel="tag">路由</a></li></ul>
 
 
             
@@ -1004,7 +1033,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&title=《使用flume完成数据的接收》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&title=《家中为什么要用软路由》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1014,22 +1043,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&title=《使用flume完成数据的接收》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&title=《家中为什么要用软路由》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用flume完成数据的接收》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《家中为什么要用软路由》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&via=https://www.zonelyn.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1052,18 +1081,18 @@ a.items5:hover {
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/2017-4-4%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%81%94%E7%BD%91.html" id="post-prev" class="post-nav-link">
+      <a href="/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">VMware虚拟机联网</h4>
+        <h4 class="title">双显卡笔电安装N卡驱动及CUDA</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/2017-3-15%20%E8%BF%9C%E7%A8%8BIDEA%E8%B0%83%E8%AF%95Storm.html" id="post-next" class="post-nav-link">
+      <a href="/article/2020-1-8%20%20%E7%BA%B5%E8%A7%88%E5%85%A8%E5%B1%80%E5%9E%82%E7%9B%B4%E6%89%93%E5%87%BB%E7%9A%84%E7%BB%84%E7%BB%87%E6%A8%A1%E5%BC%8F%EF%BC%88%E4%B8%8B%EF%BC%89.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">远程IDEA调试Storm</h4>
+        <h4 class="title">纵览全局垂直打击的组织模式（下）</h4>
       </a>
     </div>
   
@@ -1082,17 +1111,14 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-11-4%20%E5%AE%9E%E7%8E%B0%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C(%E5%BE%85%E7%BB%AD).html">用Python实现神经网络(待续)</a></b>
+		  <b><a class="post-title-link" href="/article/2019-7-22%20%E5%8A%9F%E8%83%BD%E5%BC%BA%E5%A4%A7%E7%9A%84NAS%E4%BA%91%E5%AD%98%E5%82%A8.html">功能强大的NAS云存储</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
 		  
-介绍人工智能的基本概念和逻辑体系
-研究两种数据的分类算法
-使用Python运用分类方法实现只有一层的神经网络
+注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考
 
-分类两种类型感知器，
-适用性的线性神经元
-使用Python的开发库：Pandas...
+
+初识NASNAS，Network Attached Storage，直译是网络附属存储，但实际上就是一种网...
 		  </p>
 		  
 		</div>
@@ -1102,10 +1128,10 @@ a.items5:hover {
  
 	  <li>
 		<div style="">
-		  <b><a class="post-title-link" href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html">Flume、Kafka、Storm如何结合使用</a></b>
+		  <b><a class="post-title-link" href="/article/2019-7-4%20%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AE%B6%E9%87%8C%E8%A6%81%E6%9C%89%E5%85%AC%E7%BD%91IP.html">为什么家里要有公网IP</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(p...
+		  最近家里换了宽带，并且在我的强烈要求下选择了能提供公网IP的联通宽带，当然这里是动态公网IP，期间，包括光猫的桥接+路由器拨号，都已经做完，基本上到这里为止家里的网络环境就是外部可访问的了，从此...
 		  </p>
 		  
 		</div>
@@ -1291,7 +1317,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&title=《使用flume完成数据的接收》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&title=《家中为什么要用软路由》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1301,22 +1327,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&title=《使用flume完成数据的接收》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&title=《家中为什么要用软路由》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用flume完成数据的接收》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《家中为什么要用软路由》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html&via=https://www.zonelyn.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-3-16%20%E4%BD%BF%E7%94%A8flume%E5%AE%8C%E6%88%90%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2020-1-21%20%E5%AE%B6%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%BD%AF%E8%B7%AF%E7%94%B1.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1327,7 +1353,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEd0lEQVR42u3aS27bQBAFQN//0g6QVQBb8nvdVKChiyuDskac4qKnPx8f8fX59/p659/7j+48/9bX+89Xfr5+vtrHKy5MmDBhwvSWTJ9Pr+SHW5T8efL7z+88+jTZOyZMmDBhugdTslwb+JMDxGwzOVz76cP7mDBhwoTpFzAlof116WueeG9eMCZMmDBhwtSG8GTb+Zr5ISNP6TFhwoQJ029gypf7HF15Oj1rguaJ98tr4ZgwYcKE6c2YNoH59L9fON+ECRMmTJjegOkVoT1KI8vS8FWHg+F+MWHChAnTsUz7FLQt+151EGmL1O0A0A+1cEyYMGHCdCDTvqk5G+55vqX8RSavdnW4wYQJEyZMBzLlIXOWRuZpbb7t2eGg3R0mTJgwYboTU54E5gMubYDPC8RXFXmLZBsTJkyYMB3LtElEN9/6/0NCs9eDCRMmTJhOZ8qT1atag22xtT2CtEXeupGJCRMmTJiOYkoCZ1IebXHz4D1LXGfHjmFTExMmTJgwHcW0D+f55mcDQ8l328Gd6NkwYcKECdOxTPuEdlaifcVQTnsnOYJgwoQJE6Z7MOWp5usC86bgm5eq82NBYYkJEyZMmN6Sqf3yLEjP2pD7suzs2HFB9owJEyZMmN6eKS/4JknvplicI85wo9eGCRMmTJhuzZQnllcR5C9mE8eL4wsmTJgwYTqWKUkUNyMvSTo6o2+LwgkEJkyYMGG6H9Mm3LZV0P2v5G3XNt2NppkwYcKECdOBTPsw3DYXkxVmjc/ZoaQAxYQJEyZMxzK1G2sD/AYx+a3NK8SECRMmTPdmakPsDPeqIL1pjs5KvZgwYcKE6X5MbTE0Gb4peqqj8nE+lLOqhWPChAkTplswtSEzB8rD/yw9Tp5ndqTAhAkTJkynMyUhc9aM3AfsNuVuC77Rp5gwYcKE6aZM15aA21DdcmwOLj8QY8KECROmY5nyRHQzlNM+Vvu7yZWn5ZgwYcKE6X5M7fZmIXzfsLyq4JuvhgkTJkyYTmeaueZjN3uUHG5WjI5eNiZMmDBhOpapbUZe+z/5r7dN1pYjOjdhwoQJE6bDmWZkeSI9a4vmrcrZMxeHG0yYMGHCdDhT0gKcDeLkZeKrhnLy5muxR0yYMGHCdDhTHp7bsm87EtS2KtvVZkkyJkyYMGE6kSlvCuZAeYo7O3zM/s6PFN/cx4QJEyZMt2DKjwKzpmOOkryGvDGZ3PlhfUyYMGHCdAum2ShnvqU8SCevZ/YyhgkwJkyYMGE6lqkdo0kWzYdp2qGiFmh2RS8GEyZMmDAdwrTf6h50Fs7rQm3M+rDfiwkTJkyYDmS6+DSxWCcv/uZF3qSwiwkTJkyYfgPTJmAnQXq/fluivar0/E1TExMmTJgwHcuUBO+8JTkbmpkVeWeDPnXJGBMmTJgwYVo3Ptt12lJv8pIwYcKECdNvZpqF3uRB82Jru1r7nw+fARMmTJgwHc6UB932oTcl2nxU6BUFaEyYMGHCdA+m/eBOniS3m7xqeChP2odAmDBhwoTpHZn+AF2k2VIq9V0QAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEkUlEQVR42u3aS27bQBAFwNz/0s7WQUD5vW4a4EjFVSDJ5EwxQE9//vyJr69v1+yX3z+5+vb/a/b0q3tePf22CxMmTJgwPZLp6+X1+tbJxvIlXv1V/sIS0NfrvLwDJkyYMGE6nCm53SbkX/3ta8rXT0nuuVknJkyYMGH6ZKbkDnkw3qAkv8+fiAkTJkyYPpnpdYhtt7QpLkfJalw+xoQJEyZMn8DUNhT37ca8WLxvT+bF6Btq4ZgwYcKE6WFMs5T1Pf5984UJEyZMmB7G9FVeN5RKy9S6Lea2R4po15gwYcKE6VimNvVt08ikQNweR9qUNWmXRi8DEyZMmDAdyJQE7FlwzRuTSdtyViy+62VgwoQJE6ZzmTaBMx/32TdNk6ffdWj4IWnHhAkTJkwHMrUDOvngTp6OzkaFNml5PbKDCRMmTJiOZdoM7my2fdeQUHscyV9tTYYJEyZMmB7J1I7XzAq4s3S0LR/PQn70MjBhwoQJ0xsxtSXUvCG62djvtU6j8xEmTJgwYTqcadbq24TYeqGjI8htzVpMmDBhwnQgUzHXU6aybeBPFt2+sDYVv1wDJkyYMGF6C6Y8VOctwPbzfMOzxmR+58sDASZMmDBhOpApCcD5EEy77Tzlng0Gtfe/TH0xYcKECdOxTG3bchbmZ43MpIC7Ke9G98eECRMmTG/K1AbpPJC3zxr2adfHC0yYMGHCdDrTXU3Ettiao7et1tl9MGHChAnTuzLNBndmRdXk2zxVzp81I64rBJgwYcKE6cFMm7SwPRwkIXlf3s3bq9G4LSZMmDBhOpypLcK2gz53NR03n69eLSZMmDBhOpypHcRJQuw+GLes7bhtsUJMmDBhwvQWTJuaZ3KYyIdQN6x5+p0/CxMmTJgwncuUB/Uk6Oags9bpppm6T9cxYcKECdN7MO2X1ZaD22GdfRO0Lf5iwoQJE6ZzmfaLmI3O/EYLc1b2jZJqTJgwYcJ0LNN+e8mh4TdS4rwZOUuwL8d3MGHChAnTgUxJEtgOxLR8++Q5X2fyefF/ChMmTJgwPZgp+Wmegs7Gd+4q7+Z7qbkxYcKECdMbMeXF07bI2x4IZulr3o4t0ntMmDBhwnQsU1uobUHrEmqcxOYvuH3x0SvBhAkTJkyHMM1Kt3n7c5MGt6E9f80tNyZMmDBhOp3prrbipuW5+XaWVBfFYkyYMGHCdCxTHno35d1725CzRHffFsWECRMmTCcybZLYWfK5H+KZFXbz0vYPqS8mTJgwYTqWaR+229A+LLmOPl8N62DChAkTpmOZ6tBYFlL3y5q1S4ebv+0EgQkTJkyYnsL0VV554N/cc1bA3f/V5Y4wYcKECdOxTHfFxE2EfR3a923L/Fm/cp7ChAkTJkwPYNoE7FkRtj0QzJLtzRowYcKECdP7MeVLyQP8ZrinTV/bxDhx+OcTTJgwYcL0YUybAmt+//wQsAn2UXkXEyZMmDB9DNP+96/Dczugszm4FMkzJkyYMGE6nGkzrJNve1OQzRucm4PF5XowYcKECdOxTPnUSl7SnZVTN9NGm2PErCiMCRMmTJgez/QXHtL24PIfSD0AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
