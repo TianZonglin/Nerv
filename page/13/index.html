@@ -920,13 +920,13 @@ a.items5:hover {
 	
     
         <li class="post-list-item fade">
-            <article id="post-2017-2-28 Kafka初使用"
+            <article id="post-2017-3-2 Flume,Kafka,Storm如何通信"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
-        <time class="post-time" title="2017-02-28 00:00:00" datetime="2017-02-27T23:00:00.000Z"  itemprop="datePublished">2017-02-28</time>
+        <time class="post-time" title="2017-03-02 00:00:00" datetime="2017-03-01T23:00:00.000Z"  itemprop="datePublished">2017-03-02</time>
 
-		<span class="post-count">170&#x5B57;</span>
+		<span class="post-count">854&#x5B57;</span>
         
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
 
@@ -939,7 +939,7 @@ a.items5:hover {
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html">Kafka初使用</a>
+      <a class="post-title-link" href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html">Flume、Kafka、Storm如何结合使用</a>
     </h3>
   
 
@@ -949,17 +949,18 @@ a.items5:hover {
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        12345678910111213[hadoop@hadoop01 bin]$ kafka-topics.sh --create --zookeeper hadoop01,hadoop02,hadoop03 --replication-factor 1 --partitions 3 --topic hadoop01Created topic &quot;hadoop01&quot;.[had...
+        原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(producer)发送消息;在Storm的spout中继承IRichSpout接口，调用kafka的消息消费者(Consumer)来接收消息，然后经过几个自定义的Bolt，将自定义的内容进行输出。
+fl...
     
 
-        <a href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html" class="post-more waves-effect waves-button">
+        <a href="/article/2017-3-2%20Flume,Kafka,Storm%E5%A6%82%E4%BD%95%E9%80%9A%E4%BF%A1.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
     
     <div class="post-footer">
         
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flume/" rel="tag">Flume</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Storm/" rel="tag">Storm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B4%E5%90%88/" rel="tag">整合</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
 
     </div>
     
@@ -1001,6 +1002,54 @@ a.items5:hover {
     
 
         <a href="/article/2017-2-28%20Kafka%E9%9B%86%E7%BE%A4%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kafka/" rel="tag">Kafka</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" rel="tag">常用命令</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-2017-2-28 Kafka初使用"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-28 00:00:00" datetime="2017-02-27T23:00:00.000Z"  itemprop="datePublished">2017-02-28</time>
+
+		<span class="post-count">170&#x5B57;</span>
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html">Kafka初使用</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        12345678910111213[hadoop@hadoop01 bin]$ kafka-topics.sh --create --zookeeper hadoop01,hadoop02,hadoop03 --replication-factor 1 --partitions 3 --topic hadoop01Created topic &quot;hadoop01&quot;.[had...
+    
+
+        <a href="/article/2017-2-28%20Kafka%E5%88%9D%E4%BD%BF%E7%94%A8.html" class="post-more waves-effect waves-button">
             阅读全文…
         </a>
     </div>
@@ -1319,56 +1368,6 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-2017-2-16 kettle相关知识"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-02-16 00:00:00" datetime="2017-02-15T23:00:00.000Z"  itemprop="datePublished">2017-02-16</time>
-
-		<span class="post-count">1,427&#x5B57;</span>
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3/">大数据相关</a></li></ul>
-
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html">kettle相关知识</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        相关链接开源ETL工具(Kettle) V5.1.0 免费Spoon版http://www.cr173.com/soft/30051.htmlETL工具大全，你了解多少http://bbs.csdn.net/topics/390349305Kettle_抽取数据举例http://blog.csdn.net/huangyanlong/article/details/42264543
-文件列表
-...
-    
-
-        <a href="/article/2017-2-16%20kettle%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86.html" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kettle/" rel="tag">Kettle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A6%82%E8%BF%B0/" rel="tag">概述</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag">转载</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
 	
 	
 
@@ -1381,7 +1380,7 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/12/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/">下一页</a>
     </div>
 </nav>
 
@@ -1402,7 +1401,7 @@ sparkapp使用sbt打包simple.sbt直接使用教程中的sbt依赖版本即可�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;250.8k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;253.1k&nbsp;字</span>
 </p>
 
 
