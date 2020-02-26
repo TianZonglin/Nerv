@@ -13,7 +13,7 @@ var Jsonlist = [
 
 
 
-//// ---------------- for background image---------------
+//// ---------------- for background image
 //
 //var currentIndex = 0;
 //function changeBg(){
