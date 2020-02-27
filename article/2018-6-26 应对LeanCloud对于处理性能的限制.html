@@ -16,7 +16,7 @@
 <meta name="description" content="最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。 更广泛的应用场景其实上面说的对下载次数进行统计实际上就是统计点击的计数，这就可以应用到更多的场景，比如给文章添加喜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="应对LeanCloud对于处理性能的限制">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用LeanCloud来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去资源分享里看看效果。 更广泛的应用场景其实上面说的对下载次数进行统计实际上就是统计点击的计数，这就可以应用到更多的场景，比如给文章添加喜">
 <meta property="og:locale" content="zh_CN">
@@ -25,7 +25,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;fnijmpwthuvxyos4pzpp2zoe&#x2F;image_1cge7qlcu1m82fj0i7k8g11tjv1g.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;8uttol7g62infft0sdfqmgkj&#x2F;1111112.gif">
 <meta property="article:published_time" content="2018-06-25T22:00:00.000Z">
-<meta property="article:modified_time" content="2019-08-04T15:03:01.047Z">
+<meta property="article:modified_time" content="2020-02-27T03:30:10.029Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="JQuery">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html">
 
 
 
@@ -73,7 +73,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -220,7 +220,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -235,7 +235,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -315,7 +315,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -397,7 +397,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -818,11 +818,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -925,7 +925,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -967,7 +967,7 @@ a.items5:hover {
 -->
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>最近一直想如何才能统计<a href="https://www.zonelyn.com/other/page_share.html">资源分享</a>页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用<code>LeanCloud</code>来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去<a href="">资源分享</a>里看看效果。</p>
+            <p>最近一直想如何才能统计<a href="https://www.old.cz5h.com/other/page_share.html" target="_blank" rel="noopener">资源分享</a>页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用<code>LeanCloud</code>来实现下载的计数，最后基本实现了这个想法，有兴趣的可以去<a href="">资源分享</a>里看看效果。</p>
 <h3 id="更广泛的应用场景"><a href="#更广泛的应用场景" class="headerlink" title="更广泛的应用场景"></a>更广泛的应用场景</h3><p>其实上面说的对下载次数进行统计实际上就是统计点击的计数，这就可以应用到更多的场景，比如给文章<strong>添加喜欢数、顶数、踩数</strong>等等，这是可以直接用的，处理逻辑都不变。<br>还有就是类似<strong>淘宝五颗星打分数</strong>的这种评分机制，也是可以稍作改变就可以。<br>总之，只要是由点击后触发数据更新的场景都可以用此来实现。</p>
 <p>这里，对如何实现整个需求暂不细说，主要说一下遇到的主要问题。</p>
 <h3 id="LeanCloud查询处理的性能局限"><a href="#LeanCloud查询处理的性能局限" class="headerlink" title="LeanCloud查询处理的性能局限"></a>LeanCloud查询处理的性能局限</h3><blockquote>
@@ -1030,7 +1030,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" target="_blank" rel="external">https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html</a>
         
     </div>
     <footer>
@@ -1060,7 +1060,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1070,22 +1070,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1324,8 +1324,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1342,7 +1342,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1352,22 +1352,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&title=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《应对LeanCloud对于处理性能的限制》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-6-26%20%E5%BA%94%E5%AF%B9LeanCloud%E5%AF%B9%E4%BA%8E%E5%A4%84%E7%90%86%E6%80%A7%E8%83%BD%E7%9A%84%E9%99%90%E5%88%B6.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1378,7 +1378,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSklEQVR42u3b0a6bMBAE0Pz/T9++tkqAmV2nqtSTpyoBYw5XYj3rvl7x5+fi8/uv70fen3s/2vv3V7Nqz7q/r9c3Pvjw4cOHD19AkxBc3Uw+xfuzrh5Je8Wrhz175Pjw4cOHD9+eL7mB2Yu/hWgf1abEuf/mfhx8+PDhw4fv7/DN4oD2AczOzRHze8SHDx8+fPj+Hb68rJlNN7nKpvzKYwV8+PDhw4fvLN+mEd5G6vn4+Wiz4qNtTuDDhw8fPnx7vnwX1v/z78MffPjw4cOHbxG1zwqRTQTfzrxtfg818OHDhw8fvlHPOg/KN5fftLc3czuFe3ktfPjw4cOHL75WW47kbfIccdMwaFsCm0b+h2/w4cOHDx+++V6y6L8Qt+3ttnDZbDJLNpPl4+Rb2fDhw4cPH76cbwZximYTK7SbzBLoul2BDx8+fPjwzTvdr+TFf6CpPFq0b+L+PLbI773e04cPHz58+PCVr//ZMadG2C/y24cXjYYPHz58+PCN+PJFcnuTm1h/Ezecavw/3As+fPjw4cM32nk1I6hf83GBMgvr2/HzkushnsCHDx8+fPhivrxQ2Mfr3wvrZ1eZhfX48OHDhw/fnq/FalvRs6b1/orfCOsvExd8+PDhw4evnFu7say9fB6mz0LzWVGSF0YPMvjw4cOHD1/Ml7eik8JiVkzMmuj5ue3jycfEhw8fPnz4ZnyzpvjP+jOjn5VHs3LqYYb48OHDhw/fiK99YeeFThvQz4KD9qyW+PIYfPjw4cOHb8SXn5Ac34YF7ff7CGDWSHio+/Dhw4cPH75bvrwcydvPZ6P25PknIcKp1jg+fPjw4cN3ii+Pv9twPKGcxe7tmPsiBh8+fPjw4dvwtRvU2kV1u+BPCpQcNC9rZveLDx8+fPjwtXztYj55wZ9aureBxSyyb4OMP37Fhw8fPnz4RnxtKdCWPvkN5CVIG0lsSp/LcfDhw4cPH77tan1VFiSg7YPZtAHah3Hggw8fPnz48B1tcudlyoy1jS1mZc3hXgc+fPjw4cO36PPmDezZ5Tcj74ueUwHEZa8DHz58+PDhC/jyJnG7BS1vSLe/5rPKt8TVBRA+fPjw4cO35mvLizbcn7Wx28b5qRzlYXx8+PDhw4fvEF9bdsyW93n0kBdYyTizZvmHa+HDhw8fPnwl36xkyRfY34vy85h+M89o/vjw4cOHD188/zYo30cDSVmTNwZmD/i+KMnbFfjw4cOHD9+ML28n78uCZOptOzwviU41A/Dhw4cPH74NXx6pb4jbZXkeJSRj5lvoitYCPnz48OHDN+lKD5fNRSM5BsoLnbMlS9sYuPxLxIcPHz58+AK+YVR99Mj26sn4pyKPh0eLDx8+fPjwxXz56/xUmTJb6rfjt1c50OvAhw8fPnz4FnwtaHHJUeu6jQ+SI4/1OvDhw4cPH75Dfd52ErObTCKAvBBpOdoHUPwl4sOHDx8+fG9zm73C8xg9D9lnxU0bHMzij8tHiw8fPnz48I348kV+24RuC4j8JmdL/aQ8Khrq+PDhw4cP35pvU2rMovw8mDjVLJ8FIh++x4cPHz58+M5UCK9kiveg+fH3NzkL6Gfcs9niw4cPHz58LV978/uIPF/Yz1oF+zggiSfw4cOHDx++Dd+seZyQtQVKjr6JDIaL/6vCBR8+fPjw4fsyX760bkucWdu+bTO0hctDxwMfPnz48OH7Gl9bCiSsbTQwK1/aDQFRCIIPHz58+PCN+NpNaXmrexZDbIhnMUS+NW3Y68CHDx8+fPhG8XR+ch7x59vFctxZsz9p8OPDhw8fPnwjvl9wBLEga700SAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFOUlEQVR42u3dwW7jOBAEUP//T2eBPe1h4qmqlrOHPJ+MQKbIpwHUrCYwr1f8+fr389/v7//y/u/JON/9Kp/hp+/4wocPHz58+Ca+r7efBOj9X97fK19YMs/2AW93x4cPHz58+O58bbGST6ItO5I5tDPZSrFonvjw4cOHD9/H+PJlbw+g3di/X/ZT3/Hhw4cPH77/l++yRW+ne8nM8zX+aOGCDx8+fPjwxWH9JYJ/D7f96hL0tzN/oNeBDx8+fPjwlWXB7/n+8AcfPnz48OGLX/CnF/bU6t6i+ctfRg18+PDhw4dv0thigntLu22ftzO5tB+K8fHhw4cPH754/DzIzkuQvFHdjpAUQ3fcghUfPnz48OGb+J7arl/QfyYhT9ZbrBofPnz48OGb+LbNfBKat4fe8uvf02yH1R7LWvDhw4cPH77gynZTfd/qt8vLH2cbK+T3/XZ1+PDhw4cP38S3FTR5SdGOn4zWtrq3fxyvfGh8+PDhw4ev5Hs2CGiLpJzvQt+WKWPLHB8+fPjw4Ytf59sWvY0eLsXTVoTljfzojvjw4cOHD99yx3rxW8TfUrbN7O2aS0sAHz58+PDhy/na5nQbsm/XbChFsH54zFG6jw8fPnz48KUzGf+TibwgSBoDbbFSHyaL51a3zPHhw4cPH763o23Lfipqb8uar+CzFSh5fP+HyAAfPnz48OEr+bYS5HKMrN2i54fnngrxI1x8+PDhw4fvIb57AfHsgbBtefndt7IJHz58+PDha/nyLfSlEZ7H/Um504JeGvPRb/Hhw4cPH76S706WL+8OOm7v43BhbL3jw4cPHz58JV8ebY9n3x76bXu8LG8PbHfEhw8fPnz48jteNv/Jq/1efLSFzqV4qsMLfPjw4cOHb8m9xwPi+S3b7Xc7zlPBQdvIx4cPHz58+D7Bd2lgbxPaDsbl8cT2aP9yygAfPnz48OEL+PIWctvw3hrhl7j/QtOuFx8+fPjw4dv4ngoItrJjA9raCXmJ1rbe8eHDhw8fvpavDdy3Znb+JJ+NBrbGQHENPnz48OHDF1+TT2trq19GzmOItgB67BAAPnz48OHDV/JtMf1WZIzTeqiFkMT6+Zxflyniw4cPH75fzLcF4vmN21ImeUh5G/sS1kcPDx8+fPjw4TvvsvNXeNL8ziP+PHC//DYnax85Pnz48OHDl/NtkXoegm+t92fLmsv3v7Tb8eHDhw8fvpiv3SpfSpOnQoTLAbh7y7w4ZYAPHz58+PB9M/Jlo761qJMtetI+v6Bvpwm+rfvw4cOHDx++gK8tMvJQIBm57iSUDe+2wV830fHhw4cPH77l/FVRQOTxwbZdv8QWbUt+exhRIYUPHz58+PB9M+f2qNlT0cCnw4J2bklkgA8fPnz48D3Llxcclwggn+jWPm+bCpc2PD58+PDhwzft5V/b1v3ZoDxpCSSN+fZQ3T3Kx4cPHz58+HK+tky5oCcTyhvw9/i+HeEPv8WHDx8+fPgmvnyi+dBJc30L9y/b/vvBuD+E9fjw4cOHD9+B777hz+nbdvt2AC5/DPV98eHDhw8fvuW+zas6KES2a7Yxx5Z22Q6/Fzr48OHDhw9f3t7eculki94WLnnxsYUU22zx4cOHDx++ja8tILYo/+F6KqZM4oDxIeHDhw8fPnwf42vLgkt8v4X7l4B+K4bw4cOHDx++n+FLQJ9qBuSRxFYMtYj48OHDhw/fna8N67diIt+6tyHFpfmdr/exNjk+fPjw4fvFfG1h0b7g27CgLWI+N5M8RMCHDx8+fPiCkf8BsuQqKX6VcWgAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -1396,7 +1396,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1421,7 +1421,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

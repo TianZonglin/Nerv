@@ -16,7 +16,7 @@
 <meta name="description" content="IndexedRDD由AMPLab的Ankur Dave提出，它是Immutability和Fine-Grained updates的精妙结合。IndexedRDD是一个基于RDD的Key-Value Store，扩展自RDD[(K, V)]，可以在IndexRDD上进行高效的查找、更新以及删除。由于其并没有合并到 Spark 的主项目分支，所以在使用时需要引入特别的对其的支持。 IndexedR">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用SBT正确构建IndexedRDD环境">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="IndexedRDD由AMPLab的Ankur Dave提出，它是Immutability和Fine-Grained updates的精妙结合。IndexedRDD是一个基于RDD的Key-Value Store，扩展自RDD[(K, V)]，可以在IndexRDD上进行高效的查找、更新以及删除。由于其并没有合并到 Spark 的主项目分支，所以在使用时需要引入特别的对其的支持。 IndexedR">
 <meta property="og:locale" content="zh_CN">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html">
 
 
 
@@ -68,7 +68,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -215,7 +215,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -230,7 +230,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -310,7 +310,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -392,7 +392,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -813,11 +813,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -920,7 +920,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1002,7 +1002,7 @@ spark-indexedrdd-0.4.0
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" target="_blank" rel="external">https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html</a>
         
     </div>
     <footer>
@@ -1032,7 +1032,7 @@ spark-indexedrdd-0.4.0
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1042,22 +1042,22 @@ spark-indexedrdd-0.4.0
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1310,8 +1310,8 @@ spark通用
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1328,7 +1328,7 @@ spark通用
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1338,22 +1338,22 @@ spark通用
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&title=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用SBT正确构建IndexedRDD环境》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-20%20%E4%BD%BF%E7%94%A8SBT%E6%AD%A3%E7%A1%AE%E6%9E%84%E5%BB%BAIndexedRDD%E7%8E%AF%E5%A2%83.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1364,7 +1364,7 @@ spark通用
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEhUlEQVR42u3ay27bSBAFUP//TzvAYBYBYsn3VlGJmj5cCaYsdh8uul4fH/H1+d/1++fk+vP7j34t/+U/V7V5+sUXJkyYMGF6S6b8Yc/52rvJN9u1JU/MXwwmTJgwYboT0yuCgORsfb6Sh4seoeSsmDBhwoTpZzIldxOyWVqbv7zkZWPChAkTJkzPH5CzzoKGFmVGiQkTJkyYfg7TVS3J599vj/8kVZ6FDi+shWPChAkTpjdjmg3u3OPzy+ebMGHChAnTP2X6LK+2Kbgp116VxG72+/9vYsKECROmY5mSVmXbGpwVgq8au2mHigpuTJgwYcJ0INNV7cC2gJuUUzccmyboF3cxYcKECdONmGYF03bbbctzHwTMyruYMGHChOkeTHmJdpaaJulxPkzTptYJ1jffxIQJEyZMN2VKjuoZWf5rbeKa12aTcjMmTJgwYboTU9uevLaRmRSI25fX0jy8iwkTJkyYbsGUlDvzK9/G7IDPw5RNoFNUCDBhwoQJ0yFM+V/qpuAoRJhtbDMq9MV3MGHChAnTLZhmrc28VJqEC7OjvU1r21YrJkyYMGE6l2mzvc3BPzvOP0ZXzTGLazBhwoQJ09szzQqy7baT5HkWcOS/PGziYsKECROmA5k2iWt79ObDOvs0e/MCvlgzJkyYMGE6nGmWCm74NsM3+1Gh+jMmTJgwYbod02yUp20itsR5aj17FiZMmDBhuh/T5soP+E1DcR+mtGNAm6djwoQJE6Z3ZsrTyFlpOA8pNkly0jrNm6yYMGHChOl0pn0ZdF94zZuL7cE/LOm2kQImTJgwYXpjpnYpm9QxLyW3sUxeLG5bnpgwYcKE6XSmWeE1P8KT4/+qIu++oPyQHhMmTJgwHc50bSjQAs2e/vzFXHX3hRETJkyYMGH6p0zFYTlKL1vifbMzT7O/uIsJEyZMmA5nygdfkqXk4z7tYd8mwy3KwzAFEyZMmDAdyzRrTM7GX/LRn1kPsV3DJtXHhAkTJkwnMrVpZ35Ut0fyjCz5r+T7mDBhwoTpfkxJspqnhfmvbRLsdqt5SPFwzZgwYcKE6UCmvFC7GeWZzcDMBm7aUnK0U0yYMGHCdAumdtQmSTLbbRTDNCOIpGz9TUCACRMmTJgOZMoP79lQzuwgzwdo9qn7sP6NCRMmTJiOZdqXSvdDM7OktyWOsDBhwoQJ0+FMs79cW6idUc4S3Xo9mDBhwoTpFkzJY9pC8Cu28XfKx5gwYcKE6X5Mbdl0n6y2SWn+CvPma1RWxoQJEyZMxzLtW4PtWM++/DpLgPNEPUrvMWHChAnTIUyf5dUmt/tgok16kwO+psSECRMmTMcy7Y/knDUPGvIAIi80559nyTkmTJgwYXpnpmSrmy3N2pP7+mpbFP7mZWPChAkTpsOZ2iAgobmqyDsLFDat0+IGJkyYMGG6EdO1C9ok0rNjvl0JJkyYMGH6mUztIvaNzDzx3jRBLw4IMGHChAnTmzElRd724G+LxbODfFPkLf4XEyZMmDAdy7RfRL69q8ZY82O+Ta1Xg6qYMGHChOm9mH4BFlGWhxU29x4AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEgElEQVR42u3aSW7jQBAEQP//056rgRnJmVXUQE0FTwZtLh00UFt/fcXH94/j7zM/z//8bXLP5In5c/M7fL3iwIQJEyZMb8n0/fT4+9aPUB4tJmdK7vD8zu3nSdaOCRMmTJjuwZTf7jlc/qLJVflnmyUrBTcmTJgwYfoYpvwV82XkQbqFyz82JkyYMGHC1LZZN4XxLFHIe7OYMGHChOnTmPIgPRtPtrPCtimct4Zf3gvHhAkTJkxvxpQv434/X3xgwoQJE6Y3Y/q+6GhHjJtyOg/hlzWRMWHChAnTsUxtEE2Kz9n5vJzelN9teY8JEyZMmE5nel4Q5i3X2V/OWrqvTkGKVAATJkyYMB3FNBs3JgXn5tr8w7TJSpFYYMKECROmGzHlL5cXme2gdJ8obJKPh71wTJgwYcJ0O6ZZcdu2a1+426gs1B++DyZMmDBhOpZpT5CH23Zo2raG82vrJi8mTJgwYTqcKY99+WNmScO+uG2vuiDLwIQJEyZMb8zUboVpC+a8qE5GoW3rdjaafbhFFRMmTJgwHch0bfO0LVNn9998mFkRjgkTJkyY7sT06iW1uG1z9hXJByZMmDBhugfTbDD5irRgtqm07dAO/yEwYcKECdPhTLPw3LZQNxtG22s3qcbDhAATJkyYMB3CNBvs5Q+eFbez7UQb0F/SAkyYMGHCdCzTrL6bzUWvbcJe1RTO0TFhwoQJ04lMs2Xngbyepq63Cg3/L56vCxMmTJgwHc507Vixbby2oPn7JOPMqEmNCRMmTJgOZ9oXq+3CkiZy+xlmjd269MWECRMmTEcxbQLnc+gk6M62+7ziL4tSGRMmTJgw3YipTRT+59FuwWnfs0gIMGHChAnTGzPlYfWqBSS/vWoMmSQHUYsZEyZMmDDdgikJsXk7ddYgnj19cz5qVWPChAkTpsOZoqBYBvs8GOevm7dxnwf7up2NCRMmTJiOZWrL19k2nVkhmqcd+Zn2I2HChAkTpnswtSVuW2pult2e32wJ+gULEyZMmDAdy9QuYF+g5g3i2VL3w05MmDBhwnQPpnw7y2aTTVsGt+PVvHhuPwMmTJgwYboTU1u+5mRtMM7br7M7t+vFhAkTJkznMm0K3c35vISexeWkeb0qgDFhwoQJ01FMsz0+eXnZlr6bJ85awC0uJkyYMGE6hSkJxpvm77Xbfa4qgOukBBMmTJgw3YgpHyXmScBs5DnbglMMKfN3wIQJEyZMt2BKStNZq7QdTL6urdyi/yMhwIQJEyZMRzHlQbcNz0na8VUeeaN2kxDUvXBMmDBhwvTGTLM2aP5ybdmclLWb5GDWMsaECRMmTOcytcF4M9rcbMpp3yE5P0syMGHChAnTiUz5dpa8iJ2lF8k9Z/X9LHXAhAkTJkx3YsqDdPLzKvtYJyWzp/+SKGDChAkTpg9gmoXzdsCZbMHZNG3bpAcTJkyYMH0O034DTR6MNwV5zlQkH5gwYcKE6XCmNuhuQnWeQLT3vCrteJgQYMKECROmA5lmDdBrU4Srko+kIL8MBRMmTJgwvTvTH+bpL+DfXRDiAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -1382,7 +1382,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1407,7 +1407,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

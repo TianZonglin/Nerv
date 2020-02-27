@@ -16,7 +16,7 @@
 <meta name="description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。 在此，我把JAVA中的实现来个详细说明。 首先，思路为递归，将其写为成员函数，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从N个数组分别取值，穷尽全部情况">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。 在此，我把JAVA中的实现来个详细说明。 首先，思路为递归，将其写为成员函数，">
 <meta property="og:locale" content="zh_CN">
@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html">
 
 
 
@@ -68,7 +68,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -215,7 +215,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -230,7 +230,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -310,7 +310,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -392,7 +392,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -813,11 +813,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -920,7 +920,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -981,7 +981,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" target="_blank" rel="external">https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" target="_blank" rel="external">https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html</a>
         
     </div>
     <footer>
@@ -1011,7 +1011,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1021,22 +1021,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1274,8 +1274,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1292,7 +1292,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1302,22 +1302,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&title=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《从N个数组分别取值，穷尽全部情况》 — TZLoop's Blog&url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2014-9-23%20%E4%BB%8EN%E4%B8%AA%E6%95%B0%E7%BB%84%E5%88%86%E5%88%AB%E5%8F%96%E5%80%BC%EF%BC%8C%E7%A9%B7%E5%B0%BD%E5%85%A8%E9%83%A8%E6%83%85%E5%86%B5.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1328,7 +1328,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,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" alt="微信分享二维码">
+    <img src="data:image/png;base64,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" alt="微信分享二维码">
 </div>
 
 
@@ -1346,7 +1346,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1371,7 +1371,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

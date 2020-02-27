@@ -16,7 +16,7 @@
 <meta name="description" content="注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考  写在前面动机在先前的文章中已经说的很清楚了，现在直接开干，下面 Step by Step 的详细介绍 ESXi 的安装以及 LEDE、iKuai、Win7 等虚拟机的安装及使用。 承载设备安装设备：YANLING-SKUL6, 2 × i5-7200U 2.5GHz, 16GB RAM, 500GB SSD设备接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="虚拟化系统ESXi的安装使用">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="注：转载请注明出处，以下内容均为个人总结，不保证百分百正确性和完整性，请酌情参考  写在前面动机在先前的文章中已经说的很清楚了，现在直接开干，下面 Step by Step 的详细介绍 ESXi 的安装以及 LEDE、iKuai、Win7 等虚拟机的安装及使用。 承载设备安装设备：YANLING-SKUL6, 2 × i5-7200U 2.5GHz, 16GB RAM, 500GB SSD设备接">
 <meta property="og:locale" content="zh_CN">
@@ -56,7 +56,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html">
 
 
 
@@ -84,7 +84,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -231,7 +231,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -246,7 +246,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -326,7 +326,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -408,7 +408,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -829,11 +829,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -936,7 +936,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1151,7 +1151,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" target="_blank" rel="external">https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" target="_blank" rel="external">https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</a>
         
     </div>
     <footer>
@@ -1181,7 +1181,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1191,22 +1191,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1451,8 +1451,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1469,7 +1469,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1479,22 +1479,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&title=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《虚拟化系统ESXi的安装使用》 — TZLoop's Blog&url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2019-7-26%20%E8%99%9A%E6%8B%9F%E5%8C%96%E7%B3%BB%E7%BB%9FESXi%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1505,7 +1505,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAElElEQVR42u3a227bQAwE0P7/T7tAnwoUtmdIGdU6R09G4uhyFIDLWf76FR+PP8ffn/8+/v356796dv7kDO3n1+e8+MCECRMmTLdkerw88ofMbzR/Jc/ucwPx+gxP7xYTJkyYMB3OlD98e4F80fD6rvLXmZynvTomTJgwYfoJTAnHJ5iSa7XNMCZMmDBhwrRhytvUNlxum+12AYEJEyZMmL6VKT/d7BY3cXD+8/wVfjALx4QJEyZMN2P6XGG+/+ePzzdhwoQJE6b/yvQYHe2m4+xO8nh3FjEXz4sJEyZMmI5l2rSg+TbhPuqtA9ng5/U2JyZMmDBhOpDp9e3OAtDNNud+M7WNdKOXhwkTJkyYjmXaPOqsACcLhXarsm2nrzo/JkyYMGE6hSkJVfNvJhuH+YjPftsy/0nUAGPChAkTpsOZ8ltslwhtYZ4N3yQbrvn9YMKECROm72CaFfVZq5wvAvJRnk35H4a8mDBhwoTpQKZZjJuX87aoXxXpto3xm38OTJgwYcJ0FNNVQzN5YW7b5rxs76/79DuYMGHChOlYpn29a0PV9puzYLddgkRtPyZMmDBhOpCpbRFn4zWbsHV25ENCUTyNCRMmTJiOZcoXBMnISxvyXrXpuAmFi99iwoQJE6YDma7aAsyXCG1wfFW7u2q8MWHChAnT4UzJhduQ9Kpv5lffBNNR04sJEyZMmA5kak/dPlLeuLYhbws0G/3BhAkTJkynMyUtYlvUZxuc+SLg4v+RPAXHhAkTJkyHM7VltW2GN4/axs2zFjdKCDBhwoQJ04FMsxGctvy3FTa/n2s/F5NNmDBhwoTpEKZ9kd4P6yTta75Jub/Wm11fTJgwYcJ0FFM7vtMGxDnlVaNCFw8GYcKECROmw5mSsp0X3WuD2pa7baqjl4cJEyZMmI5lmoWheYCblORZ0Dy7500MjQkTJkyYTmTKS2xehtuxnhl6/rf5b6PBHUyYMGHCdBTTpjzPNhfzcZ99sFusidpoGBMmTJgwHcK0WRDMbrp9+Gu3NmcLC0yYMGHCdDpTuyDINwU3K5R87Gb/Mt4gYsKECROmY5lmzW0ONGt698NDm5dRJASYMGHChOn2TMn2YYKYtKabIdHN1mn7neKmMWHChAnTIUx5wd5Erpv4Naffl/+nCQEmTJgwYfoKpvax8wh4EyK358+vnrxITJgwYcJ0OtNsq3JWnjcBbtL6ti+vWBBgwoQJE6YvYpoV9TbkbRcK++GhPFB+up2JCRMmTJiOZWqL5SfGd64NnWdR75vWFxMmTJgwHcWUA+Ultm4sR4M+m2/mcXaReWPChAkTplsyPcpjdkNt4d+j789WTCFhwoQJE6YbM7VlMifOG878837bsh30wYQJEyZM38HUjtG0Zf7alng/YNRu3GLChAkTpu9gasdlNqMz+0GffBhothqqx3cwYcKECdPXMeXxbhsi5+fJFwpJM/9muYAJEyZMmH4A06zV3ISzLdbs5UWBLyZMmDBhOpwpD3lnYzr5EmG2B5s8/GN0YMKECROm05nawZ28oH6icc03INsBnRUQJkyYMGG6I9NvvaUNZTwXbzwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAElUlEQVR42u3aS27bQBAFQN//0gqQlbOQ9F43HXDk4sqwLHKmaKB/8/UVX4+/1/efv//m9e+f3eHZp5tvJat69qwLLkyYMGHCdEumx8srWdDr7244HsF11St/c2dMmDBhwnQ4UxuME6DZJl8nHHngz19w9DoxYcKECdMvYNoUva+Ddxva81L2ddGOCRMmTJgw7QvdTbGafzd5hZgwYcKE6TcztUXstQPRWUmcE8yKc0yYMGHC9BlMm1Lz9J8vvjBhwoQJ082YHusrH3bOStxZA3dWkD+9AyZMmDBhOpap3cxs5DkjaCN1UmDn3/3avHNMmDBhwnQbprzx2j6g5Xs9SkyGlG2zOCmJ/8mbMGHChAnTgUzJIpJUIPn97KjNrADeF9XRhjFhwoQJ0yFMeaN21vxt/3KWRuRwSVM4KoMxYcKECdOBTEnpOBtMtulInnYU5esoHcGECRMmTKczzYJrHlBnjd22mdu2hi9o8mLChAkTpqOY2rCaDxGT1zAriTcHdOrUBxMmTJgwHciUP2DfbE2IZynIpt0c/aNgwoQJE6ZjmdoSMQ+lefO0vU9bTu8P/WDChAkTptOZko0ln+bjz7xFmwf4WWHcvlRMmDBhwnQuUztWnBWW+Shx/9wVRHvaCBMmTJgw3ZJpduwm/3kTvDdD1lnj+E25iwkTJkyYDmfKtzQrkmenYvIDRsnTZ7vDhAkTJkyfxzQbYc6GjsUo8aIyvn0BmDBhwoTpXKafvpLW7WzwmScZs543JkyYMGH6DKYkSOclZZ4QXNucbSnrJjImTJgwYTqWabbEliBJBfZD0+QltaPN1ewXEyZMmDDdgKlt8s6ANunC/hDPLNH551NMmDBhwnQ40777e9US29D+E0PNp0UvJkyYMGE6kCkvgPchv60lk1K5fW7bnn5TBmPChAkTpgOZ2sfkfz8L5Jth6qbF/CYhwIQJEyZMH8GUpAgt9+aozX7bm71gwoQJE6ZzmdoNt2PFdkuzRGFWMBcHgzBhwoQJ0+FMSbBMAnneIJ7dP9/w5luYMGHChOmTmPIScbb5NthvmstXDTKLtAATJkyYMN2YadYk/Z8BeIObJzdvCnVMmDBhwnQ4U3685vW287HlrPE6G6a20MWkFxMmTJgw3Z4pLy83I882achfz1Vldr0qTJgwYcJ0CFNSHM4K4HZEug/hbRmfHy3ChAkTJkznMiXba4/XRMdfRslEm7jkbeio6YwJEyZMmA5kmh3HmY0h21C9GUAmzypSEEyYMGHC9BFMbYowQ98f99mPQvMXiQkTJkyYTmfahNX9YZp8WS3c1/qKUgRMmDBhwnR7pk27dhOk24M4M768jH9zZ0yYMGHCdCzTJo9o+dqSePbc2ZjzsmQCEyZMmDDdkik/rNOWu/k98+fmQ8rZq3pzfAcTJkyYMB3L1C4iediMeDZwzdc/a3BjwoQJE6bfxrRZVlu+zu6Try0q4DFhwoQJ0y9g+ulieNZ6boN9vv5h6YsJEyZMmG7JNCtorz3+8hhdm4K2WCEmTJgwYTqWKd9AEkr322sP2WyGmrNPMWHChAnTIUx/ADqLOFm1Gb1dAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -1523,7 +1523,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1548,7 +1548,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

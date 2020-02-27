@@ -16,7 +16,7 @@
 <meta name="description" content="在需要存储较长字符串到数据库中时往往需要使用一些特殊类型的字段，在Oracle中即blob和clob字段，一般而言：Clob字段存储字符信息，比如较长的文字、评论，Blob字段存储字节信息，比如图像的base64编码。 注意，上述字段的使用均可以用其他方式替代，比如用MongoDB或者图片直接存储为文件等等，这里不纠结场景的合适与否，只是针对Blob和Clob类型的使用来举例。 操作场景主要有三种">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java向Oracle数据库表中插入CLOB、BLOB字段">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="在需要存储较长字符串到数据库中时往往需要使用一些特殊类型的字段，在Oracle中即blob和clob字段，一般而言：Clob字段存储字符信息，比如较长的文字、评论，Blob字段存储字节信息，比如图像的base64编码。 注意，上述字段的使用均可以用其他方式替代，比如用MongoDB或者图片直接存储为文件等等，这里不纠结场景的合适与否，只是针对Blob和Clob类型的使用来举例。 操作场景主要有三种">
 <meta property="og:locale" content="zh_CN">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html">
 
 
 
@@ -69,7 +69,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -216,7 +216,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -231,7 +231,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -311,7 +311,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -393,7 +393,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -814,11 +814,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -921,7 +921,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1004,7 +1004,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" target="_blank" rel="external">https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html</a>
         
     </div>
     <footer>
@@ -1034,7 +1034,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1044,22 +1044,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1284,8 +1284,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1302,7 +1302,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1312,22 +1312,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&title=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java向Oracle数据库表中插入CLOB、BLOB字段》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-10%20Java%E5%90%91Oracle%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E4%B8%AD%E6%8F%92%E5%85%A5CLOB%E3%80%81BLOB%E5%AD%97%E6%AE%B5.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1338,7 +1338,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFPklEQVR42u3bQW4bMRAEQP//0w6QU4R4V90zXMNISqdAtkSyaGCHPczHR/z6/P1Kfvr5xyv/ts+L19V3zr7/6jeTOa9e+PDhw4cPXzD1q+leDZYMf/U992T3i7x/J0HfjI4PHz58+PDN+JKltsVBW4LcFxD5+zlHWxjhw4cPHz5838mXlzXJgTz/hn3Y0f6J4MOHDx8+fD+Br43vkwJiw9TG90mTAB8+fPjw4fsevjY638f0Lf2szGp73A/2OvDhw4cPH751ifCv/vvwCx8+fPjw4Qsez7OHdxsQtEVS2xpPIoOZBj58+PDhwzcTaA/DyZH+e+qphDif53D++PDhw4cPXzz/pBHexuVt6N9ed5vFHLMWwpuZ4MOHDx8+fCO+dpjkMT87urcH+LYQOdXsx4cPHz58+DZ8bWj+BHobx+eUm2ggiunx4cOHDx++ki8vApIH/AZ9X+LkWzVrTkSRAT58+PDhw3f7jM458iC7XdLs+tqMPvlUfcsAHz58+PDhe/iGWA6aL7Jtn+dAs1HaiAQfPnz48OG758uLj7a4aYuPln4W6LflTlHx4cOHDx8+fPFpd3NU3lRMm1b3c3FAHUbgw4cPHz58Md+phbVt5tmC21Z3Xn7NSiJ8+PDhw4dvw5cPsLlk1m7YbIabYKL4TXz48OHDh2/Ety9TDmcY69InaY1vNuClcMGHDx8+fPhivlmonUDPSoG2mZ23Cp6gxIcPHz58+Fq+vI3dLi9vtOfhe75Vp0Z5My4+fPjw4cM34pu1ivPS5FRkcDZimLUEXn4fHz58+PDhm8yn/k/I+x5xWzC1Cz57qe7NZ/Hhw4cPH74RX36cbjnaoqc96m+a9AeCBnz48OHDhy8ePW+Hb650z4qSNp5oC6l83Mt14cOHDx8+fAu+/IiePNSTGCIPJk5FBvk7UbmDDx8+fPjwrfnaAiIPFPIDeV1AlNt5qmDChw8fPnz4Wr48TM9byHm4cGpjNjM/0OvAhw8fPnz4Fnyzw3mLkpQRs9Z40rzftMnra2r48OHDhw/fX9+5CcrbA/ksQN9sWNsqaNeODx8+fPjw5WvfRORJiZA342eX5PJIvQ39i14HPnz48OHDV77ftp9n4Xi+SbPmerupbeqODx8+fPjw7flml7bbAiIvie7LmpZm0/KPvhMfPnz48OEb8bVt7GSR+2Jl/9M86M/RXz6FDx8+fPjwlXzDD8Q/nbXS983v9oLd7I8GHz58+PDha/nOPtTb5dX7HBDMWuPDNj8+fPjw4cO34Ju1xvN38mtn+ZLa8mvfGo8SF3z48OHDhy/uL7eFRTutpJTJD/b5lrRX64afxYcPHz58+IIz72Zhm2Ilf7VlRLvNw8/iw4cPHz58a748sN5PPQ/ZZwf+TUkUxf348OHDhw9fyZc/yHOa/YRa7rwEmbXJ8eHDhw8fvif4Zm3mto3dXj7bhPWbgD6fMz58+PDhw5fPOWkn5xfF7peUL75l3ZC1BdMXbXJ8+PDhw4ev5JstOz+K34+1jwPy8L2u5u5niA8fPnz48K35Tl1Ky6OBtrjZoCcFShHc48OHDx8+fCXffsh8+BlK23TPi612XHz48OHDh+8UX1KszAbeBOI51qad0G5/UYXhw4cPHz588T2rU7VPXh+d+rZ8q9pWOj58+PDhw/dz+JKHfV6CtEvdQORBw+Uo+PDhw4cP32N8bfDdbkzbjE9+82zofxnW48OHDx8+fCXf7NJYG463o8z42u2cNQzw4cOHDx++GV8bps/Kizzun421CQvaFa3u9+HDhw8fvv+X7xdvCr0lWrd3IgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFP0lEQVR42u3aQXLbMBAEQP3/0841KYfkzC7hi1snFy2RQENVWszi84lfX3+9rq5/f8/3v6+u5O+8f/r9qPIxvPzChw8fPnz4AoJkQO0g8iHmo0oW+35s7QLgw4cPHz58e777qeaDTuDagqYtj67G05ZK0Rzx4cOHDx++w3ztJPOiISdOpp3fYfUVwYcPHz58+H6QLw/37ymTKKHd0m/Cenz48OHDh+8032xbvilxTrfPZw31g70OfPjw4cOHrzyF9Xv+PnK+Dx8+fPjw/Xq+WdS+bzPvC5cTxVatgQ8fPnz48I161nlQngTum0nmxdP9kswa4a0DPnz48OHD1/LtN9VFO3l0PT+INova8zs/fO/w4cOHDx++ki8vDtrIIC90WrjTrfqH0eLDhw8fPnwv8eWTnx0paw+T3RPnQPvg/p/348OHDx8+fCVfO6W87Gg37UVvIV7U2RG0ZKk+Myx8+PDhw/fr+WYx977ZPGtm5wVHO5d2pv/Uffjw4cOHD9+IbxZ2n4gY8oKjLWhmX4iHsB4fPnz48OGL+ZJ/z5rceQHRFhx5KNAG/bPgHh8+fPjw4dvzzSLsnLilya+3BceeGx8+fPjw4XuXb7Oxz2OCpFRqF3UTiERk+PDhw4cP34gvb2zPhjs71tYed8sLjryUiQ664cOHDx8+fCO+NkzPf8Fngfs+oM+ri3w8xZrgw4cPHz58o4C+vWkb0J8rldorbemDDx8+fPjwzfhmm/NZLJ4Mun3ipoWQvP+hNY4PHz58+PCVfJsf/jxqz6FziCJSH833Yanw4cOHDx++Ed/ww4sNfIvYtvDbwiUpoR7qPnz48OHDhy/ge2ug7YPbiDxvb89KmfYOw/N9+PDhw4cP3+hne1bEzAqIWdzf3i1f8uiUHz58+PDhw3dbsuyD8lmknpc1G7K3mgQPvQ58+PDhw4cvPvGVfOz++qY42Bx3aw+6baL5y//iw4cPHz588ag2QXk7jRYxf0q+yc9b/lF7AB8+fPjw4RvxJZOctc9nYfqJwmUT1g/P9+HDhw8fPnzBqap9K3oT2edAsxMBX6++8OHDhw8fvg1fgjgrevJiokWcxe73syvuhg8fPnz48G3v9nnrkNmmWJnFChus5LmFDz58+PDhw3fxqXZT3Q4ieWcLsQ8IZl8UfPjw4cOH7xzf/kc9R28j+Lw9kGz7ZwEEPnz48OHDt+GbTWNTcGyemPC1X4K2PMKHDx8+fPhmfPsguw3xN6VDvgzteGZNAnz48OHDh6/ly4e1ielniPfX8wJlX7hcPgUfPnz48OEr+WaPSQqLTTN7hp7HEPuRR3UfPnz48OHD9+1TbRu7ndhs8nnpk5dc+XG0fLT48OHDhw/fhq89yJU8PmfK2+1toJCD1mUQPnz48OHDd4Av+fmfBQqzKbVMby3ef67jw4cPHz58JV+7nW634rPhJm2DvH1eRABxUFL3OvDhw4cPH75yz5sP96029iY+mC1JfWd8+PDhw4dvxJdH87PtfRIo5G2AvIjJm/ezJ+LDhw8fPnx7vv2WPi9rWpS2tdAuVduiwIcPHz58+Fq+4Q/26ChbviQtWRsE5O35vADChw8fPnz4cr5NsbLnyKOHfDlnZVMeQODDhw8fPnx7vlnze9ZynkUJeVGVF0wvPAsfPnz48OH7Eb5NMZG03tvMIy99ZuXL5afw4cOHDx++w3ybyb8V1rcBfT6S+rn48OHDhw/fiC8/7NVG+Zu+fRvcJ8uZtwpebpPjw4cPHz58ZUjdDroN+tuAIMdty69ZYwAfPnz48OG7HdsfDyJfjg6+VqwAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -1356,7 +1356,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1381,7 +1381,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

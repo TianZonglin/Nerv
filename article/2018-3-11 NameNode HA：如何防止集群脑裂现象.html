@@ -16,7 +16,7 @@
 <meta name="description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NameNode HA：如何防止集群脑裂现象">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
 <meta property="og:locale" content="zh_CN">
@@ -45,7 +45,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html">
 
 
 
@@ -73,7 +73,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -220,7 +220,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -235,7 +235,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -315,7 +315,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -397,7 +397,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -818,11 +818,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -925,7 +925,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1094,7 +1094,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" target="_blank" rel="external">https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html</a>
         
     </div>
     <footer>
@@ -1124,7 +1124,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1134,22 +1134,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1387,8 +1387,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1405,7 +1405,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1415,22 +1415,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&title=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NameNode HA：如何防止集群脑裂现象》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-3-11%20NameNode%20HA%EF%BC%9A%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E9%9B%86%E7%BE%A4%E8%84%91%E8%A3%82%E7%8E%B0%E8%B1%A1.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1441,7 +1441,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFRklEQVR42u3aQW7cMBAEQP//0wmQU4CYcvcMlQRw7cmQdyWyeNCwhx8f8efHr8/p79OV368/3+30zdOvTs86Pb29fvmDDx8+fPjwxYN4Ztrc5zTo5PuzkSQC+XPx4cOHDx++DV9eXtwaSo7VlkRtGZQsyfE6Pnz48OHD9xpfMo2kEGnjgDxESMaQzxEfPnz48OH7f/jyEDwZ3BulRn7lHxQu+PDhw4fv2/O1gXheRuRd5ralvYn+N8/Chw8fPnz4Nnz5JL/P35c/+PDhw4cPX1kKJG3pJDjYNwPatv1+1sc54sOHDx8+fCONWUyQb85vbcXzzf+sYdBGG/jw4cOHD98tvk1Le3ZwLS8y3muc51E+Pnz48OHDN+NrD2bl/83LgjxWmMUBbVif/xcfPnz48OHb8LVHvvLyJd+0J0H/rJDKY4V8JPjw4cOHD1/Ll0QGecydb7nzRvgsXHiGnhVhw7AeHz58+PDh+2PPmzysLQvapvWsDT9bjE2p9Mn5Pnz48OHDh2/Et5lSvr3ft7TrUwCjACIKF/Dhw4cPH75LfJshtkVG0ZZeL+GmLYEPHz58+PDt+S5smxdhQbIks0b4rRAkKrPw4cOHDx++mG9WOrTN9aRMaeHyMGJWVEUNe3z48OHDh29+uiz65CXLPoyYBfrt9TxEWMHhw4cPHz588eu/Hcp+w59ED1GM/kJY/0lkgA8fPnz48MV8SUmxec3ncXzRll5s4zfl0RdnDfDhw4cPH75gVHlYPwNNXv/509uyKQ/oh010fPjw4cOHr+TLj6C1h8NmR8Ta0Dx/ek6TF0/48OHDhw/fjG/24Nlrvo3U2xLqVv86L7Dw4cOHDx++PV97TC0f6D7Qzyc8ix7a++PDhw8fPnz5/fcPzoPvvLG9OR6XNwby+dZH0/Dhw4cPH77HkW8OgeWB+Cx2b0uN9j4X2uf48OHDhw/fiC8pBfI4ux3Q/kBb23jID9J9sWz48OHDhw/fKJfeRPazOCCP/pOR5A3ydr5RUwEfPnz48OEr+WYh+ywif/5te/QtX8hZWF+XL/jw4cOHD98jX/v4/PqsyGixZoHFbEb48OHDhw/fnm8WCrTb/nzTPmvJ78OLNtzHhw8fPnz4Wr7NC3sW7m+ChqRMmR1um1Hiw4cPHz58M77204b7s/u0BUobWLSRx7FwwYcPHz58+Lo9ct1CzpvKt0qffHnaxkDbyB9ODx8+fPjw4Ru91PfBQTvozXhuNdcjRHz48OHDhy/my6P5dkp5KP9e6PB6Ax4fPnz48OFb8OXN5rah3hYrecO7hduHC/jw4cOHD9+ML5nSbCjJMuSBwqyJ3hZJz7P44pQBPnz48OHDN+Jrj47NWsv77f2sedBGG/jw4cOHD98bfLNNeD7JfIh5QdOObfMUfPjw4cOH7xZf/uO2gb2PEjYtgbb9P1sefPjw4cOHb8M328AnIX7bEshb5m2Df1YGFSULPnz48OHD9zj+pLxoX/Z5udMuw+YO7ZLUiQs+fPjw4cNXtsk3k8yZZhy3yp1hjnKywocPHz58+NZ8eSFyizuP9fNm9p44ih7w4cOHDx++km9fKOzj+OTOSdugbcDfajbgw4cPHz58LV9brOyPr+1xN3fb3PnYLMeHDx8+fPhKvk27+tYkV9F5WXzk1Vx91gAfPnz48OG7xNceWUu29EnEv4n125Z8cUANHz58+PDh+yt87TdnDfKkeCrKizjoz8sgfPjw4cOHb8PXHkq7FQ1cC80X7fx8YS60yfHhw4cP37fny8PxtuzYxxCbOKBdvDbox4cPHz58+Eq+n0Yf2IjE9vCXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFNUlEQVR42u3b0WrcMBQE0Pz/T7dQ8lAo68xotKG0Z5+WsLalo4Kv5qofH/Hnx6/Pq++/f15d9er3z3dLfvk8wudxPo//2gcfPnz48OELppQ8poV4XpK7i3QmkJvgw4cPHz58C19SrCTE+Zt9H0NSprTLk48HHz58+PDhezdfvs1+Hly7+17KnSUKwYcPHz58+P5mvoSsnV4eBLSL2hZD+PDhw4cP312+PA7ImfIp3WoMvOOX13od+PDhw4cP36UDav/e98sffPjw4cOHL3g9n0UDS0SebP7bNkB78K7QwIcPHz58+E40LgTWS3DfbsXb6KENC5JliLoE+PDhw4cPX/nOzYuYs5j7rIB4XsJbjfbonvjw4cOHD9/J/v0jf80vG/L2SFxbppzdZz9yhw8fPnz48O18y63bImMpVpZo425LAB8+fPjw4Uv4zgLrs0KhHXobrN9qGBRPx4cPHz58+Eq+ZfudFzFtvp03A9oqom2HR0/Hhw8fPnz4Br48Xj9rWrexwi2mdvxTcIAPHz58+PDFfd59Ym0o3y5k3n/IWwLtHfDhw4cPH76FL3mFF/32o3Z1Hkm0i9qWU/WM8OHDhw8fviO+Ip4uy5328NnlzXxw7RQu4MOHDx8+fCe59IX/EHUG1D49L31ulVbRPfHhw4cPH76Ar926J5TPf8nbAMl98tg9b7EnJcvnd3z48OHDh6/kOysFzsL9syNoe6GThAtTWI8PHz58+PDFfPnmf29X5wHEGXReKl0L6/Hhw4cPH76hz5sXKEvRcBbuJyVI25jPw4WiAYAPHz58+PANZ6v2sL499LZc1bK2/4y+qP7w4cOHDx++bqdcfJaQfYnI26jiVimzFED48OHDhw/fn1e1kfdZC/x5uPlz20jirOipA3p8+PDhw4evzJmTF/8ZXFvWtBF/W1qdNSdenunDhw8fPnz4jvjOCojkZd9u1/NCqo3m23F+sST48OHDhw/fwHfWQl7a6ntYf6v1ftacwIcPHz58+M742hd5C3SLeFm2C1h/3gEfPnz48OEr+Za298KXhPVti30vuRZWfPjw4cOHL3lKG3afTWYpgNrQIW+xL+2Kz+/48OHDhw/fvOtvA/S23Ena3jliO/K8qEoWAx8+fPjw4Wv52mC93cafNeOXkdwqtiJEfPjw4cOHr+Rbms3J1n0PBZZlzhsD+ULWtRs+fPjw4cM3B9PtQbGztve+eEsZFP3DwocPHz58+Eq+/DhXUjTkD1so23b7Ev3nkQQ+fPjw4cOX87Xt4TYayAeUL0Zb9OTFUHstPnz48OHDl1+bb7zzsuAdwcGtqD0vRyINfPjw4cOHb+Zrw+u3DGuI7M/a7W0zAB8+fPjw4dv5bjXC63byENm30XxeJEWI+PDhw4cP31H/OilT9sC97di3YX1bxOxPxIcPHz58+M74llJgoczLlzbOyO+ZPxEfPnz48OHb+ZKbng33e36fzOKsJV+HBfjw4cOHD9/cJm+3+nkEsEf8z432b2on4MOHDx8+fDNfHri3of/SqM5LnKXd3j4XHz58+PDha/mWQuHy9nuO5lvu5bgAPnz48OHDt/CdHSzLp7TQtG319ghd2zivgwN8+PDhw4fvBd/yIm+rpLPovB1n3tHOY3p8+PDhw4fvO/naV/tZA76d9vO1eSO/nSk+fPjw4cP3PXz5X/JptPFBsgxL9FDE/fjw4cOHD98R31nBkQ+iLSPyySzN9bOg4eNWvYYPHz58+P5LvvcF5dGLv5xk+/e2FGub8fjw4cOHD1/M9xMvge2dtLqkLwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -1459,7 +1459,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1484,7 +1484,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

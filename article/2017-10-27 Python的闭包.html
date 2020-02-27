@@ -16,7 +16,7 @@
 <meta name="description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。 地位：闭包 和函数有关系 解释：python中一切皆对象: 函数可以赋值给变量，例如 a &#x3D; def func()，  可以把函数当做参数，传入一个函数 可以把函数当做一个函数的返回结果 示例：Python中允许的正确的调用方法：     def curve_pre():         def curve():">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python的闭包">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。 地位：闭包 和函数有关系 解释：python中一切皆对象: 函数可以赋值给变量，例如 a &#x3D; def func()，  可以把函数当做参数，传入一个函数 可以把函数当做一个函数的返回结果 示例：Python中允许的正确的调用方法：     def curve_pre():         def curve():">
 <meta property="og:locale" content="zh_CN">
@@ -38,7 +38,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html">
 
 
 
@@ -66,7 +66,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -213,7 +213,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -228,7 +228,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -308,7 +308,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -390,7 +390,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -811,11 +811,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -918,7 +918,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1126,7 +1126,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" target="_blank" rel="external">https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" target="_blank" rel="external">https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html</a>
         
     </div>
     <footer>
@@ -1156,7 +1156,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1166,22 +1166,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的闭包》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的闭包》 — TZLoop's Blog&url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1408,8 +1408,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1426,7 +1426,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1436,22 +1436,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&title=《Python的闭包》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的闭包》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python的闭包》 — TZLoop's Blog&url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2017-10-27%20Python%E7%9A%84%E9%97%AD%E5%8C%85.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1462,7 +1462,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQW4bMQwFUN//0i3QVYF2nP9JyfDizSpwEo2eAogMydcrfn79edrP//7uv5+8X+1phdeNBw8PD2+09afn/YvfM55I+RvbPfznCPDw8PCu8ZJrOr/08wv9h82VQQIPDw/v23htWrxJtWdHhoeHh/dtvDxpnh3KExIPDw/vO3ltiWGT8rZFig/VWvDw8PBiXtsA+4avL/b38PDw8BZd9faaftrE7Cf3u8XDw8O7wcvHoWbl2jbMnE3f8fDw8D7Du1cgmIWBZJ8/rIyHh4d3gbcpSWwKvrPfbUcQ8PDw8M7y8oR1dipJCJk14YZZPx4eHt7Rqz9ZqD2OPDwkxZE8LOHh4eF9hpeXWfNyal7IyAvBOR4PDw/vk7xZE6u96JPfbQu1q/8n8PDw8Na8zevbAsesVdYeJR4eHt4pXlI+aMGzkNCOC0R/Kzw8PLyjvLag0JYq2pbYLCA9hhw8PDy8C7xZMWJWYG3BM8aBWgseHh7eW94sqZ1d+psBgnZMFg8PD++TvDwxnZUJ8gPN49jjmnh4eHgXeG25YZMWb7pzSfMsSqzx8PDw1rzPTCK0Sfms9PCfNfHw8PCu8fLGf1uMyK/4/WjXY8TDw8PDO8prRwRmRYR25dnowGoACw8PD+8or0XOChD5J/lh4eHh4d3mtdf0LGlu22mzMa9X+xo8PDy8krdJZ9sSQ/6c2hseHh7ebV5yfc9ImyGDYekWDw8P7wJvdlm3qfOmGZan+z8MXeHh4eEd4u3Lr/vLfdM2O7YTPDw8vHVXaLb0PlTkB5ofBB4eHt49Xntltylse3x5yIkCAx4eHt7X8JJG1Cw8tI2xusqLh4eH9xHepkl2KjzUh4WHh4d3jTe7iE+NT23qrkXGjYeHh3eItxlsysNAnnDnV/+xLh8eHh5eyvsNBXoNAXizgXwAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqUlEQVR42u3awW7DIBAE0P7/T7fnqkoyswtRKj2frNbGPA5AZvn6iq/vp9ffJ//e520+evd5a6sLDw8P70LXn//lUVfaltuBS97Cw8PDu8d7NKPm9/WH40UiX3Lw8PDwPpOXT9YJJtlAJ8/j4eHh/XfebGnJ4wk8PDy8T+C1oWq+MMzaab91IGvBw8PDm2QCL6pIn3N/pb6Hh4eHt66qzxaJ/Pnk3VVv8fDw8C7wZp+fTdlFh4KYI+8nHh4e3llee2SqhW2WigO7Yjw8PLzLP7jzQ05thJq300YhSRkPDw8P7ywvL1/lMUG+wGyejN7Cw8PDu8CbLRKzbuWLRFuQW1Xz8PDw8EresKS0Zuf3STtR1oKHh4d3gdcuDO/ZKLcFtmKnj4eHh7fgtT/1ZzFBvnWePY+Hh4f3Hl4bRuRFsny6TyLgvPQVUfHw8PDWvLYT7aSfF8Y2AcTDL+Lh4eFd4yXTdFtCa4dgFvW+6CEeHh7eNd6so/lmOll4Zhv6F0sFHh4e3gVem3y23d3EtZsjC3h4eHg3eG056tQ03R60yv/76x4PDw/vjby2W/lknQ9Nu6atzpTh4eHhdbvQYfl/dgigPYLQHrp6kbXg4eHhrXn5hnUfns4GZRMu4+Hh4d3g5WX7/TOnAo58yPDw8PBu89oC1exA1dm6XPQWHh4e3jVeXnCaTfftNv1Y+3h4eHjXeGepm1B4c+Hh4eHd5n2X1yye2AQcbTAR5c14eHh4C97sZ38S1OYb33ZYk4HAw8PDu83bNJ0DZkes2qMG9eqHh4eHt+AlBbC2WJUXyfKyXN5PPDw8vP/Im8UKLePYyQg8PDy8a7z83dlmOn8mGho8PDy8a7w8bE3+kocRUaBQBiJ4eHh4t3mz7eyskN/Gsu0Arep7eHh4eK95P2g7K/DMoMqQAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -1480,7 +1480,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1505,7 +1505,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

@@ -16,7 +16,7 @@
 <meta name="description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。 本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GraphX具体功能的代码使用实例-Scala实现">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。 本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添">
 <meta property="og:locale" content="zh_CN">
@@ -41,7 +41,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html">
 
 
 
@@ -69,7 +69,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -216,7 +216,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -231,7 +231,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -311,7 +311,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -393,7 +393,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -814,11 +814,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -921,7 +921,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -1005,7 +1005,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" target="_blank" rel="external">https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" target="_blank" rel="external">https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html</a>
         
     </div>
     <footer>
@@ -1035,7 +1035,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1045,22 +1045,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1319,8 +1319,8 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1337,7 +1337,7 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1347,22 +1347,22 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《GraphX具体功能的代码使用实例-Scala实现》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2018-5-11%20GraphX%E5%85%B7%E4%BD%93%E5%8A%9F%E8%83%BD%E7%9A%84%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%AE%9E%E4%BE%8B-Scala%E5%AE%9E%E7%8E%B0.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1373,7 +1373,7 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFSklEQVR42u3dwW7cRhAE0P3/n06AnAIku6qqpuSDHk+GRZEzjwTYUz2GX6/4+Otfx7uf/vfMd+e399ru+/l4arT48OHDhw/fZbjJbT7/VnLldwT5eBLWz+PPz/+CGB8+fPjw4Zv4krKgLVPyEuRZuPz6l1IJHz58+PDh+xm+7ZPfkj01ws+FS/KK4MOHDx8+fH+WL1nk58F6Mvk8M3+2lMGHDx8+fPi+jy8J67dp5FH+fUpbhPFDvQ58+PDhw4dvKgt+w58fPvDhw4cPH77g83xvgbfbwvIAIp9XXlTVGvjw4cOHD9+kkQxxW/a3A32qZkga8Fssgg8fPnz48F348m1bl/Ll0nRPrpmPLXktkrEV9RE+fPjw4cP3pmTJl/fJgC7FRwsUTTV4LdrCCx8+fPjw4Wv58sJim2p7zTZYz5v6ycvRhhH48OHDhw/fhS9fnG+3SabUBhPfEdZf2vP48OHDhw9fi9U2kjeC/PxLoH8f/xdjw4cPHz58+Ca+vMGcfM4vDYDkSHCT0bZtgLe9Dnz48OHDh+/Mt4XmefHRLubzq+W4D1wHHz58+PDh268T/XKynE6musUNedGTl1Bt4VK8ifjw4cOHD1/M1zaMW5QN8R7EX7rb+PDhw4cP33387dC3z/y9+X2PA7aw/nPphg8fPnz48LV8eXSeIz5bKDwV3OcvRD0efPjw4cOHbxnPadBbKdAWPW2Dfyt0xnPw4cOHDx+++Jx82jlKu3Qfm9NlabIFGfV7hw8fPnz48AUzTZb6nyd5aW/noXxbPF0a/0WTAB8+fPjw4Yv5vqNwSejbZkAb929N+vxh4MOHDx8+fC1fHmRfhn6PyJMgICk1cuhovvjw4cOHD98y3yIOaBfw2+K/3SqXh+z5g2xfAnz48OHDhy/na7ej3Teu3bfBXQqsbb5RWI8PHz58+PDFafY9pv9ccOSI7ZayrczKC6bTLgN8+PDhw4fvTeHyKo/79q/vDuvvMf2rrY/w4cOHDx++iW8rL9pGdVs0tFvW2jLoFNbjw4cPHz58Ad8lJsgnk0cMl0Z7i5L8zRdzx4cPHz58+Ca+9nPeQuSF0RYobHe/QL82b3z48OHD9+v57vnzZVl+Wernk8xfgs9jLtob+PDhw4cP30e+LShPLp1Q5k30/F55xJA39d9eBx8+fPjw4Yv5kglcCoWWZgsv2mnfXxd8+PDhw4fvwtceeUHQLuA3rHs7PCmJ8OHDhw8fvjtfUqzkS+t8cHmIf3nAl5Z83bbHhw8fPnz4Yr52epfWdV6IbAVQHn9s94r2FODDhw8fPnxfJ9vFf0LcLrO3oW+TTEqiFisqxfDhw4cPH76Yb1uEb0vu9vFERUM5kpYsiunx4cOHDx++rtc8/iPkexy/hRQ57n0rQN3rwIcPHz58+GKZtpHcFjH3VkF7rzzQz8u1cY8APnz48OHD1+rG2X/bAs+veeHIo4G6UMOHDx8+fPgCvm2IW7iwRfztGLZHOz42fPjw4cOHb+J7IKQuQ/Zko9jWSt9oXvGBDx8+fPjwPcuXEORt8qca23lb/bJzLA/9xw48Pnz48OH79XzbBzunbJfrydUSpjZWaO9bI+LDhw8fPnxx+ZIv19uFfVIi5FFC/ggvr0hd/eHDhw8fPnxv+PIdbe2S/rKMvzQG2qKqvTs+fPjw4cP3M3zbsO7NgPvGsnuy8j+zw4cPHz58+H6QL48bkui8bdi3RU9yneRR4cOHDx8+fHe+fKBbQdMWCtvDu+wRyLemjb0OfPjw4cOHb4qnk496297emuX3pntLs7UW8OHDhw8fvn+OvwEpBl+O5tvi0wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFQklEQVR42u3cQW7cMBAEwP3/pxP4FsCR1DPNdQK79mTYWoksClBrhsnrFX9+ffr8+fvPx1x99/78+e/z0d6f82pehz/48OHDhw/fLc090/1AG75kYvcTTsaZjDAxwYcPHz58+Bq+/AGfxIv73+TLMw1SO/rp7YIPHz58+PD9K748RvRFgShGFDELHz58+PDh+9/4pq/l/ZFJcX+HmDch8OHDhw8fvnfwJcX6U3B9GOqLAtPiwoFeBz58+PDhw1cHhe/68+EPPnz48OHDFzyepxvXksf8qTDRFC/ygPIggA8fPnz48G0EBg/1XTl+2q5uQlV+zPQWuRwtPnz48OHDF/M1Je88guRliCYYNWX3aZx69Uz48OHDh+/H8yWP+byZndS3kyiTh5towsM2fDUZfPjw4cOHb9gIT040LTc0MSUv0O82uiXnvzwGHz58+PDhC2Y6DRy7I5vFmC5qHol2Y/vLLgN8+PDhw4cv5ssPzU+dh4amAfCOYv1umfHhw4cPH76crym47wro03iRt953xfpdY+BAvwIfPnz48P1gvuQBPy2X5yXvsy/zSRBJZhQdjw8fPnz48G3GuYwjeaRozp9fKw80+QIklPjw4cOHD9+UL9/ytWtmn9oo1mxo28WaaJHw4cOHDx++mK+3Tya/CzS7xvluYaa3Cz58+PDhw9fw9SFgRzPtO++KBc0mtofFwIcPHz58+Gq+pC3dTPXUxrLkzPlmu+Ui4cOHDx8+fDVff9Jpu/rUxrIcfVesf2iQ48OHDx8+fGmt+9WHjCZe7KJSfsVpA345I3z48OHDhy/4a775bLrtbBo18ub0bgvarig/KNbjw4cPHz58RZt8GjWaZZjGpmlJYheGouviw4cPHz58Nd+0cT7drJbw7crlTVF+Gnfw4cOHDx++Hd/09b5pSOeBIB9DPp5+vg+3CD58+PDhwxfzTdvDOVPSAp8GhV15fRd9ohI/Pnz48OHDt+kOjzeKnX3hb4rsu6L/qSviw4cPHz58DV/e5J42xZuWwK7cP23S5+ccryc+fPjw4cNXP7bPvuTnYajfuNY0EvDhw4cPH7538N0/sPtoMi3x70oP9+fpbxp8+PDhw4dvyteUBhruHUq1/25YHIlGjg8fPnz48K348lNMA0HCes83ndIuNuXh7GFnHz58+PDhw/d85PKfNI+3cBWTz4nzsLW7Lj58+PDhw9fw7RrY+SCmx+QF913o2Y358nh8+PDhw4dvxZd8uY8CTfhotqOdWuzLxIcPHz58+PAN+ZZF6kMTu79WXmRPXv4PNyTw4cOHDx++TS87+k8wdwXuUxvUpq/302Z8spXt4R7Ehw8fPnz4Ar48KPQoed++GVXOkUecy5/x4cOHDx++IV9+0LTs3k8mOb65btUgnxrjw4cPHz58cWk+H1ZfCNiFnrz13nxe+QTw4cOHDx++QKBh2pUb+iZ63uQeFwKmSvjw4cOHD18w693DfvpanhcdphvRmub3gY1x+PDhw4cP34ovH1A+mSZA5EvSh5IqruHDhw8fPnw13+6hnjfOp0xNCT4vRuzmhQ8fPnz48E35pg/s/NU6Kevn0ScZQx50psvcbBrAhw8fPnz4pvHlbIG7CS67xWtuhegq+PDhw4cP34pvWkxPXubzkn31Qv4l2e3yW/jw4cOHD9/b+BLE/LV/VxTYxan8hkjGgw8fPnz48H0NX14aSLB25fX+ik1UOlAywIcPHz58+FaF+F0LPI9HfZGi2QSQByB8+PDhw4dvytcXwad/nTa2TwWOJspU7QR8+PDhw4fv4/MbvD/jwzzI0UoAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -1391,7 +1391,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1416,7 +1416,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 

@@ -16,7 +16,7 @@
 <meta name="description" content="由于工作需要，必须换操作系统了，一想到笔记本已经冗杂不堪，所以就索性重装成Linux系统，虽然显卡性能不如实验室的机器，但完全可以当做试验机，同时本身机子性能也不差，所以装个乌班图应该体验还不错。以上是我开始时的想法，后来装完了之后呢，体验总体也不错，但总归是有写麻烦，我总结一下放在开头。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="双显卡笔电安装N卡驱动及CUDA">
-<meta property="og:url" content="https:&#x2F;&#x2F;www.zonelyn.com&#x2F;article&#x2F;2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html">
 <meta property="og:site_name" content="TZLoop&#39;s Blog">
 <meta property="og:description" content="由于工作需要，必须换操作系统了，一想到笔记本已经冗杂不堪，所以就索性重装成Linux系统，虽然显卡性能不如实验室的机器，但完全可以当做试验机，同时本身机子性能也不差，所以装个乌班图应该体验还不错。以上是我开始时的想法，后来装完了之后呢，体验总体也不错，但总归是有写麻烦，我总结一下放在开头。">
 <meta property="og:locale" content="zh_CN">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;ae01.alicdn.com&#x2F;kf&#x2F;Uee4572cfaf0e4539b9af9482472194a60.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;ae05.alicdn.com&#x2F;kf&#x2F;Ua9112f823c834aed8becb2fe587fef4ds.png">
 <meta property="article:published_time" content="2020-01-28T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-02T02:14:13.583Z">
+<meta property="article:modified_time" content="2020-02-27T03:30:10.285Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="双显卡">
 <meta property="article:tag" content="Ubuntu">
@@ -50,7 +50,7 @@
 
 
 
-<link rel="canonical" href="https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html">
+<link rel="canonical" href="https://www.old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html">
 
 
 
@@ -78,7 +78,7 @@
 //console.log("Google Analytics done!");
 </script>
 <!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
-<!--<link rel="alternate" href="http://www.zonelyn.com/zh-Hans/" hreflang="zh-Hans" /> -->
+<!--<link rel="alternate" href="http://www.old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
 
 <!-- End Google Analytics -->
 
@@ -225,7 +225,7 @@ $(document).ready(function () {
 			}); 
 		
 		//}catch (e){
-		//	var target = 'https://www.zonelyn.com/5aj8m6t17rqnxz4wvuip.html';
+		//	var target = 'https://www.old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
 		//	window.location.href=target;    
 		//}
 	}					
@@ -240,7 +240,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 {
 }else{
 
-	//var target = 'https://www.zonelyn.com/0cDovL3d3dy53My5vcmc.html';
+	//var target = 'https://www.old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
 
 
 	$("#menu-off").click(function(){
@@ -320,7 +320,7 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 
 
-if(window.location.href == "https://www.zonelyn.com/"){
+if(window.location.href == "https://www.old.cz5h.com/"){
 	window.onload = function(){
 		var res = document.cookie.indexOf("name");
 		if(res!=0){
@@ -402,7 +402,7 @@ if(window.location.href == "https://www.zonelyn.com/"){
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
-          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.zonelyn.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://www.old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
           <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
         </hgroup>
 		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
@@ -823,11 +823,11 @@ a.items5:hover {
 		
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-comments" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/other/page_comment.html">交流中心</a>
+				<a href="https://www.old.cz5h.com/other/page_comment.html" target="_blank" rel="noopener">交流中心</a>
 			</li>
 			<li class="waves-block waves-effect">
 				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
-				<a href="https://www.zonelyn.com/feedek/feedread.html">我的订阅</a>
+				<a href="https://www.old.cz5h.com/feedek/feedread.html" target="_blank" rel="noopener">我的订阅</a>
 			</li>
 		-->	
     <main id="main">
@@ -930,7 +930,7 @@ a.items5:hover {
 			
 		}
 	}
-	if(window.location.href == "https://www.zonelyn.com/"){ // 仅在主页调用打字效果
+	if(window.location.href == "https://www.old.cz5h.com/"){ // 仅在主页调用打字效果
 		typing();
 	}
 </script>
@@ -991,7 +991,7 @@ a.items5:hover {
 <li>注意：微星笔电开启独显后会导致风扇一直运行在高转速；</li>
 <li>注意：真不需要占用太多硬盘空间，后悔没装双系统！</li>
 </ul>
-<p>总体体验还不错，除了娱乐性差一点，我基本可以适应从Win10到Ubuntu的过度。有关于系统设置和美化的内容请转到 <a href="https://www.zonelyn.com/article/2020-2-1%20Ubuntu%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96.html">这篇文章</a>。</p>
+<p>总体体验还不错，除了娱乐性差一点，我基本可以适应从Win10到Ubuntu的过度。有关于系统设置和美化的内容请转到 <a href="https://www.old.cz5h.com/article/2020-2-1%20Ubuntu%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%8F%8A%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96.html" target="_blank" rel="noopener">这篇文章</a>。</p>
 <p>下面是安装系统及显卡驱动的步骤和需要注意的地方。</p>
 <h3 id="安装系统及Nvidia驱动"><a href="#安装系统及Nvidia驱动" class="headerlink" title="安装系统及Nvidia驱动"></a><strong>安装系统及Nvidia驱动</strong></h3><h4 id="双显卡的系统安装及驱动安装的准备工作"><a href="#双显卡的系统安装及驱动安装的准备工作" class="headerlink" title="双显卡的系统安装及驱动安装的准备工作"></a><strong>双显卡的系统安装及驱动安装的准备工作</strong></h4><ol>
 <li><p>Bios改成uefi，关闭安全启动；</p>
@@ -1062,7 +1062,7 @@ a.items5:hover {
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" target="_blank" rel="external">https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" target="_blank" rel="external">https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html</a>
         
     </div>
     <footer>
@@ -1092,7 +1092,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1102,22 +1102,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1354,8 +1354,8 @@ a.items5:hover {
 //		audio: [{
 //			name: 'Music',
 //			artist: 'Timi',
-//			url: 'https://www.zonelyn.com/dddd.mp3',
-//			cover: 'https://www.zonelyn.com/img/logo.jpg',
+//			url: 'https://www.old.cz5h.com/dddd.mp3',
+//			cover: 'https://www.old.cz5h.com/img/logo.jpg',
 //		}]
 //	});
 //}
@@ -1372,7 +1372,7 @@ a.items5:hover {
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&pic=https://www.zonelyn.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1382,22 +1382,22 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&title=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&via=https://www.zonelyn.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《双显卡笔电安装N卡驱动及CUDA》 — TZLoop's Blog&url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://www.zonelyn.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/2020-1-29%20%E5%8F%8C%E6%98%BE%E5%8D%A1%E7%AC%94%E7%94%B5%E5%AE%89%E8%A3%85N%E5%8D%A1%E9%A9%B1%E5%8A%A8%E5%8F%8ACUDA.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1408,7 +1408,7 @@ a.items5:hover {
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAFK0lEQVR42u3a224bORAEUP//TyevARLLVdUjYbE4ejJ04ZCHBqZZPV9f8evXX6/v3v/z0/uYf77z3QivR3vqV6cXPnz48OHD93IZyZJeTyif3Ov3X4+w/fa7cZJ/i39cER8+fPjw4Zv4WpS8BMnv/htcXnY8Wyrhw4cPHz58n+RLCpQcIt+StrjJNxgfPnz48OH7b/K1i29RkuLmqeihLbnw4cOHDx++p/jygDuP8rcQvA3o80LkXnLhw4cPHz58d74tTP9///3wCx8+fPjw4Qtuz22jOokMnjrG57O9NNF/GB8fPnz48OGbNLahkwN8O9FLUdXO7T5zfPjw4cOHr+XbDtJ5y3yL0duHyZLiqW0nRFfBhw8fPnz4prXnocClcNmCibZxnofvSeM/mgM+fPjw4cMX820lQv6YWl5MtGXHu5sKUQmFDx8+fPjwlXzJLfwetbdRQj6fywZsa68rIHz48OHDh+98gTapvsTibcSfj5Bs2A/v48OHDx8+fGe+NubOP23D+q0pns8kL4zw4cOHDx++Z/ku8fc9UGgfWdsefWuvHq0FHz58+PDhO/PdH/y6x/EJQUvTBiJRcYYPHz58+PA9c+r/2o7i7yhi8vHbT/NAvybDhw8fPnz4glnlS21v9ltr/BIWbPHEVorhw4cPHz58Od87FpA3wt8X1rfN+LHpjg8fPnz48L2Bry1ukkP4FsE/1YDfIpIf2uT48OHDhw9falL8+FmOPAK4b2T7zXEb8OHDhw8fvv0OXsTclyP6VgDlrfHXc86b623BhA8fPnz48P3925YjOca/b3nJlmzN8u3fBR8+fPjw4dv42ipmm3pC9tSDZZdmQ9EkwIcPHz58+A58l4zh0vC+FEPJRraj5Y+s4cOHDx8+fBvfpdS4LClH2Y76ScN7K63+kbjgw4cPHz58JV8bgrex+9YgTzY4n8kl/sCHDx8+fPjezZeXBdt080IkD9DzMmi7Lj58+PDhw3fha8OCnG8buZ1o+4Bdsnl5gYUPHz58+PBd+PLYvT3Y3xvneXmUj38JOKKWOT58+PDhw/fNepO4vF12HtBfjv3JCG1Yn+Piw4cPHz58Ld/lAbXt9p+3uvNo/k6/FVv48OHDhw/fhe+C1cYKl/igbRIkZc3YwMCHDx8+fPgmvnwSeWh+P+q3wcQGdxkTHz58+PDhu/Bty7uw5g3pe+ifhyN1WI8PHz58+PBNbfJLqN3G7luj/dJiz7e//afBhw8fPnz4Wr7Xi3k2Vti+89QVnyLDhw8fPnz47nyXG3ZeLrSFS7vgvImeryUqy/Dhw4cPH76Yb7v95xyXNsDrq7d1Wd6Gr8N6fPjw4cOHr8u068e1t0b4J3Fz0DY4wIcPHz58+O58bVjfBvrtBuSxe1vitA/M5Q8K4MOHDx8+fDlfeyxPgoONqW0AtBxPbTw+fPjw4cPX8uWlQFs0tG3p12VNcq0tiD+VUPjw4cOHD9/E14YC29H63gi/H/W3HOWHwgUfPnz48OE78H2GaYsGksJiI24bA0WPHR8+fPjw4VsqhNPjaMmC87/z0mRrGGyBPj58+PDhw5fz5YF42yBv4/K8cLnMuYjjk3ABHz58+PDhm/jyG3my7O3Tr+mVH/KfvSI+fPjw4cP3Sb48zt7Si8vGbIhtoI8PHz58+PB9hq9tM+dN8a2t3rbnt4LmscgAHz58+PDhiy/Qfrp9v0VMfpvHDXWzAR8+fPjw4Vv61E08PV24LUcuI+cxR8uRbAk+fPjw4cP3zXV/A/+OAsGl0muTAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEgklEQVR42u3a0Y6bQAwF0P3/n05fK7Uh99pEymQPTysKhDlUssf2z098PP45/j6f3Pvsac/OXF//7nceHpgwYcKE6SOZHpfHv4/Ol3T9ctd81794feYa4vqup0/AhAkTJkyHM+WPy180odkkBMmnvX6HZO2YMGHChOl3Mu2vSY48yWifgwkTJkyYMA0fFxd8ZwXi9pp8S48JEyZMmL6bqQ3Jmy1lXt5tk49N+fi2WjgmTJgwYfowpk0gP/3vt8w3YcKECROmj2F6jI42JN81dpMkE/sk4D93YcKECROmY5naIJovYNZEzAu4m/PDZicmTJgwYTqQKV/8XQXcfUl381ZtWvDT/h/BhAkTJkwfxtQ2C9szbYMwb5duUoQNOiZMmDBhOoupXWS9qy5/JUlTNsNA+bv9pxaOCRMmTJi+iCkPxrOX2KQL+/GjukGLCRMmTJiOZdqM4LTl0bag3DZW83uHRV5MmDBhwnQgUxKw281k20SclWXzdKRuWOYvhAkTJkyYPp5pE4zvbXbORoXabXxb9n065YQJEyZMmA5k2o/O5CnFrHSbwLUb7zz5wIQJEyZM5zIlQTQvmOYhuS0c583IfZH3xSfEhAkTJkyHMOXBew+XpwLJ89uQ3256hzkOJkyYMGH6MKa2bXlv2G5LvZshnvZpxfgOJkyYMGH6YKZZkJ5tI9srNxvs9t4XApgwYcKE6VimvLB7b2jPz7+7+JujY8KECROmc5lmozmzoN4O68xGUYsFtyM7mDBhwoTpi5jaTWw7EHPXb81apO1vYcKECROmc5nyImkbmFume9OFnAwTJkyYMP1mpk3w3kx7zhb/jrIvJkyYMGE6l6ktg842ovsAvx/Bma0REyZMmDCdztSG2LZ42i5vhr4pNxdXYsKECROmw5naBbQjPjPWdsAo+eTDtAMTJkyYMB3LlITGzYY2J7iXtS3vDnfkmDBhwoTpg5lm4TNPF5JSbPvkzcZ7VmjGhAkTJkzfwbRpHOal4fzeNk3Zl6ejRiYmTJgwYTqKaRMH95vbNnhvgv2m2YkJEyZMmM5lakdtNsM0bem23VrPNsxRAoEJEyZMmL6aKS8QtwNA+9JtAr1pfGLChAkTpu9g2gzc5MH1UR5tk3XTOn3xJpgwYcKE6Vimtm25GdbJ4ZKPlAf1Ge6LDTAmTJgwYTqKaUYzaxNugvpjcbQFZUyYMGHC9B1MbfhsA230Zcrh0Zw+T3Re/IfAhAkTJkxfwZRPqrRLTRKLNiFoF5zQP/3AmDBhwoTpWKY8kOc/c0MJddSSzJuy+ysxYcKECdMpTHcN07Qpxazl2TZH73oCJkyYMGE6l6ndym7ambPC7uwd8iJv+/kxYcKECdOJTJuRl/2LzpqpOXcb+IvCLiZMmDBhOoppFqTzUu8NG8tFIXif+mDChAkTpt/A1Ab4u8q4++RjligUg6qYMGHChOkrmJJ/vauFeb3I5MrkCUVagAkTJkyYDmdqi7ztrvBzUofhp8WECRMmTMcytYXU5O+2vJs/c1bwfQsKJkyYMGH6dKY/G1MmBnqlb04AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -1426,7 +1426,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <!--
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 -->
-<script src="https://www.zonelyn.com/js/main.js"></script>
+<script src="https://www.old.cz5h.com/js/main.js"></script>
 
 
 
@@ -1451,7 +1451,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 -->
 
-<script src="https://www.zonelyn.com/js/search.min.js"></script>
+<script src="https://www.old.cz5h.com/js/search.min.js"></script>
 
 
 
