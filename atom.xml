@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://old.cz5h.com/"/>
-  <updated>2020-02-26T01:01:40.968Z</updated>
+  <updated>2020-02-27T19:49:59.480Z</updated>
   <id>https://old.cz5h.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>船新版本的个人博客</title>
+    <link href="https://old.cz5h.com/article/2020-2-27%20%E8%88%B9%E6%96%B0%E7%89%88%E6%9C%AC%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2.html"/>
+    <id>https://old.cz5h.com/article/2020-2-27 船新版本的个人博客.html</id>
+    <published>2020-02-26T23:00:00.000Z</published>
+    <updated>2020-02-27T19:49:59.480Z</updated>
+    
+    <content type="html"><![CDATA[<p>昨天花了部分时间，把博客整体迁移到新主题Volantis了，原主题Indigo我还是非常喜欢，但感觉有点朴素，自己又瞎改主题改到无法更新最新版本，所以换个好看的主题，成了待办事项之一；此外，原先的博客一直托管在Github Pages，在百度是0索引的，这就意味着国内搜索引擎是无法找到我的，所以换到Coding托管，也成了待办事项之一；最后，我也一直在物色好的域名，现在都快成米商了，不过还是找到了一个不错的域名，更新解析，也是待办事项之一。最终，昨天把三件事全做了，在这里记录下，顺便说一下博客一般需要的一些辅助显示模块。</p><a id="more"></a><h4 id="使用Volantis主题"><a href="#使用Volantis主题" class="headerlink" title="使用Volantis主题"></a><strong>使用Volantis主题</strong></h4><p>注意：我这里并不是单纯的“更新”，而是保留原站点的前提下用一个新主题而已，因为 Indigo 主题确实非常好用，并且自己也对其做了很多改动，已经比较稳定了，没必要丢弃不用，所以后面我用了二级域名 old.cz5h.com 来解析到原来的 Github 空间，对于新主题，我也只是把_post内的文章搞过来了而已，其他的小模块还需要慢慢完善，至于有哪些小模块，在文章最后会详细说明。</p><p>这次我换的主题是 Volantis，貌似是原先的 Materi-X （可能拼错了）主题，本来想用 butterfly 的，但是 bf 还是有点花哨，最终我感觉目前的这个主题比较不错，而且是有主页的主题哦！</p><p>新建个博客文件夹，hexo init，然后 clone 新主题，然后把 _post 复制过来，然后安装必要的主题插件，然后安装 deploy 插件，最后开始配置 yml 站点配置文件和主题配置文件（两个）：</p><ul><li>比对原站点的配置文件先修改一部分；</li><li>看到无关链接（主题自带的链接）或文字，要么注释掉要么改成你自己的；</li><li>修改 yml 配置文件后要 hexo s 本地测试下，如此反复；</li><li>填写一些和旧站点不一样的配置项，比如 deploy。</li></ul><p>完成之后，还要注意搜索并替换一下 post 文章文件夹中的旧域名，现在要统一换成新域名，虽然不换也可以访问到（做了重定向），但既然准备用这个新域名了，那就得做好逐渐清退旧域名的措施，首先就是文章内的链接内容。旧站点由于用 old.cz5h.com 来绑定了，所以也要把旧站点内（notepad++全局搜索替换）的 zonelyn.com 全部换成 old.cz5h.com。最终的解析托管示意图如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200227200653.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><h4 id="换域名和旧域名重定向"><a href="#换域名和旧域名重定向" class="headerlink" title="换域名和旧域名重定向"></a><strong>换域名和旧域名重定向</strong></h4><p>目前手里的域名有六个，时间分先后，要是有看上的，欢迎联系我啊。</p><ul><li>whereareyou.site（301-&gt;zonelyn-&gt;cz5h）</li><li>z-tian.cn（未解析）</li><li>tzloop.cn（未解析）</li><li>zonelyn.com（301-&gt;cz5h）</li><li>cxmoe.com（挂了篇文章）</li><li>cz5h.com（主站）</li></ul><p>只用Github/Coding托管如何完成301重定向呢？答案是借助Pages服务+404页面，具体可以参见我之前写的 <a href="https://cz5h.com/article/2019-8-4%20Github%E6%89%98%E7%AE%A1%E7%AB%99%E7%82%B9%E7%9A%84%E5%9F%9F%E5%90%8D%E6%9B%B4%E6%8D%A2.html" target="_blank" rel="noopener">Github托管站点的域名更换</a>。</p><p>为了偷懒，我并没有更新最老的 whereareyou.site 这个域名的重定向，它还是被重定向到 zonelyn.com，因为我给 zonelyn 做了重定向，所以，最终连续两跳，whereareyou.site 还是能重定向到 cz5h.com。是的，你没猜错，两个域名重定向，我注册了两个Github小号。还有，虽然是从Github-&gt;重定向到了Coding的空间，但我实际体验完全感觉不出来，果然是单向墙。</p><p>Coding的域名绑定就很简单了，解析个A记录和WWW记录就OK了。</p><p><strong>二级域名 old.cz5h.com ：</strong>本来是不想动原来的域名的（因为用了新域名），但想了一下还是正规一点吧，而且也方便日后管理，所以就把 Github 托管的旧版本绑定了新域名的二级域名，最终域名的解析如下：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200227185839.png" alt="此处为本页面内的一张图片" >                </div>                <div class="image-caption"></div>            </figure><p>完成之后还要去 Github Pages 修改绑定的域名，同时注意需要将之前旧域名的解析一并删除，否则 Pages 服务会提醒报错的。</p><h4 id="博客模块之我见"><a href="#博客模块之我见" class="headerlink" title="博客模块之我见"></a><strong>博客模块之我见</strong></h4><p>本次也算是从零开始新建一个博客站点，当然对博客的美化也要从零开始，那么到底需要改动什么呢，简单写一下我的想法。（基本仅针对目前的Volantis主题）</p><h5 id="主题色调"><a href="#主题色调" class="headerlink" title="主题色调"></a><strong>主题色调</strong></h5><ul><li>背景图：深色调还是浅色调，决定着前景标签内容的浅色调还是深色调。鄙人非常喜欢深色调的背景色，更可以突出文章主体的文字部分。</li><li>各种语法的颜色搭配：例如 tab 缩进的 code 段落，不同的主题样式肯定不同，我又很喜欢用这种方式写，所以要修改下对应的颜色搭配。</li><li>滚动条的样式：又宽又粗的滚动条实在是太丑了，必须要换掉。</li><li>整个页面 content 的宽度：目前很多主题的文章页宽度很窄，在台式机上看着更严重，所以一定要调宽一些，还更利于图片的展示。</li></ul><h5 id="访问统计"><a href="#访问统计" class="headerlink" title="访问统计"></a><strong>访问统计</strong></h5><p>这是一个重要的功能，但比较好加入。一般添加个不蒜子就可以了，但我喜欢追踪自己网站的访客，所以，我添加了 Google Analyse、百度统计、CNZZ的统计，并且加入了 revolvermaps 可视化小插件来做实时显示。</p><p><strong>其他：</strong>注意SEO用的sitemap需要重新生成，还有robots.txt也要重新搞。</p><h5 id="Posts属性类显示"><a href="#Posts属性类显示" class="headerlink" title="Posts属性类显示"></a><strong>Posts属性类显示</strong></h5><p>博客必备的一个部分，这个包括标签云、分类统计等，可以方便的放在这个主题右侧的插件部分。</p><h5 id="文章页的署名信息"><a href="#文章页的署名信息" class="headerlink" title="文章页的署名信息"></a><strong>文章页的署名信息</strong></h5><p>这个要根据自己的调整，最好要包含这部分。</p><h5 id="评论部分"><a href="#评论部分" class="headerlink" title="评论部分"></a><strong>评论部分</strong></h5><p>思来想后，还是决定采用Gitalk做评论，因为用诸如Valine等的评论，用户的粘性太低了，而且基本没有后续沟通，且需要繁琐的配置，LeanCloud又经常抽风，垃圾过滤又基本没有。总之，准备在新站点用Gitalk了。</p><h5 id="站点的头脚"><a href="#站点的头脚" class="headerlink" title="站点的头脚"></a><strong>站点的头脚</strong></h5><p><strong>前置index：</strong>虽然不是纯首页，但基本起到首页的作用了，而且效果还不错，准备把一些社交链接放在首页上。</p><p><strong>Header：</strong>这里对应旧站点的自定义页面，由于原先旧站点有些主题的自定义语法，所以直接拿过来会解析出错误，得花时间重新写一下这些自定义页面。</p><p><strong>Footer：</strong>由于用了深色背景，目前的页脚全黑的基本看不到东西，准备还是类似旧站点那样，在页脚写上基本信息，以及友链的链接，然后放上<strong>访问人数统计</strong>和<strong>全站文字统计</strong>的文本。</p><h5 id="恢复卡片的tags"><a href="#恢复卡片的tags" class="headerlink" title="恢复卡片的tags"></a><strong>恢复卡片的tags</strong></h5><p>这是后续的改进了，现在的首页文章卡片没有标签信息，但我想把标签信息加上，这样会更加详细一点，初步想法就是在卡片的底部加个footer，然后把当前文章的tags读出来放到上面，再把footer贴到原来的卡片最下面。</p><h5 id="进阶的功能"><a href="#进阶的功能" class="headerlink" title="进阶的功能"></a><strong>进阶的功能</strong></h5><p><strong>相关文章：</strong>貌似这个主题支持。<br><strong>热门文章：</strong>调用统计的接口把。</p><p>还有很多功能可能主题内就带着，毕竟只接触了这个主题一天而已，后续慢慢探索，初步的感觉是这个主题比较完善，支持非常多的扩展功能（已经写好了），而且貌似作者还在更新这个项目。</p><h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a><strong>写在最后</strong></h4><p>这也算半个新的开始吧，目前自己已经在博客里写了不少东西了，原先的主题也看厌烦了，本来是想用 typecho 的，但想了下还得备案，所以干脆不用了，还是用会老本行 hexo 吧，而且现在各种操作非常熟练了，写作模式也基本固定了（自从前几天确定用Github+jsdeliver当图床后）。搬回 coding 后，以后在百度就能见到我了，而且我在外网访问 coding 的站点没任何卡顿，希望 coding 的 pages 服务比以前提升了，可不要让我失望啊！</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;昨天花了部分时间，把博客整体迁移到新主题Volantis了，原主题Indigo我还是非常喜欢，但感觉有点朴素，自己又瞎改主题改到无法更新最新版本，所以换个好看的主题，成了待办事项之一；此外，原先的博客一直托管在Github Pages，在百度是0索引的，这就意味着国内搜索引擎是无法找到我的，所以换到Coding托管，也成了待办事项之一；最后，我也一直在物色好的域名，现在都快成米商了，不过还是找到了一个不错的域名，更新解析，也是待办事项之一。最终，昨天把三件事全做了，在这里记录下，顺便说一下博客一般需要的一些辅助显示模块。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Hexo相关" scheme="https://old.cz5h.com/categories/Hexo%E7%9B%B8%E5%85%B3/"/>
+    
+    
+      <category term="Hexo" scheme="https://old.cz5h.com/tags/Hexo/"/>
+    
+      <category term="Indigo" scheme="https://old.cz5h.com/tags/Indigo/"/>
+    
+      <category term="Volantis" scheme="https://old.cz5h.com/tags/Volantis/"/>
+    
+      <category term="重定向" scheme="https://old.cz5h.com/tags/%E9%87%8D%E5%AE%9A%E5%90%91/"/>
+    
+  </entry>
   
   <entry>
     <title>优雅的备份博客内的外链图片</title>
@@ -605,37 +633,6 @@
       <category term="Summary" scheme="https://old.cz5h.com/tags/Summary/"/>
     
       <category term="材料准备" scheme="https://old.cz5h.com/tags/%E6%9D%90%E6%96%99%E5%87%86%E5%A4%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>告别《长安十二时辰》</title>
-    <link href="https://old.cz5h.com/article/2019-8-11%20%E5%91%8A%E5%88%AB%E3%80%8A%E9%95%BF%E5%AE%89%E5%8D%81%E4%BA%8C%E6%97%B6%E8%BE%B0%E3%80%8B.html"/>
-    <id>https://old.cz5h.com/article/2019-8-11 告别《长安十二时辰》.html</id>
-    <published>2019-08-10T22:00:00.000Z</published>
-    <updated>2019-12-11T14:06:48.270Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://static.zybuluo.com/EVA001/7decaqx8wqf0qztwfe50592n/image_1di89vqmd110uvdkntg19l2hitm.png" alt="image_1di89vqmd110uvdkntg19l2hitm.png-864.2kB"></p><p>在刚刚过去的几天，《长安十二时辰》迎来了谢幕，全剧剧情时长仅为一天，内容非常紧凑，主线明确，支线丰富，角色感情饱满，剧情张力十足，服饰道具异常考究，是一部最近难得的且非常有特色的古装剧。</p><h3 id="主线剧情"><a href="#主线剧情" class="headerlink" title="主线剧情"></a>主线剧情</h3><p>细细回想，该剧情节从巳正开始，历经十二个时辰结束，期间剧情完全在长安城展开，中间穿插了关键的一些回忆情节，这些支线对主线中角色的行为起到了非常重要的解释作用，从而使整剧虽展开的时间有限，但表现的内容却很完整。</p><p>这里简单的利用<code>Gephi</code>对整部剧中的人物角色做个梳理，主要的角色设定及相关性如下：</p><p><img src="http://static.zybuluo.com/EVA001/e23zy09f3eylolocxti60vgt/image_1dida6fho13s5p011b2neaj10oj9.png" alt="image_1dida6fho13s5p011b2neaj10oj9.png-156.8kB"></p><ul><li>上述内容并不完整，有些缺漏（比如没有何监的傻儿子）</li><li>李必和张小敬是本剧的核心，其构成了关键的人物组，包括檀棋、徐斌等</li><li>圣人和林九郎、何监则构成了互相牵扯的权力组，其中的勾心斗角。相互制衡，非常精彩</li><li>最后就是本剧的核心大反派龙波，其与闻无忌和张小敬的奇妙连结，是本剧情节升华的关键；在本剧中反派的发展经历了两个基本独立的阶段，一个是由曹破延主导的炮灰组，其中也包括何监的傻儿子，其“阙勒霍多”就是简单的闹市区自爆炸弹；再一个就是真正的幕后黑手龙波，在炮灰组吸引靖安司注意力的情况下，其才在有条不紊的实施“阙勒霍多”——将整个巨型花灯打造为一个炸药桶，并通过机关达到击杀圣人的目的。</li></ul><p>在地点上主要涉及几个坊市、靖安司以及花萼楼。整体情节的变换紧跟反派的变换，从最初简单的炮灰组，到最后复杂的暗杀圣人阶段，主角们遇到的问题各不相同。</p><p>在反派的合理性上，本剧设计也很出彩，层层递进逐渐揭开大反派的面目，结果原来是主角最亲密的挚友，是典型的“官逼良民反”，其实就连炮灰组曹破延和何监的傻儿子，都有他们作恶的苦衷，这种好人作恶的情节很容易让人产生同情、共鸣和感慨。在龙波身上体现的尤为明显。</p><p>最终的结局，感觉是情理之中但又是意料之外，虽然知道大的情节走向是圣人并没有遇刺（本剧符合正常的历史观），但最终还是没想到，决心行刺的龙波最后会放弃，但放弃的原因也说得过去，因为他直接对话圣人了，也在侧面完成了他的终极目标，解开了他郁结在内心的心结，这点也还是得佩服圣人的嘴炮，一点也不比主角俩人差。</p><p>总体上来说，这部剧场景虽然设计简单，但设置却非常精致，没有太多的修饰感，服装设计拿捏的很棒；加之分集的巧妙，使得此剧虽篇幅不短但张力十足，一开始就引人入胜，值得推荐！</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src=&quot;http://static.zybuluo.com/EVA001/7decaqx8wqf0qztwfe50592n/image_1di89vqmd110uvdkntg19l2hitm.png&quot; alt=&quot;image_1di89vqmd110uvdkntg
-      
-    
-    </summary>
-    
-      <category term="Daily_Life" scheme="https://old.cz5h.com/categories/Daily-Life/"/>
-    
-    
-      <category term="可视化" scheme="https://old.cz5h.com/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
-      <category term="观后感" scheme="https://old.cz5h.com/tags/%E8%A7%82%E5%90%8E%E6%84%9F/"/>
-    
-      <category term="胡乱评价" scheme="https://old.cz5h.com/tags/%E8%83%A1%E4%B9%B1%E8%AF%84%E4%BB%B7/"/>
-    
-      <category term="剧透" scheme="https://old.cz5h.com/tags/%E5%89%A7%E9%80%8F/"/>
     
   </entry>
   
