@@ -17,7 +17,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark集群从搭建到任务提交-第N次记录">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html">
-<meta property="og:site_name" content="TZLoop&#39;s Blog">
+<meta property="og:site_name" content="请移步新站点CZ5H.COM">
 <meta property="og:description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，， 不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;19ur7s1vyrj7j2gbhv73hpev&#x2F;image_1cebhufs6uifapaadi18is1tnv9.png">
@@ -49,7 +49,7 @@
 <meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
 
 
-<title>Spark集群从搭建到任务提交-第N次记录 | TZLoop&#39;s Blog | 保持怀疑，独立思考</title>
+<title>Spark集群从搭建到任务提交-第N次记录 | 请移步新站点CZ5H.COM | 本站点仅做备份，仍会稳定运行，但不再维护</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -61,7 +61,7 @@
 
 
 
-<link rel="alternate" type="application/atom+xml" title="TZLoop&#39;s Blog" href="/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="请移步新站点CZ5H.COM" href="/atom.xml">
 
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="/css/style.css">
@@ -1282,7 +1282,7 @@ a.items5:hover {
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1292,7 +1292,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1302,7 +1302,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&via=https://old.cz5h.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -1588,7 +1588,7 @@ spark通用
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1598,7 +1598,7 @@ spark通用
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1608,7 +1608,7 @@ spark通用
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — TZLoop's Blog&url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&via=https://old.cz5h.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/2018-5-24%20Spark%E9%9B%86%E7%BE%A4%E4%BB%8E%E6%90%AD%E5%BB%BA%E5%88%B0%E4%BB%BB%E5%8A%A1%E6%8F%90%E4%BA%A4-%E7%AC%ACN%E6%AC%A1%E8%AE%B0%E5%BD%95.html&via=https://old.cz5h.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
