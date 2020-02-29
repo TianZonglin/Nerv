@@ -8,10 +8,10 @@
 
 <meta name="keywords" content="节点概率,贝叶斯公式,总结,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png">  
 
 
-<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
 <meta name="description" content="（本文年代久远，请谨慎阅读）前提：节点是含有若干特征（小节点）的大节点，大节点间连接实际为特征间的连接 在一个网络图中，若干节点之间的概率问题有以下几种： 设现有A,B,C等若干大节点，其内特征为ai,bj,ck; P(A); &#x2F;&#x2F;数出A节点发散的所有边的数量除以图中出现的总边数  P(AB); &#x2F;&#x2F;即P(A)*P(B)，原理同上  P(A,B); &#x2F;&#x2F;此为联合概率，如果AB之间不相联系，则直接为">
 <meta property="og:type" content="article">
@@ -22,7 +22,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;img.blog.csdn.net&#x2F;20140920155445687?watermark&#x2F;2&#x2F;text&#x2F;aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjkzNTY0Ng&#x3D;&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70&#x2F;gravity&#x2F;Center">
 <meta property="article:published_time" content="2014-09-19T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-01-05T14:21:17.833Z">
+<meta property="article:modified_time" content="2020-02-29T18:40:48.973Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="节点概率">
 <meta property="article:tag" content="贝叶斯公式">
@@ -358,7 +358,7 @@ if(window.location.href == "https://old.cz5h.com/"){
 
 </div>
 
-</script>
+
 
 
 
@@ -383,41 +383,41 @@ if(window.location.href == "https://old.cz5h.com/"){
 }
 </style>
 
-<aside id="menu" class="hide" >
+<aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
     <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
       <div class="brand">
-        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="noopener" class="avatar waves-effect waves-circle waves-light">
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer" class="avatar waves-effect waves-circle waves-light">
           <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
         </a>
         <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
           <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
-          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail" rel="external nofollow noopener noreferrer" target="_blank">1805984583@qq.com</a>
         </hgroup>
-		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
+		<a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
 		<!--STEAM
 		<a href='https://steamcommunity.com/id/tianzonglin' target="_blank" rel="noopener"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFDElEQVRogdWaW2wVVRSG/1WwWkDECm2UiiKFKF6INUhQIGKBB1ERVEzUeElMfDEYjT6ZaH0w+ObtBWIwPqhJjTEkGpRLi0BUFAqJIVyUWAKI1EspBVRE+vmw59B9NjPnzKFzDvAnzXT2Xnvt/9+zL2vWHFMMgNmSFkqaLqlB0tA4uwrgmKR9kjZI+tjM1hS0BiYA6zh38RUw3udsHvkZkpZLujT7gcwUhyTNM7MNUiQAmCBpo8598jl0S5piZrurooIlOn/IS1KtpGWSZLgFu6rCBJDUIWmzpIOSjkoaLekqSc2SLknpZ5aAdyu4CI8ALUBDojKoBuYCm1L4WypgZxkJ+/gcqE/9iMCAJ4G/CvjcIaC3AuTfAAbFkBwEXAGMA2LPGmAy0JXgt1cVIP8hYAGpm4GPgMOeXR+wGXgGqA7sbwP+iXNebgG7gBqPSBXwOnCySLvtuK3dF7EozrDcAu4PSCz16g7iFnQzMBV4FPjSq/8duMZrewHwY9hBOQXswJs6wMNe3WfA8IQ5/wD9C3czUOXVPVVJAYuDqdPpkbowjrxn/5jnZ6FXXkcw/copoNnreFpceQEBBnRE9suDuq1+J1VJTjLAfu//W6Nrj6S1xRqaGXKBpSRNCar3+jflEvCfpF+8+7roesDM+lL62BddR5G/DXf5RuUS8KqZHfXue6JrKQFjbXQ9HD2RHPJ8lEPAekmLg7Jt0fVy4IaUfmYHbXMYnXeX8cLtBsaETIAaoCey+aQYc9y50BfZL/LKhxLERlkLeLAAqZc8uxaC8MKzuxbYF9ntB4Z4dfPDDrMUsKzIqFYD6z371cAcYAhu2xwPvEx/cPkvMDPwsbZcAnaREE0GBGqBNTHtw9ioF5gXtL07ruOBCjiJe8y3FCPvERkMPE3/yezjb+ADYGzQpgH4NY6AAd9KmizptHg9ATslvS/pU0l7zOxEWvIxYiZJapQ0TNIBSRvN7EhgM1LSSklNhRyNBB7Bxeh/JIz2MeBFYPCZEi4VwI3Az4WmQFyjQcDtwGu4uKMP9y47Pca2GqgHLsqYeB3wDm4hF0QaZ6OBiUHZTGAlcNzztQU3t0t6Qrg1MRVYALwAtAEnihFPLSCmwxHA28BPCT7bgREpfV0NfJ2WbCYCAgKNuHfYleRvhV+QcFB5bR+i/3Q+OwICQjcBez3f8xPshgHvDZR45gIicjM838tj6ptwh15mENAKPEEJSaciIjoj33u9MgOeJ3/RZwKDU4+hT9IWSSuiv00lvHz4Ar6TewPrNrPLorJaSX8OdHCSOkzCbwRpkRS+RuAOPIAOr/z6rEc+h0IvNKMk3euRaASeA65LIG+S3pKUC39XeNWTShmIklBEYBdRCgSXGsllCvYAS3A5nIm4sLjNa3cIGOX10ZrZkAdIE40+7hEZS3wU6eM4MNdr00iKkOBMkUbAQdwizBEagztt47AdmObZGi4LVzYY0Cvp4iIzrV3SXWZ23CPXJPc1pV4u6/CNpHVmdtKzaZH0SqnTugQcKeUDRxtQV9znqQDtzfKMeR62V8l9RE6DOyX9gEtz18QZ4ELxeyRtlfRsSr8DwQYDZklaXWLDY3LTapvcATVc0jhJc+S230qhOfeduE1uhM8nrDOzO3ICxkr6XtLIs8spNfI/dJtZp6QFUcW5jm5J95nZ7tNqcMmltRXYPc4U7UCjzzkpvdes/p/bXCmX9jgbOKr+n9u0mll7aPA/20As/03t1OYAAAAASUVORK5CYII="></a>
 		--><!--in-->
-		<a style="margin-left:5.8px;" href='https://cn.linkedin.com/in/tianzonglin' target="_blank" rel="noopener" ><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+		<a style="margin-left:5.8px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
 		<!--fb-->
-		<a style="margin-left:4.8px;" href='https://www.facebook.com/zonglin.tian.7' target="_blank" rel="noopener"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABbklEQVRoge2Zv0oDQRDGvxEbUSxt7HyE6BtYarBQ8Dn0FULAyhfRwsJK8M8DaGsptrbmEAvhswjCuVnD3VxudoT5lcPu7PdjcnshAYIgUEHygOQDyYrlqUjekxy2lTgrm3su41xmyU0CwJVujmYMReS6XljKLDoxCtOF07SQm8gEwJpJHD0TEVmvF3IitMujR0R+Zc99tP4lIeKNEOlIBWAEYIDpDbkKYAvAMYAbTcMSt9YrgF0ReflrQZMMpW+tLwBH8yS0WItcishTH42tRS76amwt8pgWSB6SfCb58fP1VtPY+mFfEZHP5Lw3ABttG6UPu6lIeniX80rfWr0RIk2QhIZrNjVneZzItmZTiPTIjmaTR5GBZtPyolPUSd8Ri3yPpHiciIoQ8UaIeCNEvBEi3ggRb+REKvMU7XlPCzmRmZ9sHDKTMSdybhCkK80ykhyb/NGsY9RKmeQ+yTuSk8LByWmGW5J7mvEFQQB8A7wTurytysqXAAAAAElFTkSuQmCC"></a>
+		<a style="margin-left:4.8px;" href="https://www.facebook.com/zonglin.tian.7" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABbklEQVRoge2Zv0oDQRDGvxEbUSxt7HyE6BtYarBQ8Dn0FULAyhfRwsJK8M8DaGsptrbmEAvhswjCuVnD3VxudoT5lcPu7PdjcnshAYIgUEHygOQDyYrlqUjekxy2lTgrm3su41xmyU0CwJVujmYMReS6XljKLDoxCtOF07SQm8gEwJpJHD0TEVmvF3IitMujR0R+Zc99tP4lIeKNEOlIBWAEYIDpDbkKYAvAMYAbTcMSt9YrgF0ReflrQZMMpW+tLwBH8yS0WItcishTH42tRS76amwt8pgWSB6SfCb58fP1VtPY+mFfEZHP5Lw3ABttG6UPu6lIeniX80rfWr0RIk2QhIZrNjVneZzItmZTiPTIjmaTR5GBZtPyolPUSd8Ri3yPpHiciIoQ8UaIeCNEvBEi3ggRb+REKvMU7XlPCzmRmZ9sHDKTMSdybhCkK80ykhyb/NGsY9RKmeQ+yTuSk8LByWmGW5J7mvEFQQB8A7wTurytysqXAAAAAElFTkSuQmCC"></a>
 		<!--ins-->
-		<a style="margin-left:4px;" href='https://www.instagram.com/tzloop/' target="_blank" rel="noopener" ><img width="23px"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+		<a style="margin-left:4px;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="23px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
 		<!--music-->
-		<a style="margin-left:2.7px;" href='https://music.163.com/#/user/home?id=99148651' target="_blank" rel="noopener" ><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRIie2VPy8EQRjGf89yiaBQOzmN4tD7DqJXqyhVEl9FrRKlQqEi4jO4QrUXGoVcq3gUt5I1N+xc7EZi70kmM5n3z2/evJm8MFPrZHvP9tD1Kbe9G3IUAefAWs315JJ6VWDXDB2DpC+srAlIiuZ/EfsCPAKDYv88Z8BT3eAT4BYYSBp955TSrWl7nEmqzBrL0ViPbS/b7lV7jjV1j22vAFvF2gS2gT6wDlwC+42AgbPU5D/pz77TvwCPgPtU59QevwMPksKfYuAYOJf0lvzEmILJcmV7w3ZWsl+U7HeR+IXYiAr9qio+kvQc3HVK57lIzMQITFLw0G5gW/TkrD61vVqsA9uvKRVXga9t920v2d6xfRNLmqKQ0755HAMPG+DkKeDDmuF5kXOmlukDhttsIDdfVP4AAAAASUVORK5CYII="></a>
+		<a style="margin-left:2.7px;" href="https://music.163.com/#/user/home?id=99148651" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRIie2VPy8EQRjGf89yiaBQOzmN4tD7DqJXqyhVEl9FrRKlQqEi4jO4QrUXGoVcq3gUt5I1N+xc7EZi70kmM5n3z2/evJm8MFPrZHvP9tD1Kbe9G3IUAefAWs315JJ6VWDXDB2DpC+srAlIiuZ/EfsCPAKDYv88Z8BT3eAT4BYYSBp955TSrWl7nEmqzBrL0ViPbS/b7lV7jjV1j22vAFvF2gS2gT6wDlwC+42AgbPU5D/pz77TvwCPgPtU59QevwMPksKfYuAYOJf0lvzEmILJcmV7w3ZWsl+U7HeR+IXYiAr9qio+kvQc3HVK57lIzMQITFLw0G5gW/TkrD61vVqsA9uvKRVXga9t920v2d6xfRNLmqKQ0755HAMPG+DkKeDDmuF5kXOmlukDhttsIDdfVP4AAAAASUVORK5CYII="></a>
 		
 		<!--github-->
-		<a style="margin-left:4.5px;" href='https://github.com/TianZonglin' target="_blank" rel="noopener" ><img  width="21.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+		<a style="margin-left:4.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="21.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
 		<div style="margin-top:7px;">
 		<!--图虫-->
-		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+		<a href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
 		<!--豆瓣-->
-		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="/static/doub.png"></a>
+		<a style="margin-left:5px;" href="https://movie.douban.com/people/205019876/" target="_blank" rel="external nofollow noopener noreferrer"><img height="14.5px" src="/static/doub.png"></a>
 		<!--专栏-->
-		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="/static/yunjia.png"></a>
+		<a style="margin-left:5px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="15px" src="/static/yunjia.png"></a>
  
 		</div>
 
@@ -438,7 +438,7 @@ if(window.location.href == "https://old.cz5h.com/"){
 		</li>-->
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/">
                 <i class="icon icon-lg icon-folder-open"></i>
                 博客主页
 				
@@ -447,7 +447,7 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/archives">
                 <i class="icon icon-lg icon-archives"></i>
                 文章归档
 				
@@ -456,7 +456,7 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/categories">
                 <i class="icon icon-lg icon-th-list"></i>
                 文章分类
 				
@@ -465,29 +465,29 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/static/clouds.html"  >
+              <a href="/static/clouds.html">
                 <i class="icon icon-lg icon-cloud-download"></i>
                 私有云盘
 				
 				
-				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
 				
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/static/routine.html"  >
+              <a href="/static/routine.html">
                 <i class="icon icon-lg icon-star"></i>
                 书签收藏
 				
 				
-				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
 				
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/other/page_log.html"  >
+              <a href="/other/page_log.html">
                 <i class="icon icon-lg icon-book"></i>
                 建站日志
 				
@@ -496,7 +496,7 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/other/page_share.html"  >
+              <a href="/other/page_share.html">
                 <i class="icon icon-lg icon-share-square-o"></i>
                 资源分享
 				
@@ -505,7 +505,7 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/feedek/feedread.html"  >
+              <a href="/feedek/feedread.html">
                 <i class="icon icon-lg icon-leaf"></i>
                 我的订阅
 				
@@ -514,18 +514,18 @@ if(window.location.href == "https://old.cz5h.com/"){
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/friends/index.html"  >
+              <a href="/friends/index.html">
                 <i class="icon icon-lg icon-comments"></i>
                 友链留言
 				
 				
-				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
 				
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/other/page_about.html"  >
+              <a href="/other/page_about.html">
                 <i class="icon icon-lg icon-user-circle-o"></i>
                 关于本站
 				
@@ -596,32 +596,32 @@ a.items5:hover {
     
 		
 		
-<li >		
+<li>		
 
 </li>
 <div style="display:none;">
-<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
-<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
-<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
-<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
-<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
-<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
-<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
-<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
-<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
-<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
-<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
-<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
-<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
-<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
-<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
-<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
-<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
-<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
-<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
-<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
-<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
-<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+<a href="https://www.imys.net/" target="_blank" rel="external nofollow noopener noreferrer">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="external nofollow noopener noreferrer">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="external nofollow noopener noreferrer">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="external nofollow noopener noreferrer">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="external nofollow noopener noreferrer">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="external nofollow noopener noreferrer">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="external nofollow noopener noreferrer">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="external nofollow noopener noreferrer">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="external nofollow noopener noreferrer">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="external nofollow noopener noreferrer">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="external nofollow noopener noreferrer">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="external nofollow noopener noreferrer">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="external nofollow noopener noreferrer">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="external nofollow noopener noreferrer">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="external nofollow noopener noreferrer">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="external nofollow noopener noreferrer">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="external nofollow noopener noreferrer">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="external nofollow noopener noreferrer">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="external nofollow noopener noreferrer">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="external nofollow noopener noreferrer">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="external nofollow noopener noreferrer">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="external nofollow noopener noreferrer">[知识工厂]</a>
 </div>
       </ul>
 
@@ -930,19 +930,18 @@ a.items5:hover {
 <div class="container body-wrap">
     
     <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc" >
+        <nav class="post-toc-wrap" id="post-toc">
             <h4 style="padding-top: 10px;">TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#求两个节点间的概率"><span class="post-toc-number">1.</span> <span class="post-toc-text">求两个节点间的概率</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a></li></ol>
         </nav>
     </aside>
     
-<article id="post-2014-9-20 关于图中节点间的概率求解问题"
-  class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-2014-9-20 关于图中节点间的概率求解问题" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
         <h1 class="post-card-title">关于图中节点间的概率求解问题</h1>
         <div class="post-meta">
-            <time class="post-time" title="2014-09-20 00:00:00" datetime="2014-09-19T22:00:00.000Z"  itemprop="datePublished">2014-09-20</time>
+            <time class="post-time" title="2014-09-20 00:00:00" datetime="2014-09-19T22:00:00.000Z" itemprop="datePublished">2014-09-20</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/">朴素贝叶斯</a></li></ul>
@@ -997,7 +996,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="http://img.blog.csdn.net/20140920155445687?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjkzNTY0Ng==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="此处为本页面内的一张图片" >
+                    <img src="http://img.blog.csdn.net/20140920155445687?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjkzNTY0Ng==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="此处为本页面内的一张图片">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -1016,11 +1015,11 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
         
 
         
-        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/4735.html" target="_blank" rel="external">https://old.cz5h.com/article/4735.html</a>
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br><br><span style="color:#ff4081"><b>请标注为新站点链接，此站点不在维护；<br></b></span><br><b>本文永久链接：<a href="/article/4735.html" target="_blank" rel="external">https://www.cz5h.com/article/4735.html</a></b>
         
     </div>
     <footer>
-        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="noopener">
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer">
             <img src="/img/logo.jpg" alt="TZLoop">
             TZLoop
         </a>
@@ -1046,7 +1045,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博" rel="external nofollow noopener noreferrer">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1056,22 +1055,22 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/4735.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/4735.html" data-title=" Facebook" rel="external nofollow noopener noreferrer">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/4735.html&via=https://old.cz5h.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/4735.html&via=https://old.cz5h.com" data-title=" Twitter" rel="external nofollow noopener noreferrer">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/4735.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/4735.html" data-title=" Google+" rel="external nofollow noopener noreferrer">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1106,17 +1105,17 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 
 
 	<!-- 相关文章 -->
-<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #595959;border-radius: 5px;border-left-width: 10px;">
+<section class="comments" id="comments" style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #595959;border-radius: 5px;border-left-width: 10px;">
 
   <p style="margin-top:25px;">
 	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
   </p>
-  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;">
 	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
 	  
  
 	  <li>
-		<div style="">
+		<div style>
 		  <b><a class="post-title-link" href="/article/b1f1.html">谈一谈本站的来历</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
@@ -1145,7 +1144,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 
 
 
-<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+<section class="comments" id="comments" style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
  
  
 
@@ -1206,8 +1205,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
         </div>
         
         <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
             <div class="reward-toggle-ctrol">
                 <span class="reward-toggle-item wechat">微信</span>
                 <span class="reward-toggle-label"></span>
@@ -1226,7 +1224,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
 </p>
 
 
@@ -1234,7 +1232,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
 		<style>
 		.footlink a{
@@ -1243,20 +1241,20 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 		}
 		</style>
 		
-		<p  class="footlink">
+		<p class="footlink">
 						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="https://www.cz5h.com/friends/index.html" target="_blank" rel="noopener">友情链接</a> ✚</span><br>
-						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://www.aye.ink/" >Zidone</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://xiabor.com" >雪曦的博客</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="http://liaoyibin.vip/" >天然呆</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://tyrionyu.com/" >Tyrionyu</a>&emsp;
-						<a style="text-decoration: none !important;" target="_blank" href="https://blog.nineya.com/" >玖涯博客</a>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" rel="external nofollow noopener noreferrer">Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" rel="external nofollow noopener noreferrer">心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" rel="external nofollow noopener noreferrer">Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" rel="external nofollow noopener noreferrer">猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.aye.ink/" rel="external nofollow noopener noreferrer">Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xiabor.com" rel="external nofollow noopener noreferrer">雪曦的博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" rel="external nofollow noopener noreferrer">鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" rel="external nofollow noopener noreferrer">Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" rel="external nofollow noopener noreferrer">易支烟博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://liaoyibin.vip/" rel="external nofollow noopener noreferrer">天然呆</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://tyrionyu.com/" rel="external nofollow noopener noreferrer">Tyrionyu</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.nineya.com/" rel="external nofollow noopener noreferrer">玖涯博客</a>
  
  	 
 		
@@ -1266,7 +1264,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
         <p>TZLoop &copy; 2017 - 2020
             <span>
                 
-                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener" >Github Pages</a></p>
+                <p>Power by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external nofollow noopener noreferrer">indigo</a> Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener noreferrer">Github Pages</a></p>
             </span>
         </p>
     </div>
@@ -1306,7 +1304,7 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博" rel="external nofollow noopener noreferrer">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1316,22 +1314,22 @@ P(ai,bj | ck); //ck与ai，bj两特征相关联的边数/ai，bj两特征的边�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4735.html&title=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/4735.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/4735.html" data-title=" Facebook" rel="external nofollow noopener noreferrer">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/4735.html&via=https://old.cz5h.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于图中节点间的概率求解问题》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/4735.html&via=https://old.cz5h.com" data-title=" Twitter" rel="external nofollow noopener noreferrer">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/4735.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/4735.html" data-title=" Google+" rel="external nofollow noopener noreferrer">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
