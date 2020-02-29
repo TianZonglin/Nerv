@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="调试,集群,Spark,IDEA,A,TZLoop,田宗霖的博客,田宗霖,whereareyou,大数据,前端,js,jquery,hexo,node,java,spark,scala,idea,vmware,hadoop,flume,kafka,oracle,个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta itemprop="image" content="http://ozmhkse3b.bkt.clouddn.com/image/gif/friend.png" />  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评" />
+
+<meta name="description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，， 不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark集群从搭建到任务提交-第N次记录">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;1289.html">
+<meta property="og:site_name" content="请移步新站点CZ5H.COM">
+<meta property="og:description" content="作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是cluster mode，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，， 不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;19ur7s1vyrj7j2gbhv73hpev&#x2F;image_1cebhufs6uifapaadi18is1tnv9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;988iyo8a0eyxz3hpr76qqwr4&#x2F;image_1ceb5bjapsokfff5ir13h31sct9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;6llcronynz0au9rrkj307an0&#x2F;image_1ceb89rub18571sti1l8rv8iamb7r.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;w88qrxiy1d6xzcmnj9z81q7o&#x2F;image_1ceb7g47a1206124fcqc1u1p14o757.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;mm9wkoplatxckykx0exngru8&#x2F;image_1ceb7qc821iij1eq76hbcvvnpj71.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;og2xk000hl2yctw469f4n9t8&#x2F;image_1ceb971s4ntcn0m1bu51h38irp88.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;ch5z84jgka2fzmdw99wfwnrx&#x2F;image_1ceb99lcf13h0dq0p4ppav193u8l.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;f99ken6wal0oejydlbph98lw&#x2F;image_1ceb9hgr36qip1l15293qtc61b2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;chz87p9oipvhhxn32zatnllj&#x2F;image_1ceb9rf071juv1c1i16lb1bj017hqg6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;f32wyksdpxpoud7v0zu1sir7&#x2F;image_1cebbgifqmcn3fn18m819e61ki99.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;2er74vqyrka3pobk0a4n8u9t&#x2F;image_1cebcaiu3guc6rk15jur0v65p13.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;dmsdt2jdz9vb7zpytdpn2unf&#x2F;image_1cebedvpdejeftfhq513pbmgk3q.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;7qymc925xnmiyo6qkifkjhmg&#x2F;image_1cebe4200192g1bec1qa91acr1i9l2d.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;gbthajhokjrwi3pjuudzomof&#x2F;image_1cebg22sd1m51qslcsu1hfampd9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;zcksl1o6pmkd4zhfgu9tti94&#x2F;image_1cebie8dd1dbitqprrbdf15t9m.png">
+<meta property="article:published_time" content="2018-05-23T22:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-27T03:39:40.411Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="调试">
+<meta property="article:tag" content="集群">
+<meta property="article:tag" content="Spark">
+<meta property="article:tag" content="IDEA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;19ur7s1vyrj7j2gbhv73hpev&#x2F;image_1cebhufs6uifapaadi18is1tnv9.png">
+
+
+<meta name="google-site-verification" content="pE8C2OlBY5U3l34MLahqdfACkBWEnE94yNfQADO3HvA">
+
+
+<title>Spark集群从搭建到任务提交-第N次记录 | 请移步新站点CZ5H.COM | 本站点仅做备份，仍会稳定运行，但不再维护</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://old.cz5h.com/article/1289.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="请移步新站点CZ5H.COM" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-109269848-1', { 'optimize_id': 'GTM-KRMX7LZ'});
+  gtag('config', 'UA-109269848-2', { 'optimize_id': 'GTM-TDPN587'});
+</script>
+
+<script>
+//window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+//ga('create', 'UA-109269848-1', 'auto');
+//ga('send', 'pageview');
+//console.log("Google Analytics done!");
+</script>
+<!--<script async src='https://www.google-analytics.com/analytics.js'></script> -->
+<!--<link rel="alternate" href="http://old.cz5h.com/zh-Hans/" hreflang="zh-Hans" /> -->
+
+<!-- End Google Analytics -->
+
+
+
+
+
+
+<!-- Baidu Tongji -->
+<!-- <script>var _hmt = _hmt || []</script> -->
+<!-- <script async src="//hm.baidu.com/hm.js?c2e1413258e6c65224a7efe4e6d6a956"></script> -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6e1fe0247acc0edae9874a263c40d73b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- End Baidu Tongji -->
+
+
+
+<!-- Baidu Push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+	console.log("Baidu Push done!");
+})();
+</script>
+<!-- End Baidu Push -->
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+
+
+
+
+if(window.location.href == "https://old.cz5h.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			//spop({
+			//	template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+			//	position  : 'bottom-right',
+			//	autoclose: 14000
+			//});
+			//spop({
+			//	template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+			//	position  : 'bottom-right',
+			//	autoclose: 15500
+			//});
+			spop({
+				template: '新版网站来啦！<a href="https://www.cz5h.com/" target="_blank" rel="noopener">点击前往</a>！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 15000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+<script data-ad-client="ca-pub-9432057653708398" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div style="display:none">
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?d=Ba3U6kf1rsQHRk9qMzMOMVlD0R3qBvm3FLbnkO70tUo"></script>
+
+
+</div>
+
+</script>
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <style>
+
+#menu .mail {
+    display: inline-block;
+    padding-top: 4px;
+    color: #ffffff;
+    font-size: 13px;
+}
+</style>
+
+<aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="noopener" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
+        </a>
+        <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail">1805984583@qq.com</a>
+        </hgroup>
+		<a href='https://zh.wikipedia.org/wiki/User:Zonelyn' target="_blank" rel="noopener"><img  width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
+		<!--STEAM
+		<a href='https://steamcommunity.com/id/tianzonglin' target="_blank" rel="noopener"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFDElEQVRogdWaW2wVVRSG/1WwWkDECm2UiiKFKF6INUhQIGKBB1ERVEzUeElMfDEYjT6ZaH0w+ObtBWIwPqhJjTEkGpRLi0BUFAqJIVyUWAKI1EspBVRE+vmw59B9NjPnzKFzDvAnzXT2Xnvt/9+zL2vWHFMMgNmSFkqaLqlB0tA4uwrgmKR9kjZI+tjM1hS0BiYA6zh38RUw3udsHvkZkpZLujT7gcwUhyTNM7MNUiQAmCBpo8598jl0S5piZrurooIlOn/IS1KtpGWSZLgFu6rCBJDUIWmzpIOSjkoaLekqSc2SLknpZ5aAdyu4CI8ALUBDojKoBuYCm1L4WypgZxkJ+/gcqE/9iMCAJ4G/CvjcIaC3AuTfAAbFkBwEXAGMA2LPGmAy0JXgt1cVIP8hYAGpm4GPgMOeXR+wGXgGqA7sbwP+iXNebgG7gBqPSBXwOnCySLvtuK3dF7EozrDcAu4PSCz16g7iFnQzMBV4FPjSq/8duMZrewHwY9hBOQXswJs6wMNe3WfA8IQ5/wD9C3czUOXVPVVJAYuDqdPpkbowjrxn/5jnZ6FXXkcw/copoNnreFpceQEBBnRE9suDuq1+J1VJTjLAfu//W6Nrj6S1xRqaGXKBpSRNCar3+jflEvCfpF+8+7roesDM+lL62BddR5G/DXf5RuUS8KqZHfXue6JrKQFjbXQ9HD2RHPJ8lEPAekmLg7Jt0fVy4IaUfmYHbXMYnXeX8cLtBsaETIAaoCey+aQYc9y50BfZL/LKhxLERlkLeLAAqZc8uxaC8MKzuxbYF9ntB4Z4dfPDDrMUsKzIqFYD6z371cAcYAhu2xwPvEx/cPkvMDPwsbZcAnaREE0GBGqBNTHtw9ioF5gXtL07ruOBCjiJe8y3FCPvERkMPE3/yezjb+ADYGzQpgH4NY6AAd9KmizptHg9ATslvS/pU0l7zOxEWvIxYiZJapQ0TNIBSRvN7EhgM1LSSklNhRyNBB7Bxeh/JIz2MeBFYPCZEi4VwI3Az4WmQFyjQcDtwGu4uKMP9y47Pca2GqgHLsqYeB3wDm4hF0QaZ6OBiUHZTGAlcNzztQU3t0t6Qrg1MRVYALwAtAEnihFPLSCmwxHA28BPCT7bgREpfV0NfJ2WbCYCAgKNuHfYleRvhV+QcFB5bR+i/3Q+OwICQjcBez3f8xPshgHvDZR45gIicjM838tj6ptwh15mENAKPEEJSaciIjoj33u9MgOeJ3/RZwKDU4+hT9IWSSuiv00lvHz4Ar6TewPrNrPLorJaSX8OdHCSOkzCbwRpkRS+RuAOPIAOr/z6rEc+h0IvNKMk3euRaASeA65LIG+S3pKUC39XeNWTShmIklBEYBdRCgSXGsllCvYAS3A5nIm4sLjNa3cIGOX10ZrZkAdIE40+7hEZS3wU6eM4MNdr00iKkOBMkUbAQdwizBEagztt47AdmObZGi4LVzYY0Cvp4iIzrV3SXWZ23CPXJPc1pV4u6/CNpHVmdtKzaZH0SqnTugQcKeUDRxtQV9znqQDtzfKMeR62V8l9RE6DOyX9gEtz18QZ4ELxeyRtlfRsSr8DwQYDZklaXWLDY3LTapvcATVc0jhJc+S230qhOfeduE1uhM8nrDOzO3ICxkr6XtLIs8spNfI/dJtZp6QFUcW5jm5J95nZ7tNqcMmltRXYPc4U7UCjzzkpvdes/p/bXCmX9jgbOKr+n9u0mll7aPA/20As/03t1OYAAAAASUVORK5CYII="></a>
+		--><!--in-->
+		<a style="margin-left:5.8px;" href='https://cn.linkedin.com/in/tianzonglin' target="_blank" rel="noopener" ><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+		<!--fb-->
+		<a style="margin-left:4.8px;" href='https://www.facebook.com/zonglin.tian.7' target="_blank" rel="noopener"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABbklEQVRoge2Zv0oDQRDGvxEbUSxt7HyE6BtYarBQ8Dn0FULAyhfRwsJK8M8DaGsptrbmEAvhswjCuVnD3VxudoT5lcPu7PdjcnshAYIgUEHygOQDyYrlqUjekxy2lTgrm3su41xmyU0CwJVujmYMReS6XljKLDoxCtOF07SQm8gEwJpJHD0TEVmvF3IitMujR0R+Zc99tP4lIeKNEOlIBWAEYIDpDbkKYAvAMYAbTcMSt9YrgF0ReflrQZMMpW+tLwBH8yS0WItcishTH42tRS76amwt8pgWSB6SfCb58fP1VtPY+mFfEZHP5Lw3ABttG6UPu6lIeniX80rfWr0RIk2QhIZrNjVneZzItmZTiPTIjmaTR5GBZtPyolPUSd8Ri3yPpHiciIoQ8UaIeCNEvBEi3ggRb+REKvMU7XlPCzmRmZ9sHDKTMSdybhCkK80ykhyb/NGsY9RKmeQ+yTuSk8LByWmGW5J7mvEFQQB8A7wTurytysqXAAAAAElFTkSuQmCC"></a>
+		<!--ins-->
+		<a style="margin-left:4px;" href='https://www.instagram.com/tzloop/' target="_blank" rel="noopener" ><img width="23px"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+		<!--music-->
+		<a style="margin-left:2.7px;" href='https://music.163.com/#/user/home?id=99148651' target="_blank" rel="noopener" ><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRIie2VPy8EQRjGf89yiaBQOzmN4tD7DqJXqyhVEl9FrRKlQqEi4jO4QrUXGoVcq3gUt5I1N+xc7EZi70kmM5n3z2/evJm8MFPrZHvP9tD1Kbe9G3IUAefAWs315JJ6VWDXDB2DpC+srAlIiuZ/EfsCPAKDYv88Z8BT3eAT4BYYSBp955TSrWl7nEmqzBrL0ViPbS/b7lV7jjV1j22vAFvF2gS2gT6wDlwC+42AgbPU5D/pz77TvwCPgPtU59QevwMPksKfYuAYOJf0lvzEmILJcmV7w3ZWsl+U7HeR+IXYiAr9qio+kvQc3HVK57lIzMQITFLw0G5gW/TkrD61vVqsA9uvKRVXga9t920v2d6xfRNLmqKQ0755HAMPG+DkKeDDmuF5kXOmlukDhttsIDdfVP4AAAAASUVORK5CYII="></a>
+		
+		<!--github-->
+		<a style="margin-left:4.5px;" href='https://github.com/TianZonglin' target="_blank" rel="noopener" ><img  width="21.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+		<div style="margin-top:7px;">
+		<!--图虫-->
+		<a href='https://tuchong.com/5634772/' target="_blank" rel="noopener"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+		<!--豆瓣-->
+		<a style="margin-left:5px;" href='https://movie.douban.com/people/205019876/' target="_blank" rel="noopener"><img height="14.5px" src="/static/doub.png"></a>
+		<!--专栏-->
+		<a style="margin-left:5px;" href='https://cloud.tencent.com/developer/column/79519' target="_blank" rel="noopener"><img height="15px" src="/static/yunjia.png"></a>
+ 
+		</div>
+
+		
+		
+		
+		
+		
+
+	  </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html"  >
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html"  >
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html"  >
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html"  >
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html"  >
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends/index.html"  >
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;"/>
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html"  >
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+ 
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li >		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="noopener">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="noopener">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="noopener">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="noopener">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="noopener">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="noopener">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="noopener">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="noopener">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="noopener">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="noopener">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="noopener">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="noopener">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="noopener">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="noopener">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="noopener">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="noopener">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="noopener">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="noopener">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="noopener">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="noopener">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="noopener">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="noopener">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://old.cz5h.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://old.cz5h.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">Spark集群从搭建到任务提交-第N次记录</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">Spark集群从搭建到任务提交-第N次记录</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-05-23T22:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-05-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/">研究方向</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "Spark集群从搭建到任务提交-第N次记录";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	if(window.location.href == "https://old.cz5h.com/"){ // 仅在主页调用打字效果
+		typing();
+	}
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc" >
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#集群环境"><span class="post-toc-number">1.</span> <span class="post-toc-text">集群环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主节点安装Scala环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">主节点安装Scala环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主节点配置Spark"><span class="post-toc-number">3.</span> <span class="post-toc-text">主节点配置Spark</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#拷贝分发调试集群"><span class="post-toc-number">4.</span> <span class="post-toc-text">拷贝分发调试集群</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#IDEA-项目打包"><span class="post-toc-number">5.</span> <span class="post-toc-text">IDEA 项目打包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误，IDEA远程连接失败"><span class="post-toc-number">6.</span> <span class="post-toc-text">错误，IDEA远程连接失败</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误排查一"><span class="post-toc-number">7.</span> <span class="post-toc-text">错误排查一</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误排查二"><span class="post-toc-number">8.</span> <span class="post-toc-text">错误排查二</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#错误排查三"><span class="post-toc-number">9.</span> <span class="post-toc-text">错误排查三</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#回到IDEA提交问题"><span class="post-toc-number">10.</span> <span class="post-toc-text">回到IDEA提交问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他各种问题"><span class="post-toc-number">11.</span> <span class="post-toc-text">其他各种问题</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2018-5-24 Spark集群从搭建到任务提交-第N次记录"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spark集群从搭建到任务提交-第N次记录</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-05-24 00:00:00" datetime="2018-05-23T22:00:00.000Z"  itemprop="datePublished">2018-05-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91/">研究方向</a></li></ul>
+
+
+
+			<span class="post-count">2,285&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">11����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>作为一名合格的计算机人士，百折不挠的瞎折腾精神是必备的。今天本想使用一下尘封已久的VMware虚拟机搭的集群，结果发现 Spark 有各种问题，应该是之前潦草搭集群时挖下的坑（前几天也用过，但并不是<code>cluster mode</code>，我现在才知道..），面对这些坑，果断的选择重装啊，所以叒叒叒开始愉快的搭环境了，，</p>
+<p>不过这次格外注重了各处细节，力图条理清晰的记录一次搭建过程，除了 Scala 和 Spark 的搭建过程，当然还有运行调试（这才是关键）部分，包括用IDEA打包 jar 上传执行 和IDEA远程提交执行，这里也都分别作了记录。</p>
+<p>关于IDEA提交Spark任务的几种方式，可以参见我 <a href="https://old.cz5h.com/article/2018-5-14%20%E6%8F%90%E4%BA%A4Spark%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F.html">另一篇文章</a> .</p>
+<h3 id="集群环境"><a href="#集群环境" class="headerlink" title="集群环境"></a>集群环境</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/19ur7s1vyrj7j2gbhv73hpev/image_1cebhufs6uifapaadi18is1tnv9.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>得亏了我<code>16G</code>的内存，四个虚拟机全开还可以娱乐的玩耍，这四台虚拟机已经装过<code>Hadoop</code>了，<code>Hadoop</code>集群用起来也没什么问题，就保留了。</p>
+<p>各版本如下：</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th style="text-align:right">版本</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hadoop</td>
+<td style="text-align:right">2.7.3</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>Java</td>
+<td style="text-align:right">1.8.0</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>Scala</td>
+<td style="text-align:right">2.11.8</td>
+<td style="text-align:center">待安装</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td style="text-align:right">2.2.0</td>
+<td style="text-align:center">待安装</td>
+</tr>
+</tbody>
+</table>
+<h3 id="主节点安装Scala环境"><a href="#主节点安装Scala环境" class="headerlink" title="主节点安装Scala环境"></a>主节点安装Scala环境</h3><ul>
+<li>下载、解压、改名、放到自定义路径 </li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf scala-2.11.8.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv scala-2.11.8.tgz scala</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新 <code>/etc/profile</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo vi /etc/profile</span></span><br><span class="line"></span><br><span class="line">    //在文件的最后插入</span><br><span class="line">    export SCALA_HOME=/usr/local/scala</span><br><span class="line">    export PATH=$PATH:$SCALA_HOME/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测是否安装成功</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> scala -version</span></span><br></pre></td></tr></table></figure>
+<h3 id="主节点配置Spark"><a href="#主节点配置Spark" class="headerlink" title="主节点配置Spark"></a>主节点配置Spark</h3><ul>
+<li>下载、解压、改名、放到自定义目录</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> wget http://d3kbcqa49mib13.cloudfront.net/spark-2.2.0-bin-hadoop2.7.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> tar -zxvf spark-2.2.0-bin-hadoop2.7.tgz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv spark-2.2.0-bin-hadoop2.7 spark</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>更新 <code>/etc/profile</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vi /etc/profile</span></span><br><span class="line"></span><br><span class="line">    //在最后加入</span><br><span class="line">    export SPARK_HOME=/usr/local/spark</span><br><span class="line">    export PATH=$PATH:$SPARK_HOME/bin</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> /etc/profile</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改Spark配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> spark/conf</span></span><br><span class="line"></span><br><span class="line">//先改名，把template去掉</span><br><span class="line"><span class="meta">$</span><span class="bash"> mv spark-env.sh.template spark-env.sh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> mv slaves.sh.template slaves.sh</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi conf/spark-env.sh</span></span><br><span class="line">    //在最后添加各项变量值</span><br><span class="line">    export JAVA_HOME=/usr/local/java/jdk1.8.0_112</span><br><span class="line">    export HADOOP_HOME=/usr/local/hadoop</span><br><span class="line">    export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop</span><br><span class="line">    export SCALA_HOME=/usr/local/scala</span><br><span class="line">    export SPARK_MASTER_IP=192.168.146.130(hadoop01)</span><br><span class="line">    export SPARK_WORKER_MEMORY=1g</span><br><span class="line">    export SPARK_WORKER_CORES=1</span><br><span class="line">    export SPARK_WORKER_INSTANCES=1</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> vi conf/slaves</span></span><br><span class="line">    //在最后添加各从节点映射（主机名或IP）</span><br><span class="line">    hadoop02</span><br><span class="line">    hadoop03</span><br><span class="line">    hadoop04</span><br><span class="line"></span><br><span class="line">//还有spark-defaults.conf，一开始没改，结果导致出错   </span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="comment"># spark-defaults.conf 的修改在后面</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="拷贝分发调试集群"><a href="#拷贝分发调试集群" class="headerlink" title="拷贝分发调试集群"></a>拷贝分发调试集群</h3><ul>
+<li>分发拷贝到各 <code>Slave</code> 节点（其实可以脚本化，偷懒..）</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//scala</span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop02:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop03:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r scala  hadoop04:/usr/<span class="built_in">local</span>/</span></span><br><span class="line">//spark</span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop02:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop03:/usr/<span class="built_in">local</span>/</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> scp -r spark  hadoop04:/usr/<span class="built_in">local</span>/</span></span><br><span class="line">//profile</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop02:/etc/profile</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop03:/etc/profile</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo scp /etc/profile hadoop04:/etc/profile</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>调试集群</li>
+</ul>
+<p>因为我们只需要使用hadoop的HDFS文件系统，所以我们并不用把hadoop全部功能都启动。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> start-dfs.sh</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>hadoop/sbin</code> 以及 <code>spark/sbin</code> 均配置到了系统的环境中，它们同一个文件夹下存在同样的 <code>start-all.sh</code> 文件。最好是打开<code>spark-2.2.0</code> ，在文件夹下面打开该文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/spark/sbin</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./start-all.sh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>各节点的正常状态</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop01 ~]$ jps</span><br><span class="line">18822 SecondaryNameNode</span><br><span class="line">18521 NameNode</span><br><span class="line">18634 DataNode</span><br><span class="line">18990 Master</span><br><span class="line">19055 Jps</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop02 ~]$ jps</span><br><span class="line">33380 DataNode</span><br><span class="line">33589 Jps</span><br><span class="line">33519 Worker</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop03 ~]$ jps</span><br><span class="line">25876 Jps</span><br><span class="line">25656 DataNode</span><br><span class="line">25806 Worker</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop04 ~]$ jps</span><br><span class="line">32162 Worker</span><br><span class="line">32025 DataNode</span><br><span class="line">32234 Jps</span><br></pre></td></tr></table></figure>
+<p>注意这里是 <code>3</code> 个 <code>worker</code> 因为 <code>master</code> 节点没有 配置启动 <code>Worker</code>，当然可以配置（比如 <code>hdfs</code> 就是四个 <code>datanode</code>）<br>但是这里 spark 要执行计算任务，所以主节点最好不要有worker以免出现计算任务争夺主节点资源</p>
+<ul>
+<li>Spark UI 正常视图</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/988iyo8a0eyxz3hpr76qqwr4/image_1ceb5bjapsokfff5ir13h31sct9.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="IDEA-项目打包"><a href="#IDEA-项目打包" class="headerlink" title="IDEA 项目打包"></a>IDEA 项目打包</h3><ul>
+<li>项目示例</li>
+</ul>
+<p>这里的实例程序 读取 <code>hdfs</code> 文件 <code>Vote-demo.txt</code>，并且使用 <code>GraphX</code> 读取文件生成图，并打印图的边数。</p>
+<p> <img src="http://static.zybuluo.com/EVA001/6llcronynz0au9rrkj307an0/image_1ceb89rub18571sti1l8rv8iamb7r.png" alt=""></p>
+<ul>
+<li>示例代码 <code>RemoteDemo.scala</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Remote</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.graphx.&#123;Edge, Graph&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.RDD</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;SparkConf, SparkContext&#125;</span><br><span class="line"></span><br><span class="line">object RemoteDemo &#123;</span><br><span class="line">  <span class="function">def <span class="title">main</span><span class="params">(args: Array[String])</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    val conf = <span class="keyword">new</span> SparkConf()</span><br><span class="line">      .setAppName(<span class="string">"SimpleDemo"</span>)</span><br><span class="line">      .setMaster(<span class="string">"spark://hadoop01:7077"</span>)</span><br><span class="line">      .setJars(List(<span class="string">"I:\\IDEA_PROJ\\VISNWK\\out\\artifacts\\visnwk_jar\\visnwk.jar"</span>))</span><br><span class="line"></span><br><span class="line">    val sc = <span class="keyword">new</span> SparkContext(conf)</span><br><span class="line"></span><br><span class="line">    <span class="function">def <span class="title">loadEdges</span><span class="params">(fn: String)</span>: Graph[Any, String] </span>= &#123;</span><br><span class="line">      val edges: RDD[Edge[String]] =</span><br><span class="line">        sc.textFile(fn).filter(l =&gt; !(l.startsWith(<span class="string">"#"</span>))).map &#123; <span class="comment">//无放回</span></span><br><span class="line">          line =&gt;</span><br><span class="line">            val fields = line.split(<span class="string">"\t"</span>)</span><br><span class="line">            Edge(fields(<span class="number">0</span>).toLong, fields(<span class="number">1</span>).toLong, <span class="string">"1.0"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">      val graph: Graph[Any, String] = Graph.fromEdges(edges, <span class="string">"defaultProperty"</span>)</span><br><span class="line">      graph</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    val graph = loadEdges(<span class="string">"hdfs://hadoop01:9000/TVCG/SNAP/DATASET/Vote-demo.txt"</span>)</span><br><span class="line"></span><br><span class="line">    println(s<span class="string">"graph.edges.count() = $&#123;graph.edges.count()&#125;"</span>)</span><br><span class="line">    </span><br><span class="line">    sc.stop <span class="comment">// 一开始没加，报错了</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打包项目，注意指定 <code>Main Class</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/w88qrxiy1d6xzcmnj9z81q7o/image_1ceb7g47a1206124fcqc1u1p14o757.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><code>Build</code> 打包</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/mm9wkoplatxckykx0exngru8/image_1ceb7qc821iij1eq76hbcvvnpj71.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>运行配置 <code>Run Configure</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/og2xk000hl2yctw469f4n9t8/image_1ceb971s4ntcn0m1bu51h38irp88.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h3 id="错误，IDEA远程连接失败"><a href="#错误，IDEA远程连接失败" class="headerlink" title="错误，IDEA远程连接失败"></a>错误，IDEA远程连接失败</h3><ul>
+<li>错误详情</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/ch5z84jgka2fzmdw99wfwnrx/image_1ceb99lcf13h0dq0p4ppav193u8l.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="错误排查一"><a href="#错误排查一" class="headerlink" title="错误排查一"></a>错误排查一</h3><ul>
+<li><p>Spark://Hadoop01:7077</p>
+<p>  spark://host_name:7077 改为 spark://master_ip:7077</p>
+</li>
+<li><p>修改配置 <code>spark-env.sh</code></p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/f99ken6wal0oejydlbph98lw/image_1ceb9hgr36qip1l15293qtc61b2.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>重启 <code>saprk</code> 集群</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./sbin/stop-all.sh</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./sbin/start-all.sh</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>Spark UI <code>Master_IP:8080</code> 显示正常</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/chz87p9oipvhhxn32zatnllj/image_1ceb9rf071juv1c1i16lb1bj017hqg6.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="错误排查二"><a href="#错误排查二" class="headerlink" title="错误排查二"></a>错误排查二</h3><ul>
+<li>修改 Spark <code>spark-defaults.conf</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/f32wyksdpxpoud7v0zu1sir7/image_1cebbgifqmcn3fn18m819e61ki99.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="错误排查三"><a href="#错误排查三" class="headerlink" title="错误排查三"></a>错误排查三</h3><ul>
+<li><p>排除集群本身问题，尝试spark-submit 提交</p>
+</li>
+<li><p>采用不打包依赖的方式打包（注意打包后只有 300kb）</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/2er74vqyrka3pobk0a4n8u9t/image_1cebcaiu3guc6rk15jur0v65p13.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><strong>集群</strong> 打印了下述错误</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">[hadoop@hadoop01 bin]$ ./spark-submit --class "Remote.RemoteDemo" ~/visnwk-build.jar</span><br><span class="line"><span class="number">17</span>/<span class="number">07</span>/<span class="number">03</span> <span class="number">19</span>:<span class="number">48</span>:<span class="number">53</span> WARN NativeCodeLoader: Unable to load <span class="keyword">native</span>-hadoop library <span class="keyword">for</span> your platform... using builtin-java classes where applicable</span><br><span class="line">17/07/03 19:49:03 ERROR TransportRequestHandler: Error while invoking RpcHandler#receive() for one-way message.</span><br><span class="line">org.apache.spark.SparkException: Could not find AppClient.</span><br><span class="line">        at org.apache.spark.rpc.netty.Dispatcher.postMessage(Dispatcher.scala:<span class="number">154</span>)</span><br><span class="line">        at org.apache.spark.rpc.netty.Dispatcher.postOneWayMessage(Dispatcher.scala:<span class="number">134</span>)</span><br><span class="line">        at org.apache.spark.rpc.netty.NettyRpcHandler.receive(NettyRpcEnv.scala:<span class="number">644</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportRequestHandler.processOneWayMessage(TransportRequestHandler.java:<span class="number">178</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportRequestHandler.handle(TransportRequestHandler.java:<span class="number">107</span>)</span><br><span class="line">        at org.apache.spark.network.server.TransportChannelHandler.channelRead(TransportChannelHandler.java:<span class="number">118</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:<span class="number">357</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:<span class="number">343</span>)</span><br><span class="line">        at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:<span class="number">336</span>)</span><br><span class="line">        at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:<span class="number">287</span>)</span><br></pre></td></tr></table></figure>
+<p>解决：<a href="http://www.mamicode.com/info-detail-1879289.html" target="_blank" rel="noopener"> 这里 </a></p>
+<p>示例代码最后添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.stop</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>集群提交</strong> 运行正常</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/dmsdt2jdz9vb7zpytdpn2unf/image_1cebedvpdejeftfhq513pbmgk3q.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.146.130:4040/jobs/  4040 UI界面只有在job运行时才可见，运行完后就不可访问</span><br></pre></td></tr></table></figure>
+<ul>
+<li>集群输出正常</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/7qymc925xnmiyo6qkifkjhmg/image_1cebe4200192g1bec1qa91acr1i9l2d.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<hr>
+<h3 id="回到IDEA提交问题"><a href="#回到IDEA提交问题" class="headerlink" title="回到IDEA提交问题"></a>回到IDEA提交问题</h3><ul>
+<li>比较这个错误（和一个错误IP相比）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;直接用xxxx这个错误IP报错如下</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:20 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http:&#x2F;&#x2F;118.202.40.210:4042</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:20 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark:&#x2F;&#x2F;xxxxx:7077...</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:23 WARN TransportClientFactory: DNS resolution for xxxxx:7077 took 2551 ms</span><br><span class="line">18&#x2F;05&#x2F;25 19:06:23 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master xxxxx:7077</span><br><span class="line">org.apache.spark.SparkException: Exception thrown in awaitResult</span><br><span class="line">	at org.apache.spark.rpc.RpcTimeout$$anonfun$1.applyOrElse(RpcTimeout.scala:77)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;用master_ip报错如下</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:26 INFO SparkUI: Bound SparkUI to 0.0.0.0, and started at http:&#x2F;&#x2F;118.202.40.210:4040</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark:&#x2F;&#x2F;192.168.146.130:7077...</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 INFO TransportClientFactory: Successfully created connection to &#x2F;192.168.146.130:7077 after 23 ms (0 ms spent in bootstraps)</span><br><span class="line">18&#x2F;05&#x2F;25 19:07:27 WARN StandaloneAppClient$ClientEndpoint: Failed to connect to master 192.168.146.130:7077</span><br><span class="line">org.apache.spark.SparkException: Exception thrown in awaitResult</span><br><span class="line">	at org.apache.spark.rpc.RpcTimeout$$anonfun$1.applyOrElse(RpcTimeout.scala:77)</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;比较上述代码，会发现虽然最后的错误一样，但是中间日志并不一样，所以并不是简单的连接失败</span><br></pre></td></tr></table></figure>
+<ul>
+<li>怀疑是 7077 端口的问题，但发现绑定一切正常</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://static.zybuluo.com/EVA001/gbthajhokjrwi3pjuudzomof/image_1cebg22sd1m51qslcsu1hfampd9.png" alt="此处为本页面内的一张图片" >
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><p>怀疑是版本的问题了，集群是 scala-2.11.8 + Spark-2.2.0</p>
+<p>  解决：<a href="https://stackoverflow.com/questions/34518669/unable-to-connect-to-spark-master" target="_blank" rel="noopener"> 这里 </a></p>
+</li>
+<li><p>修改 sbt 中 spark 的版本，原来的是 2.1.0 我擦！</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">libraryDependencies +&#x3D; &quot;org.apache.spark&quot; %% &quot;spark-core&quot; % &quot;2.2.0&quot;</span><br><span class="line">libraryDependencies +&#x3D; &quot;org.apache.spark&quot; %% &quot;spark-graphx&quot; % &quot;2.2.0&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>再运行，已越过那个错误~（原来是setJar注释掉了），补全之：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">val conf &#x3D; new SparkConf()</span><br><span class="line">    .setAppName(&quot;SimpleDemo&quot;)</span><br><span class="line">    .setMaster(&quot;spark:&#x2F;&#x2F;192.168.146.130:7077&quot;)</span><br><span class="line">    &#x2F;&#x2F;.setIfMissing(&quot;spark.driver.host&quot;, &quot;127.0.0.1&quot;) &#x2F;&#x2F; 不设置会默认使用本机的物理IP</span><br><span class="line">    .setJars(List(&quot;I:\\IDEA_PROJ\\VISNWK\\out\\artifacts\\visnwk_jar\\visnwk.jar&quot;))</span><br><span class="line"></span><br><span class="line">val sc &#x3D; new SparkContext(conf)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>完美的收官：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO DAGScheduler: Job 0 finished: reduce at EdgeRDDImpl.scala:90, took 60.614562 s</span><br><span class="line">graph.edges.count() &#x3D; 103689  &#x2F;&#x2F; 终于等到你！！</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO SparkUI: Stopped Spark web UI at http:&#x2F;&#x2F;118.202.40.210:4040</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO StandaloneSchedulerBackend: Shutting down all executors</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO CoarseGrainedSchedulerBackend$DriverEndpoint: Asking each executor to shut down</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO MemoryStore: MemoryStore cleared</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO BlockManager: BlockManager stopped</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO BlockManagerMaster: BlockManagerMaster stopped</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO SparkContext: Successfully stopped SparkContext</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO ShutdownHookManager: Shutdown hook called</span><br><span class="line">18&#x2F;05&#x2F;25 19:25:36 INFO ShutdownHookManager: Deleting directory C:\Users\msi\AppData\Local\Temp\spark-fae200dd-12cc-4b8a-b2ec-751d641d3689</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>任务运行时 <a href="http://118.202.40.210:4040/environment/" target="_blank" rel="noopener">http://118.202.40.210:4040/environment/</a> 显示的状态</p>
+<p>  注：本机 windows ip 为 118.202.40.210 </p>
+</li>
+</ul>
+<p><img src="http://static.zybuluo.com/EVA001/zcksl1o6pmkd4zhfgu9tti94/image_1cebie8dd1dbitqprrbdf15t9m.png" alt=""></p>
+<h3 id="其他各种问题"><a href="#其他各种问题" class="headerlink" title="其他各种问题"></a>其他各种问题</h3><ul>
+<li><a href="https://www.jianshu.com/p/0de92480b8b6" target="_blank" rel="noopener">Spark常见问题解决办法</a></li>
+<li><a href="https://blog.csdn.net/you12345678901234567/article/details/52763713" target="_blank" rel="noopener">Spark各种问题的解决</a></li>
+<li><a href="https://www.cnblogs.com/bigbigtree/p/5685298.html" target="_blank" rel="noopener">Spark集群配置</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br>本文链接：<a href="/article/1289.html" target="_blank" rel="external">https://old.cz5h.com/article/1289.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="noopener">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDEA/" rel="tag">IDEA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spark/" rel="tag">Spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B0%83%E8%AF%95/" rel="tag">调试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9B%86%E7%BE%A4/" rel="tag">集群</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/1289.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/1289.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/1289.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/1289.html&via=https://old.cz5h.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/1289.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/f986.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">IDEA自动生成Javadoc代码注释</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/970d.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">使用SBT正确构建IndexedRDD环境</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #595959;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;" />
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/7bc.html">VMware虚拟机相关问题</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  主机连不上VMware，ping不通，分析：与linux能不能上网没有关系，是VMware软件设置出错
+
+可能原因1.服务。打开服务，查看VM的各项服务是否为启动状态【首先要确定】2.同一网段。...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/dcd4.html">Hadoop集群运行时问题</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  Hadoop Copy
+-copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style="">
+		  <b><a class="post-title-link" href="/article/b081.html">Spark的运行环境及远程开发环境的搭建</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  基本概括概述spark快速 
+
+扩充了mapreduce
+基于内存计算（中间结果的存储位置）
+
+spark通用
+
+批处理hadoop
+迭代计算 机器学习系统
+交互式查询 hive
+流处理 sto...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments"  style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+ 
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p  class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="https://www.cz5h.com/friends/index.html" target="_blank" rel="noopener">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" >Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" >心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" >Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" >猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.aye.ink/" >Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xiabor.com" >雪曦的博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" >鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" >Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" >易支烟博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://liaoyibin.vip/" >天然呆</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://tyrionyu.com/" >Tyrionyu</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.nineya.com/" >玖涯博客</a>
+ 
+ 	 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2020
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a> Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener" >Github Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://old.cz5h.com/dddd.mp3',
+//			cover: 'https://old.cz5h.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/1289.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/1289.html&title=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/1289.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spark集群从搭建到任务提交-第N次记录》 — 请移步新站点CZ5H.COM&url=https://old.cz5h.com/article/1289.html&via=https://old.cz5h.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/1289.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByElEQVR42u3aQY7EIAwEwPn/p7PXlVYhbXthcihOo5ESihwQbvz5xOP6M37/33tq/exo4OLijrnXctyxEvTd2+7esDbg4uKe595NlkzcW3a+YFxc3Pdz19BkyvyohIuL+35uvqlVix9cXNx3cpOjSaFEiUOTjbUaLi7ugJunlPt+b8l3cXFxW9yrNdYFT3Iw6s2Oi4t7hlvddJLJkq1wVBrh4uIe4eagHj1ZWLlFAxcXdzO3F1xWt7z8EzwURbi4uJu58xc1v1Bvwbi4uAe5eQhSvUytXqsUCh5cXNwj3N5Z4n9bLh6KH1xc3C9xk9iiushqq0czJMXFxd3ArQagSQobIeIwBRcX9wy3V8BMQpN844tSXlxc3A3cSZzRu1itboi3xQ8uLu42btIylRczkxaucp8ILi7uNu5kmpxevbZ5qNVwcXE3c6OqKK4+JgFKIZzFxcXdzL2KY7Kk5Frl4fPh4uIe4eaj1zxRbfLIG7lwcXF3c/Nws3qJkscfuLi47+Su/+8FIr3dtJzv4uLifpXbu1CZbHa4uLjv51YLofxapbCd4eLiHuT2Gq2Sw0oeu0SfAxcX9wi397p58ZNfrjTzXVxc3A73Byfx02pxKIckAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://old.cz5h.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://old.cz5h.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+	
+	
+
+</body>
+</html>
