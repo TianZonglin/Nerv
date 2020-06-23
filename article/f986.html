@@ -13,18 +13,18 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整个代码的阅读起着十分重要的作用，在eclipse中，我们可以自动生成注释的模板，在IDEA中显然也是可以的，下面就介绍两种生成注释的方式。 JindentJindent是一个十分强大的代码格式化工具，它不局限于IDE插件，其本身就是进行代码格式化">
+<meta name="description" content="在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整个代码的阅读起着十分重要的作用，在eclipse中，我们可以自动生成注释的模板，在IDEA中显然也是可以的，下面就介绍两种生成注释的方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA自动生成Javadoc代码注释">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;f986.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整个代码的阅读起着十分重要的作用，在eclipse中，我们可以自动生成注释的模板，在IDEA中显然也是可以的，下面就介绍两种生成注释的方式。 JindentJindent是一个十分强大的代码格式化工具，它不局限于IDE插件，其本身就是进行代码格式化">
+<meta property="og:description" content="在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整个代码的阅读起着十分重要的作用，在eclipse中，我们可以自动生成注释的模板，在IDEA中显然也是可以的，下面就介绍两种生成注释的方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;ey5kpax91ex6s1f0uffbopge&#x2F;image_1cf7jnpj21d7d1ktnuml11hj1fdk9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;uoqp76mu0k9eqeq1ixoz0ful&#x2F;image_1cf7k4ij1ho418o0ovm1anq1rnbm.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;6dmraj0akb4rzw9utqfkya3r&#x2F;image_1cf7k8nhh1oo1co8mv41og21gh213.png">
 <meta property="article:published_time" content="2018-05-25T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.078Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.523Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="IDEA">
@@ -949,6 +949,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整个代码的阅读起着十分重要的作用，在<code>eclipse</code>中，我们可以自动生成注释的模板，在<code>IDEA</code>中显然也是可以的，下面就介绍两种生成注释的方式。</p>
+<a id="more"></a>
 <h3 id="Jindent"><a href="#Jindent" class="headerlink" title="Jindent"></a>Jindent</h3><p>Jindent是一个十分强大的代码格式化工具，它不局限于IDE插件，其本身就是进行代码格式化的，官网如下：<br><a href="http://www.newforms-tech.com/products/jindent/about" target="_blank" rel="external nofollow noopener noreferrer">http://www.newforms-tech.com/products/jindent/about</a></p>
 <p>安装教程 <a href="https://blog.csdn.net/liyanlei5858/article/details/51312600" target="_blank" rel="external nofollow noopener noreferrer">点击此处</a></p>
 <p>注意：注释添加不成功，弹出需要License许可，看来不是拿来即用的插件；<br>可以对代码进行格式化，但只能对Java和C/C++代码进行代码格式化，其他语言执行格式化不会有反应；</p>
@@ -1028,7 +1029,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/f986.html&title=《IDEA自动生成Javadoc代码注释》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/f986.html&title=《IDEA自动生成Javadoc代码注释》 — 长征部落格(CZ5H.COM)&source=在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1119,12 +1120,6 @@ a.items5:hover {
 扩充了mapreduce
 基于内存计算（中间结果的存储位置）
 
-spark通用
-
-批处理hadoop
-迭代计算 机器学习系统
-交互式查询 hive
-流处理 sto...
 		  </p>
 		  
 		</div>
@@ -1229,7 +1224,7 @@ spark通用
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1319,7 +1314,7 @@ spark通用
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/f986.html&title=《IDEA自动生成Javadoc代码注释》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/f986.html&title=《IDEA自动生成Javadoc代码注释》 — 长征部落格(CZ5H.COM)&source=在日常写代码时往往不会注重注释的格式、规范等问题，可能注释都不会写，但是一旦代码完成后要交付他人，就需要考虑注释的问题了，因为重要函数、方法的注释往往对整..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

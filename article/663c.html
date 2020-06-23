@@ -13,12 +13,12 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，但是，有时我们的项目未必采用Maven构建，比如Spark项目就多采用sbt，或者直接添加jar包的方式，这时，如果需要添加某个外部依赖如果采用添加jar包的方式就会非常繁琐，不过IDEA为我们提供了方便的添加方式。 现在，以Spark项目中添加">
+<meta name="description" content="前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，但是，有时我们的项目未必采用Maven构建，比如Spark项目就多采用sbt，或者直接添加jar包的方式，这时，如果需要添加某个外部依赖如果采用添加jar包的方式就会非常繁琐，不过IDEA为我们提供了方便的添加方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA如何在项目中快速添加Maven依赖">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;663c.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，但是，有时我们的项目未必采用Maven构建，比如Spark项目就多采用sbt，或者直接添加jar包的方式，这时，如果需要添加某个外部依赖如果采用添加jar包的方式就会非常繁琐，不过IDEA为我们提供了方便的添加方式。 现在，以Spark项目中添加">
+<meta property="og:description" content="前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，但是，有时我们的项目未必采用Maven构建，比如Spark项目就多采用sbt，或者直接添加jar包的方式，这时，如果需要添加某个外部依赖如果采用添加jar包的方式就会非常繁琐，不过IDEA为我们提供了方便的添加方式。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;4ag0cg6r8fccir92desb38om&#x2F;image_1cd2ti7aar5poa51hse1t1jn9um.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;6e06f9o6mi7t3r8czg9lpv3t&#x2F;image_1cd2tk06kdf7p2q1ic01c4qv0813.png">
@@ -27,7 +27,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;tc6cfa235kj6is1tn4axl2vt&#x2F;image_1cd2ts1ci157h7o91t6ojao1lcp2a.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;1j3vpag5712ccpupqwjk9vy3&#x2F;image_1cd5a9gv5buv1ri31j34gn4d4m.png">
 <meta property="article:published_time" content="2018-03-18T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.059Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.507Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="IDEA">
@@ -952,6 +952,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，但是，有时我们的项目未必采用Maven构建，比如Spark项目就多采用sbt，或者直接添加jar包的方式，这时，如果需要添加某个外部依赖如果采用添加jar包的方式就会非常繁琐，不过IDEA为我们提供了方便的添加方式。</p>
+<a id="more"></a>
 <p>现在，以Spark项目中添加<code>gephi-toolkit</code>为例，来说明整个添加流程，具体流程如下：</p>
 <h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><ul>
 <li>右键项目名称，点击<code>Open Module Settings</code>，转到<code>Dependencies</code></li>
@@ -1058,7 +1059,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/663c.html&title=《IDEA如何在项目中快速添加Maven依赖》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/663c.html&title=《IDEA如何在项目中快速添加Maven依赖》 — 长征部落格(CZ5H.COM)&source=前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1149,12 +1150,6 @@ a.items5:hover {
 扩充了mapreduce
 基于内存计算（中间结果的存储位置）
 
-spark通用
-
-批处理hadoop
-迭代计算 机器学习系统
-交互式查询 hive
-流处理 sto...
 		  </p>
 		  
 		</div>
@@ -1171,8 +1166,6 @@ spark通用
 进入Gephi的github地址：https://github.com/gephi/gephi
 点击右上角的fork按钮将其fork到自己的github中：
 
-
-fo...
 		  </p>
 		  
 		</div>
@@ -1277,7 +1270,7 @@ fo...
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1367,7 +1360,7 @@ fo...
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/663c.html&title=《IDEA如何在项目中快速添加Maven依赖》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/663c.html&title=《IDEA如何在项目中快速添加Maven依赖》 — 长征部落格(CZ5H.COM)&source=前言在日常项目开发中，组件的引入是很平常的事情，一般来说，我们的项目由Maven构建，然后在需要新引入一个依赖时，只需在pom.xml中添加依赖描述即可，..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -6,26 +6,26 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="WebSocket,可视化,布局算法,A,长征部落格, 长征Blog, 长征五号">
+<meta name="keywords" content="可视化,WebSocket,布局算法,A,长征部落格, 长征Blog, 长征五号">
 
 <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">  
 
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的交互性，但是本质上仍然是针对某一次返回结果的再加工。 难以完成的任务对于这样的场景：需要将某个迭代算法中每次迭代的数据进行可视化，传统认知上这样的需求一般在Java语言领域使用JavaSwing进行开发，保">
+<meta name="description" content="现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的交互性，但是本质上仍然是针对某一次返回结果的再加工。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用WebSocket给传统Web系统赋能">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;236a.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的交互性，但是本质上仍然是针对某一次返回结果的再加工。 难以完成的任务对于这样的场景：需要将某个迭代算法中每次迭代的数据进行可视化，传统认知上这样的需求一般在Java语言领域使用JavaSwing进行开发，保">
+<meta property="og:description" content="现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的交互性，但是本质上仍然是针对某一次返回结果的再加工。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;cdu5ysgbca67hg3ya97x3c04&#x2F;GIF.gif">
 <meta property="article:published_time" content="2017-11-14T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.991Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.409Z">
 <meta property="article:author" content="TZLoop">
-<meta property="article:tag" content="WebSocket">
 <meta property="article:tag" content="可视化">
+<meta property="article:tag" content="WebSocket">
 <meta property="article:tag" content="布局算法">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;cdu5ysgbca67hg3ya97x3c04&#x2F;GIF.gif">
@@ -947,6 +947,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h4 id="现有的机制"><a href="#现有的机制" class="headerlink" title="现有的机制"></a>现有的机制</h4><p>传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使用AJAX等技术可以使展示结果具有很高的交互性，但是本质上仍然是针对某一次返回结果的再加工。</p>
+<a id="more"></a>
 <h4 id="难以完成的任务"><a href="#难以完成的任务" class="headerlink" title="难以完成的任务"></a>难以完成的任务</h4><p>对于这样的场景：需要将某个迭代算法中每次迭代的数据进行可视化，传统认知上这样的需求一般在Java语言领域使用JavaSwing进行开发，保证展示效果的同时也保证了整个数据传输的效率（几乎没有传输损耗，数据都在内存中），如果非要以Web方式承载，那么一般方式是使用Ajax长轮询，这种方式核心仍然是一个个的HTTP请求，并不能将算法中迭代的某一中间结果返回到Web端。</p>
 <h4 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h4><p>WebSocket技术伴随着HTML5出现后给这种场景提供了一种可行的解决方案，其可以允许前后台创建一种类似Socket的长连接机制，而且可以维持多个连接，这种非常类似Socket的特点也使得其取名为WebSocket，可以允许前后台建立一个稳定的连接，在后台代码中这个连接以Session的方式维护，后台可以无限制的、随时的、随处的向前台传输数据（只需引用这个Session）。总的来说，这种方式赋予了传统Web系统（BS系统）具有CS系统的敏捷性和便捷性（数据传输不限于请求）。</p>
 <h4 id="其他解决方案"><a href="#其他解决方案" class="headerlink" title="其他解决方案"></a>其他解决方案</h4><p>本质上，一切以连接为基础的数据交互都能完成展示中间计算步骤的目的，例如Redis和一些MQ队列等等，但是能在前端支持js客户端的并不多见，阿里现在支持redis的js client，也有类似GoEasy这种黑盒方式的 前后台通讯方式，不过这些方式严重依赖第三方管理（例如上述两者都需要其自家的秘钥等等），在使用过程中并不透明，WebSocket在这方面具有优良的特性，而且也可以轻易的进行诸如队列的扩展。</p>
@@ -1011,7 +1012,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/236a.html&title=《用WebSocket给传统Web系统赋能》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/236a.html&title=《用WebSocket给传统Web系统赋能》 — 长征部落格(CZ5H.COM)&source=现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1079,10 +1080,11 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/6e50.html">替代Websocket的解决方案：GoEasy</a></b>
+		  <b><a class="post-title-link" href="/article/3bfa.html">一种基于力导向布局的层次结构可视化方法</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  写在前面GoEasy这个库的适用场景：同Websocket的场景在后台使用例如Java进行逻辑处理后将变量的值传入前台，前台不用发起请求即可接收后台发布的数据，整个流程与Redis的Pub和Su...
+		    计算机仿真    2014-3    北京工商大学
+在数据结构优化管理的研究中，传统的力导向方法应用于层次结构数据的展示时，会存在树形布局展示不清楚的问题。为解决上述问题，通过层次数据特征分...
 		  </p>
 		  
 		</div>
@@ -1092,12 +1094,10 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/3bfa.html">一种基于力导向布局的层次结构可视化方法</a></b>
+		  <b><a class="post-title-link" href="/article/6e50.html">替代Websocket的解决方案：GoEasy</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  计算机仿真    2014-3
-北京工商大学
-在数据结构优化管理的研究中，传统的力导向方法应用于层次结构数据的展示时，会存在树形布局展示不清楚的问题。为解决上述问题，通过层次数据特征分析，提出了...
+		  写在前面GoEasy这个库的适用场景：同Websocket的场景在后台使用例如Java进行逻辑处理后将变量的值传入前台，前台不用发起请求即可接收后台发布的数据，整个流程与Redis的Pub和Su...
 		  </p>
 		  
 		</div>
@@ -1215,7 +1215,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1305,7 +1305,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/236a.html&title=《用WebSocket给传统Web系统赋能》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/236a.html&title=《用WebSocket给传统Web系统赋能》 — 长征部落格(CZ5H.COM)&source=现有的机制传统的Web系统的全部交互都采用HTTP请求的方式，另外在可视化领域的一些Web展示系统，也多是以HTTP请求的方式来返回需要展示的结果，虽然使..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

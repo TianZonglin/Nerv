@@ -13,18 +13,18 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
+<meta name="description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NameNode HA：如何防止集群脑裂现象">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;aec3.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。 为什么要Namenode HA？ NameNode High Availability即高可用。 NameNode 很重要，挂掉会导致存储停止服务">
+<meta property="og:description" content="转自：http:&#x2F;&#x2F;www.cnblogs.com&#x2F;shenh062326&#x2F;p&#x2F;3870219.html作者：南国故人 社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;k0qlr7wailej0vmdm54cpeuz&#x2F;image_1cbra11qd1ig91ahiirumb471b9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;f80e5v3jjsy90z47y0nqrnek&#x2F;image_1cbracpvr1bhu7nq1mqrsgc1ive16.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;02v6xpy69qqlrwbnu4bbexua&#x2F;image_1cbrag8vv1kbde2a19b97o81cnh1j.png">
 <meta property="article:published_time" content="2018-03-10T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.054Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.506Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="集群">
 <meta property="article:tag" content="转载">
@@ -951,6 +951,7 @@ a.items5:hover {
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>转自：<a href="http://www.cnblogs.com/shenh062326/p/3870219.html" target="_blank" rel="external nofollow noopener noreferrer">http://www.cnblogs.com/shenh062326/p/3870219.html</a><br>作者：南国故人</p>
 <p>社区hadoop2.2.0 release版本开始支持NameNode的HA，本文将详细描述NameNode HA内部的设计与实现。</p>
+<a id="more"></a>
 <h3 id="为什么要Namenode-HA？"><a href="#为什么要Namenode-HA？" class="headerlink" title="为什么要Namenode HA？"></a>为什么要Namenode HA？</h3><ol>
 <li>NameNode High Availability即高可用。</li>
 <li>NameNode 很重要，挂掉会导致存储停止服务，无法进行数据的读写，基于此NameNode的计算（MR，Hive等）也无法完成。</li>
@@ -1116,7 +1117,8 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/aec3.html&title=《NameNode HA：如何防止集群脑裂现象》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/aec3.html&title=《NameNode HA：如何防止集群脑裂现象》 — 长征部落格(CZ5H.COM)&source=转自：http://www.cnblogs.com/shenh062326/p/3870219.html作者：南国故人
+社区hadoop2.2.0 rel..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1306,7 +1308,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1396,7 +1398,8 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/aec3.html&title=《NameNode HA：如何防止集群脑裂现象》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/aec3.html&title=《NameNode HA：如何防止集群脑裂现象》 — 长征部落格(CZ5H.COM)&source=转自：http://www.cnblogs.com/shenh062326/p/3870219.html作者：南国故人
+社区hadoop2.2.0 rel..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

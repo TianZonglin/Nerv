@@ -13,15 +13,15 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="kafka常用命令以下是kafka常用命令行总结：12345678910111213141516171819202122232425262728293031323334353637381、kafka服务启动.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties 2、创建topic.&#x2F;kafka-">
+<meta name="description" content="kafka常用命令以下是kafka常用命令行总结：123456789101112131415161718192021222324252627282930313233343536373839401、kafka服务启动.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties &lt;!-- more --&amp;gt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka集群常用命令">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;24fd.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="kafka常用命令以下是kafka常用命令行总结：12345678910111213141516171819202122232425262728293031323334353637381、kafka服务启动.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties 2、创建topic.&#x2F;kafka-">
+<meta property="og:description" content="kafka常用命令以下是kafka常用命令行总结：123456789101112131415161718192021222324252627282930313233343536373839401、kafka服务启动.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties &lt;!-- more --&amp;gt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-02-27T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.029Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.476Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Kafka">
 <meta property="article:tag" content="常用命令">
@@ -921,7 +921,7 @@ a.items5:hover {
 
 
 
-			<span class="post-count">301&nbsp;&#x5B57;</span>
+			<span class="post-count">304&nbsp;&#x5B57;</span>
 <!--
 <span class="post-count">2����</span>
 
@@ -936,7 +936,7 @@ a.items5:hover {
 -->
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>kafka常用命令<br>以下是kafka常用命令行总结：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">1、kafka服务启动</span><br><span class="line">.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties </span><br><span class="line"></span><br><span class="line">2、创建topic</span><br><span class="line">.&#x2F;kafka-topics.sh --create --zookeeper hadoop01:2181 --replication-factor 1 --partitions 1 --topic test</span><br><span class="line"></span><br><span class="line">2.1、为topic增加副本</span><br><span class="line">.&#x2F;kafka-reassign-partitions.sh -zookeeper hadoop01:2181 -reassignment-json-file json&#x2F;partitions-to-move.json -execute</span><br><span class="line"></span><br><span class="line">2.2、为topic增加partition</span><br><span class="line">.&#x2F;bin&#x2F;kafka-topics.sh –zookeeper hadoop01:2181 –alter –partitions 20 –topic test</span><br><span class="line"></span><br><span class="line">3、查看有哪些topic： </span><br><span class="line">.&#x2F;kafka-topics.sh --list --zookeeper hadoop01:2181</span><br><span class="line"></span><br><span class="line">4、查看topic的详细信息</span><br><span class="line">.&#x2F;kafka-topics.sh -zookeeper hadoop01:2181 -describe -topic test</span><br><span class="line"></span><br><span class="line">5、kafka生产者客户端命令</span><br><span class="line">.&#x2F;kafka-console-producer.sh --broker-list hadoop01:9092 --topic test</span><br><span class="line"></span><br><span class="line">6、kafka消费者客户端命令</span><br><span class="line">.&#x2F;kafka-console-consumer.sh -zookeeper hadoop01:2181 --from-beginning --topic test</span><br><span class="line"></span><br><span class="line">[成功] </span><br><span class="line"></span><br><span class="line">7、下线broker</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.admin.ShutdownBroker --zookeeper hadoop01:2181 --broker #brokerId# --num.retries 3 --retry.interval.ms 60</span><br><span class="line">shutdown broker</span><br><span class="line"></span><br><span class="line">8、删除topic</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.admin.DeleteTopicCommand --topic test --zookeeper hadoop01:2181</span><br><span class="line">.&#x2F;kafka-topics.sh --zookeeper hadoop01:2181 --delete --topic test</span><br><span class="line">实际不会删除，只会显示marked for deletion</span><br><span class="line"></span><br><span class="line">9、查看consumer组内消费的offset</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --zookeeper hadoop01:2181 --group test --topic test</span><br><span class="line"> .&#x2F;kafka-consumer-offset-checker.sh --zookeeper hadoop01:2181 --group group1 --topic group1</span><br></pre></td></tr></table></figure></p>
+            <p>kafka常用命令<br>以下是kafka常用命令行总结：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">1、kafka服务启动</span><br><span class="line">.&#x2F;kafka-server-start.sh -daemon ..&#x2F;config&#x2F;server.properties </span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">2、创建topic</span><br><span class="line">.&#x2F;kafka-topics.sh --create --zookeeper hadoop01:2181 --replication-factor 1 --partitions 1 --topic test</span><br><span class="line"></span><br><span class="line">2.1、为topic增加副本</span><br><span class="line">.&#x2F;kafka-reassign-partitions.sh -zookeeper hadoop01:2181 -reassignment-json-file json&#x2F;partitions-to-move.json -execute</span><br><span class="line"></span><br><span class="line">2.2、为topic增加partition</span><br><span class="line">.&#x2F;bin&#x2F;kafka-topics.sh –zookeeper hadoop01:2181 –alter –partitions 20 –topic test</span><br><span class="line"></span><br><span class="line">3、查看有哪些topic： </span><br><span class="line">.&#x2F;kafka-topics.sh --list --zookeeper hadoop01:2181</span><br><span class="line"></span><br><span class="line">4、查看topic的详细信息</span><br><span class="line">.&#x2F;kafka-topics.sh -zookeeper hadoop01:2181 -describe -topic test</span><br><span class="line"></span><br><span class="line">5、kafka生产者客户端命令</span><br><span class="line">.&#x2F;kafka-console-producer.sh --broker-list hadoop01:9092 --topic test</span><br><span class="line"></span><br><span class="line">6、kafka消费者客户端命令</span><br><span class="line">.&#x2F;kafka-console-consumer.sh -zookeeper hadoop01:2181 --from-beginning --topic test</span><br><span class="line"></span><br><span class="line">[成功] </span><br><span class="line"></span><br><span class="line">7、下线broker</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.admin.ShutdownBroker --zookeeper hadoop01:2181 --broker #brokerId# --num.retries 3 --retry.interval.ms 60</span><br><span class="line">shutdown broker</span><br><span class="line"></span><br><span class="line">8、删除topic</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.admin.DeleteTopicCommand --topic test --zookeeper hadoop01:2181</span><br><span class="line">.&#x2F;kafka-topics.sh --zookeeper hadoop01:2181 --delete --topic test</span><br><span class="line">实际不会删除，只会显示marked for deletion</span><br><span class="line"></span><br><span class="line">9、查看consumer组内消费的offset</span><br><span class="line">.&#x2F;kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --zookeeper hadoop01:2181 --group test --topic test</span><br><span class="line"> .&#x2F;kafka-consumer-offset-checker.sh --zookeeper hadoop01:2181 --group group1 --topic group1</span><br></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -1023,18 +1023,18 @@ a.items5:hover {
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/f84f.html" id="post-prev" class="post-nav-link">
+      <a href="/article/45fb.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Flume、Kafka、Storm如何结合使用</h4>
+        <h4 class="title">Kafka初使用</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/45fb.html" id="post-next" class="post-nav-link">
+      <a href="/article/3e6b.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Kafka初使用</h4>
+        <h4 class="title">zkp,kfk,stm联通的问题</h4>
       </a>
     </div>
   
@@ -1175,7 +1175,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 

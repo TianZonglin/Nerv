@@ -13,16 +13,16 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表 12345678910111213141516171819202122232425262728293031323334353637383940MERGE INTO A_DATA T1USING (	SELECT 		  &#39;21212958881122&#39; AS M">
+<meta name="description" content="使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle复杂 Merge Into  | no listener | ORA-00001">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;92b2.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表 12345678910111213141516171819202122232425262728293031323334353637383940MERGE INTO A_DATA T1USING (	SELECT 		  &#39;21212958881122&#39; AS M">
+<meta property="og:description" content="使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;3ch6i8je8ns3485eqegmybng&#x2F;%E6%88%AA%E5%9B%BE.png">
 <meta property="article:published_time" content="2017-04-05T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.052Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.497Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Oracle">
 <meta property="article:tag" content="Merge">
@@ -947,6 +947,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="使用-Merge-Into-进行数据表的增量更新"><a href="#使用-Merge-Into-进行数据表的增量更新" class="headerlink" title="使用 Merge Into 进行数据表的增量更新"></a>使用 Merge Into 进行数据表的增量更新</h3><p>特点：如果数据存在则更新，如果不存在则插入<br>示例：北斗渔船位置的实时数据表</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">MERGE INTO A_DATA T1</span><br><span class="line">USING (</span><br><span class="line">	SELECT 		  &#39;21212958881122&#39; AS MSG_ID ,</span><br><span class="line">							&#39;北斗星通1&#39; AS COMM_TYPE ,</span><br><span class="line">							&#39;20261&#39; AS USER_ID ,</span><br><span class="line">							&#39;2818101&#39;AS TERMINAL_CODE,</span><br><span class="line">							&#39;201704051&#39; AS MSG_DATE ,</span><br><span class="line">							&#39;定时回传位置1&#39; AS POS_TYPE ,</span><br><span class="line">							&#39;2017-04-05 20:56:311&#39; AS UTC ,</span><br><span class="line">							&#39;126°33′431″&#39; AS LONGITUDE ,</span><br><span class="line">							&#39;30°11′01″&#39; AS LATITUDE ,</span><br><span class="line">							&#39;6801&#39; AS COURSE ,</span><br><span class="line">							&#39;01&#39; AS TRUEHEADING ,</span><br><span class="line">							&#39;8.91&#39; AS SPEED ,</span><br><span class="line">							&#39;正常1&#39; AS STATUS ,</span><br><span class="line">							&#39;01&#39; AS VDESC ,</span><br><span class="line">							&#39;北斗星通1&#39; AS TERMINAL_TYPE ,</span><br><span class="line">							&#39;2017-04-05 21:21:401&#39; AS SYSTEM_TIME</span><br><span class="line">	FROM dual</span><br><span class="line">) T2</span><br><span class="line">ON ( T1.TERMINAL_CODE &#x3D; T2.TERMINAL_CODE)</span><br><span class="line">WHEN MATCHED THEN</span><br><span class="line">    UPDATE SET T1.MSG_ID &#x3D; T2.MSG_ID ,</span><br><span class="line">						 T1.COMM_TYPE &#x3D; T2.COMM_TYPE ,</span><br><span class="line">						 T1.USER_ID &#x3D; T2.USER_ID ,</span><br><span class="line">						 T1.MSG_DATE &#x3D; T2.MSG_DATE ,</span><br><span class="line">						 T1.POS_TYPE &#x3D; T2.POS_TYPE ,</span><br><span class="line">						 T1.UTC &#x3D; T2.UTC ,</span><br><span class="line">						 T1.LONGITUDE &#x3D; T2.LONGITUDE ,</span><br><span class="line">						 T1.LATITUDE &#x3D; T2.LATITUDE ,</span><br><span class="line">						 T1.COURSE &#x3D; T2.COURSE ,</span><br><span class="line">						 T1.TRUEHEADING &#x3D; T2.TRUEHEADING ,</span><br><span class="line">						 T1.SPEED &#x3D; T2.SPEED ,</span><br><span class="line">						 T1.STATUS &#x3D; T2.STATUS ,</span><br><span class="line">						 T1.VDESC &#x3D; T2.VDESC ,</span><br><span class="line">						 T1.TERMINAL_TYPE &#x3D; T2.TERMINAL_TYPE ,</span><br><span class="line">						 T1.SYSTEM_TIME &#x3D; T2.SYSTEM_TIME 			</span><br><span class="line">WHEN NOT MATCHED THEN </span><br><span class="line">    INSERT (MSG_ID ,COMM_TYPE ,USER_ID ,TERMINAL_CODE ,MSG_DATE ,POS_TYPE ,UTC ,LONGITUDE ,LATITUDE ,COURSE ,TRUEHEADING ,SPEED ,STATUS ,VDESC ,TERMINAL_TYPE ,SYSTEM_TIME ) </span><br><span class="line">	VALUES(T2.MSG_ID ,T2.COMM_TYPE ,T2.USER_ID ,T2.TERMINAL_CODE ,T2.MSG_DATE ,T2.POS_TYPE ,T2.UTC ,T2.LONGITUDE ,T2.LATITUDE ,T2.COURSE ,T2.TRUEHEADING ,T2.SPEED ,T2.STATUS ,T2.VDESC ,T2.TERMINAL_TYPE ,T2.SYSTEM_TIME);</span><br></pre></td></tr></table></figure>
 <h3 id="SQL-错误-ORA-00001-违反唯一约束条件-SYSTEM-SYS-C0010160"><a href="#SQL-错误-ORA-00001-违反唯一约束条件-SYSTEM-SYS-C0010160" class="headerlink" title="SQL 错误: ORA-00001: 违反唯一约束条件 (SYSTEM.SYS_C0010160)"></a><strong>SQL 错误: ORA-00001: 违反唯一约束条件 (SYSTEM.SYS_C0010160)</strong></h3><ol>
 <li>00000 -  “unique constraint (%s.%s) violated”</li>
@@ -1002,7 +1003,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/92b2.html&title=《Oracle复杂 Merge Into  | no listener | ORA-00001》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/92b2.html&title=《Oracle复杂 Merge Into  | no listener | ORA-00001》 — 长征部落格(CZ5H.COM)&source=使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1178,7 +1179,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1268,7 +1269,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/92b2.html&title=《Oracle复杂 Merge Into  | no listener | ORA-00001》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/92b2.html&title=《Oracle复杂 Merge Into  | no listener | ORA-00001》 — 长征部落格(CZ5H.COM)&source=使用 Merge Into 进行数据表的增量更新特点：如果数据存在则更新，如果不存在则插入示例：北斗渔船位置的实时数据表" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

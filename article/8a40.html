@@ -30,7 +30,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;xwmld8kz4d97glpif1t276zv&#x2F;image_1c1l51glp1cgd16mtafin4n7jc13.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;oqkthefjauxt05mt23hze9fz&#x2F;image_1c1s3i2nahhg17f51k12b3q1cde9.png">
 <meta property="article:published_time" content="2017-12-07T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.022Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.466Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="图数据">
 <meta property="article:tag" content="Mapreduce">
@@ -1029,6 +1029,7 @@ a.items5:hover {
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>数据集格式大多为A-&gt;B格式，部分数据集的数据注释：<br><strong>wiki-Vote</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Directed graph (each unordered pair of nodes is saved once): Wiki-Vote.txt </span><br><span class="line"># 有向图，每个节点的无序对只存在一次，即无重复</span><br><span class="line"># Wikipedia voting on promotion to administratorship (till January 2008). Directed edge A-&gt;B means user A voted on B becoming Wikipedia administrator.</span><br><span class="line"># 维基百科投票晋升到管理人的职位（直到2008年1月）。定向边缘A-B意味着用户A给用户B投票</span><br><span class="line"># Nodes: 7115 Edges: 103689</span><br><span class="line"># FromNodeId	ToNodeId</span><br><span class="line">30	1412</span><br><span class="line">30	3352</span><br><span class="line">...</span><br></pre></td></tr></table></figure><br><strong>soc-xx,eg:soc-Epinions1</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Directed graph (each unordered pair of nodes is saved once): soc-Epinions1.txt </span><br><span class="line"># 有向图，每个节点的无序对只存在一次，即无重复</span><br><span class="line"># Directed Epinions social network</span><br><span class="line"># Nodes: 75879 Edges: 508837</span><br><span class="line"># FromNodeId	ToNodeId</span><br><span class="line">0	4</span><br><span class="line">0	5</span><br><span class="line">...</span><br></pre></td></tr></table></figure><br><strong>ogo-xxx</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">数据文件较复杂，一般分为xxx，xxx-combined，readme三个文件；</span><br><span class="line">xxx文件一般格式很复杂，具体意义待研究，这里体现网络的使用的是xxx-combined文件，</span><br><span class="line">xxx-combind数据格式即A-&gt;B格式</span><br></pre></td></tr></table></figure></p>
 <h3 id="数据集统计"><a href="#数据集统计" class="headerlink" title="数据集统计"></a>数据集统计</h3><p>相关的数据集统计都在SNAP对应的数据集页面有详细显示<br><img src="http://static.zybuluo.com/EVA001/tt39hz1jgqpoamh03usywqzx/image_1c0o1gjr71n4f1nk1sc5rbtv17m.png" alt="image_1c0o1gjr71n4f1nk1sc5rbtv17m.png-54.9kB"></p>
 <h2 id="节点度分布的计算"><a href="#节点度分布的计算" class="headerlink" title="节点度分布的计算"></a>节点度分布的计算</h2><p>从小规模数据集ego-Facebook和wiki-Vote开始计算</p>
@@ -1143,7 +1144,21 @@ D 2
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/8a40.html&title=《对SNAP图数据进行度分布统计》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/8a40.html&title=《对SNAP图数据进行度分布统计》 — 长征部落格(CZ5H.COM)&source=统计度分布的数据集
+
+
+Name
+Type
+Nodes
+Edges
+Description
+
+
+
+
+ego-Facebook
+Undirected
+4,0..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1319,7 +1334,7 @@ D 2
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1409,7 +1424,21 @@ D 2
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/8a40.html&title=《对SNAP图数据进行度分布统计》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/8a40.html&title=《对SNAP图数据进行度分布统计》 — 长征部落格(CZ5H.COM)&source=统计度分布的数据集
+
+
+Name
+Type
+Nodes
+Edges
+Description
+
+
+
+
+ego-Facebook
+Undirected
+4,0..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

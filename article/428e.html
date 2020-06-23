@@ -41,7 +41,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;jq9241vj4d7p46nzumljv8f1&#x2F;image_1cbbu9ubn2ikrq38t1sua1kpe8.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;0agcp01gtqn99jiyskqpjb6i&#x2F;image_1cbbub27sijk1rlvanrms91llgel.png">
 <meta property="article:published_time" content="2018-04-14T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.058Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.508Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="可视化">
 <meta property="article:tag" content="布局算法">
@@ -974,7 +974,8 @@ a.items5:hover {
     - Stability analysis
     - Algorithm design and analysis
     - Best practices
-</code></pre><p>摘要<br>本文介绍了一种适合挖掘超大型数据库的聚类和排序<code>ordination</code>算法，包括微阵列表达式研究<code>microarray expression studies</code>产生的数据库，并对其稳定性进行了分析。<br>在实际条件下，利用一个酵母细胞周期实验，对6000个基因进行实验，并对每个基因进行18个实验测量。<br>将数据库对象分配X、Y坐标及顺序的过程，在随机启动条件下，以及在开始相似度估计中对小扰动的处理是稳定的。<br>对聚类通常共同定位的方式进行了仔细的分析，而在不同的初始条件下偶尔出现的大位移则被证明在解释数据时非常有用。<br>当只报告一个聚类时，就会丢失这种额外的稳定性信息，这是目前已被接受的实践。<br>然而，在分析大型数据收集的计算机聚类时，人们认为这里提出的方法应该成为最佳实践的标准部分。</p>
+</code></pre><a id="more"></a>
+<p>摘要<br>本文介绍了一种适合挖掘超大型数据库的聚类和排序<code>ordination</code>算法，包括微阵列表达式研究<code>microarray expression studies</code>产生的数据库，并对其稳定性进行了分析。<br>在实际条件下，利用一个酵母细胞周期实验，对6000个基因进行实验，并对每个基因进行18个实验测量。<br>将数据库对象分配X、Y坐标及顺序的过程，在随机启动条件下，以及在开始相似度估计中对小扰动的处理是稳定的。<br>对聚类通常共同定位的方式进行了仔细的分析，而在不同的初始条件下偶尔出现的大位移则被证明在解释数据时非常有用。<br>当只报告一个聚类时，就会丢失这种额外的稳定性信息，这是目前已被接受的实践。<br>然而，在分析大型数据收集的计算机聚类时，人们认为这里提出的方法应该成为最佳实践的标准部分。</p>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>我们感兴趣的是在大量的实验数据中发现意想不到的关系。<br>不幸的是，我们很容易看到虚幻的模式<code>illusory patterns</code><br>我们的思想是建立在寻找模式的基础上的，即使我们知道感知到的模式仅仅是随机的工件，我们也会这样做。<br>因此，我们感兴趣的模式必须进行一些测试，这些测试表明，如果我们从另一个类似的数据集开始，或者，可能是由于添加了少量的噪音而随机干扰的数据，它们肯定会再次发生。<br>我们使用计算机来查看这些大型数据集，因此我们有必要相信我们的计算工具是可靠的，特别是在我们的例子中，它们使用随机数。<br>我们想知道的结果是对工具内部随机过程的细节不敏感;<br>也就是说，我们想知道我们使用的工具是<strong>稳定</strong>的，在每次的使用中。<br>当然，我们希望这些工具是实用的，对实践科学家有用，他们想知道这些模式是真实的，并且它们可能指向世界上的一些物理事实或重要的过程。</p>
 <p>几个世纪的实践证明，最后一个问题只能通过仔细控制的实验来回答。<br>在这里，我们必须把我们的工具所发现的关系的测试和解释留给实验家。<br>相反，我们的<strong>目的是解决发现潜在重要模式的过程，以及对过程本身的可靠性的调查，以及过程对初始数据的细微变化的敏感性</strong>。<br>我们将报告对一个特定数据挖掘工具的可靠性和灵敏度的各种计算调查，VxInsight<code>1998</code> 使用的是中等大小的微阵列数据集。</p>
 <p>VxInsight使用一个地形隐喻来描述大量的数据，通过在地形上相互靠近，来总结相似元素的簇。<br>二维的星团被想象成由山谷和开阔空间分隔的山脉和山丘。<br>山脉的高度表明了每座山下聚集的元素数量。<br>山脉之间的局部分组和分离也包含了关于集群间相似性的信息。<br>在被广泛隔离的山脉中，数据元素的相似性要小于邻近山脉的数据元素。</p>
@@ -1118,7 +1119,8 @@ Dx,y    = 一个力项与xy附近顶点的密度成比例。
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/428e.html&title=《可视化算法VxOrd论文研读》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/428e.html&title=《可视化算法VxOrd论文研读》 — 长征部落格(CZ5H.COM)&source=原文名：Cluster Stability and the Use of Noise in Interpretation of Clustering
+中文..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1186,10 +1188,11 @@ Dx,y    = 一个力项与xy附近顶点的密度成比例。
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/6e50.html">替代Websocket的解决方案：GoEasy</a></b>
+		  <b><a class="post-title-link" href="/article/3bfa.html">一种基于力导向布局的层次结构可视化方法</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  写在前面GoEasy这个库的适用场景：同Websocket的场景在后台使用例如Java进行逻辑处理后将变量的值传入前台，前台不用发起请求即可接收后台发布的数据，整个流程与Redis的Pub和Su...
+		    计算机仿真    2014-3    北京工商大学
+在数据结构优化管理的研究中，传统的力导向方法应用于层次结构数据的展示时，会存在树形布局展示不清楚的问题。为解决上述问题，通过层次数据特征分...
 		  </p>
 		  
 		</div>
@@ -1307,7 +1310,7 @@ Dx,y    = 一个力项与xy附近顶点的密度成比例。
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1397,7 +1400,8 @@ Dx,y    = 一个力项与xy附近顶点的密度成比例。
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/428e.html&title=《可视化算法VxOrd论文研读》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/428e.html&title=《可视化算法VxOrd论文研读》 — 长征部落格(CZ5H.COM)&source=原文名：Cluster Stability and the Use of Noise in Interpretation of Clustering
+中文..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

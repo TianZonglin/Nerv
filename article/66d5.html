@@ -13,19 +13,19 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过程，用此Toolkit的目的就是使用Gephi强大的绘图功能（还有独立的其他功能，这里暂不展开）。详细项目地址点击 这里 。 在上述Github的项目地址中，有详细的代码demo和使用的部分示例数据。所以具体使用直接参见GitHub即可。 项目建">
+<meta name="description" content="Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过程，用此Toolkit的目的就是使用Gephi强大的绘图功能（还有独立的其他功能，这里暂不展开）。详细项目地址点击 这里 。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gephi-Toolkit的引入与使用">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;66d5.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过程，用此Toolkit的目的就是使用Gephi强大的绘图功能（还有独立的其他功能，这里暂不展开）。详细项目地址点击 这里 。 在上述Github的项目地址中，有详细的代码demo和使用的部分示例数据。所以具体使用直接参见GitHub即可。 项目建">
+<meta property="og:description" content="Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过程，用此Toolkit的目的就是使用Gephi强大的绘图功能（还有独立的其他功能，这里暂不展开）。详细项目地址点击 这里 。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;0mv1wo6zlza9d12pp3m987z3&#x2F;image_1cclaihoj17q65iv1gl3104u1sut1m.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;vfaseoccuy3n8z8jo4ydzbl4&#x2F;image_1cclriks5t7ra69174c1nee1jck23.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;jcpgajkclc35q6j2xu7rfca1&#x2F;image_1cclrupm71s76144u1o4ne8o17472g.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;mff9hkqkkr1do7gxgyaxu7ao&#x2F;image_1cclsm5o51alo1pqp1r9l1aja1f9r2t.png">
 <meta property="article:published_time" content="2018-05-02T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.076Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.526Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="Maven">
@@ -950,6 +950,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过程，用此Toolkit的目的就是使用Gephi强大的绘图功能（还有独立的其他功能，这里暂不展开）。详细项目地址点击 <a href="https://github.com/gephi/gephi-toolkit-demos" target="_blank" rel="external nofollow noopener noreferrer">这里</a> 。</p>
+<a id="more"></a>
 <p>在上述Github的项目地址中，有详细的代码<code>demo</code>和使用的部分示例数据。所以具体使用直接参见GitHub即可。</p>
 <h3 id="项目建立"><a href="#项目建立" class="headerlink" title="项目建立"></a>项目建立</h3><p>首先，这里使用 <code>IntelliJ IDEA</code> 来构建测试我们的项目，这里我们先新建一个 <code>Maven</code> 项目，然后在 pom.xml 中引入 Toolkit 的依赖：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.gephi/gephi-toolkit --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.gephi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>gephi-toolkit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1060,7 +1061,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/66d5.html&title=《Gephi-Toolkit的引入与使用》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/66d5.html&title=《Gephi-Toolkit的引入与使用》 — 长征部落格(CZ5H.COM)&source=Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1163,8 +1164,6 @@ a.items5:hover {
 进入Gephi的github地址：https://github.com/gephi/gephi
 点击右上角的fork按钮将其fork到自己的github中：
 
-
-fo...
 		  </p>
 		  
 		</div>
@@ -1269,7 +1268,7 @@ fo...
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1359,7 +1358,7 @@ fo...
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/66d5.html&title=《Gephi-Toolkit的引入与使用》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/66d5.html&title=《Gephi-Toolkit的引入与使用》 — 长征部落格(CZ5H.COM)&source=Gephi-Toolkit是一个工具包，可以不依赖NetBeans平台来对输入数据进行可视化，输入数据一般是gexf等格式的文件，大多已经完成了坐标计算过..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

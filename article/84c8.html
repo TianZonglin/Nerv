@@ -25,7 +25,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;qyt58jek3e90eyj0if036urn&#x2F;image_1bv9vno7315gi1l1r1gog1cdg1tdnm.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;2ksgx6mqyl43950buhvwwr1d&#x2F;image_1bv9vr8311fe817tt11bb22qlr113.png">
 <meta property="article:published_time" content="2017-11-19T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.002Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.412Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="热图">
 <meta property="article:tag" content="并行计算">
@@ -953,6 +953,7 @@ a.items5:hover {
             <pre><code>计算机辅助设计与图形学学报 2016-11 
 浙江工业大学&amp;浙江大学
 </code></pre><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>针对普通客户端浏览和分析大数据困难的问题, 结合 Spark 和 LOD 技术, 以热图为例提出一种面向大数据可视化技术框架. 首先<strong>利用 Spark 平台分层</strong>并以<strong>瓦片</strong>为单位并行计算, 然后将结果分布式存储在 HDFS 上, 最后通过web 服务器应用Ajax技术结合地理信息提供各种时空分析服务.文中重点解决了数据点位置和地图之间的映射, 以及由于并行计算导致的热图瓦片之间边缘偏差这2个问题.实验结果表明,该方法将数据交互操作与数据绘制和计算任务分离, 为<strong>浏览器端大数据可视化</strong>提供了一个新的思路.</p>
+<a id="more"></a>
 <h3 id="目前大数据可视化面临的主要问题包括"><a href="#目前大数据可视化面临的主要问题包括" class="headerlink" title="目前大数据可视化面临的主要问题包括:"></a>目前大数据可视化面临的主要问题包括:</h3><p>1) 数据复杂散乱. 经常发生数据缺失、数据值不对、结构化程度不高.<br>2) 迭代式分析成本高. 在初次查询后如果发现结果不对, 改变查询条件重新查询代价高.<br>3) 构建复杂工作流困难. 从多数据源取得包含各种不同特征的原始数据,然后执行机器学习算法或者复杂查询, 探索过程漫长.<br>4) 受到原有技术限制, 对小规模数据分析很难直接扩展到大数据分析.<br>5) 数据点的规模超过普通显示器可能提供的有效像素点.<br>Hadoop和Spark先后成为大数据分析工业界的研究热点,前者是一个能够对大量数据提供分布式处理的软件框架和文件系统(hadoopdistrib-utedfilesystem,HDFS);后者是一个通用大数据计算平台,可以解决大数据计算中的批处理、 交互查询及流式计算等核心问题.Zeppelin可以作为Spark的解释器,进一步提供基于 Web 页面的数据分析和可视化协作可以输出表格、柱状图、折线图、饼状图、点图等,但是无法提供更为复杂的交互分析手段.</p>
 <h3 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h3><p><strong>面向 web 的轻量级数据可视化工具</strong>主要是一些JavaScript库，利用canvas或者svg画散点，svg不能支持十亿以上的节点，使用 canvas 画布绘图的heatmap.js 在面对大数据量时也无能为力.<br><strong>热图</strong>是一种常用的基本数据可视化技术,通常用颜色编码数值大小，并以矩阵或方格形式整齐排列,在二维平面或者地图上呈现数据空间分布,被广泛应用在许多领域.近年来,许多研究者成功地将热图应用在眼动数据可视分析上, 有效地概括并表达用户视觉注意力的累计分布<br><strong>LOD</strong>针对数据可视化绘制速度慢、效率低等问题,孙敏等提出<strong>基于格网划分的LOD</strong>(levelsofdetail)分层方法, 实现对大数据集 DEM 数据的实时漫游.</p>
 <h3 id="并行计算大数据热图"><a href="#并行计算大数据热图" class="headerlink" title="并行计算大数据热图"></a>并行计算大数据热图</h3><ul>
@@ -1010,7 +1011,9 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/84c8.html&title=《基于Spark的大数据热图可视化方法》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/84c8.html&title=《基于Spark的大数据热图可视化方法》 — 长征部落格(CZ5H.COM)&source=计算机辅助设计与图形学学报 2016-11 
+浙江工业大学&amp;浙江大学
+概述针对普通客户端浏览和分析大数据困难的问题, 结合 Spark 和 LOD..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1189,7 +1192,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1279,7 +1282,9 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/84c8.html&title=《基于Spark的大数据热图可视化方法》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/84c8.html&title=《基于Spark的大数据热图可视化方法》 — 长征部落格(CZ5H.COM)&source=计算机辅助设计与图形学学报 2016-11 
+浙江工业大学&amp;浙江大学
+概述针对普通客户端浏览和分析大数据困难的问题, 结合 Spark 和 LOD..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

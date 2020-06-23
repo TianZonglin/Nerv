@@ -13,15 +13,15 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。 完整的爬虫：反扒机制，自动登录，代理IP等等 示例爬虫：简单的数据抓取，简单的数据处理 目的：不使用爬虫框架完成数据爬取 巩固知识、合理编程、内部原理 示例内容：内容：     爬取直播网站 确定工作：     确定爬取数据：某个分类下各主播人气的数据     确定实现结果：将人气进行排序 准备：     分析网站结构">
+<meta name="description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python的原生爬虫案例">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;db81.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。 完整的爬虫：反扒机制，自动登录，代理IP等等 示例爬虫：简单的数据抓取，简单的数据处理 目的：不使用爬虫框架完成数据爬取 巩固知识、合理编程、内部原理 示例内容：内容：     爬取直播网站 确定工作：     确定爬取数据：某个分类下各主播人气的数据     确定实现结果：将人气进行排序 准备：     分析网站结构">
+<meta property="og:description" content="注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-11-02T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.003Z">
+<meta property="article:modified_time" content="2020-03-02T00:25:28.803Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -927,7 +927,7 @@ a.items5:hover {
 
 
 
-			<span class="post-count">2,210&nbsp;&#x5B57;</span>
+			<span class="post-count">2,215&nbsp;&#x5B57;</span>
 <!--
 <span class="post-count">10����</span>
 
@@ -943,7 +943,8 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <pre><code>注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。
-</code></pre><h4 id="完整的爬虫："><a href="#完整的爬虫：" class="headerlink" title="完整的爬虫："></a><strong>完整的爬虫：</strong></h4><pre><code>反扒机制，自动登录，代理IP等等
+</code></pre><a id="more"></a>
+<h4 id="完整的爬虫："><a href="#完整的爬虫：" class="headerlink" title="完整的爬虫："></a><strong>完整的爬虫：</strong></h4><pre><code>反扒机制，自动登录，代理IP等等
 </code></pre><h4 id="示例爬虫："><a href="#示例爬虫：" class="headerlink" title="示例爬虫："></a><strong>示例爬虫：</strong></h4><pre><code>简单的数据抓取，简单的数据处理
 </code></pre><h4 id="目的："><a href="#目的：" class="headerlink" title="目的："></a><strong>目的：</strong></h4><pre><code>不使用爬虫框架完成数据爬取
 巩固知识、合理编程、内部原理
@@ -981,7 +982,7 @@ a.items5:hover {
 
 
 代码结构：
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#39;&#39;&#39;</span><br><span class="line">类注释</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">class spider():</span><br><span class="line"></span><br><span class="line">	#抓取页面内容（行注释）</span><br><span class="line">	def __fetch_content(self):</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		方法注释</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		pass</span><br><span class="line">	#数据抽取</span><br><span class="line">	def __analysis(self, htmls):</span><br><span class="line">		pass</span><br><span class="line">	#数据精炼</span><br><span class="line">	def __refine(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#排序</span><br><span class="line">	def __sort(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#排序的算子</span><br><span class="line">	def __seed(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#数据展现</span><br><span class="line">	def __show(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	</span><br><span class="line">	#函数入口</span><br><span class="line">	def go(self):</span><br><span class="line">调用</span><br><span class="line">s &#x3D; spider()</span><br><span class="line">s.go()  	</span><br><span class="line">&#96;&#96;&#96;			</span><br><span class="line">	书写代码：</span><br><span class="line">		抓取页面：</span><br><span class="line">			url &#x3D; &#39;http:&#x2F;&#x2F;www.huya.com&#x2F;g&#x2F;lol&#39;</span><br><span class="line">		分析原网页：</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">类注释</span><br><span class="line">&#39;&#39;&#39;</span><br><span class="line">class spider():</span><br><span class="line"></span><br><span class="line">	#抓取页面内容（行注释）</span><br><span class="line">	def __fetch_content(self):</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		方法注释</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		pass</span><br><span class="line">	#数据抽取</span><br><span class="line">	def __analysis(self, htmls):</span><br><span class="line">		pass</span><br><span class="line">	#数据精炼</span><br><span class="line">	def __refine(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#排序</span><br><span class="line">	def __sort(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#排序的算子</span><br><span class="line">	def __seed(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	#数据展现</span><br><span class="line">	def __show(self, pairs):</span><br><span class="line">		pass</span><br><span class="line">	</span><br><span class="line">	#函数入口</span><br><span class="line">	def go(self):</span><br><span class="line">调用</span><br><span class="line">s &#x3D; spider()</span><br><span class="line">s.go() </span><br><span class="line"> 	</span><br><span class="line">&#96;&#96;&#96;			</span><br><span class="line"></span><br><span class="line">	书写代码：</span><br><span class="line">		抓取页面：</span><br><span class="line">			url &#x3D; &#39;http:&#x2F;&#x2F;www.huya.com&#x2F;g&#x2F;lol&#39;</span><br><span class="line">		分析原网页：</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;li class=&quot;game-live-item&quot; gid=&quot;1&quot;&gt;
     &lt;a href=&quot;http://www.huya.com/yanmie&quot; class=&quot;video-info new-clickstat&quot; target=&quot;_blank&quot; report=&apos;{&quot;eid&quot;:&quot;click/position&quot;,&quot;position&quot;:&quot;lol/0/1/5&quot;,&quot;game_id&quot;:&quot;1&quot;,&quot;ayyuid&quot;:&quot;380335691&quot;}&apos;&gt;
         &lt;img class=&quot;pic&quot; data-original=&quot;//screenshot.msstatic.com/yysnapshot/1711a622dc4d670fe32de2018f78a2d030fcde37cfe8?imageview/4/0/w/338/h/190/blur/1&quot; src=&quot;//a.msstatic.com/huya/main/assets/img/default/338x190.jpg&quot; onerror=&quot;this.onerror=null; this.src=&apos;//a.msstatic.com/huya/main/assets/img/default/338x190.jpg&apos;;&quot; alt=&quot;最强赵信折翼的直播&quot; title=&quot;最强赵信折翼的直播&quot;&gt;
@@ -997,7 +998,7 @@ a.items5:hover {
                 &lt;span class=&quot;num&quot;&gt;&lt;i class=&quot;num-icon&quot;&gt;&lt;/i&gt;&lt;i class=&quot;js-num&quot;&gt;1.5万&lt;/i&gt;&lt;/span&gt;
     &lt;/span&gt;
 &lt;/li&gt;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到含目标数据的最小公约子集：</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">找到含目标数据的最小公约子集：</span><br></pre></td></tr></table></figure>
 <pre><code>&lt;span class=&quot;txt&quot;&gt;
     &lt;span class=&quot;avatar fl&quot;&gt;
         &lt;img data-original=&quot;//huyaimg.msstatic.com/avatar/1081/63/c83bdc0701b64646c86065e273fd05_180_135.jpg&quot; src=&quot;//a.msstatic.com/huya/main/assets/img/default/84x84.jpg&quot; onerror=&quot;this.onerror=null; this.src=&apos;//a.msstatic.com/huya/main/assets/img/default/84x84.jpg&apos;;&quot; alt=&quot;最强赵信折翼&quot; title=&quot;最强赵信折翼&quot;&gt;
@@ -1005,7 +1006,7 @@ a.items5:hover {
     &lt;/span&gt;
             &lt;span class=&quot;num&quot;&gt;&lt;i class=&quot;num-icon&quot;&gt;&lt;/i&gt;&lt;i class=&quot;js-num&quot;&gt;1.5万&lt;/i&gt;&lt;/span&gt;
 &lt;/span&gt;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">目标数据：</span><br><span class="line">	最强赵信折翼，1.5万</span><br><span class="line">构造正则表达式：</span><br><span class="line">	选出上面的最小公约子集：	</span><br><span class="line">		root_pattern &#x3D; &#39;&lt;span class&#x3D;&quot;txt&quot;&gt;([\s\S]*?)\r\n&lt;&#x2F;li&gt;&#39; </span><br><span class="line">		注意：</span><br><span class="line">			要加问号，声明是非贪婪的匹配</span><br><span class="line">	</span><br><span class="line">	然后选出，姓名：	</span><br><span class="line">		name_pattern &#x3D; &#39;&lt;i class&#x3D;&quot;nick&quot; title&#x3D;&quot;([\s\S]*?)&quot;&gt;&#39;</span><br><span class="line">	然后选出，人气：</span><br><span class="line">		num_pattern &#x3D; &#39;&lt;i class&#x3D;&quot;js-num&quot;&gt;([\s\S]*?)&lt;&#x2F;i&gt;&#39;</span><br><span class="line">	</span><br><span class="line">	注意：</span><br><span class="line">		上述正则的边界并不一定是完整的html标签，因为使用正则即对字符进行匹配，所以可以随意拆分。</span><br><span class="line">		</span><br><span class="line">几个重要功能：</span><br><span class="line"></span><br><span class="line">	获取页面内容：</span><br><span class="line">		from urllib import request</span><br><span class="line">		tmp &#x3D; request.urlopen(spider.url)</span><br><span class="line">		htmls &#x3D; tmp.read() </span><br><span class="line">		注意：此处的结果是字节码：bytes</span><br><span class="line">		必须要进行转化：bytes-&gt;str</span><br><span class="line">		htmls &#x3D; str(htmls,encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line">		 </span><br><span class="line">		注意：不推荐打印出页面内容，会出现解码问题，可以加断点调试</span><br><span class="line"> </span><br><span class="line">	循环：</span><br><span class="line">		此处的循环需要获取到下标，而直接for i in list，获取不到下标</span><br><span class="line">		此时应该使用for index in range(0,len(list))这种形式</span><br><span class="line">		代码：</span><br><span class="line">			for rank in range(0, len(pairs)):</span><br><span class="line">				print(&#39;第&#39;,rank,&#39;名：&#39;,pairs[rank][&#39;name&#39;],&#39;:&#39;,pairs[rank][&#39;number&#39;])</span><br><span class="line"></span><br><span class="line">	排序：</span><br><span class="line">		此处使用内置函数sorted(iterable, cmp&#x3D;None, key&#x3D;None, reverse&#x3D;False)</span><br><span class="line">		注意：</span><br><span class="line">			key &#x3D; 函数名，此函数应该返回排序的比较值</span><br><span class="line">			cmp &#x3D; 函数名，此函数可以重写排序规则</span><br><span class="line">			reverse&#x3D;False，从小到大正序排列</span><br><span class="line">		代码：</span><br><span class="line">			sorted(pairs,key &#x3D; seed,reverse &#x3D; True)</span><br><span class="line">			def seed(self, pairs):</span><br><span class="line">				tmp &#x3D; pairs[&#39;number&#39;].replace(&#39;万&#39;,&#39;&#39;)</span><br><span class="line">				if(&#39;万&#39; in pairs[&#39;number&#39;]):</span><br><span class="line">					tmp &#x3D; float(tmp) * 10000</span><br><span class="line">				return int(tmp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">完整的爬虫代码：</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">目标数据：</span><br><span class="line">	最强赵信折翼，1.5万</span><br><span class="line">构造正则表达式：</span><br><span class="line">	选出上面的最小公约子集：	</span><br><span class="line">		root_pattern &#x3D; &#39;&lt;span class&#x3D;&quot;txt&quot;&gt;([\s\S]*?)\r\n&lt;&#x2F;li&gt;&#39; </span><br><span class="line">		注意：</span><br><span class="line">			要加问号，声明是非贪婪的匹配</span><br><span class="line">	</span><br><span class="line">	然后选出，姓名：	</span><br><span class="line">		name_pattern &#x3D; &#39;&lt;i class&#x3D;&quot;nick&quot; title&#x3D;&quot;([\s\S]*?)&quot;&gt;&#39;</span><br><span class="line">	然后选出，人气：</span><br><span class="line">		num_pattern &#x3D; &#39;&lt;i class&#x3D;&quot;js-num&quot;&gt;([\s\S]*?)&lt;&#x2F;i&gt;&#39;</span><br><span class="line">	</span><br><span class="line">	注意：</span><br><span class="line">		上述正则的边界并不一定是完整的html标签，因为使用正则即对字符进行匹配，所以可以随意拆分。</span><br><span class="line">		</span><br><span class="line">几个重要功能：</span><br><span class="line"></span><br><span class="line">	获取页面内容：</span><br><span class="line">		from urllib import request</span><br><span class="line">		tmp &#x3D; request.urlopen(spider.url)</span><br><span class="line">		htmls &#x3D; tmp.read() </span><br><span class="line">		注意：此处的结果是字节码：bytes</span><br><span class="line">		必须要进行转化：bytes-&gt;str</span><br><span class="line">		htmls &#x3D; str(htmls,encoding&#x3D;&#39;utf-8&#39;)</span><br><span class="line">		 </span><br><span class="line">		注意：不推荐打印出页面内容，会出现解码问题，可以加断点调试</span><br><span class="line"> </span><br><span class="line">	循环：</span><br><span class="line">		此处的循环需要获取到下标，而直接for i in list，获取不到下标</span><br><span class="line">		此时应该使用for index in range(0,len(list))这种形式</span><br><span class="line">		代码：</span><br><span class="line">			for rank in range(0, len(pairs)):</span><br><span class="line">				print(&#39;第&#39;,rank,&#39;名：&#39;,pairs[rank][&#39;name&#39;],&#39;:&#39;,pairs[rank][&#39;number&#39;])</span><br><span class="line"></span><br><span class="line">	排序：</span><br><span class="line">		此处使用内置函数sorted(iterable, cmp&#x3D;None, key&#x3D;None, reverse&#x3D;False)</span><br><span class="line">		注意：</span><br><span class="line">			key &#x3D; 函数名，此函数应该返回排序的比较值</span><br><span class="line">			cmp &#x3D; 函数名，此函数可以重写排序规则</span><br><span class="line">			reverse&#x3D;False，从小到大正序排列</span><br><span class="line">		代码：</span><br><span class="line">			sorted(pairs,key &#x3D; seed,reverse &#x3D; True)</span><br><span class="line">			def seed(self, pairs):</span><br><span class="line">				tmp &#x3D; pairs[&#39;number&#39;].replace(&#39;万&#39;,&#39;&#39;)</span><br><span class="line">				if(&#39;万&#39; in pairs[&#39;number&#39;]):</span><br><span class="line">					tmp &#x3D; float(tmp) * 10000</span><br><span class="line">				return int(tmp)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">完整的爬虫代码：</span><br></pre></td></tr></table></figure>
 <p>from urllib import request<br>import re</p>
 <p>class spider():</p>
 <pre><code>url = &apos;http://www.huya.com/g/lol&apos;
@@ -1065,8 +1066,17 @@ def go(self):
     pairs = list(self.__refine(pairs))  #数据精炼
     pairs = self.__sort(pairs)          #数据排序
     self.__show(pairs)                  #数据显示，或后续处理（入库等）
-</code></pre><p>#实例化并调用入口函数<br>s = spider()<br>s.go()<br><code>`</code><br>        注意事项：<br>            如果需要调试，不推荐站桩print，推荐使用断点调试<br>            调试方法：<br>                启动应用程序 F5<br>                单步执行F10<br>                跳到下一个断点 F5<br>                调到函数内部 F11</p>
-<pre><code>    例如在 html = tmp.read() 处打断点
+</code></pre><p>#实例化并调用入口函数<br>s = spider()<br>s.go()  </p>
+<p><code>`</code>        </p>
+<pre><code>注意事项：
+    如果需要调试，不推荐站桩print，推荐使用断点调试
+    调试方法：
+        启动应用程序 F5
+        单步执行F10
+        跳到下一个断点 F5
+        调到函数内部 F11
+
+    例如在 html = tmp.read() 处打断点
     在当前断点处，悬停鼠标会显示变量值，也可以在vscode左侧的甲壳虫选项中查看变量的值
 
 
@@ -1165,7 +1175,8 @@ def go(self):
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/db81.html&title=《Python的原生爬虫案例》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/db81.html&title=《Python的原生爬虫案例》 — 长征部落格(CZ5H.COM)&source=注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。
+" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1237,9 +1248,7 @@ def go(self):
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
 		  注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。
-使用分支时注意变量命名规范：用户名：user_name,按下划线而不是驼峰
-条件控制if else
-循环控制for...
+
 		  </p>
 		  
 		</div>
@@ -1344,7 +1353,7 @@ def go(self):
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1434,7 +1443,8 @@ def go(self):
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/db81.html&title=《Python的原生爬虫案例》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/db81.html&title=《Python的原生爬虫案例》 — 长征部落格(CZ5H.COM)&source=注：此为慕课网Python（不打广告）视频的观看笔记，只做记录之用，并未勘误。
+" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

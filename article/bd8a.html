@@ -6,25 +6,25 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="CentOS,调试,联网,A,长征部落格, 长征Blog, 长征五号">
+<meta name="keywords" content="调试,CentOS,联网,A,长征部落格, 长征Blog, 长征五号">
 
 <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">  
 
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="centos ssh连不上 出现22端口拒绝访问等问题  确保安装相关软件可以用yum search 来查找相关ssh的软件包 要安装 openssh，openssh-servers，openssh-clients然后启动ssh，要用service sshd start 注意要将防火墙关闭，可以直接将iptables stop 现在ssh localhost 就可以登录了 centos ping不">
+<meta name="description" content="centos ssh连不上 出现22端口拒绝访问等问题  确保安装相关软件可以用yum search 来查找相关ssh的软件包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS集群相关问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;bd8a.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="centos ssh连不上 出现22端口拒绝访问等问题  确保安装相关软件可以用yum search 来查找相关ssh的软件包 要安装 openssh，openssh-servers，openssh-clients然后启动ssh，要用service sshd start 注意要将防火墙关闭，可以直接将iptables stop 现在ssh localhost 就可以登录了 centos ping不">
+<meta property="og:description" content="centos ssh连不上 出现22端口拒绝访问等问题  确保安装相关软件可以用yum search 来查找相关ssh的软件包">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-10-31T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.981Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.391Z">
 <meta property="article:author" content="TZLoop">
-<meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="调试">
+<meta property="article:tag" content="CentOS">
 <meta property="article:tag" content="联网">
 <meta name="twitter:card" content="summary">
 
@@ -948,6 +948,7 @@ a.items5:hover {
 <p>出现22端口拒绝访问等问题</p>
 </blockquote>
 <p>确保安装相关软件<br>可以用yum search 来查找相关ssh的软件包</p>
+<a id="more"></a>
 <p>要安装 openssh，openssh-servers，openssh-clients<br>然后启动ssh，要用service sshd start</p>
 <p>注意要将防火墙关闭，可以直接将iptables stop</p>
 <p>现在ssh localhost 就可以登录了</p>
@@ -1003,7 +1004,10 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/bd8a.html&title=《CentOS集群相关问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/bd8a.html&title=《CentOS集群相关问题》 — 长征部落格(CZ5H.COM)&source=centos ssh连不上
+出现22端口拒绝访问等问题
+
+确保安装相关软件可以用yum search 来查找相关ssh的软件包" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1071,13 +1075,12 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/251a.html">CentOS安装JDK</a></b>
+		  <b><a class="post-title-link" href="/article/7bc.html">VMware虚拟机相关问题</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  centos 安装jdk
-目的是使用hadoop不要使用openjdk，要使用更完整的jdk，Oracle官网
+		  主机连不上VMware，ping不通，分析：与linux能不能上网没有关系，是VMware软件设置出错
 
-首先卸载当前已有的jdk【root下进行】12java-version显示当前j...
+可能原因1.服务。打开服务，查看VM的各项服务是否为启动状态【首先要确定】2.同一网段。...
 		  </p>
 		  
 		</div>
@@ -1087,12 +1090,13 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/7bc.html">VMware虚拟机相关问题</a></b>
+		  <b><a class="post-title-link" href="/article/251a.html">CentOS安装JDK</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  主机连不上VMware，ping不通，分析：与linux能不能上网没有关系，是VMware软件设置出错
+		  centos 安装jdk
+目的是使用hadoop不要使用openjdk，要使用更完整的jdk，Oracle官网
 
-可能原因1.服务。打开服务，查看VM的各项服务是否为启动状态【首先要确定】2.同一网段。...
+首先卸载当前已有的jdk【root下进行】12java-version显示当前j...
 		  </p>
 		  
 		</div>
@@ -1197,7 +1201,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1287,7 +1291,10 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/bd8a.html&title=《CentOS集群相关问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/bd8a.html&title=《CentOS集群相关问题》 — 长征部落格(CZ5H.COM)&source=centos ssh连不上
+出现22端口拒绝访问等问题
+
+确保安装相关软件可以用yum search 来查找相关ssh的软件包" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -24,7 +24,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;slhrj44smirzr12cj1597up0&#x2F;image_1cf8d2bu62jnjhhffh1l1jad9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;m2jh242y2knn6s4a2j0dc0xb&#x2F;image_1cf8dgfea130516sg196i1brl1lgc9.png">
 <meta property="article:published_time" content="2018-06-05T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.090Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.532Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="IDEA">
@@ -957,6 +957,7 @@ a.items5:hover {
             </figure>
 <p>这个错误出现过若干次了，每次出现都想记录一下可是都忘了，然后下一次再遇见就又要搞很久才能解决，其实这本身是<code>IntelliJ IDEA 2017.2</code>的一个<code>bug</code>，只要修改一处配置就好了。</p>
 <p>注：先前的文章里记得有个地方对这个问题表述的不正确，有时间再改。</p>
+<a id="more"></a>
 <h3 id="原错误信息"><a href="#原错误信息" class="headerlink" title="原错误信息"></a>原错误信息</h3><p>原错误出现的<code>IDEA</code>版本：2017.2；<br>原错误的出现场景：每次新建SBT项目并添加完SBT依赖之后出现；<br>原错误的表现：<code>build.sbt</code>文件内容解析全部是红的，并且<code>sbt shell</code>报错；<br>原错误报错如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[info] Loading settings from idea.sbt ...</span><br><span class="line">[info] Loading global plugins from C:\Users\msi\.sbt\1.0\plugins</span><br><span class="line">[info] Loading settings from plugins.sbt ...</span><br><span class="line">[info] Loading project definition from I:\IDEA_PROJ\Visualization\project</span><br><span class="line">[info] Loading settings from build.sbt ...</span><br><span class="line">[info] Set current project to Visualization (in build file:/I:/IDEA_PROJ/Visualization/)</span><br><span class="line">[info] sbt server started at local:sbt-server-a45abbca777ea4158128</span><br><span class="line">sbt:Visualization&gt;</span><br><span class="line">[info] Defining Global / sbtStructureOptions, Global / sbtStructureOutputFile, shellPrompt</span><br><span class="line">[info] The new values will be used by no settings or tasks.</span><br><span class="line">[info] Reapplying settings...</span><br><span class="line">[info] Set current project to Visualization (in build file:/I:/IDEA_PROJ/Visualization/)</span><br><span class="line">[info] Applying State transformations org.jetbrains.sbt.CreateTasks from C:/Users/msi/.IntelliJIdea2017.2/config/plugins/Scala/launcher/sbt-structure-1.1.jar</span><br><span class="line">[error] java.lang.ClassNotFoundException: org.jetbrains.sbt.CreateTasks$</span><br><span class="line">[error] 	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)</span><br><span class="line">... ... ...</span><br><span class="line">[error] 	at xsbt.boot.Boot$.main(Boot.scala:17)</span><br><span class="line">[error] 	at xsbt.boot.Boot.main(Boot.scala)</span><br><span class="line">[error] java.lang.ClassNotFoundException: org.jetbrains.sbt.CreateTasks$</span><br><span class="line">[error] Use 'last' for the full log.</span><br><span class="line">[info] shutting down server</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=384M; support was removed in 8.0</span><br></pre></td></tr></table></figure>
 <h3 id="Bug解决方法"><a href="#Bug解决方法" class="headerlink" title="Bug解决方法"></a>Bug解决方法</h3><p><code>File</code>-&gt;<code>Setting</code>-&gt;<code>Build Tools</code>-&gt;<code>SBT</code>，勾选<code>Use SBT Shell for ...</code></p>
@@ -1023,7 +1024,12 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a61a.html&title=《IDEA-2017.2-bug-SBT项目初始化的失败》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a61a.html&title=《IDEA-2017.2-bug-SBT项目初始化的失败》 — 长征部落格(CZ5H.COM)&source=
+                
+                    
+                    
+                
+..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1114,12 +1120,6 @@ a.items5:hover {
 扩充了mapreduce
 基于内存计算（中间结果的存储位置）
 
-spark通用
-
-批处理hadoop
-迭代计算 机器学习系统
-交互式查询 hive
-流处理 sto...
 		  </p>
 		  
 		</div>
@@ -1237,7 +1237,7 @@ spark通用
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1327,7 +1327,12 @@ spark通用
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a61a.html&title=《IDEA-2017.2-bug-SBT项目初始化的失败》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a61a.html&title=《IDEA-2017.2-bug-SBT项目初始化的失败》 — 长征部落格(CZ5H.COM)&source=
+                
+                    
+                    
+                
+..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

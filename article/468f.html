@@ -6,25 +6,25 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="数组,Java,排列组合,A,长征部落格, 长征Blog, 长征五号">
+<meta name="keywords" content="Java,数组,排列组合,A,长征部落格, 长征Blog, 长征五号">
 
 <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">  
 
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。 在此，我把JAVA中的实现来个详细说明。 首先，思路为递归，将其写为成员函数，">
+<meta name="description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从N个数组分别取值，穷尽全部情况">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;468f.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。 在此，我把JAVA中的实现来个详细说明。 首先，思路为递归，将其写为成员函数，">
+<meta property="og:description" content="（本文年代久远，请谨慎阅读）要求是这样的： 具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。 很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。 网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-09-22T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.971Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.383Z">
 <meta property="article:author" content="TZLoop">
-<meta property="article:tag" content="数组">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="数组">
 <meta property="article:tag" content="排列组合">
 <meta name="twitter:card" content="summary">
 
@@ -948,6 +948,7 @@ a.items5:hover {
 <h3 id="具体要求"><a href="#具体要求" class="headerlink" title="具体要求"></a>具体要求</h3><p>有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。</p>
 <p>很明显这区别于给定几个元素并把这些元素全排列的问题，全排列要交换位置，此处则不同，暂称“伪全排列”。</p>
 <p>网上资料很多，不过多用指针或者指针数组，这对于JAVA来说没一点用。</p>
+<a id="more"></a>
 <p>在此，我把JAVA中的实现来个详细说明。</p>
 <p>首先，思路为递归，将其写为成员函数，方便调用。</p>
 <h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ABC</span></span>&#123;   </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[][]str;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ABC</span><span class="params">()</span> </span>&#123;   </span><br><span class="line">            ... ...  </span><br><span class="line">            <span class="comment">//str[][]的赋值语句，得到存储完成的二维数组，见‘创建动态二维数组的技巧’  </span></span><br><span class="line">            ... ...  </span><br><span class="line">        <span class="keyword">int</span> result[]=<span class="keyword">new</span> <span class="keyword">int</span>[ N ];  <span class="comment">//此处即符合要求的，有N个数组  </span></span><br><span class="line">        show(result,<span class="number">0</span>);  <span class="comment">//进入递归函数，进行测试  </span></span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(<span class="keyword">int</span>[] result1, <span class="keyword">int</span> curr)</span></span>&#123;      <span class="comment">//curr即代表当前取元素的数组  </span></span><br><span class="line">        <span class="keyword">if</span> (curr == N) &#123;    <span class="comment">//curr==N即完成一个序列，输出一次结果集  </span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;result1.length;k++) System.out.print(result1[k]);   </span><br><span class="line">            System.out.println();   <span class="comment">//输出格式控制  </span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;str[curr].length; ++i) &#123;     <span class="comment">//每次循环此次取元素的数组的长度  </span></span><br><span class="line">                result1[curr] = str[curr][i];               <span class="comment">//关键赋值处，给到结果集  </span></span><br><span class="line">                show(result1, curr+<span class="number">1</span>);  <span class="comment">//一次递归完成，即从下一个数组中去取元素，curr+1.       </span></span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -1003,7 +1004,9 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/468f.html&title=《从N个数组分别取值，穷尽全部情况》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/468f.html&title=《从N个数组分别取值，穷尽全部情况》 — 长征部落格(CZ5H.COM)&source=（本文年代久远，请谨慎阅读）要求是这样的：
+具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。
+很明..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1071,10 +1074,11 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/a660.html">关于JAVA中动态创建二维数组的技巧</a></b>
+		  <b><a class="post-title-link" href="/article/421a.html">J2EE前后台传值带中文时乱码</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  （本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arr...
+		  （本文年代久远，请谨慎阅读）传值乱码问题在Web开发中涉及许多方面：登陆注册时，是否正确得到正确的中文用户名；修改信息时，是否可以显示提交的中文信息；
+以上是具体使用，当然包括所有后台想得到值的...
 		  </p>
 		  
 		</div>
@@ -1084,11 +1088,10 @@ a.items5:hover {
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/ee49.html">注册型网站设计的阶段总结</a></b>
+		  <b><a class="post-title-link" href="/article/a660.html">关于JAVA中动态创建二维数组的技巧</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  （本文年代久远，请谨慎阅读）
-表格属性1&lt;table cellpadding="0" cellspacing="0" width="100%" align="center"  style=...
+		  （本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arr...
 		  </p>
 		  
 		</div>
@@ -1193,7 +1196,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1283,7 +1286,9 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/468f.html&title=《从N个数组分别取值，穷尽全部情况》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/468f.html&title=《从N个数组分别取值，穷尽全部情况》 — 长征部落格(CZ5H.COM)&source=（本文年代久远，请谨慎阅读）要求是这样的：
+具体要求有N个数组，每个数组元素不定，从每个数组都中取出一个，组成长度为N的序列，求穷尽序列的所有情况。
+很明..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

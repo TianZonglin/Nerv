@@ -13,15 +13,15 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以； 注意各个组件的配置文件zookeeper：zookeeper&#x2F;conf&#x2F;zoo.cfg运行参数的配置文件zookeeper&#x2F;data 自定义工作目录内有myid  version-2  zookeeper_server.pid，version-2里有snapshot.xxxxxxxxzookeep">
+<meta name="description" content="要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zkp,kfk,stm联通的问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;3e6b.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以； 注意各个组件的配置文件zookeeper：zookeeper&#x2F;conf&#x2F;zoo.cfg运行参数的配置文件zookeeper&#x2F;data 自定义工作目录内有myid  version-2  zookeeper_server.pid，version-2里有snapshot.xxxxxxxxzookeep">
+<meta property="og:description" content="要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-02-26T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.028Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.475Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Kafka">
 <meta property="article:tag" content="Zookeeperp">
@@ -939,6 +939,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>要注意source的使用;<br>在root下使用之后有时需要在hadoop用户下再source一次才可以；</p>
+<a id="more"></a>
 <p>注意各个组件的配置文件<br>zookeeper：<br>zookeeper/conf/zoo.cfg<br>运行参数的配置文件<br>zookeeper/data 自定义工作目录<br>内有myid  version-2  zookeeper_server.pid，version-2里有snapshot.xxxxxxxx<br>zookeeper/没配置目录，默认在/bin/zookeeper.out<br>zookeeper/bin:<br>zkServer.sh start[正常的启动/默认后台运行]<br>注意：启动要各个节点分别启动，平等的peer关系，用id区分<br>zkServer.sh start-foreground带日志输出的启动[会不能退出！]<br>zkServer.sh status 显示follow、leader等信息<br>zkServer.sh stop 停止zookeeper<br>注意：zookeeper服务通常要最后关闭…</p>
 <hr>
 <p>storm :<br>storm/conf/storm.yaml<br>运行参数的配置文件<br>storm/workdir 自定义工作目录<br>storm/logs 默认目录位置<br>storm/bin:<br>./storm nimbus 在nimbus节点使用<br>./storm supervisor 在supervisor节点使用<br>注意：storm的各个节点有主控节点和工作节点之区别！<br>另：在终端运行时要使用nohup ./storm nimbus &amp; 来后台运行</p>
@@ -996,7 +997,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/3e6b.html&title=《zkp,kfk,stm联通的问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/3e6b.html&title=《zkp,kfk,stm联通的问题》 — 长征部落格(CZ5H.COM)&source=要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1034,9 +1035,9 @@ a.items5:hover {
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
-      <a href="/article/45fb.html" id="post-prev" class="post-nav-link">
+      <a href="/article/24fd.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Kafka初使用</h4>
+        <h4 class="title">Kafka集群常用命令</h4>
       </a>
     </div>
   
@@ -1078,11 +1079,10 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/ce1b.html">远程IDEA调试Storm</a></b>
+		  <b><a class="post-title-link" href="/article/f84f.html">Flume、Kafka、Storm如何结合使用</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  现在IDEA编译成功topo后，使用WinSCP将打包好的包传到主节点注意：打包之前–要讲 [ 本地模式 ] 改为 [ 集群模式 ]
-12345678&#x2F;&#x2F;本地测试模式    ...
+		  原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(p...
 		  </p>
 		  
 		</div>
@@ -1092,10 +1092,10 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/f84f.html">Flume、Kafka、Storm如何结合使用</a></b>
+		  <b><a class="post-title-link" href="/article/2b6e.html">Flume+Kafka联通</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(p...
+		  前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https://github.com/beyondj2ee/flumeng-kafka-...
 		  </p>
 		  
 		</div>
@@ -1200,7 +1200,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1290,7 +1290,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/3e6b.html&title=《zkp,kfk,stm联通的问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/3e6b.html&title=《zkp,kfk,stm联通的问题》 — 长征部落格(CZ5H.COM)&source=要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；" data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

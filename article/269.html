@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+
+<meta name="author" content="田宗霖"> 
+
+<meta name="keywords" content="Valine,LeanCloud,评论系统,A,长征部落格, 长征Blog, 长征五号">
+
+<meta itemprop="image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">  
+
+
+<meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
+
+<meta name="description" content="在更换主题后的这一段时间里，博客运行良好，内容我也在不断完善，评论自然是继承原来的 Valine 也运行正常，但是，其实从上个主题开始，我就没有配置邮件的评论系统，所以对于评论的查看，我一直都是登陆 LeanCloud 后台来完成的。当然，默认的邮件提醒我是配置了的，但那个太简陋了，几乎没有使用价值。关于 ValineAdmin，群友早就配置过了，这次终于轮到自己来配一下了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用ValineAdmin完善评论系统">
+<meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;269.html">
+<meta property="og:site_name" content="长征部落格(CZ5H.COM)">
+<meta property="og:description" content="在更换主题后的这一段时间里，博客运行良好，内容我也在不断完善，评论自然是继承原来的 Valine 也运行正常，但是，其实从上个主题开始，我就没有配置邮件的评论系统，所以对于评论的查看，我一直都是登陆 LeanCloud 后台来完成的。当然，默认的邮件提醒我是配置了的，但那个太简陋了，几乎没有使用价值。关于 ValineAdmin，群友早就配置过了，这次终于轮到自己来配一下了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325221024.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325223141.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325224019.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325231410.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325231904.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325230147.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200326233829.png">
+<meta property="article:published_time" content="2020-03-20T23:00:00.000Z">
+<meta property="article:modified_time" content="2020-03-28T03:50:51.625Z">
+<meta property="article:author" content="TZLoop">
+<meta property="article:tag" content="Valine">
+<meta property="article:tag" content="LeanCloud">
+<meta property="article:tag" content="评论系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;TianZonglin&#x2F;tuchuang&#x2F;img&#x2F;20200325221024.png">
+
+
+
+<title>使用ValineAdmin完善评论系统 | 长征部落格(CZ5H.COM) | 本站点仅做备份，仍会稳定运行，但不再维护</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<meta name="theme-color" content="#3F51B5">
+
+
+
+<link rel="canonical" href="https://old.cz5h.com/article/269.html">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="长征部落格(CZ5H.COM)" href="/atom.xml">
+
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="/css/style.css">
+<script>window.lazyScripts=[]</script>
+
+
+
+
+
+
+
+
+
+
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+<script>
+//  (adsbygoogle = window.adsbygoogle || []).push({
+//	  google_ad_client: "ca-pub-9432057653708398",
+//	  enable_page_level_ads: true
+//  });
+//  console.log("Adsbygoogle done!");
+</script>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<!-- specific zone -->
+
+<style>
+
+body {
+    background-size: 50px 50px;
+    background-color: #545454;
+    background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -ms-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+	background-attachment: fixed;
+}
+
+
+.aaaa{
+	padding-left:0px !important;
+}
+
+.bbbb{
+	padding-left:240px !important;
+}
+
+
+@media screen and (max-width:1250px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+
+}
+
+
+@media screen and (max-width:480px) {
+	.aaaa{
+		padding-left:0px !important;
+	}
+
+	.bbbb{
+		padding-left:0px !important;
+	}
+}
+</style>
+
+
+
+
+
+
+<script>
+/*			
+$(document).ready(function () {  
+	if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+		|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+	{
+		$('#msc').hide();
+	}else{
+		
+		try{
+			
+			var otherr = $(parent.frames["topFrame"].document).find("#bgMusic");
+			var markk = $(parent.frames["topFrame"].document).find("#flag_m");
+			if(markk.text()=="FST"){  
+				otherr.get(0).play();  
+				$("#play").text("暂停音乐");  
+				markk.text("").text("RUN");
+			}else if(markk.text()=="RUN"){
+				$("#play").text("暂停音乐");  
+			}else if(markk.text()=="STOP"){
+				$("#play").text("播放音乐");  
+			}else{
+				console.log("markk.text() = "+markk.text());
+			}						
+			$("#play").click(function(){  
+				if(otherr.get(0).paused){  
+					otherr.get(0).play();  
+					$("#play").text("暂停音乐");  
+					markk.text("").text("RUN");
+				}else{  
+					otherr.get(0).pause();  
+					$("#play").text("播放音乐");  
+					markk.text("").text("STOP");
+				}  
+			}); 
+		
+		//}catch (e){
+		//	var target = 'https://old.cz5h.com/5aj8m6t17rqnxz4wvuip.html';
+		//	window.location.href=target;    
+		//}
+	}					
+});*/
+ 
+
+$(function(){
+
+//if (!navigator.userAgent.match(/IEMobile|BlackBerry|Android|iPod|iPhone|iPad/i)) {
+if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+    || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+{
+}else{
+
+	//var target = 'https://old.cz5h.com/0cDovL3d3dy53My5vcmc.html';
+
+
+	$("#menu-off").click(function(){
+	  $("#main").removeClass("bbbb");
+	  $("#main").addClass("aaaa");
+	});
+	console.log(window.location.pathname);
+	var pth = window.location.pathname;
+	
+	if(
+	pth==="/"||
+	pth==="/archives/"||
+	pth==="/categories/"||
+	pth==="/index.html"||
+	pth==="/page/2/"||
+	pth==="/page/3/"||
+	pth==="/page/4/"||
+	pth==="/page/5/"||
+	pth==="/page/6/"||
+	pth==="/page/7/"||
+	pth==="/page/8/"||
+	pth==="/page/9/"||
+	pth==="/page/10/"||
+	pth==="/page/11/"||
+	pth==="/page/12/"||
+	pth==="/other/page_share.html"){
+		$("#main").removeClass("aaaa");
+		$("#main").addClass("bbbb");
+	}else{
+		$("#main").addClass("aaaa");
+	}
+
+	$("#main").removeClass("aaaa");
+	//$("#main").addClass("bbbb");
+	$("#menu-toggle").click(function(){
+	  $("#main").removeClass("aaaa");
+	});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+//var url = window.location.href;
+//console.log(url);
+//if(url!=target){
+// 
+//	//window.location.href=target;    
+//
+//}
+
+
+});
+
+
+</script>
+
+<!-- specific zone end -->
+
+
+<link href="/static/spop/spop.css" rel="stylesheet">
+<script src="/static/spop/spop.js"></script>
+<script>
+
+
+
+
+if(window.location.href == "https://old.cz5h.com/"){
+	window.onload = function(){
+		var res = document.cookie.indexOf("name");
+		if(res!=0){
+			var oDate = new Date();
+			document.cookie ="name=zheng;";
+			//spop({
+			//	template: '左侧新增<<a href="/static/routine.html" data-spop="close">书签收藏</a>>功能，点击前往！',
+			//	position  : 'bottom-right',
+			//	autoclose: 14000
+			//});
+			//spop({
+			//	template: '旧文章有新内容更新啦，去<<a href="/article/2019-6-19%20CSC%E5%85%AC%E6%B4%BE%E8%AF%BB%E5%8D%9A%E7%94%B3%E8%AF%B7%E4%B9%8B%E7%BB%8F%E9%AA%8C.html" data-spop="close">查看</a>>！',
+			//	position  : 'bottom-right',
+			//	autoclose: 15500
+			//});
+			spop({
+				template: '新版网站来啦！<a href="https://www.cz5h.com/" target="_blank" rel="noopener">点击前往</a>！',
+				position  : 'bottom-right',
+				style: 'success',
+				autoclose: 15000
+			});
+		}
+	}
+}
+</script>
+
+
+<script src="/URLInterceptor.js"></script>
+<script src="/js/barry.js"></script>
+
+<!-- custom head -->
+
+
+
+
+
+
+
+
+
+	<!-- Baidu Push ------------------------------------------------------------------------->
+	<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+		console.log("Baidu Push done!");
+	})();
+	</script>
+	<!-- 360 Push -->
+	<script>
+	(function(){
+		var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+		document.write('<script src="' + src + '" id="sozz"><\/script>');
+		})();
+	</script>
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?cb75452d673028fcbb57712cf02ef2f3";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-109269848-5"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-109269848-5');
+	</script>
+ 
+
+	<div style="display:none;">
+		<script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=51glt95x6ef&amp;m=0c&amp;c=ff0000&amp;cr1=54ff00&amp;crb1=54ff00&amp;br=12&amp;sx=0&amp;rs=100&amp;as=100&amp;ds=0&amp;cw=ffffff&amp;cb=2196f3" async="async"></script>
+		<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=2196f3&w=a&t=tt&d=Qfo_4aiYKOv05qPZJ__qRoHf-amimag_H9GAy6F2xu8&co=ffffff&cmo=24ff00&cmn=ff0000&ct=808080"></script>
+		<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278641089'%3E%3C/span%3E%3Cscript src='https://s4.cnzz.com/z_stat.php%3Fid%3D1278641089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
+		<img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">
+	</div>
+
+<meta name="generator" content="Hexo 4.1.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <style>
+
+#menu .mail {
+    display: inline-block;
+    padding-top: 4px;
+    color: #ffffff;
+    font-size: 13px;
+}
+</style>
+
+<aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/logo.jpg" alt="此处为本页面内的一张图片">
+        </a>
+        <hgroup class="introduce" style="margin-bottom:7px;color:white !important;">
+          <h5 class="nickname">TZLoop&nbsp;<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=baf99e1b80e46a172ce16a8439eec389903ef94a6c79d0d8bc75d44703d3e183"><img border="0" width="18px" height="17px" src="https://old.cz5h.com/group.png" alt="我的资料备份" title="我的资料备份"></a></h5>
+          <a href="mailto:1805984583@qq.com" title="1805984583@qq.com" class="mail" rel="external nofollow noopener noreferrer" target="_blank">1805984583@qq.com</a>
+        </hgroup>
+		<a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAEj0lEQVRoge2ab2hWVRzHv79tWjbb5jJDs3LQlkaBlRGl5Z8sBINWkAt6E1FC9cJCbFBiEERkQiAWUvRCKGwjKqIo+rNcIygZvqgXWi2CxgLJ3JazSfvz6cU9Dzue3Xuf++xOnw36vnrOOZ9zzvf73Ofce+69jylGwF2Stki6XdJSSdVx3HnQaUm9kroktZvZl6k00AR0MnN1CGj0PZtn/g5JH0paMP1f5LSqX9K9ZtYluQBAk6TvNPPNF3RS0i1m1lPhKvZr9piXpHpJb0mSES3Yz8vrZ8raWCGppdwucmiLAcckXVNuJ1PUMQNOSZpfbidT1JABlNtFHlUUR2a2/g9Qbs36AFVBuUvS0SJ9TFKzpEtd+T1Fl/Y4XSfpNve5XdJAArdeUqOkYUkHJY2mzL9C0S45UrDbW13EfKHPAa+PpXAbHDNWZLxWx32fYe7VvuHwCKwH5rnPP5rZca9jhaQNrtjk9WkGes2sO5xI0jpXNKBZ0pCkXjP7yTFXurFucNxi4G5J45L+NrPDjquTtMoxt4aJknQgJv2hBPYMsDRg9yWwa1y7Ad+mzP+8N9bLSVBagBFgWWDqvhR+b8A2uDF8feC1t6SMdQa4zHE1wMBUAgDsC0xVAr8msMPA5QHf7rWPAte6+rnALynz7vfGeDbNYLEAw8DiwNT2FP7VgF2VYOrplDHGgRWOuxD4I08AgJcCU3XAqQR2GFgSs27+wa0R1/9EynwfeX2fLGYuS4BBYEFg6rUUfk/AbgZe8Mq7i8y31vu59kxHAICdganlRIc6TqeBRR5rQLX7fBXRUUpSt9fvoSzGsgY4AcwPQnyawu9WjIC3i8zzoBf6SBZjWQMAbAvMbEphh/COguNXAmMpfXqBOY69J6upUgL8DswNfhpHU/hw8T9RZPztHtuV1VQpAQAeKcHUNwF7EXA8gR0Eahy3phRDpQboASoDU38lsBtj1kBrAvuKx3xciqFSAwA8EJjaE8PEPmcCqoE/A3aEaFMn4HqSz27TFuAI3hYaWEa0TShoHLjJtVUxOfCuYLx3vLZiZ6lpCQCwKTD1vtf2rle/legUXOPV1QL9Hn+zq4/b/J2zAJ1BgLWufgRY7urmEZ0aAZ4L+BddfYdXl3Z1n/YA4Pb1noFu4HWvvNNj+4luSgptlxDtpza78iKi/dJ5DfBJEKAFt3MFFhKdGn3tCvjHcGuJiSNSsvIEALhRMQL2xrADBJtCx17M2WuiJOV9rPJMjKEGSVtj2FpJ22LqH5dUF1OfTVNN7jRK9HbHH+9gCj8A1HvsBUBfHgN5j0ClpB2eoZWK3m4mqVbSU175YUlL4tGMIvnuKqv+ZeJK+kUGfhCoJ7ph+Tnn3INVkvqU7wXHHEk7gM8kTdr/xKhGUqukHxQ9jcujPgPelPRozoEkaUzRT+pc8XF6o0JSW85BCirVTF7zktRWuJB8pYnHhrNFnWa2rhCgQdJhSQvL6ymzzn7RbWa/SbpfyY/JZ5JOSmo2s55JLUAj8HXOU9u5VAdwte859tk+cKcm/m5zhcr3GnZIE3+3aTOzjhD4D+zBypRwy1hJAAAAAElFTkSuQmCC"></a>
+		<!--STEAM
+		<a href='https://steamcommunity.com/id/tianzonglin' target="_blank" rel="noopener"><img width="16.9px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAFDElEQVRogdWaW2wVVRSG/1WwWkDECm2UiiKFKF6INUhQIGKBB1ERVEzUeElMfDEYjT6ZaH0w+ObtBWIwPqhJjTEkGpRLi0BUFAqJIVyUWAKI1EspBVRE+vmw59B9NjPnzKFzDvAnzXT2Xnvt/9+zL2vWHFMMgNmSFkqaLqlB0tA4uwrgmKR9kjZI+tjM1hS0BiYA6zh38RUw3udsHvkZkpZLujT7gcwUhyTNM7MNUiQAmCBpo8598jl0S5piZrurooIlOn/IS1KtpGWSZLgFu6rCBJDUIWmzpIOSjkoaLekqSc2SLknpZ5aAdyu4CI8ALUBDojKoBuYCm1L4WypgZxkJ+/gcqE/9iMCAJ4G/CvjcIaC3AuTfAAbFkBwEXAGMA2LPGmAy0JXgt1cVIP8hYAGpm4GPgMOeXR+wGXgGqA7sbwP+iXNebgG7gBqPSBXwOnCySLvtuK3dF7EozrDcAu4PSCz16g7iFnQzMBV4FPjSq/8duMZrewHwY9hBOQXswJs6wMNe3WfA8IQ5/wD9C3czUOXVPVVJAYuDqdPpkbowjrxn/5jnZ6FXXkcw/copoNnreFpceQEBBnRE9suDuq1+J1VJTjLAfu//W6Nrj6S1xRqaGXKBpSRNCar3+jflEvCfpF+8+7roesDM+lL62BddR5G/DXf5RuUS8KqZHfXue6JrKQFjbXQ9HD2RHPJ8lEPAekmLg7Jt0fVy4IaUfmYHbXMYnXeX8cLtBsaETIAaoCey+aQYc9y50BfZL/LKhxLERlkLeLAAqZc8uxaC8MKzuxbYF9ntB4Z4dfPDDrMUsKzIqFYD6z371cAcYAhu2xwPvEx/cPkvMDPwsbZcAnaREE0GBGqBNTHtw9ioF5gXtL07ruOBCjiJe8y3FCPvERkMPE3/yezjb+ADYGzQpgH4NY6AAd9KmizptHg9ATslvS/pU0l7zOxEWvIxYiZJapQ0TNIBSRvN7EhgM1LSSklNhRyNBB7Bxeh/JIz2MeBFYPCZEi4VwI3Az4WmQFyjQcDtwGu4uKMP9y47Pca2GqgHLsqYeB3wDm4hF0QaZ6OBiUHZTGAlcNzztQU3t0t6Qrg1MRVYALwAtAEnihFPLSCmwxHA28BPCT7bgREpfV0NfJ2WbCYCAgKNuHfYleRvhV+QcFB5bR+i/3Q+OwICQjcBez3f8xPshgHvDZR45gIicjM838tj6ptwh15mENAKPEEJSaciIjoj33u9MgOeJ3/RZwKDU4+hT9IWSSuiv00lvHz4Ar6TewPrNrPLorJaSX8OdHCSOkzCbwRpkRS+RuAOPIAOr/z6rEc+h0IvNKMk3euRaASeA65LIG+S3pKUC39XeNWTShmIklBEYBdRCgSXGsllCvYAS3A5nIm4sLjNa3cIGOX10ZrZkAdIE40+7hEZS3wU6eM4MNdr00iKkOBMkUbAQdwizBEagztt47AdmObZGi4LVzYY0Cvp4iIzrV3SXWZ23CPXJPc1pV4u6/CNpHVmdtKzaZH0SqnTugQcKeUDRxtQV9znqQDtzfKMeR62V8l9RE6DOyX9gEtz18QZ4ELxeyRtlfRsSr8DwQYDZklaXWLDY3LTapvcATVc0jhJc+S230qhOfeduE1uhM8nrDOzO3ICxkr6XtLIs8spNfI/dJtZp6QFUcW5jm5J95nZ7tNqcMmltRXYPc4U7UCjzzkpvdes/p/bXCmX9jgbOKr+n9u0mll7aPA/20As/03t1OYAAAAASUVORK5CYII="></a>
+		--><!--in-->
+		<a style="margin-left:5.8px;" href="https://cn.linkedin.com/in/tianzonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAB6klEQVRoge2YP08bMRyGn19p1aVKCkIdUYf2I3SsGKkECFakrowdgA/QhaJO+SCdkKDZyj8x9hN0KRNC/UMRyYh4GWAIF98l9iXOlfiRbjj7tf2+57N9CSQSiSAkLUk6kNTW6GlL2pe06Bvi82h9F/LJ5dlcMwFsh81jNBbNbLez4JFDtBbJTBnWswWuGWkBz6LYCadlZrXOAlcQxfMTjpnd8+56tf5LxjbIGbACTN9d74HfgzY1EHrs4XMO/dKwDw4XWR++i71uZpcZfR24CHloZSi72GcdZW/D7QwO3xn5A2wAzbv7OaABvBi8tWKyM5LOkaoxnkEsB0/NMbdn0QzwFKgBb4CPwN9ycTrw2btdbQo0vyS96zH2c0nNkHMkZpBXPQe/1T2WdOQbxGvXyr5GrjZ5Gh8kvQR+AE/69TKSxS5poqjezE6ALz59Rg0i6YOkU+BK0k9JqwXyZkFdX4MNa40s53S7kKN/HeIlRpDDnG4PcvR1Hy/RFrukc2DSUfXPzKYcegOu+/USM0ipfnu1Gc9PlCqTglSNFKRqpCBV48EESf+iVA1XkHZ0F/5cZgtcQb5HMFKWLo+uII0IRsrS5bEriJntAFtR7ISxaWZf+1ZLWpC0J6lV9EstEi1J3yTND/EBJRIPmhu/Z0SR8AyW3wAAAABJRU5ErkJggg=="></a>
+		<!--fb-->
+		<a style="margin-left:4.8px;" href="https://www.facebook.com/zonglin.tian.7" target="_blank" rel="external nofollow noopener noreferrer"><img width="20px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABbklEQVRoge2Zv0oDQRDGvxEbUSxt7HyE6BtYarBQ8Dn0FULAyhfRwsJK8M8DaGsptrbmEAvhswjCuVnD3VxudoT5lcPu7PdjcnshAYIgUEHygOQDyYrlqUjekxy2lTgrm3su41xmyU0CwJVujmYMReS6XljKLDoxCtOF07SQm8gEwJpJHD0TEVmvF3IitMujR0R+Zc99tP4lIeKNEOlIBWAEYIDpDbkKYAvAMYAbTcMSt9YrgF0ReflrQZMMpW+tLwBH8yS0WItcishTH42tRS76amwt8pgWSB6SfCb58fP1VtPY+mFfEZHP5Lw3ABttG6UPu6lIeniX80rfWr0RIk2QhIZrNjVneZzItmZTiPTIjmaTR5GBZtPyolPUSd8Ri3yPpHiciIoQ8UaIeCNEvBEi3ggRb+REKvMU7XlPCzmRmZ9sHDKTMSdybhCkK80ykhyb/NGsY9RKmeQ+yTuSk8LByWmGW5J7mvEFQQB8A7wTurytysqXAAAAAElFTkSuQmCC"></a>
+		<!--ins-->
+		<a style="margin-left:4px;" href="https://www.instagram.com/tzloop/" target="_blank" rel="external nofollow noopener noreferrer"><img width="23px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAADgUlEQVRoge2Zz28WRRjHP0PFkIhWOUjgKIiJsS3wpokVjQcxJNwqxkv/A/8Clav4f9g0Xkg0ETVCo6AXf1AxWhMqKje1cPHHpaZN+XiYrdksu/vu7L5vi8n7TTbZ2ZnvPM93ZmfmmRkYYYQRRvg/IaQS1ABMA6eBx4BHgbGOfmwCt4GbwIfAUgjBjnWWQw3qK+oNh48V9eWs0QYqYq/63jYIKOID9aFBiXhQ/WYHRGxhSd3bz89dfUQEYAE4PpBWaYZLwGvAYpbuAfN2+c2MY2I7cbFgfzGXd6bO18oeyVrgzdat0A6fFtKf5N7P1fVK3a81DTzexasWeGHrJXP6ZC7vCeJvVor7aio93dGpVWAZ+D1LHwAmgf01nBfVRWJPnCQnLOfTUpIX6nyLf3wz482od/W2ukt9Rl3Iyqbi7SQRmdFLiUauq1MJ9R9Tf0y0cbGqvroxsjtB9xVgJoTwXVNCCOFb4GngswQ791dl1K4jDbECzIYQ/ixmqONqL3vGi/khhD+AWeDGAPwoh3q5QVdvqkdLuFPG8GIjV3ZDvaBOlpTv2WzMXB6WkPkS3hl1rYazpr5UwlvYSSEzBc5UHxF5MRMF7okuQrqMkVXgq8K3c8CeBtw9wFuFb18At9o600XIcgjhzlZCfRg4lcA/ZW4CyOpabutMFyG/FdKHqY8UitgNHOpTZ2N0EVIM4NpsTYuc1qF6FyEHCumfgY0E/gbwS+HbwbbOdBEyaS6eCiH8BVSGECX4OITw91ZCHQMmasrXoouQ/cQQI4+zwD8NuGvAG4VvM8QTmVboGqK8mk+EEL4H5qgXswbMhRB+qKtrYGi4IG6qx0q4E8ZwZD1Xdl19X32qpPy0eqfLgthViMZQ/JGKOsbV49lTeqyj7lN/amhrqEJUr1SJ6WNjn/p5gp1WIUrKVPo88KXa+NhInSaGOM8l2FmvyqgTsppgAOAIcNUYxZ6wfKs7pj6rvkMUcTjRRqVPdSHFzUQjEBtmLntuq8vAr8QV+yBxnWg9xXL3AvofKkOCrOu/7mB0GOiFEK6VZdQJCcRt7JFheZWIFeDJquuGyjGSEc4Oy6sWeL31nYnxTuTdhOlxWDjfuRmMdyNLOyjiqvpAZyE5MTvRM+cHJiInJhhPSFa2QcB1dTbFv7aXoT3igfIhYjg/iMvQW8TN2UfAtaFdho4wwggj3BP4F8SQMYOYcy12AAAAAElFTkSuQmCC"></a>
+		<!--music-->
+		<a style="margin-left:2.7px;" href="https://music.163.com/#/user/home?id=99148651" target="_blank" rel="external nofollow noopener noreferrer"><img width="22.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABLklEQVRIie2VPy8EQRjGf89yiaBQOzmN4tD7DqJXqyhVEl9FrRKlQqEi4jO4QrUXGoVcq3gUt5I1N+xc7EZi70kmM5n3z2/evJm8MFPrZHvP9tD1Kbe9G3IUAefAWs315JJ6VWDXDB2DpC+srAlIiuZ/EfsCPAKDYv88Z8BT3eAT4BYYSBp955TSrWl7nEmqzBrL0ViPbS/b7lV7jjV1j22vAFvF2gS2gT6wDlwC+42AgbPU5D/pz77TvwCPgPtU59QevwMPksKfYuAYOJf0lvzEmILJcmV7w3ZWsl+U7HeR+IXYiAr9qio+kvQc3HVK57lIzMQITFLw0G5gW/TkrD61vVqsA9uvKRVXga9t920v2d6xfRNLmqKQ0755HAMPG+DkKeDDmuF5kXOmlukDhttsIDdfVP4AAAAASUVORK5CYII="></a>
+		
+		<!--github-->
+		<a style="margin-left:4.5px;" href="https://github.com/TianZonglin" target="_blank" rel="external nofollow noopener noreferrer"><img width="21.5px" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEF0lEQVRoge2Zy29VVRTGfwvKQxQMEqAoBqMBhYkhiJHgIw6M4iNxYsSJRolBRR0aTY2JE+M/4BgnTgwJE4gBiSEaRWqQRCuJoE6Qtlhp1dry7udgn3s5Pd3rsM+9t9eS3C9pbrruenzf3ufuvfbZ0EEHHXRwLcHKvpR0FBgB9gK7zey3trC6Uv8O4GngCWCxma1vJMlGTcZlSXskPSKpdACagSTLauzNauaxoZGE78tHn6StrRSUCdgq6aeSuu81kvirkoQ1HJZ0XwtEbJLUm1DvoJcjOqLZSP8FLErgMQF8BPSY2aikbmANsBBYkH0CjALj2edxMxuUtBD4AHgNmJVQa8TMbqoi5Bbg94TEeQwBXcDiRP9h4DKwtGKdbjM7XTR2Oc5rKyaH6oSiI5uAtcAUId50LmuwSDsQHTBPyHXTSKRZzI8ZPSHeIzcTMCdm9IT8MY1EmsWfMaMnZMs0EmkWTyZ5SXo+YWP6v7GtyNsKIm4GThA2spmMMWC1mQ3UDMVH611mvgiA64GevKE+I5KWAP3A3DaTahQXgBVmNgyTZ+Qxrh0RELg+WvsnL+Tx9nNpGnXO+Y3vropJLhJ6nguETeoG0hvGGkaAf7Ncc4HlOBueg3pPmBeS0l/9TWjZPwWOmdnFooNCa76A8INcxJV25yzwD2HFGTez0UjsHGAd8Cywg6sfI5ZPsUg6f5W1+4ikVQliWwJJq7KaZTgXCxwrCTghqWqb3goxyyT9UsJrLBY0WBLwYLtF5Hg9VMKrPxZw3HE+UFLkVUmns0HYXpGgSeqRdDL7e0fOywxJXzjcfo45f+4473CSPyBpIuc3Ien+CkJeitR6wfF9w+G2r+aT30f6nJo/OvY3mdyrWWZLRWwGX6nIoc45L+QHx3nYsW9MtHlYE7Hd6fiecex1znkh+wFFnL1j79Q1HLod3xhip9B5jm+MwwSBM5ATYmangO8iASuc5FPeZACDjm8MMd/o6c/h0FvWxu+MBNztJI+Jjtk8HIzYDju+MQ4xrgGS5kvqL6wMhxzfZletzYV4SXrK8f224HdKkvcY1oO2RZa5ex3f7Qp7yICkl1NF5OJflzSksBe95fgUbwUk6cWU5Cbps0Jgr0JD11ZI6pJ0qMBlT5UESyQdKyT4RFLb3ndJmi3p4wKHPknVjgqSbo2I+VLS6mninq99m6QDERErG014o6TdhYTns9nZ0soZkjRL0sOSdkoaL9TcJan0bJJ04yTpGeBD4PbCV2eAI8D3hHahn/CWcohw6jtnZmezHPMIB67ZhBfRSwn7wzpgA3APUzfZX4G3zWxXCs8kZD+85yTtl3RJ04dLkvYpXMMlz3hDd4DZNG8CNgPrgZWE0a0dc1NQu70aIFwqHQW+Br6JHYM76KCDDgD4D6z9hVuzmv/gAAAAAElFTkSuQmCC"></a>
+		<div style="margin-top:7px;">
+		<!--图虫-->
+		<a href="https://tuchong.com/5634772/" target="_blank" rel="external nofollow noopener noreferrer"><img height="15px" src="https://s1.tuchong.com/content-image/201904/af8f36bc5c647dfd3007907d17d4e053.png"></a>
+		<!--豆瓣-->
+		<a style="margin-left:5px;" href="https://movie.douban.com/people/205019876/" target="_blank" rel="external nofollow noopener noreferrer"><img height="14.5px" src="/static/doub.png"></a>
+		<!--专栏-->
+		<a style="margin-left:5px;" href="https://cloud.tencent.com/developer/column/79519" target="_blank" rel="external nofollow noopener noreferrer"><img height="15px" src="/static/yunjia.png"></a>
+ 
+		</div>
+
+		
+		
+		
+		
+		
+
+	  </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav"><!--
+		<li id='msc' class="waves-block waves-effect">
+			<i class="icon icon-lg icon-star" style="color:red"></i>
+			<a id="play" style="color:red"></a>
+
+		</li>-->
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-folder-open"></i>
+                博客主页
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                文章归档
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                文章分类
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/clouds.html">
+                <i class="icon icon-lg icon-cloud-download"></i>
+                私有云盘
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/static/routine.html">
+                <i class="icon icon-lg icon-star"></i>
+                书签收藏
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_log.html">
+                <i class="icon icon-lg icon-book"></i>
+                建站日志
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_share.html">
+                <i class="icon icon-lg icon-share-square-o"></i>
+                资源分享
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/feedek/feedread.html">
+                <i class="icon icon-lg icon-leaf"></i>
+                我的订阅
+				
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/friends/index.html">
+                <i class="icon icon-lg icon-comments"></i>
+                友链留言
+				
+				
+				<img src="/static/new.gif" style="vertical-align:text-top;" width="23px;">
+				
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/other/page_about.html">
+                <i class="icon icon-lg icon-user-circle-o"></i>
+                关于本站
+				
+				
+              </a>
+            </li>
+        
+<script>
+ 
+
+window.onclick = function(e) {
+    if (e.target.matches('.dropbtn')) {
+        document.getElementById("dropdown").classList.toggle("show");
+    }
+	
+}
+
+ 
+ 
+
+ 
+</script>	
+<style>
+ 
+.dropbtn {
+ 
+}
+.dropdown:hover .dropbtn {
+ 
+}
+li.dropdown {
+ 
+}
+.dropdown-content {
+    display: none;
+ 
+}
+.dropdown-content a {
+ 
+}
+ 
+.show {
+	transition: .8s ease-in-out;
+    display: block;
+}
+.hide {
+    display: none;
+}
+
+a.items1:hover {
+	transform: rotate(10deg);
+}
+a.items2:hover {
+	transform: rotate(10deg);
+}
+a.items3:hover {
+	transform: rotate(10deg);
+}
+a.items4:hover {
+	transform: rotate(10deg);
+}
+a.items5:hover {
+	transform: rotate(10deg);
+}
+</style>
+
+		
+    
+		
+		
+<li>		
+
+</li>
+<div style="display:none;">
+<a href="https://www.imys.net/" target="_blank" rel="external nofollow noopener noreferrer">[Yusen's Blog]</a>
+<a href="https://blog.codingnow.com/" target="_blank" rel="external nofollow noopener noreferrer">[云风's Blog]</a>
+<a href="http://www.ayqy.net/blog/" target="_blank" rel="external nofollow noopener noreferrer">[黯羽轻扬]</a>
+<a href="http://meroa.com/" target="_blank" rel="external nofollow noopener noreferrer">[Meroa]</a>
+<a href="http://r2s.name/" target="_blank" rel="external nofollow noopener noreferrer">[Nan Xiao]</a>
+<a href="http://book.douban.com/people/4139160/annotation/" target="_blank" rel="external nofollow noopener noreferrer">[大刀的笔记]</a>
+<a href="https://mikecoder.github.io/oj-code/tags/Brainteaser/" target="_blank" rel="external nofollow noopener noreferrer">[MikeCoder]</a>
+<a href="http://yihui.name/cn/" target="_blank" rel="external nofollow noopener noreferrer">[谢益辉的博客]</a>
+<a href="https://github.com/xufei/blog/issues/6" target="_blank" rel="external nofollow noopener noreferrer">[Xufei]</a>
+<a href="https://github.com/lifesinger/blog/issues/184" target="_blank" rel="external nofollow noopener noreferrer">[lifesinger]</a>
+<a href="http://daohang.lusongsong.com/" target="_blank" rel="external nofollow noopener noreferrer">[lusongsong]</a>
+<a href="http://ioliu.cn" target="_blank" rel="external nofollow noopener noreferrer">[xCss]</a>
+<a href="http://vis.pku.edu.cn/blog/" target="_blank" rel="external nofollow noopener noreferrer">[可视化分析小组]</a>
+<a href="https://segmentfault.com/a/1190000004703040" target="_blank" rel="external nofollow noopener noreferrer">[A]</a>
+<a href="https://www.cnblogs.com/nzbin/p/5860219.html" target="_blank" rel="external nofollow noopener noreferrer">[B]</a>
+<a href="https://www.cnblogs.com/luozhihao/p/5579786.html" target="_blank" rel="external nofollow noopener noreferrer">[C]</a>
+<a href="http://cos.name/" target="_blank" rel="external nofollow noopener noreferrer">[统计之都]</a>
+<a href="http://ifeve.com" target="_blank" rel="external nofollow noopener noreferrer">[并发编程]</a>
+<a href="http://site.douban.com/182577/room/2177971/" target="_blank" rel="external nofollow noopener noreferrer">[数据铺子]</a>
+<a href="http://program-think.blogspot.com/" target="_blank" rel="external nofollow noopener noreferrer">[编程随想]</a>
+<a href="http://cnpameng.com/" target="_blank" rel="external nofollow noopener noreferrer">[中国爬盟]</a>
+<a href="http://kw.fudan.edu.cn/" target="_blank" rel="external nofollow noopener noreferrer">[知识工厂]</a>
+</div>
+      </ul>
+
+    </div>
+  </div>
+</aside>
+		<!--
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-bell" style="color:#777"></i>
+				<a title="" href='javascript:(function go() {
+					function c() {
+						var e = document.createElement("link");
+						e.setAttribute("type", "text/css");
+						e.setAttribute("rel", "stylesheet");
+						e.setAttribute("href", f);
+						e.setAttribute("class", l);
+						document.body.appendChild(e)
+					}
+
+					function h() {
+						var e = document.getElementsByClassName(l);
+						for (var t = 0; t < e.length; t++) {
+							document.body.removeChild(e[t])
+						}
+					}
+
+					function p() {
+						var e = document.createElement("div");
+						e.setAttribute("class", a);
+						document.body.appendChild(e);
+						setTimeout(function() {
+							document.body.removeChild(e)
+						}, 100)
+					}
+
+					function d(e) {
+						return {
+							height : e.offsetHeight,
+							width : e.offsetWidth
+						}
+					}
+
+					function v(i) {
+						var s = d(i);
+						return s.height > e && s.height < n && s.width > t && s.width < r
+					}
+
+					function m(e) {
+						var t = e;
+						var n = 0;
+						while (!!t) {
+							n += t.offsetTop;
+							t = t.offsetParent
+						}
+						return n
+					}
+
+					function g() {
+						var e = document.documentElement;
+						if (!!window.innerWidth) {
+							return window.innerHeight
+						} else if (e && !isNaN(e.clientHeight)) {
+							return e.clientHeight
+						}
+						return 0
+					}
+
+					function y() {
+						if (window.pageYOffset) {
+							return window.pageYOffset
+						}
+						return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+					}
+
+					function E(e) {
+						var t = m(e);
+						return t >= w && t <= b + w
+					}
+	
+	
+					var songs = ["http://ozmhkse3b.bkt.clouddn.com/Funk.mp3","http://ozmhkse3b.bkt.clouddn.com/Seve%20.mp3","http://ozmhkse3b.bkt.clouddn.com/Here.mp3"];
+
+					function x(e) {
+						e.className += " " + s + " " + o
+					}
+
+					function T(e) {
+						e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+					}
+
+					function N() {
+						var e = document.getElementsByClassName(s);
+						var t = new RegExp("\\b" + s + "\\b");
+						for (var n = 0; n < e.length; ) {
+							e[n].className = e[n].className.replace(t, "")
+						}
+					}
+					
+					function S() {
+						var e = document.getElementById("audio_element_id");
+						if (e != null) {
+							var index = parseInt(e.getAttribute("curSongIndex"));
+							if (index > songs.length - 2) {
+								index = 0;
+							} else {
+								index++;
+							}
+							e.setAttribute("curSongIndex", index);
+							N();
+						}
+						e.src = i;
+						e.play()
+					}			
+					
+					function initAudioEle() {
+						var e = document.getElementById("audio_element_id");
+						if (e === null) {
+							 
+							e = document.createElement("audio");
+							e.setAttribute("class", l);
+							e.setAttribute("curSongIndex", 0);
+							e.id = "audio_element_id";
+							e.loop = false;
+							e.bgcolor = 0;
+							e.addEventListener("canplay",
+								function() {
+									setTimeout(function() {
+										x(k)
+									},
+									500);
+									setTimeout(function() {
+										N();
+										p();
+										for (var e = 0; e < O.length; e++) {
+											T(O[e])
+										}
+									},
+									15500)
+								},true);
+							e.addEventListener("ended",function() {
+								N();
+								h();
+								go();
+							},true);
+							e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+							document.body.appendChild(e);
+						}
+					}
+					
+					initAudioEle();
+					var e = 30;
+					var t = 30;
+					var n = 350;
+					var r = 350;
+					var curSongIndex = parseInt(document.getElementById("audio_element_id").getAttribute("curSongIndex"));
+					var i = songs[curSongIndex];
+					var s = "mw-harlem_shake_me";
+					var o = "im_first";
+					var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+					var a = "mw-strobe_light";
+					var f = "/plugin-shake/harlem-shake-style.css"; 
+					var l = "mw_added_css";
+					var b = g();
+					var w = y();
+					var C = document.getElementsByTagName("*");
+					var k = null;
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							if (E(A)) {
+								k = A;
+								break
+							}
+						}
+					}
+					if (A === null) {
+						console.warn("Could not find a node of the right size. Please try a different page.");
+						return
+					}
+					c();
+					S();
+					var O = [];
+					for (var L = 0; L < C.length; L++) {
+						var A = C[L];
+						if (v(A)) {
+							O.push(A)
+						}
+					}
+				})()    '>动次打次</a>
+			</li>
+		
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-comments" style="color:#777"></i>
+				<a href="https://old.cz5h.com/other/page_comment.html">交流中心</a>
+			</li>
+			<li class="waves-block waves-effect">
+				<i class="icon icon-lg icon-coffee" style="color:#777"></i>
+				<a href="https://old.cz5h.com/feedek/feedread.html">我的订阅</a>
+			</li>
+		-->	
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+
+		
+        <div class="flex-col header-title ellipsis">使用ValineAdmin完善评论系统</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+ 
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+
+
+
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title" id="typetitle">使用ValineAdmin完善评论系统</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-20T23:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-03-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo%E7%9B%B8%E5%85%B3/">Hexo相关</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<script>
+	var str = "使用ValineAdmin完善评论系统";	
+	var i = 0;
+	function typing(){
+		
+		if(i==0){
+		
+			var timer = setInterval(litSlash,500);
+
+			$("#typetitle").html('❚');
+			
+			var gmt = 1;
+			
+			function litSlash(){
+
+				$("#typetitle").animate(//使用的animate(方法,选择#sys-alert .lit-slashNum的DOM
+
+				 {opacity:"0"},250); //改变不透明度
+
+				$("#typetitle").animate(
+
+				 {opacity:"1"},499);
+
+				 if((gmt++)==4){
+				 
+					
+					$("#typetitle").html(str.slice(0, i++) + '❚');
+					setTimeout('typing()', 1700);//递归调用
+					clearInterval(timer);
+				}
+			}
+
+ 
+		}
+		else if (i <= str.length) {
+			if(i==str.length) $("#typetitle").html(str.slice(0, i++));
+			else $("#typetitle").html(str.slice(0, i++) + '❚');
+			setTimeout('typing()', 250);//递归调用
+		}
+		else{
+			$("#typetitle").html(str);//结束打字,移除 _ 光标
+			i = 0;
+			setTimeout(typing, 2000);//递归调用
+			 
+			
+		}
+	}
+	if(window.location.href == "https://old.cz5h.com/"){ // 仅在主页调用打字效果
+		typing();
+	}
+</script>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4 style="padding-top: 10px;">TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么我现在才配"><span class="post-toc-number">1.</span> <span class="post-toc-text">为什么我现在才配</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加-ValineAdmin-步骤"><span class="post-toc-number">2.</span> <span class="post-toc-text">添加 ValineAdmin 步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-遵循-Valine-官方教程完成-Valine-的配置"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 遵循 Valine 官方教程完成 Valine 的配置</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-进入配置页面"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 进入配置页面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-源码部署填写以下仓库"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3. 源码部署填写以下仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-填写16个自定义变量"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4. 填写16个自定义变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-给博主通知的邮件模板"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5. 给博主通知的邮件模板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-给评论者通知的邮件模板"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6. 给评论者通知的邮件模板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-变量填写完毕后部署"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">7. 变量填写完毕后部署</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#完成之后的问题"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">完成之后的问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#附录，文字版"><span class="post-toc-number">3.</span> <span class="post-toc-text">附录，文字版</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-2020-3-21 使用ValineAdmin完善邮件系统" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用ValineAdmin完善评论系统</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-21 00:00:00" datetime="2020-03-20T23:00:00.000Z" itemprop="datePublished">2020-03-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo%E7%9B%B8%E5%85%B3/">Hexo相关</a></li></ul>
+
+
+
+			<span class="post-count">1,521&nbsp;&#x5B57;</span>
+<!--
+<span class="post-count">7����</span>
+
+
+-->
+            <!--
+
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+-->
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>在更换主题后的这一段时间里，博客运行良好，内容我也在不断完善，评论自然是继承原来的 Valine 也运行正常，但是，其实从上个主题开始，我就没有配置邮件的评论系统，所以对于评论的查看，我一直都是登陆 LeanCloud 后台来完成的。当然，默认的邮件提醒我是配置了的，但那个太简陋了，几乎没有使用价值。关于 ValineAdmin，群友早就配置过了，这次终于轮到自己来配一下了。</p>
+<a id="more"></a>
+<h3 id="为什么我现在才配"><a href="#为什么我现在才配" class="headerlink" title="为什么我现在才配"></a><strong>为什么我现在才配</strong></h3><p>因为我一直有个误区，那就是完成该配置需要在LeanCloud完成实名认证，但实际是不需要的！<strong>配置 ValineAdmin 是不需要 LeanCloud 实名认证的！</strong>（目前我仍然没有进行实名认证）</p>
+<p>而且依托于Valine使用的应用/仓库即可，完全没有其他要求。</p>
+<h3 id="添加-ValineAdmin-步骤"><a href="#添加-ValineAdmin-步骤" class="headerlink" title="添加 ValineAdmin 步骤"></a><strong>添加 ValineAdmin 步骤</strong></h3><p><strong>明确：</strong></p>
+<p>这里用的是“添加”，也就是说，ValineAdmin 和原来的 Valine 完全可以共存，互不影响，不需要重新配置。</p>
+<h4 id="1-遵循-Valine-官方教程完成-Valine-的配置"><a href="#1-遵循-Valine-官方教程完成-Valine-的配置" class="headerlink" title="1. 遵循 Valine 官方教程完成 Valine 的配置"></a><strong>1. 遵循 Valine 官方教程完成 Valine 的配置</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;valine.js.org&#x2F;quickstart.html</span><br></pre></td></tr></table></figure>
+<h4 id="2-进入配置页面"><a href="#2-进入配置页面" class="headerlink" title="2. 进入配置页面"></a><strong>2. 进入配置页面</strong></h4><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325221024.png"><br><br></fancybox>
+
+<h4 id="3-源码部署填写以下仓库"><a href="#3-源码部署填写以下仓库" class="headerlink" title="3. 源码部署填写以下仓库"></a><strong>3. 源码部署填写以下仓库</strong></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;DesertsP&#x2F;Valine-Admin.git</span><br></pre></td></tr></table></figure>
+<h4 id="4-填写16个自定义变量"><a href="#4-填写16个自定义变量" class="headerlink" title="4. 填写16个自定义变量"></a><strong>4. 填写16个自定义变量</strong></h4><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325223141.png"><br><br></fancybox>
+
+
+<p>注意事项：</p>
+<ul>
+<li>务必确认已开通SMTP服务，以QQ为例需要发送短信来获得授权码；</li>
+<li>SMTP_USER 和 SENDER_EMAIL 务必正确<fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325224019.png"><br></fancybox></li>
+<li><strong>AKISMET_KEY</strong> 请到<a href="https://akismet.com/" target="_blank" rel="external nofollow noopener noreferrer">akismet.com</a>注册并选择<strong>免费版</strong>获得秘钥，否则在LeanCloud实例日志内会出现“Akismet key 异常!”的错误。</li>
+</ul>
+<h4 id="5-给博主通知的邮件模板"><a href="#5-给博主通知的邮件模板" class="headerlink" title="5. 给博主通知的邮件模板"></a><strong>5. 给博主通知的邮件模板</strong></h4><ul>
+<li>BLOGGER_EMAIL 就是博主的邮箱；</li>
+<li>MAIL_SUBJECT_ADMIN 邮件标题；</li>
+<li>MAIL_TEMPLATE_ADMIN 邮件正文，注意变量位置，其他完全是HTML标签，可自己重写：</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-top:2px solid #12ADDB;box-shadow:0 1px 3px #AAAAAA;line-height:180%;padding:0 15px 12px;margin:50px auto;font-size:12px;"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">h2</span> <span class="attr">style</span>=<span class="string">"border-bottom:1px solid #DDD;font-size:14px;font-weight:normal;padding:13px 0 10px 0px;"</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none;color: #12ADDB;"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>$&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的文章有了新的评论<span class="tag">&lt;/<span class="name">h2</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>回复说：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #f5f5f5;padding: 10px 15px;margin:18px 0;word-wrap:break-word;"</span>&gt;</span></span><br><span class="line">     $&#123;COMMENT&#125;</span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span> 您可以点击<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#12addb"</span> <span class="attr">href</span>=<span class="string">"$&#123;POST_URL&#125;"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>评论页面为<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>$&#123;POST_URL&#125;<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>效果：</strong></p>
+<fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325231410.png"><br><br></fancybox>
+
+<h4 id="6-给评论者通知的邮件模板"><a href="#6-给评论者通知的邮件模板" class="headerlink" title="6. 给评论者通知的邮件模板"></a><strong>6. 给评论者通知的邮件模板</strong></h4><ul>
+<li>MAIL_SUBJECT 邮件标题，注意措辞；</li>
+<li>MAIL_TEMPLATE 邮件正文，需要美化！</li>
+<li><strong>不同于站长的通知邮件，这是给评论者看的，必须花里胡哨，这是面子工程！</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span> </span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border-radius: 10px 10px 10px 10px;font-size:13px; color: #555555;width: 666px;font-family:'Century Gothic','Trebuchet MS','Hiragino Sans GB',微软雅黑,'Microsoft Yahei',Tahoma,Helvetica,Arial,'SimSun',sans-serif;margin:50px auto;border:1px solid #eee;max-width:100%;background: #ffffff repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);"</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:100%;background:#49BDAD;color:#ffffff;border-radius: 10px 10px 0 0;background-image: -moz-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));background-image: -webkit-linear-gradient(0deg, rgb(67, 198, 184), rgb(255, 209, 244));height: 66px;"</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size:15px;word-break:break-all;padding: 23px 32px;margin:0;background-color: hsla(0,0%,100%,.4);border-radius: 10px 10px 0 0;color:#257db9"</span>&gt;</span>您在<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none;color:#257db9"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span>&gt;</span>「长征部落格」<span class="tag">&lt;/<span class="name">a</span>&gt;</span>上的留言有新回复啦！<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin:40px auto;width:90%"</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>尊敬的 <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:#7777ff"</span>&gt;</span>$&#123;PARENT_NICK&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 您好，您曾在该页面/文章：<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">b</span>&gt;</span>$&#123;POST_URL&#125;<span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>发布了如下评论：<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">b</span>&gt;</span>$&#123;PARENT_COMMENT&#125; <span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>刚刚，用户 <span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:#7777ff"</span>&gt;</span>$&#123;NICK&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 给您的回复如下：<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background: #fafafa repeating-linear-gradient(-45deg,#fff,#fff 1.125rem,transparent 1.125rem,transparent 2.25rem);box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);margin:20px 0px;padding:15px;border-radius:5px;font-size:14px;color:#555555;"</span>&gt;</span> </span><br><span class="line">     <span class="tag">&lt;<span class="name">b</span>&gt;</span>$&#123;COMMENT&#125;<span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>您可以点击 <span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#d25353"</span> <span class="attr">href</span>=<span class="string">"$&#123;POST_URL&#125;#comments"</span>&gt;</span>查看回复的完整內容<span class="tag">&lt;/<span class="name">a</span>&gt;</span>，欢迎再次光临<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"text-decoration:none; color:#257db9"</span> <span class="attr">href</span>=<span class="string">"$&#123;SITE_URL&#125;"</span>&gt;</span> $&#123;SITE_NAME&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span>。<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;<span class="attribute">text-decoration</span>:none&#125;<span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;<span class="attribute">text-decoration</span>:none&#125;<span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">text-decoration</span>:none&#125;<span class="selector-tag">a</span><span class="selector-pseudo">:active</span>&#123;<span class="attribute">text-decoration</span>:none&#125;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">center</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">b</span>&gt;</span>由LeanCloud强力驱动<span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">br</span> /&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">b</span>&gt;</span>Copyright <span class="symbol">&amp;copy;</span> 2017-2020 <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.cz5h.com"</span> <span class="attr">style</span>=<span class="string">"color:auto;"</span>&gt;</span>CZ5H.COM<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">b</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">br</span> /&gt;</span> </span><br><span class="line">   <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.cz5h.com"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">style</span>=<span class="string">"height:25px !important;"</span> <span class="attr">src</span>=<span class="string">"https://i.loli.net/2020/03/25/NbrlqVpzLBj8Xta.png"</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;/<span class="name">center</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span> /&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>收到邮件的评论者看到的效果：</strong></p>
+<fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325231904.png"><br><br></fancybox>
+
+<h4 id="7-变量填写完毕后部署"><a href="#7-变量填写完毕后部署" class="headerlink" title="7. 变量填写完毕后部署"></a><strong>7. 变量填写完毕后部署</strong></h4><fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200325230147.png"><br><br></fancybox>
+
+<h4 id="完成之后的问题"><a href="#完成之后的问题" class="headerlink" title="完成之后的问题"></a><strong>完成之后的问题</strong></h4><p>以上全部完成，基本可以实现比较友善的评论系统，但仍然存在一个大问题：</p>
+<p><strong>LeanCloud 的强制休眠！</strong></p>
+<p>该休眠会导致有很大概率用户在评论时实例是休眠状态，从而导致邮件提醒的不可触发，即以上整个邮件系统并不是 100% 可用，迫切需要一种比较好的休眠策略。（好像每天必须休眠6小时）</p>
+<p><strong>可能的解决措施：</strong></p>
+<p>使用定时器激活：<code>*/20 7-23 * * *</code></p>
+<fancybox><br><img src="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200326233829.png"><br></fancybox>
+
+
+
+
+<h3 id="附录，文字版"><a href="#附录，文字版" class="headerlink" title="附录，文字版"></a><strong>附录，文字版</strong></h3><p><strong>自定义环境变量：</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">NAME</th>
+<th style="text-align:left">VALUE</th>
+<th style="text-align:left">备注</th>
+<th style="text-align:right">NO.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>SITE_NAME</code></td>
+<td style="text-align:left"><code>长征部落格(cz5h.com)</code></td>
+<td style="text-align:left"><code>基本信息</code></td>
+<td style="text-align:right"><code>01</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SITE_URL</code></td>
+<td style="text-align:left"><code>https://www.cz5h.com</code></td>
+<td style="text-align:left"><code>基本信息</code></td>
+<td style="text-align:right"><code>02</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SENDER_NAME</code></td>
+<td style="text-align:left"><code>胖五</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>03</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SENDER_EMAIL</code></td>
+<td style="text-align:left"><a href="mailto:`tian*****@qq.com" rel="external nofollow noopener noreferrer" target="_blank">`tian*****@qq.com</a>`</td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>04</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_USER</code></td>
+<td style="text-align:left"><a href="mailto:`tian*****@qq.com" rel="external nofollow noopener noreferrer" target="_blank">`tian*****@qq.com</a>`</td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>05</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_PASS</code></td>
+<td style="text-align:left"><code>rekyxiqasdo*****</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>06</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_SERVICE</code></td>
+<td style="text-align:left"><code>QQ</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>07</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_HOST</code></td>
+<td style="text-align:left"><code>smtp.qq.com</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>08</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_PORT</code></td>
+<td style="text-align:left"><code>465</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>09</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>SMTP_SECURE</code></td>
+<td style="text-align:left"><code>true</code></td>
+<td style="text-align:left"><code>SMTP配置</code></td>
+<td style="text-align:right"><code>10</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>BLOGGER_EMAIL</code></td>
+<td style="text-align:left"><a href="mailto:`tian*****@qq.com" rel="external nofollow noopener noreferrer" target="_blank">`tian*****@qq.com</a>`</td>
+<td style="text-align:left"><code>站长通知</code></td>
+<td style="text-align:right"><code>11</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIL_SUBJECT_ADMIN</code></td>
+<td style="text-align:left"><code>${SITE_NAME}上有新评论！</code></td>
+<td style="text-align:left"><code>站长通知</code></td>
+<td style="text-align:right"><code>12</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIL_TEMPLATE_ADMIN</code></td>
+<td style="text-align:left"><a href="#5-%E7%BB%99%E5%8D%9A%E4%B8%BB%E9%80%9A%E7%9F%A5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF">详见第五段代码</a></td>
+<td style="text-align:left"><code>站长通知</code></td>
+<td style="text-align:right"><code>13</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIL_SUBJECT</code></td>
+<td style="text-align:left"><code>尊敬的『${PARENT_NICK}』，您在${SITE_NAME}上的评论刚刚收到了一条新回复！</code></td>
+<td style="text-align:left"><code>用户通知</code></td>
+<td style="text-align:right"><code>14</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>MAIL_TEMPLATE</code></td>
+<td style="text-align:left"><a href="#6-%E7%BB%99%E8%AF%84%E8%AE%BA%E8%80%85%E9%80%9A%E7%9F%A5%E7%9A%84%E9%82%AE%E4%BB%B6%E6%A8%A1%E6%9D%BF">详见第六段代码</a></td>
+<td style="text-align:left"><code>用户通知</code></td>
+<td style="text-align:right"><code>15</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>AKISMET_KEY</code></td>
+<td style="text-align:left"><code>4b02d0d*****</code></td>
+<td style="text-align:left"><code>评论过滤</code></td>
+<td style="text-align:right"><code>16</code></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        <b>欢迎在下方</b><span style="color:#ff4081"><b>评论留言</b></span><b>，转载请</b><span style="color:#ff4081"><b>注明出处</b></span><b>：</b><br><br><span style="color:#ff4081"><b>请标注为新站点链接，此站点不在维护；<br></b></span><br><b>本文永久链接：<a href="https://www.cz5h.com/article/269.html" target="_blank" rel="external">https://www.cz5h.com/article/269.html</a></b>
+        
+    </div>
+    <footer>
+        <a href="https://zh.wikipedia.org/wiki/User:Zonelyn" target="_blank" rel="external nofollow noopener noreferrer">
+            <img src="/img/logo.jpg" alt="TZLoop">
+            TZLoop
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeanCloud/" rel="tag">LeanCloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Valine/" rel="tag">Valine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" rel="tag">评论系统</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/269.html&title=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/269.html&title=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&source=在更换主题后的这一段时间里，博客运行良好，内容我也在不断完善，评论自然是继承原来的 Valine 也运行正常，但是，其实从上个主题开始，我就没有配置邮件的..." data-title=" QQ" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/269.html" data-title=" Facebook" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&url=https://old.cz5h.com/article/269.html&via=https://old.cz5h.com" data-title=" Twitter" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/269.html" data-title=" Google+" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/4e53.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">引入基于LCloud的页面访问统计</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next" style="background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;">
+      <a href="/article/27ff.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">在中文维基百科新建用户框</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+	<!-- 相关文章 -->
+<section class="comments" id="comments" style="margin-top:30px;padding:1px 30px 1px 9px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 20px #595959;border-radius: 5px;border-left-width: 10px;">
+
+  <p style="margin-top:25px;">
+	<b><span style="font-size:20px;font-weight:900px;color:#3f51b5;">「 相关文章 」</span></b>
+  </p>
+  <hr style="height:1px;border:none;border-top:1px dashed #3f51b5;padding-left: 0px;margin-top: 0px;margin-bottom: 0px;margin-left: 12px;margin-right: 3px;">
+	<ul style="margin-bottom:35px;list-style:none;padding-left: 11px;">
+	  
+ 
+	  <li>
+		<div style>
+		  <b><a class="post-title-link" href="/article/c4f9.html">在站点中添加Valine评论系统并修改评论样式</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  最近在浏览indigo主题原作者的网站时，发现其评论系统已经更新为了Valine，看这个评论插件的第一眼就觉着一股浓浓的极简风，而且，十分重要的是，其无后端的设定！或许有些地方跟原先的友言或者多...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style>
+		  <b><a class="post-title-link" href="/article/502d.html">应对LeanCloud对于处理性能的限制</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  最近一直想如何才能统计资源分享页面里的资源的下载次数，由于是直接放的资源链接，即点击即可获取，所以没有所谓的拦截页面进行统计，同时作为静态博客也几乎没有带数据存储的动态扩展能力，这时想到了用Le...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+	</ul>
+
+	
+</section>
+	
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments" style="margin-top:30px;padding:1px 30px 1px 30px;background-color:rgba(255,255,255,1);box-shadow: 0px 0px 10px #0707072b;border-radius: 5px;border-left-width: 10px;">
+ 
+ 
+
+ 
+    <!-- Valine Comments
+	<div class="comments vcomment" id="comments"></div>
+    <script src="/js/av-min.js" charset="utf-8" type="text/javascript"></script>
+    <script src="/js/valine-min.js" charset="utf-8" type="text/javascript"></script>
+    -->
+
+	
+	  <div class="comments vcomment" id="comments"></div>
+	  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+      <script src="https://cdn.jsdelivr.net/gh/xaoxuu/volantis@1/js/volantis.min.js"></script>
+   
+	  <script>
+	  var GUEST_INFO = ['nick','mail','link'];
+	  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+		return GUEST_INFO.indexOf(item) > -1
+	  });
+	  var notify = 'true' == true;
+	  var verify = 'true' == true;
+	  var valine = new Valine();
+	  valine.init({
+		el: '#comments',
+		notify: notify,
+		verify: verify,
+		guest_info: guest_info,
+		appId: "WbLE88qfAcz4hSI5GsQFRlzW-gzGzoHsz",
+		appKey: "ycqjmtEfUxuxD3IY97oRkrdO",
+		placeholder: "请在此处写下你想说的话~",
+		pageSize:"10",
+		avatar:"monsterid"
+	  })
+	  </script>
+	
+	
+	
+</section>
+
+
+
+
+</article>
+ 
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢支持！
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+		<style>
+		.footlink a{
+			text-decoration:none !important;
+			color: #dede00;
+		}
+		</style>
+		
+		<p class="footlink">
+						<span style="color: rgb(255,255,255,0.5);text-decoration: none !important;">✚ <a style="color: rgb(255,255,255,0.6);border-bottom: 0px solid rgba(255,255,255,1) !important;text-decoration: underline !important;text-decoration-style:dotted !important;-moz-text-decoration-style:dotted !important;font-size:13px;" href="https://www.cz5h.com/friends/index.html" target="_blank" rel="noopener">友情链接</a> ✚</span><br>
+						<a style="text-decoration: none !important;" target="_blank" href="https://boltdoggy.com" rel="external nofollow noopener noreferrer">Bolt</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xin-tan.com/" rel="external nofollow noopener noreferrer">心谭博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://pekeyli.github.io/" rel="external nofollow noopener noreferrer">Pekeyli</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://mr-houzi.com/" rel="external nofollow noopener noreferrer">猴子星球</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.aye.ink/" rel="external nofollow noopener noreferrer">Zidone</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://xiabor.com" rel="external nofollow noopener noreferrer">雪曦的博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.givensir.cn/" rel="external nofollow noopener noreferrer">鸭吉吉</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://www.dinphy.wang" rel="external nofollow noopener noreferrer">Dinphy</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://blog.1zyan.cn/" rel="external nofollow noopener noreferrer">易支烟博客</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="http://liaoyibin.vip/" rel="external nofollow noopener noreferrer">天然呆</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://tyrionyu.com/" rel="external nofollow noopener noreferrer">Tyrionyu</a>&emsp;
+						<a style="text-decoration: none !important;" target="_blank" href="https://blog.nineya.com/" rel="external nofollow noopener noreferrer">玖涯博客</a>
+ 
+ 	 
+		
+		 </p>
+    </div>
+    <div class="bottom">
+        <p>TZLoop &copy; 2017 - 2020
+            <span>
+                
+                <p>Power by <a href="http://hexo.io/" target="_blank" rel="external nofollow noopener noreferrer">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external nofollow noopener noreferrer">indigo</a> Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener noreferrer">Github Pages</a></p>
+            </span>
+        </p>
+    </div>
+<!--
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.0/dist/APlayer.min.js"></script>
+-->
+<script>
+//if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
+//	|| /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(navigator.userAgent.substr(0,4)))
+//{
+//	$('#aplayer').hide();
+//}else{
+//	const ap = new APlayer({
+//		container: document.getElementById('aplayer'),
+//		fixed: true,
+//		audio: [{
+//			name: 'Music',
+//			artist: 'Timi',
+//			url: 'https://old.cz5h.com/dddd.mp3',
+//			cover: 'https://old.cz5h.com/img/logo.jpg',
+//		}]
+//	});
+//}
+</script>
+
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://old.cz5h.com/article/269.html&title=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&pic=https://old.cz5h.com/img/logo.jpg" data-title="微博" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/269.html&title=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&source=在更换主题后的这一段时间里，博客运行良好，内容我也在不断完善，评论自然是继承原来的 Valine 也运行正常，但是，其实从上个主题开始，我就没有配置邮件的..." data-title=" QQ" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://old.cz5h.com/article/269.html" data-title=" Facebook" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用ValineAdmin完善评论系统》 — 长征部落格(CZ5H.COM)&url=https://old.cz5h.com/article/269.html&via=https://old.cz5h.com" data-title=" Twitter" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://old.cz5h.com/article/269.html" data-title=" Google+" rel="external nofollow noopener noreferrer">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aMVIEMQwEQP7/6SMlWTOSbN9BtSMKlt12orI0/vqK1+vHevrr05NP//v0tg0LFxd3zH0t19Mz69+vv7Xe5C/vxMXFvcjNX10tdvm21wZcXNxP5q6fz0seLi7u/+Ouy1a1+cHFxf1Mbl5o8oZn8s4NvRouLu6Am08pz/18ZL6Li4vb4r6KKw9O8iNU4eu4uLhXuPNhaB6aJu1Q9F1cXNzr3Pyl+TC0t7EoZMXFxT3AzduPSUCSHIAKJzJcXNy3cnuD0d7ANBqg4OLiXucm0en8+kU1OHksZLi4uMe41TI0j17m1ztwcXHvcPOBxfxaVeECVjJaxcXFPcatti7JAagXnETDFFxc3MPcXlnpxTC9A000MMXFxd3K3Ruf7Ipak8MTLi7uaW5SPvIwNR+vVEeruLi47+Img4xqaLp3A7i4uDe5vYg0KXPVNiaKT3BxcY9xe21MFbchTMXFxb3IrV6nqM5X9l72wsXFvcntHXHySHXeAuHi4r6Lm0cakwsW1WdwcXH/Cjc/lCTHmmbHhouL+8Hc/ILFZPCxrZDh4uIWufmQdBKu9LaHi4t7n1suJcVmJh+8TtoqXFzcTdxvCwKaectuz6QAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+-->
+<script src="https://old.cz5h.com/js/main.js"></script>
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<!--
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+-->
+
+<script src="https://old.cz5h.com/js/search.min.js"></script>
+
+
+
+
+
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '★ TZLoop\'s Blog ★';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '☆ TZLoop\'s Blog ☆';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+
+
+
+	
+	
+
+</body>
+</html>

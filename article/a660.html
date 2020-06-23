@@ -13,15 +13,15 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;&#x2F;&#x2F;此处T指的int(Integer)类型 创建二维数组首先JAVA中创建二维数组的方法无非两种: 一种是静态的，即已知全部数据，比如要建立3乘3的二维数组，每个数组中">
+<meta name="description" content="（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;&#x2F;&#x2F;此处T指的int(Integer)类型 创建二维数组首先JAVA中创建二维数组的方法无非两种:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于JAVA中动态创建二维数组的技巧">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;a660.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;&#x2F;&#x2F;此处T指的int(Integer)类型 创建二维数组首先JAVA中创建二维数组的方法无非两种: 一种是静态的，即已知全部数据，比如要建立3乘3的二维数组，每个数组中">
+<meta property="og:description" content="（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;&#x2F;&#x2F;此处T指的int(Integer)类型 创建二维数组首先JAVA中创建二维数组的方法无非两种:">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2014-10-10T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.966Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.373Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="数组">
 <meta property="article:tag" content="动态赋值">
@@ -945,6 +945,7 @@ a.items5:hover {
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 <code>str[][]   &lt;--  Arraylist&lt;Arraylist&lt;T&gt;&gt;</code><br>//此处T指的int(Integer)类型</p>
 <h3 id="创建二维数组"><a href="#创建二维数组" class="headerlink" title="创建二维数组"></a>创建二维数组</h3><p>首先JAVA中创建二维数组的方法无非两种:</p>
+<a id="more"></a>
 <p>一种是静态的，即已知全部数据，比如要建立3乘3的二维数组，每个数组中的个数，及数组中元素是什么都明确已知，注意，是两者都已知才可以静态赋值，例如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a[][] &#x3D; &#123;&#123;1,2,6&#125;,&#123;3,4,5,6&#125;,&#123;7,8,9&#125;&#125; ;</span><br></pre></td></tr></table></figure></p>
 <p>静态赋值比较简单，在实际中用的也不多，因为用到此处时多为不同类型的转化问题，所以大多信息存在于已知的类型数据中，要转化为二维数组中，必然要动态的按照原类型中的信息重构二维数组，所以新的二维数组可能每个数组中元素个数都不确定，需要动态确定。</p>
 <h3 id="动态赋值"><a href="#动态赋值" class="headerlink" title="动态赋值"></a>动态赋值</h3><p>动态赋值，也分两种，因为赋值方式除了直接两类型相等外，绝大多数都是通过两层循环，逐个赋值。于是产生了问题，在所需要的二维数组的要求“不高”时，可以直接用形如 int [][]a = new int[3][3]; 来存储，反之则会出错误。</p>
@@ -1001,7 +1002,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a660.html&title=《关于JAVA中动态创建二维数组的技巧》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a660.html&title=《关于JAVA中动态创建二维数组的技巧》 — 长征部落格(CZ5H.COM)&source=（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1179,7 +1180,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1269,7 +1270,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a660.html&title=《关于JAVA中动态创建二维数组的技巧》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/a660.html&title=《关于JAVA中动态创建二维数组的技巧》 — 长征部落格(CZ5H.COM)&source=（本文年代久远，请谨慎阅读）看似一个非常简单的问题，但是实际却花了我很多时间。我的目的是，创建一个二维数组str[][]，令 str[][]   &lt;..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

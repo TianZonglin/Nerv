@@ -13,18 +13,18 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https:&#x2F;&#x2F;github.com&#x2F;beyondj2ee&#x2F;flumeng-kafka-plugin把lib目录下的和package下的 都放到flume的lib目录修改原有的flume-conf文件在插件包里有一个flume-conf.properties，把这个文件放到flume的conf">
+<meta name="description" content="前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https:&#x2F;&#x2F;github.com&#x2F;beyondj2ee&#x2F;flumeng-kafka-plugin把lib目录下的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flume+Kafka联通">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;2b6e.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https:&#x2F;&#x2F;github.com&#x2F;beyondj2ee&#x2F;flumeng-kafka-plugin把lib目录下的和package下的 都放到flume的lib目录修改原有的flume-conf文件在插件包里有一个flume-conf.properties，把这个文件放到flume的conf">
+<meta property="og:description" content="前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https:&#x2F;&#x2F;github.com&#x2F;beyondj2ee&#x2F;flumeng-kafka-plugin把lib目录下的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;tpbh3f9gohzlhub17isbdog8&#x2F;16170518367.jpeg">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;6g1obtz1ta8v3ni98m3mxvq8&#x2F;16170609628.jpeg">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;ka8x77hq9bkxoeuxftjtspu9&#x2F;clipboard.png">
 <meta property="article:published_time" content="2017-03-04T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.038Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.484Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Kafka">
 <meta property="article:tag" content="整合">
@@ -948,7 +948,9 @@ a.items5:hover {
 -->
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><p>前提是要先把flume和kafka独立的部分先搭建好。<br>下载插件包<br>下载flume-kafka-plus:<a href="https://github.com/beyondj2ee/flumeng-kafka-plugin" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/beyondj2ee/flumeng-kafka-plugin</a><br>把lib目录下的<br><img src="http://static.zybuluo.com/EVA001/tpbh3f9gohzlhub17isbdog8/16170518367.jpeg" alt="16170518367.jpeg-13.2kB"><br>和package下的<br><img src="http://static.zybuluo.com/EVA001/6g1obtz1ta8v3ni98m3mxvq8/16170609628.jpeg" alt="16170609628.jpeg-3.8kB"></p>
+            <h4 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h4><p>前提是要先把flume和kafka独立的部分先搭建好。<br>下载插件包<br>下载flume-kafka-plus:<a href="https://github.com/beyondj2ee/flumeng-kafka-plugin" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/beyondj2ee/flumeng-kafka-plugin</a><br>把lib目录下的<br><img src="http://static.zybuluo.com/EVA001/tpbh3f9gohzlhub17isbdog8/16170518367.jpeg" alt="16170518367.jpeg-13.2kB"></p>
+<a id="more"></a>
+<p>和package下的<br><img src="http://static.zybuluo.com/EVA001/6g1obtz1ta8v3ni98m3mxvq8/16170609628.jpeg" alt="16170609628.jpeg-3.8kB"></p>
 <p>都放到flume的lib目录<br>修改原有的flume-conf文件<br>在插件包里有一个flume-conf.properties，把这个文件放到flume的conf文件夹里</p>
 <h4 id="修改以下内容"><a href="#修改以下内容" class="headerlink" title="修改以下内容"></a>修改以下内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">producer.sources.s.type &#x3D; exec</span><br><span class="line">producer.sources.s.command &#x3D; tail -f -n+1 ~&#x2F;tmp&#x2F;test.log</span><br><span class="line">producer.sources.s.channels &#x3D; c</span><br><span class="line">……</span><br><span class="line">producer.sinks.r.custom.topic.name&#x3D;test</span><br><span class="line">……</span><br><span class="line">consumer.sources.s.custom.topic.name&#x3D;test</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -1028,7 +1030,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2b6e.html&title=《Flume+Kafka联通》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2b6e.html&title=《Flume+Kafka联通》 — 长征部落格(CZ5H.COM)&source=前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https://github.com/beyon..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1114,7 +1116,6 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
 		  要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；
-注意各个组件的配置文件zookeeper：zookeeper/conf/zoo.cfg运行参...
 		  </p>
 		  
 		</div>
@@ -1124,11 +1125,10 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
  
 	  <li>
 		<div style>
-		  <b><a class="post-title-link" href="/article/6515.html">使用flume完成数据的接收</a></b>
+		  <b><a class="post-title-link" href="/article/f84f.html">Flume、Kafka、Storm如何结合使用</a></b>
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  使用flume完成数据的接收场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中
-适合①[注意，syslog需要特定环境，也可用telnet发送数据]12345678...
+		  原理如何仔细阅读过关于Flume、Kafka、Storm的介绍，就会知道，在他们各自之间对外交互发送消息的原理。在后面的例子中，主要对Flume的sink进行重构，调用kafka的消费生产者(p...
 		  </p>
 		  
 		</div>
@@ -1233,7 +1233,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1323,7 +1323,7 @@ Kafka是一个消息系统，原本开发自LinkedIn，用作LinkedIn的活动�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2b6e.html&title=《Flume+Kafka联通》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/2b6e.html&title=《Flume+Kafka联通》 — 长征部落格(CZ5H.COM)&source=前提前提是要先把flume和kafka独立的部分先搭建好。下载插件包下载flume-kafka-plus:https://github.com/beyon..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

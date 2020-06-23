@@ -13,15 +13,15 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="Hadoop Copy -copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-ls-copyToLocal 从hadoop下文件，不过通常用 -get（类似于-put）hadoop fs -lsr  运行hadoop实例的顺序 首先，开启hadoop    start-all.sh之">
+<meta name="description" content="Hadoop Copy -copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-ls-copyToLocal 从hadoop下文件，不过通常用 -get（类似于-put）hadoop fs -lsr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop集群运行时问题">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;dcd4.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="Hadoop Copy -copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-ls-copyToLocal 从hadoop下文件，不过通常用 -get（类似于-put）hadoop fs -lsr  运行hadoop实例的顺序 首先，开启hadoop    start-all.sh之">
+<meta property="og:description" content="Hadoop Copy -copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -&gt; 目的目录-mkdir-rmr-ls-copyToLocal 从hadoop下文件，不过通常用 -get（类似于-put）hadoop fs -lsr">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-11-04T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.980Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.390Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="调试">
 <meta property="article:tag" content="Hadoop">
@@ -947,6 +947,7 @@ a.items5:hover {
             <h4 id="Hadoop-Copy"><a href="#Hadoop-Copy" class="headerlink" title="Hadoop Copy"></a>Hadoop Copy</h4><blockquote>
 <p>-copyFromLocal 相当于复制<br>-moveFromLocal 本地会删除，相当于剪切<br>-getmerge 合并， 源目录 -&gt; 目的目录<br>-mkdir<br>-rmr<br>-ls<br>-copyToLocal 从hadoop下文件，不过通常用 -get（类似于-put）<br>hadoop fs -lsr</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="运行hadoop实例的顺序"><a href="#运行hadoop实例的顺序" class="headerlink" title="运行hadoop实例的顺序"></a>运行hadoop实例的顺序</h4><blockquote>
 <p>首先，开启hadoop    start-all.sh<br>之后，创建用户目录  hdfs dfs -mkdir input<br>之后，构造程序输入  hdfs dfs -put ./etc/hadoop/*.xml input<br>之后，确认输入有内容  hdfs dfs -ls input<br>之后，运行jar包  hadoop jar  /etc/local/hadoop/etc/…/example-2.7.3 input output ‘[a-z.]+’<br>之后，会输出运行的INFO<br>之后，cat output 看结果，可以选择取回本地<br>完成</p>
 </blockquote>
@@ -1003,7 +1004,8 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/dcd4.html&title=《Hadoop集群运行时问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/dcd4.html&title=《Hadoop集群运行时问题》 — 长征部落格(CZ5H.COM)&source=Hadoop Copy
+-copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1107,9 +1109,6 @@ a.items5:hover {
 		  主节点操作
 改名字，改为master，hosts改hadoop的slaves加四个xmlslaves是加一个节点就要改一次
 
-从节点操作
-新建hadoop用户，修改权限，赋予权限ALL =…
-改...
 		  </p>
 		  
 		</div>
@@ -1214,7 +1213,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1304,7 +1303,8 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/dcd4.html&title=《Hadoop集群运行时问题》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/dcd4.html&title=《Hadoop集群运行时问题》 — 长征部落格(CZ5H.COM)&source=Hadoop Copy
+-copyFromLocal 相当于复制-moveFromLocal 本地会删除，相当于剪切-getmerge 合并， 源目录 -..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

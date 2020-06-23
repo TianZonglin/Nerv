@@ -6,26 +6,26 @@
 
 <meta name="author" content="田宗霖"> 
 
-<meta name="keywords" content="Scala,实践,整合,GraphX,A,长征部落格, 长征Blog, 长征五号">
+<meta name="keywords" content="Scala,整合,实践,GraphX,A,长征部落格, 长征Blog, 长征五号">
 
 <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/TianZonglin/tuchuang/img/20200304154754.png">  
 
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。 本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添">
+<meta name="description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GraphX具体功能的代码使用实例-Scala实现">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;4ba7.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。 本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添">
+<meta property="og:description" content="GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-05-10T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.071Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.517Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="Scala">
-<meta property="article:tag" content="实践">
 <meta property="article:tag" content="整合">
+<meta property="article:tag" content="实践">
 <meta property="article:tag" content="GraphX">
 <meta name="twitter:card" content="summary">
 
@@ -946,6 +946,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示例代码，其为GraphX的使用提供了一个初步的认识，作为需要用GraphX来编码实现需求的读者来说是十分宝贵的资源。</p>
+<a id="more"></a>
 <p>本文利用一个初始示例代码，结合部分官方文档中的说明，对GraphX的部分功能方法进行了实践，在全部亲自运行通过后，对大部分代码添加了自己的理解和认识，并且在Pregel模型编程部分结合运行结果对其运行流程做了一定梳理，来意图理解其执行机制。</p>
 <p>下面，是ben程序代码中使用到的主要程序部分，即定义出一个简单的图结构，并构造一个图Graph[VD,ED]，对具体功能的实现均放置在代码的后半部分，主要包括一下几部分：</p>
 <ul>
@@ -1027,7 +1028,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4ba7.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4ba7.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — 长征部落格(CZ5H.COM)&source=GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1099,27 +1100,8 @@ a.items5:hover {
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
 		  Scala语言的特性
-Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的服务器端程序，也可以写简单的脚本纯正的面向对象所有的概念最终都会被时限为纯正的对象函数式编程...
-		  </p>
-		  
-		</div>
- 
-	  </li>
-	  
- 
-	  <li>
-		<div style>
-		  <b><a class="post-title-link" href="/article/ccc3.html">用Python实现神经网络(待续)</a></b>
-		   
-		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
-		  
-介绍人工智能的基本概念和逻辑体系
-研究两种数据的分类算法
-使用Python运用分类方法实现只有一层的神经网络
+Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的服务器端程序，也可以写简单的脚本纯正的面向对象所有的概念最终都会被时限为纯正的对象
 
-分类两种类型感知器，
-适用性的线性神经元
-使用Python的开发库：Pandas...
 		  </p>
 		  
 		</div>
@@ -1133,7 +1115,19 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
 		   
 		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
 		  要注意source的使用;在root下使用之后有时需要在hadoop用户下再source一次才可以；
-注意各个组件的配置文件zookeeper：zookeeper/conf/zoo.cfg运行参...
+		  </p>
+		  
+		</div>
+ 
+	  </li>
+	  
+ 
+	  <li>
+		<div style>
+		  <b><a class="post-title-link" href="/article/6515.html">使用flume完成数据的接收</a></b>
+		   
+		  <p style="margin-top:5px;line-height:22px;font-size:14px;color:#616167;">
+		  使用flume完成数据的接收场景：source是通过tcp发送，chnnel处理过滤字段，sink存在集群中
 		  </p>
 		  
 		</div>
@@ -1238,7 +1232,7 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1328,7 +1322,7 @@ Scalable语言Scala是一门可伸缩的scalable语言，既可以写复杂的�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4ba7.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/4ba7.html&title=《GraphX具体功能的代码使用实例-Scala实现》 — 长征部落格(CZ5H.COM)&source=GraphX 为整个图计算流程提供了强大的支持，先前已经有若干篇文章先后介绍了GraphX的强大功能，在GraphX官方编程指南中，提供了部分简单易懂的示..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

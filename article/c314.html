@@ -13,12 +13,12 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="网址这是一个汇总webservice的网站:http:&#x2F;&#x2F;www.webxml.com.cn里面有非常多可以供调用的WebService  概览点进某个服务，针对这个服务的方法都有非常详细的方法说明，完整说明以文件的形式列出：点进某个具体方法是调用接口的具体方式，例如SOAP方式以及Http的Post或者Get方式等等，通常是使用Http进行请求，这种方式返回的结果就是结果本身。（SOAP方式返回">
+<meta name="description" content="网址这是一个汇总webservice的网站:http:&#x2F;&#x2F;www.webxml.com.cn里面有非常多可以供调用的WebService">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WebService获取数据实例及WSDL文件解读">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;c314.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="网址这是一个汇总webservice的网站:http:&#x2F;&#x2F;www.webxml.com.cn里面有非常多可以供调用的WebService  概览点进某个服务，针对这个服务的方法都有非常详细的方法说明，完整说明以文件的形式列出：点进某个具体方法是调用接口的具体方式，例如SOAP方式以及Http的Post或者Get方式等等，通常是使用Http进行请求，这种方式返回的结果就是结果本身。（SOAP方式返回">
+<meta property="og:description" content="网址这是一个汇总webservice的网站:http:&#x2F;&#x2F;www.webxml.com.cn里面有非常多可以供调用的WebService">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;2af6ck0fjnuobs3jmlt74v8w&#x2F;1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;crc4us6ib41os3fulskgmbsz&#x2F;2.png">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;hwc04cj7qe7v6o1ibq066xuk&#x2F;9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;kqc2qpnyitzgg8mhzjz75i20&#x2F;10.png">
 <meta property="article:published_time" content="2017-04-14T22:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.043Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.490Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="总结">
 <meta property="article:tag" content="WebService">
@@ -955,6 +955,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h4 id="网址"><a href="#网址" class="headerlink" title="网址"></a>网址</h4><p>这是一个汇总webservice的网站:<a href="http://www.webxml.com.cn" target="_blank" rel="external nofollow noopener noreferrer">http://www.webxml.com.cn</a><br>里面有非常多可以供调用的WebService<br><img src="http://static.zybuluo.com/EVA001/2af6ck0fjnuobs3jmlt74v8w/1.png" alt="1.png-147.3kB"> </p>
+<a id="more"></a>
 <h4 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h4><p>点进某个服务，针对这个服务的方法都有非常详细的方法说明，完整说明以文件的形式列出：<br><img src="http://static.zybuluo.com/EVA001/crc4us6ib41os3fulskgmbsz/2.png" alt="2.png-27.6kB"><br>点进某个具体方法是调用接口的具体方式，例如SOAP方式以及Http的Post或者Get方式等等，通常是使用Http进行请求，这种方式返回的结果就是结果本身。（SOAP方式返回结果还有一层soap的标签）<br> <img src="http://static.zybuluo.com/EVA001/kby0nv544wgqhkouqvmhul7l/3.png" alt="3.png-13.8kB"></p>
 <h4 id="测试使用"><a href="#测试使用" class="headerlink" title="测试使用"></a>测试使用</h4><p>在这个页面可以进行对方法的调用测试<br><img src="http://static.zybuluo.com/EVA001/tqr1423lwup455vo8fs9klf6/4.png" alt="4.png-2.8kB"> </p>
 <h4 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h4><p><img src="http://static.zybuluo.com/EVA001/72u5ercnpelxzzbs6szyhmot/5.png" alt="5.png-369.1kB"><br>对此种调用方式进行分析<br>上述直接在浏览器中显示的是POST方式；<br>调用返回的数据格式为XML，还可以支持JSON格式（这个示例只能返回XML）；<br>上述服务是采用C#写的，并且发布环境是IIS；<br>上述getRegionCountry方法只是该天气服务的一个方法；</p>
@@ -1009,7 +1010,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c314.html&title=《WebService获取数据实例及WSDL文件解读》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c314.html&title=《WebService获取数据实例及WSDL文件解读》 — 长征部落格(CZ5H.COM)&source=网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService " data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1201,7 +1202,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1291,7 +1292,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c314.html&title=《WebService获取数据实例及WSDL文件解读》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c314.html&title=《WebService获取数据实例及WSDL文件解读》 — 长征部落格(CZ5H.COM)&source=网址这是一个汇总webservice的网站:http://www.webxml.com.cn里面有非常多可以供调用的WebService " data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

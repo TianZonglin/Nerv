@@ -13,12 +13,12 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。 题外话：nvcc和nvidia-smi显示的cuda版">
+<meta name="description" content="继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构建CUDA项目二周目翻车记录">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;c85a.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。 题外话：nvcc和nvidia-smi显示的cuda版">
+<meta property="og:description" content="继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;5e554c3b6127cc0713b34bbb.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;5e554c476127cc0713b34e06.jpg">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;5e554c656127cc0713b35339.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;pic.imgdb.cn&#x2F;item&#x2F;5e554c616127cc0713b35299.jpg">
 <meta property="article:published_time" content="2020-02-21T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:49.132Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.576Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="调试">
@@ -955,6 +955,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样的，都是借助GPU进行加速计算的可视化工具，但此项目是用netbeans开发的，在文件结构上要比上一个复杂的多，而且采用的是CMakeList.txt的方式，应该算比较正式的C++项目了吧。</p>
+<a id="more"></a>
 <h4 id="题外话：nvcc和nvidia-smi显示的cuda版本不一样"><a href="#题外话：nvcc和nvidia-smi显示的cuda版本不一样" class="headerlink" title="题外话：nvcc和nvidia-smi显示的cuda版本不一样"></a><strong>题外话：nvcc和nvidia-smi显示的cuda版本不一样</strong></h4><p>这个问题最终被确定和程序运行的错误无关，但碰巧发现了，总觉得不一样怪怪的，而不一样的原因其实很简单，可以理解为一个版本是程序用的软件运行的Cuda版本，而另一个是开发用的Cuda版本。更多内容可以参见<a href="https://xbuba.com/questions/53422407" target="_blank" rel="external nofollow noopener noreferrer">这个帖子</a></p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -1050,7 +1051,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c85a.html&title=《构建CUDA项目二周目翻车记录》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c85a.html&title=《构建CUDA项目二周目翻车记录》 — 长征部落格(CZ5H.COM)&source=继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1254,7 +1255,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1344,7 +1345,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c85a.html&title=《构建CUDA项目二周目翻车记录》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/c85a.html&title=《构建CUDA项目二周目翻车记录》 — 长征部落格(CZ5H.COM)&source=继上次的翻车之后，我算是有了些经验，同时机器上也装了些共通的依赖库，由于上项目最后的错误解决不了就放那里了，开始搞一下这个项目，这和上一个项目的目的是一样..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>

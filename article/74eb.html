@@ -13,12 +13,12 @@
 
 <meta name="description" content="欢迎访问TZLoop的博客，关注大数据、可视化、Java及前端技术，记录生活发现新鲜事，个人博客,原创文章,图布局,大数据技术,论文分享,资源下载,图片分享,电影品评">
 
-<meta name="description" content="全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅次于TOG (ACM Transactions on Graphics) 的顶级期刊 摘要小世界网络具有典型的低成对的短距路径距离，导致基于距离的布局方法产生毛球图形。因此，最近的研究方法是寻找图像的稀疏表示来放大成对距离的变化。由于在布局上对布">
+<meta name="description" content="全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅次于TOG (ACM Transactions on Graphics) 的顶级期刊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="通过局部聚集自适应的解开小世界网络的纠结">
 <meta property="og:url" content="https:&#x2F;&#x2F;old.cz5h.com&#x2F;article&#x2F;74eb.html">
 <meta property="og:site_name" content="长征部落格(CZ5H.COM)">
-<meta property="og:description" content="全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅次于TOG (ACM Transactions on Graphics) 的顶级期刊 摘要小世界网络具有典型的低成对的短距路径距离，导致基于距离的布局方法产生毛球图形。因此，最近的研究方法是寻找图像的稀疏表示来放大成对距离的变化。由于在布局上对布">
+<meta property="og:description" content="全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅次于TOG (ACM Transactions on Graphics) 的顶级期刊">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;w5lk6en5hok88vkxbo41mpkb&#x2F;image_1bvfermh21shu136o1lrl1e846bb9.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;e8vk52ua3b8g5n6f3wy032sm&#x2F;image_1bvff6dem160dbbkqdc1gmm17rkm.png">
@@ -53,7 +53,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;0nlkqk3dwrfb1qtzrfs56uq2&#x2F;image_1bvm8hnfdcocqaa1ji4174tshk34.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;static.zybuluo.com&#x2F;EVA001&#x2F;i1j5ykyha8lwazc3922kffn4&#x2F;image_1bvm8lv5h1dhfvghier1g681o5e3h.png">
 <meta property="article:published_time" content="2017-11-22T23:00:00.000Z">
-<meta property="article:modified_time" content="2020-02-29T18:40:48.998Z">
+<meta property="article:modified_time" content="2020-02-29T18:43:55.416Z">
 <meta property="article:author" content="TZLoop">
 <meta property="article:tag" content="力导向">
 <meta property="article:tag" content="图简化">
@@ -979,6 +979,7 @@ a.items5:hover {
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅次于TOG (ACM Transactions on Graphics) 的顶级期刊</p>
+<a id="more"></a>
 <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>小世界网络具有典型的低成对的短距路径距离，导致基于距离的布局方法产生毛球图形。因此，最近的研究方法是寻找图像的稀疏表示来放大成对距离的变化。由于在布局上对布局的影响难以进行分析，因此这些方法的组合过滤参数通常必须手动选择，并为每个输入实例分别选择。我们建议使用图不变量来自动确定合适的参数。这使我们能够执行自适应滤波来获得最突出的集群结构。该方法基于实际和合成网络的输入和输出特征之间的经验关系。实验结果表明，该方法能有效地提高强制导向布局方法的鲁棒性。</p>
 <blockquote>
 <p><strong>小世界网络</strong>Steven H.Strogatz的文章Exploringcomplexnetworks综述了动力学网络方面的研究。他把网络分成规则网络和复杂网络两种，而复杂网络分为随机网络，小世界网络和自相似网络。小世界网络和自相似网络都介于规则和随机网络之间。<br>小世界网络的特点：<br>在网络理论中，小世界网络是一类特殊的复杂网络结构，在这种网络中大部份的节点彼此并不相连，但绝大部份节点之间经过少数几布就可到达。<br>用数学中图论的语言来说，小世界网络就是一个由大量顶点构成的图，其中任意两点之间的平均路径长度比顶点数量小得多。除了社会人际网络以外，小世界网络的例子在生物学、物理学、计算机科学等领域也有出现。<br>哈佛大学社会心理学家米尔格伦的的“六度分隔”理论，他发现，20%的信件最终送到了目标人物手中。而在成功传递的信件中，平均只需要6.5次转发，就能够到达目标。也就是说，在社会网络中，任意两个人之间的“距离”是6。这就是所谓的“六度分隔”理论。<br>通过上面的论述可以发现社会网络图结构的特点非常具有小世界网络特征</p>
@@ -1092,7 +1093,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/74eb.html&title=《通过局部聚集自适应的解开小世界网络的纠结》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/74eb.html&title=《通过局部聚集自适应的解开小世界网络的纠结》 — 长征部落格(CZ5H.COM)&source=全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1271,7 +1272,7 @@ a.items5:hover {
     <div class="top">
         
 <p>
-<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;260.5k&nbsp;字</span>
+<a href="https://analytics.google.com/analytics/web/#/" target="_blank" rel="external nofollow noopener noreferrer">Google Analytics</a><span></span><a href="/static/ga_report.html" class="post-count" style="font-size:12.5px !important;">报告</a><span class="post-count" style="font-size:12.5px !important;">共计&nbsp;262.2k&nbsp;字</span>
 </p>
 
 
@@ -1361,7 +1362,7 @@ a.items5:hover {
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/74eb.html&title=《通过局部聚集自适应的解开小世界网络的纠结》 — 长征部落格(CZ5H.COM)&source=请移步新站点CZ5H.COM，本站点仅做备份，仍会稳定运行，但不再维护。" data-title=" QQ" rel="external nofollow noopener noreferrer">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://old.cz5h.com/article/74eb.html&title=《通过局部聚集自适应的解开小世界网络的纠结》 — 长征部落格(CZ5H.COM)&source=全称 IEEE Transactions on Visualization and Computer Graphics (TVCG)，是计算机图形学领域仅..." data-title=" QQ" rel="external nofollow noopener noreferrer">
           <i class="icon icon-qq"></i>
         </a>
       </li>
